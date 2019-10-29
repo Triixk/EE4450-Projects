@@ -1,0 +1,699 @@
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cceMHAM1.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	main, %function
+  25              	main:
+  26              	.LFB64:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** #include <stdio.h>
+  14:main.c        **** #include <stdlib.h>
+  15:main.c        **** #include <stdint.h>
+  16:main.c        **** #include <stdbool.h>
+  17:main.c        **** 
+  18:main.c        **** int main(void)
+  19:main.c        **** {
+  28              		.loc 1 19 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  20:main.c        ****     bool proximity;
+  21:main.c        ****     
+  22:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cceMHAM1.s 			page 2
+
+
+  36              		.loc 1 22 0
+  37              		.syntax unified
+  38              	@ 22 "main.c" 1
+  39 0002 62B6     		CPSIE   i
+  40              	@ 0 "" 2
+  23:main.c        **** 
+  24:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  25:main.c        ****     CapSense_Start();
+  41              		.loc 1 25 0
+  42              		.thumb
+  43              		.syntax unified
+  44 0004 FFF7FEFF 		bl	CapSense_Start
+  45              	.LVL0:
+  26:main.c        ****     CapSense_EnableWidget(0);
+  46              		.loc 1 26 0
+  47 0008 0020     		movs	r0, #0
+  48 000a FFF7FEFF 		bl	CapSense_EnableWidget
+  49              	.LVL1:
+  27:main.c        ****     CapSense_InitializeAllBaselines();
+  50              		.loc 1 27 0
+  51 000e FFF7FEFF 		bl	CapSense_InitializeAllBaselines
+  52              	.LVL2:
+  53              	.L2:
+  28:main.c        ****     
+  29:main.c        ****     for(;;)
+  30:main.c        ****     {
+  31:main.c        ****         /* Place your application code here. */
+  32:main.c        ****         CapSense_UpdateEnabledBaselines();
+  54              		.loc 1 32 0 discriminator 1
+  55 0012 FFF7FEFF 		bl	CapSense_UpdateEnabledBaselines
+  56              	.LVL3:
+  33:main.c        ****         proximity = CapSense_CheckIsWidgetActive(0);
+  57              		.loc 1 33 0 discriminator 1
+  58 0016 0020     		movs	r0, #0
+  59 0018 FFF7FEFF 		bl	CapSense_CheckIsWidgetActive
+  60              	.LVL4:
+  34:main.c        ****         LED_Write(proximity);
+  61              		.loc 1 34 0 discriminator 1
+  62 001c 0030     		adds	r0, r0, #0
+  63 001e 18BF     		it	ne
+  64 0020 0120     		movne	r0, #1
+  65              	.LVL5:
+  66 0022 FFF7FEFF 		bl	LED_Write
+  67              	.LVL6:
+  35:main.c        ****         CapSense_ScanEnabledWidgets();
+  68              		.loc 1 35 0 discriminator 1
+  69 0026 FFF7FEFF 		bl	CapSense_ScanEnabledWidgets
+  70              	.LVL7:
+  71 002a F2E7     		b	.L2
+  72              		.cfi_endproc
+  73              	.LFE64:
+  74              		.size	main, .-main
+  75              		.text
+  76              	.Letext0:
+  77              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+  78              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+  79              		.file 4 "Generated_Source\\PSoC5/CapSense.h"
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cceMHAM1.s 			page 3
+
+
+  80              		.file 5 "Generated_Source\\PSoC5/CapSense_CSHL.h"
+  81              		.file 6 "Generated_Source\\PSoC5/LED.h"
+  82              		.file 7 "Generated_Source\\PSoC5/core_cm3.h"
+  83              		.section	.debug_info,"",%progbits
+  84              	.Ldebug_info0:
+  85 0000 82010000 		.4byte	0x182
+  86 0004 0400     		.2byte	0x4
+  87 0006 00000000 		.4byte	.Ldebug_abbrev0
+  88 000a 04       		.byte	0x4
+  89 000b 01       		.uleb128 0x1
+  90 000c 28000000 		.4byte	.LASF24
+  91 0010 0C       		.byte	0xc
+  92 0011 D9010000 		.4byte	.LASF25
+  93 0015 93010000 		.4byte	.LASF26
+  94 0019 00000000 		.4byte	.Ldebug_ranges0+0
+  95 001d 00000000 		.4byte	0
+  96 0021 00000000 		.4byte	.Ldebug_line0
+  97 0025 02       		.uleb128 0x2
+  98 0026 01       		.byte	0x1
+  99 0027 06       		.byte	0x6
+ 100 0028 21020000 		.4byte	.LASF0
+ 101 002c 02       		.uleb128 0x2
+ 102 002d 01       		.byte	0x1
+ 103 002e 08       		.byte	0x8
+ 104 002f 1A000000 		.4byte	.LASF1
+ 105 0033 02       		.uleb128 0x2
+ 106 0034 02       		.byte	0x2
+ 107 0035 05       		.byte	0x5
+ 108 0036 E5010000 		.4byte	.LASF2
+ 109 003a 02       		.uleb128 0x2
+ 110 003b 02       		.byte	0x2
+ 111 003c 07       		.byte	0x7
+ 112 003d C8000000 		.4byte	.LASF3
+ 113 0041 03       		.uleb128 0x3
+ 114 0042 0A000000 		.4byte	.LASF9
+ 115 0046 02       		.byte	0x2
+ 116 0047 3F       		.byte	0x3f
+ 117 0048 4C000000 		.4byte	0x4c
+ 118 004c 02       		.uleb128 0x2
+ 119 004d 04       		.byte	0x4
+ 120 004e 05       		.byte	0x5
+ 121 004f EF010000 		.4byte	.LASF4
+ 122 0053 02       		.uleb128 0x2
+ 123 0054 04       		.byte	0x4
+ 124 0055 07       		.byte	0x7
+ 125 0056 B6000000 		.4byte	.LASF5
+ 126 005a 02       		.uleb128 0x2
+ 127 005b 08       		.byte	0x8
+ 128 005c 05       		.byte	0x5
+ 129 005d 85010000 		.4byte	.LASF6
+ 130 0061 02       		.uleb128 0x2
+ 131 0062 08       		.byte	0x8
+ 132 0063 07       		.byte	0x7
+ 133 0064 3D010000 		.4byte	.LASF7
+ 134 0068 04       		.uleb128 0x4
+ 135 0069 04       		.byte	0x4
+ 136 006a 05       		.byte	0x5
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cceMHAM1.s 			page 4
+
+
+ 137 006b 696E7400 		.ascii	"int\000"
+ 138 006f 02       		.uleb128 0x2
+ 139 0070 04       		.byte	0x4
+ 140 0071 07       		.byte	0x7
+ 141 0072 30010000 		.4byte	.LASF8
+ 142 0076 03       		.uleb128 0x3
+ 143 0077 54010000 		.4byte	.LASF10
+ 144 007b 03       		.byte	0x3
+ 145 007c 2C       		.byte	0x2c
+ 146 007d 41000000 		.4byte	0x41
+ 147 0081 02       		.uleb128 0x2
+ 148 0082 04       		.byte	0x4
+ 149 0083 04       		.byte	0x4
+ 150 0084 14000000 		.4byte	.LASF11
+ 151 0088 02       		.uleb128 0x2
+ 152 0089 08       		.byte	0x8
+ 153 008a 04       		.byte	0x4
+ 154 008b FE000000 		.4byte	.LASF12
+ 155 008f 02       		.uleb128 0x2
+ 156 0090 01       		.byte	0x1
+ 157 0091 08       		.byte	0x8
+ 158 0092 E0010000 		.4byte	.LASF13
+ 159 0096 02       		.uleb128 0x2
+ 160 0097 08       		.byte	0x8
+ 161 0098 04       		.byte	0x4
+ 162 0099 F8010000 		.4byte	.LASF14
+ 163 009d 02       		.uleb128 0x2
+ 164 009e 04       		.byte	0x4
+ 165 009f 07       		.byte	0x7
+ 166 00a0 5C010000 		.4byte	.LASF15
+ 167 00a4 05       		.uleb128 0x5
+ 168 00a5 21010000 		.4byte	.LASF27
+ 169 00a9 01       		.byte	0x1
+ 170 00aa 12       		.byte	0x12
+ 171 00ab 68000000 		.4byte	0x68
+ 172 00af 00000000 		.4byte	.LFB64
+ 173 00b3 2C000000 		.4byte	.LFE64-.LFB64
+ 174 00b7 01       		.uleb128 0x1
+ 175 00b8 9C       		.byte	0x9c
+ 176 00b9 20010000 		.4byte	0x120
+ 177 00bd 06       		.uleb128 0x6
+ 178 00be 26010000 		.4byte	.LASF28
+ 179 00c2 01       		.byte	0x1
+ 180 00c3 14       		.byte	0x14
+ 181 00c4 20010000 		.4byte	0x120
+ 182 00c8 00000000 		.4byte	.LLST0
+ 183 00cc 07       		.uleb128 0x7
+ 184 00cd 08000000 		.4byte	.LVL0
+ 185 00d1 38010000 		.4byte	0x138
+ 186 00d5 08       		.uleb128 0x8
+ 187 00d6 0E000000 		.4byte	.LVL1
+ 188 00da 43010000 		.4byte	0x143
+ 189 00de E8000000 		.4byte	0xe8
+ 190 00e2 09       		.uleb128 0x9
+ 191 00e3 01       		.uleb128 0x1
+ 192 00e4 50       		.byte	0x50
+ 193 00e5 01       		.uleb128 0x1
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cceMHAM1.s 			page 5
+
+
+ 194 00e6 30       		.byte	0x30
+ 195 00e7 00       		.byte	0
+ 196 00e8 07       		.uleb128 0x7
+ 197 00e9 12000000 		.4byte	.LVL2
+ 198 00ed 4E010000 		.4byte	0x14e
+ 199 00f1 07       		.uleb128 0x7
+ 200 00f2 16000000 		.4byte	.LVL3
+ 201 00f6 59010000 		.4byte	0x159
+ 202 00fa 08       		.uleb128 0x8
+ 203 00fb 1C000000 		.4byte	.LVL4
+ 204 00ff 64010000 		.4byte	0x164
+ 205 0103 0D010000 		.4byte	0x10d
+ 206 0107 09       		.uleb128 0x9
+ 207 0108 01       		.uleb128 0x1
+ 208 0109 50       		.byte	0x50
+ 209 010a 01       		.uleb128 0x1
+ 210 010b 30       		.byte	0x30
+ 211 010c 00       		.byte	0
+ 212 010d 07       		.uleb128 0x7
+ 213 010e 26000000 		.4byte	.LVL6
+ 214 0112 6F010000 		.4byte	0x16f
+ 215 0116 07       		.uleb128 0x7
+ 216 0117 2A000000 		.4byte	.LVL7
+ 217 011b 7A010000 		.4byte	0x17a
+ 218 011f 00       		.byte	0
+ 219 0120 02       		.uleb128 0x2
+ 220 0121 01       		.byte	0x1
+ 221 0122 02       		.byte	0x2
+ 222 0123 4D020000 		.4byte	.LASF16
+ 223 0127 0A       		.uleb128 0xa
+ 224 0128 DB000000 		.4byte	.LASF29
+ 225 012c 07       		.byte	0x7
+ 226 012d 1207     		.2byte	0x712
+ 227 012f 33010000 		.4byte	0x133
+ 228 0133 0B       		.uleb128 0xb
+ 229 0134 76000000 		.4byte	0x76
+ 230 0138 0C       		.uleb128 0xc
+ 231 0139 53020000 		.4byte	.LASF17
+ 232 013d 53020000 		.4byte	.LASF17
+ 233 0141 04       		.byte	0x4
+ 234 0142 93       		.byte	0x93
+ 235 0143 0C       		.uleb128 0xc
+ 236 0144 E8000000 		.4byte	.LASF18
+ 237 0148 E8000000 		.4byte	.LASF18
+ 238 014c 05       		.byte	0x5
+ 239 014d 9D       		.byte	0x9d
+ 240 014e 0C       		.uleb128 0xc
+ 241 014f 2D020000 		.4byte	.LASF19
+ 242 0153 2D020000 		.4byte	.LASF19
+ 243 0157 05       		.byte	0x5
+ 244 0158 95       		.byte	0x95
+ 245 0159 0C       		.uleb128 0xc
+ 246 015a 65010000 		.4byte	.LASF20
+ 247 015e 65010000 		.4byte	.LASF20
+ 248 0162 05       		.byte	0x5
+ 249 0163 99       		.byte	0x99
+ 250 0164 0C       		.uleb128 0xc
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cceMHAM1.s 			page 6
+
+
+ 251 0165 04020000 		.4byte	.LASF21
+ 252 0169 04020000 		.4byte	.LASF21
+ 253 016d 05       		.byte	0x5
+ 254 016e 9B       		.byte	0x9b
+ 255 016f 0C       		.uleb128 0xc
+ 256 0170 00000000 		.4byte	.LASF22
+ 257 0174 00000000 		.4byte	.LASF22
+ 258 0178 06       		.byte	0x6
+ 259 0179 26       		.byte	0x26
+ 260 017a 0C       		.uleb128 0xc
+ 261 017b 05010000 		.4byte	.LASF23
+ 262 017f 05010000 		.4byte	.LASF23
+ 263 0183 04       		.byte	0x4
+ 264 0184 9B       		.byte	0x9b
+ 265 0185 00       		.byte	0
+ 266              		.section	.debug_abbrev,"",%progbits
+ 267              	.Ldebug_abbrev0:
+ 268 0000 01       		.uleb128 0x1
+ 269 0001 11       		.uleb128 0x11
+ 270 0002 01       		.byte	0x1
+ 271 0003 25       		.uleb128 0x25
+ 272 0004 0E       		.uleb128 0xe
+ 273 0005 13       		.uleb128 0x13
+ 274 0006 0B       		.uleb128 0xb
+ 275 0007 03       		.uleb128 0x3
+ 276 0008 0E       		.uleb128 0xe
+ 277 0009 1B       		.uleb128 0x1b
+ 278 000a 0E       		.uleb128 0xe
+ 279 000b 55       		.uleb128 0x55
+ 280 000c 17       		.uleb128 0x17
+ 281 000d 11       		.uleb128 0x11
+ 282 000e 01       		.uleb128 0x1
+ 283 000f 10       		.uleb128 0x10
+ 284 0010 17       		.uleb128 0x17
+ 285 0011 00       		.byte	0
+ 286 0012 00       		.byte	0
+ 287 0013 02       		.uleb128 0x2
+ 288 0014 24       		.uleb128 0x24
+ 289 0015 00       		.byte	0
+ 290 0016 0B       		.uleb128 0xb
+ 291 0017 0B       		.uleb128 0xb
+ 292 0018 3E       		.uleb128 0x3e
+ 293 0019 0B       		.uleb128 0xb
+ 294 001a 03       		.uleb128 0x3
+ 295 001b 0E       		.uleb128 0xe
+ 296 001c 00       		.byte	0
+ 297 001d 00       		.byte	0
+ 298 001e 03       		.uleb128 0x3
+ 299 001f 16       		.uleb128 0x16
+ 300 0020 00       		.byte	0
+ 301 0021 03       		.uleb128 0x3
+ 302 0022 0E       		.uleb128 0xe
+ 303 0023 3A       		.uleb128 0x3a
+ 304 0024 0B       		.uleb128 0xb
+ 305 0025 3B       		.uleb128 0x3b
+ 306 0026 0B       		.uleb128 0xb
+ 307 0027 49       		.uleb128 0x49
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cceMHAM1.s 			page 7
+
+
+ 308 0028 13       		.uleb128 0x13
+ 309 0029 00       		.byte	0
+ 310 002a 00       		.byte	0
+ 311 002b 04       		.uleb128 0x4
+ 312 002c 24       		.uleb128 0x24
+ 313 002d 00       		.byte	0
+ 314 002e 0B       		.uleb128 0xb
+ 315 002f 0B       		.uleb128 0xb
+ 316 0030 3E       		.uleb128 0x3e
+ 317 0031 0B       		.uleb128 0xb
+ 318 0032 03       		.uleb128 0x3
+ 319 0033 08       		.uleb128 0x8
+ 320 0034 00       		.byte	0
+ 321 0035 00       		.byte	0
+ 322 0036 05       		.uleb128 0x5
+ 323 0037 2E       		.uleb128 0x2e
+ 324 0038 01       		.byte	0x1
+ 325 0039 3F       		.uleb128 0x3f
+ 326 003a 19       		.uleb128 0x19
+ 327 003b 03       		.uleb128 0x3
+ 328 003c 0E       		.uleb128 0xe
+ 329 003d 3A       		.uleb128 0x3a
+ 330 003e 0B       		.uleb128 0xb
+ 331 003f 3B       		.uleb128 0x3b
+ 332 0040 0B       		.uleb128 0xb
+ 333 0041 27       		.uleb128 0x27
+ 334 0042 19       		.uleb128 0x19
+ 335 0043 49       		.uleb128 0x49
+ 336 0044 13       		.uleb128 0x13
+ 337 0045 8701     		.uleb128 0x87
+ 338 0047 19       		.uleb128 0x19
+ 339 0048 11       		.uleb128 0x11
+ 340 0049 01       		.uleb128 0x1
+ 341 004a 12       		.uleb128 0x12
+ 342 004b 06       		.uleb128 0x6
+ 343 004c 40       		.uleb128 0x40
+ 344 004d 18       		.uleb128 0x18
+ 345 004e 9742     		.uleb128 0x2117
+ 346 0050 19       		.uleb128 0x19
+ 347 0051 01       		.uleb128 0x1
+ 348 0052 13       		.uleb128 0x13
+ 349 0053 00       		.byte	0
+ 350 0054 00       		.byte	0
+ 351 0055 06       		.uleb128 0x6
+ 352 0056 34       		.uleb128 0x34
+ 353 0057 00       		.byte	0
+ 354 0058 03       		.uleb128 0x3
+ 355 0059 0E       		.uleb128 0xe
+ 356 005a 3A       		.uleb128 0x3a
+ 357 005b 0B       		.uleb128 0xb
+ 358 005c 3B       		.uleb128 0x3b
+ 359 005d 0B       		.uleb128 0xb
+ 360 005e 49       		.uleb128 0x49
+ 361 005f 13       		.uleb128 0x13
+ 362 0060 02       		.uleb128 0x2
+ 363 0061 17       		.uleb128 0x17
+ 364 0062 00       		.byte	0
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cceMHAM1.s 			page 8
+
+
+ 365 0063 00       		.byte	0
+ 366 0064 07       		.uleb128 0x7
+ 367 0065 898201   		.uleb128 0x4109
+ 368 0068 00       		.byte	0
+ 369 0069 11       		.uleb128 0x11
+ 370 006a 01       		.uleb128 0x1
+ 371 006b 31       		.uleb128 0x31
+ 372 006c 13       		.uleb128 0x13
+ 373 006d 00       		.byte	0
+ 374 006e 00       		.byte	0
+ 375 006f 08       		.uleb128 0x8
+ 376 0070 898201   		.uleb128 0x4109
+ 377 0073 01       		.byte	0x1
+ 378 0074 11       		.uleb128 0x11
+ 379 0075 01       		.uleb128 0x1
+ 380 0076 31       		.uleb128 0x31
+ 381 0077 13       		.uleb128 0x13
+ 382 0078 01       		.uleb128 0x1
+ 383 0079 13       		.uleb128 0x13
+ 384 007a 00       		.byte	0
+ 385 007b 00       		.byte	0
+ 386 007c 09       		.uleb128 0x9
+ 387 007d 8A8201   		.uleb128 0x410a
+ 388 0080 00       		.byte	0
+ 389 0081 02       		.uleb128 0x2
+ 390 0082 18       		.uleb128 0x18
+ 391 0083 9142     		.uleb128 0x2111
+ 392 0085 18       		.uleb128 0x18
+ 393 0086 00       		.byte	0
+ 394 0087 00       		.byte	0
+ 395 0088 0A       		.uleb128 0xa
+ 396 0089 34       		.uleb128 0x34
+ 397 008a 00       		.byte	0
+ 398 008b 03       		.uleb128 0x3
+ 399 008c 0E       		.uleb128 0xe
+ 400 008d 3A       		.uleb128 0x3a
+ 401 008e 0B       		.uleb128 0xb
+ 402 008f 3B       		.uleb128 0x3b
+ 403 0090 05       		.uleb128 0x5
+ 404 0091 49       		.uleb128 0x49
+ 405 0092 13       		.uleb128 0x13
+ 406 0093 3F       		.uleb128 0x3f
+ 407 0094 19       		.uleb128 0x19
+ 408 0095 3C       		.uleb128 0x3c
+ 409 0096 19       		.uleb128 0x19
+ 410 0097 00       		.byte	0
+ 411 0098 00       		.byte	0
+ 412 0099 0B       		.uleb128 0xb
+ 413 009a 35       		.uleb128 0x35
+ 414 009b 00       		.byte	0
+ 415 009c 49       		.uleb128 0x49
+ 416 009d 13       		.uleb128 0x13
+ 417 009e 00       		.byte	0
+ 418 009f 00       		.byte	0
+ 419 00a0 0C       		.uleb128 0xc
+ 420 00a1 2E       		.uleb128 0x2e
+ 421 00a2 00       		.byte	0
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cceMHAM1.s 			page 9
+
+
+ 422 00a3 3F       		.uleb128 0x3f
+ 423 00a4 19       		.uleb128 0x19
+ 424 00a5 3C       		.uleb128 0x3c
+ 425 00a6 19       		.uleb128 0x19
+ 426 00a7 6E       		.uleb128 0x6e
+ 427 00a8 0E       		.uleb128 0xe
+ 428 00a9 03       		.uleb128 0x3
+ 429 00aa 0E       		.uleb128 0xe
+ 430 00ab 3A       		.uleb128 0x3a
+ 431 00ac 0B       		.uleb128 0xb
+ 432 00ad 3B       		.uleb128 0x3b
+ 433 00ae 0B       		.uleb128 0xb
+ 434 00af 00       		.byte	0
+ 435 00b0 00       		.byte	0
+ 436 00b1 00       		.byte	0
+ 437              		.section	.debug_loc,"",%progbits
+ 438              	.Ldebug_loc0:
+ 439              	.LLST0:
+ 440 0000 1C000000 		.4byte	.LVL4
+ 441 0004 22000000 		.4byte	.LVL5
+ 442 0008 0500     		.2byte	0x5
+ 443 000a 70       		.byte	0x70
+ 444 000b 00       		.sleb128 0
+ 445 000c 30       		.byte	0x30
+ 446 000d 2E       		.byte	0x2e
+ 447 000e 9F       		.byte	0x9f
+ 448 000f 00000000 		.4byte	0
+ 449 0013 00000000 		.4byte	0
+ 450              		.section	.debug_aranges,"",%progbits
+ 451 0000 1C000000 		.4byte	0x1c
+ 452 0004 0200     		.2byte	0x2
+ 453 0006 00000000 		.4byte	.Ldebug_info0
+ 454 000a 04       		.byte	0x4
+ 455 000b 00       		.byte	0
+ 456 000c 0000     		.2byte	0
+ 457 000e 0000     		.2byte	0
+ 458 0010 00000000 		.4byte	.LFB64
+ 459 0014 2C000000 		.4byte	.LFE64-.LFB64
+ 460 0018 00000000 		.4byte	0
+ 461 001c 00000000 		.4byte	0
+ 462              		.section	.debug_ranges,"",%progbits
+ 463              	.Ldebug_ranges0:
+ 464 0000 00000000 		.4byte	.LFB64
+ 465 0004 2C000000 		.4byte	.LFE64
+ 466 0008 00000000 		.4byte	0
+ 467 000c 00000000 		.4byte	0
+ 468              		.section	.debug_line,"",%progbits
+ 469              	.Ldebug_line0:
+ 470 0000 96010000 		.section	.debug_str,"MS",%progbits,1
+ 470      02006901 
+ 470      00000201 
+ 470      FB0E0D00 
+ 470      01010101 
+ 471              	.LASF22:
+ 472 0000 4C45445F 		.ascii	"LED_Write\000"
+ 472      57726974 
+ 472      6500
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cceMHAM1.s 			page 10
+
+
+ 473              	.LASF9:
+ 474 000a 5F5F696E 		.ascii	"__int32_t\000"
+ 474      7433325F 
+ 474      7400
+ 475              	.LASF11:
+ 476 0014 666C6F61 		.ascii	"float\000"
+ 476      7400
+ 477              	.LASF1:
+ 478 001a 756E7369 		.ascii	"unsigned char\000"
+ 478      676E6564 
+ 478      20636861 
+ 478      7200
+ 479              	.LASF24:
+ 480 0028 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 480      43313120 
+ 480      352E342E 
+ 480      31203230 
+ 480      31363036 
+ 481 005b 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 481      20726576 
+ 481      6973696F 
+ 481      6E203233 
+ 481      37373135 
+ 482 008e 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 482      66756E63 
+ 482      74696F6E 
+ 482      2D736563 
+ 482      74696F6E 
+ 483              	.LASF5:
+ 484 00b6 6C6F6E67 		.ascii	"long unsigned int\000"
+ 484      20756E73 
+ 484      69676E65 
+ 484      6420696E 
+ 484      7400
+ 485              	.LASF3:
+ 486 00c8 73686F72 		.ascii	"short unsigned int\000"
+ 486      7420756E 
+ 486      7369676E 
+ 486      65642069 
+ 486      6E7400
+ 487              	.LASF29:
+ 488 00db 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 488      52784275 
+ 488      66666572 
+ 488      00
+ 489              	.LASF18:
+ 490 00e8 43617053 		.ascii	"CapSense_EnableWidget\000"
+ 490      656E7365 
+ 490      5F456E61 
+ 490      626C6557 
+ 490      69646765 
+ 491              	.LASF12:
+ 492 00fe 646F7562 		.ascii	"double\000"
+ 492      6C6500
+ 493              	.LASF23:
+ 494 0105 43617053 		.ascii	"CapSense_ScanEnabledWidgets\000"
+ 494      656E7365 
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cceMHAM1.s 			page 11
+
+
+ 494      5F536361 
+ 494      6E456E61 
+ 494      626C6564 
+ 495              	.LASF27:
+ 496 0121 6D61696E 		.ascii	"main\000"
+ 496      00
+ 497              	.LASF28:
+ 498 0126 70726F78 		.ascii	"proximity\000"
+ 498      696D6974 
+ 498      7900
+ 499              	.LASF8:
+ 500 0130 756E7369 		.ascii	"unsigned int\000"
+ 500      676E6564 
+ 500      20696E74 
+ 500      00
+ 501              	.LASF7:
+ 502 013d 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 502      206C6F6E 
+ 502      6720756E 
+ 502      7369676E 
+ 502      65642069 
+ 503              	.LASF10:
+ 504 0154 696E7433 		.ascii	"int32_t\000"
+ 504      325F7400 
+ 505              	.LASF15:
+ 506 015c 73697A65 		.ascii	"sizetype\000"
+ 506      74797065 
+ 506      00
+ 507              	.LASF20:
+ 508 0165 43617053 		.ascii	"CapSense_UpdateEnabledBaselines\000"
+ 508      656E7365 
+ 508      5F557064 
+ 508      61746545 
+ 508      6E61626C 
+ 509              	.LASF6:
+ 510 0185 6C6F6E67 		.ascii	"long long int\000"
+ 510      206C6F6E 
+ 510      6720696E 
+ 510      7400
+ 511              	.LASF26:
+ 512 0193 433A5C55 		.ascii	"C:\\Users\\Tri94\\Documents\\PSoC Creator\\EE4450\\"
+ 512      73657273 
+ 512      5C547269 
+ 512      39345C44 
+ 512      6F63756D 
+ 513 01c0 43617053 		.ascii	"CapSence_Proximity.cydsn\000"
+ 513      656E6365 
+ 513      5F50726F 
+ 513      78696D69 
+ 513      74792E63 
+ 514              	.LASF25:
+ 515 01d9 6D61696E 		.ascii	"main.c\000"
+ 515      2E6300
+ 516              	.LASF13:
+ 517 01e0 63686172 		.ascii	"char\000"
+ 517      00
+ 518              	.LASF2:
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cceMHAM1.s 			page 12
+
+
+ 519 01e5 73686F72 		.ascii	"short int\000"
+ 519      7420696E 
+ 519      7400
+ 520              	.LASF4:
+ 521 01ef 6C6F6E67 		.ascii	"long int\000"
+ 521      20696E74 
+ 521      00
+ 522              	.LASF14:
+ 523 01f8 6C6F6E67 		.ascii	"long double\000"
+ 523      20646F75 
+ 523      626C6500 
+ 524              	.LASF21:
+ 525 0204 43617053 		.ascii	"CapSense_CheckIsWidgetActive\000"
+ 525      656E7365 
+ 525      5F436865 
+ 525      636B4973 
+ 525      57696467 
+ 526              	.LASF0:
+ 527 0221 7369676E 		.ascii	"signed char\000"
+ 527      65642063 
+ 527      68617200 
+ 528              	.LASF19:
+ 529 022d 43617053 		.ascii	"CapSense_InitializeAllBaselines\000"
+ 529      656E7365 
+ 529      5F496E69 
+ 529      7469616C 
+ 529      697A6541 
+ 530              	.LASF16:
+ 531 024d 5F426F6F 		.ascii	"_Bool\000"
+ 531      6C00
+ 532              	.LASF17:
+ 533 0253 43617053 		.ascii	"CapSense_Start\000"
+ 533      656E7365 
+ 533      5F537461 
+ 533      727400
+ 534              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

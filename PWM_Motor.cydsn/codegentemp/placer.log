@@ -1,0 +1,37 @@
+#***************************************************************************
+
+#sjplacer
+
+#Version:            1.1
+
+#Build Date:         Dec  5 2017 15:35:27
+
+#File Generated:     Sep 13 2019 23:00:06
+
+#Purpose:            
+
+#Copyright (C) 2010-2011 by Softjin Technologies Pvt Ltd. All rights reserved.
+
+#***************************************************************************
+
+Executing : C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\bin/sjplacer.exe --proj-name PWM_Motor --netlist-vh2 PWM_Motor_p.vh2 --arch p35_udb4x6 --arch-file C:\Users\Tri94\Documents\PSoC Creator\4.2\Devices\arch/udbdsi_4x6_24.cydata --ip-file C:\Users\Tri94\Documents\PSoC Creator\4.2\Devices\psoc5/psoc5lp/ip_blocks.cydata --rrg-file C:\Users\Tri94\Documents\PSoC Creator\4.2\Devices\psoc5/psoc5lp/route_arch-rrg.cydata --irq-file C:\Users\Tri94\Documents\PSoC Creator\4.2\Devices\psoc5/psoc5lp/irqconn.cydata --drq-file C:\Users\Tri94\Documents\PSoC Creator\4.2\Devices\psoc5/psoc5lp/dmaconn.cydata --dsi-conn-file C:\Users\Tri94\Documents\PSoC Creator\4.2\Devices\psoc5/psoc5lp/dsiconn.cydata --pins-file pins_68-QFN.xml --lib-file PWM_Motor_p.lib --sdc-file PWM_Motor.sdc --io-pcf PWM_Motor.pci --outdir .
+
+		Softjin Techologies Placer, Version 1.1
+
+Build Date : Dec  5 2017	15:33:41
+
+D2004: Option and Settings Summary
+=============================================================
+Netlist vh2 file          - PWM_Motor_p.vh2
+Architecture file         - C:\Users\Tri94\Documents\PSoC Creator\4.2\Devices\arch/udbdsi_4x6_24.cydata
+Package                   - 
+Defparam file             - 
+SDC file                  - PWM_Motor.sdc
+Output directory          - .
+Timing library            - PWM_Motor_p.lib
+IO Placement file         - PWM_Motor.pci
+
+D2050: Starting reading inputs for placer
+=============================================================
+D2065: Reading netlist file : "PWM_Motor_p.vh2"
+D2065: Reading arch file : "C:\Users\Tri94\Documents\PSoC Creator\4.2\Devices\arch/udbdsi_4x6_24.cydata"

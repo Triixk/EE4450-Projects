@@ -1,0 +1,1363 @@
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccD48tws.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_metadata
+  20              		.global	cy_meta_flashprotect
+  21              		.global	cy_meta_wonvl
+  22              		.global	cy_meta_custnvl
+  23              		.global	cy_meta_configecc
+  24              		.section	.cyconfigecc,"a",%progbits
+  25              		.align	2
+  26              		.type	cy_meta_configecc, %object
+  27              		.size	cy_meta_configecc, 832
+  28              	cy_meta_configecc:
+  29 0000 01       		.byte	1
+  30 0001 52       		.byte	82
+  31 0002 00       		.byte	0
+  32 0003 40       		.byte	64
+  33 0004 08       		.byte	8
+  34 0005 64       		.byte	100
+  35 0006 00       		.byte	0
+  36 0007 40       		.byte	64
+  37 0008 01       		.byte	1
+  38 0009 03       		.byte	3
+  39 000a 01       		.byte	1
+  40 000b 40       		.byte	64
+  41 000c 01       		.byte	1
+  42 000d 07       		.byte	7
+  43 000e 01       		.byte	1
+  44 000f 40       		.byte	64
+  45 0010 32       		.byte	50
+  46 0011 08       		.byte	8
+  47 0012 01       		.byte	1
+  48 0013 40       		.byte	64
+  49 0014 26       		.byte	38
+  50 0015 09       		.byte	9
+  51 0016 01       		.byte	1
+  52 0017 40       		.byte	64
+  53 0018 45       		.byte	69
+  54 0019 0A       		.byte	10
+  55 001a 01       		.byte	1
+  56 001b 40       		.byte	64
+  57 001c 2D       		.byte	45
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccD48tws.s 			page 2
+
+
+  58 001d 0B       		.byte	11
+  59 001e 01       		.byte	1
+  60 001f 40       		.byte	64
+  61 0020 4D       		.byte	77
+  62 0021 0C       		.byte	12
+  63 0022 01       		.byte	1
+  64 0023 40       		.byte	64
+  65 0024 2D       		.byte	45
+  66 0025 0D       		.byte	13
+  67 0026 01       		.byte	1
+  68 0027 40       		.byte	64
+  69 0028 02       		.byte	2
+  70 0029 40       		.byte	64
+  71 002a 01       		.byte	1
+  72 002b 40       		.byte	64
+  73 002c 03       		.byte	3
+  74 002d 41       		.byte	65
+  75 002e 01       		.byte	1
+  76 002f 40       		.byte	64
+  77 0030 02       		.byte	2
+  78 0031 43       		.byte	67
+  79 0032 01       		.byte	1
+  80 0033 40       		.byte	64
+  81 0034 03       		.byte	3
+  82 0035 45       		.byte	69
+  83 0036 01       		.byte	1
+  84 0037 40       		.byte	64
+  85 0038 03       		.byte	3
+  86 0039 46       		.byte	70
+  87 003a 01       		.byte	1
+  88 003b 40       		.byte	64
+  89 003c 03       		.byte	3
+  90 003d 47       		.byte	71
+  91 003e 01       		.byte	1
+  92 003f 40       		.byte	64
+  93 0040 01       		.byte	1
+  94 0041 48       		.byte	72
+  95 0042 01       		.byte	1
+  96 0043 40       		.byte	64
+  97 0044 03       		.byte	3
+  98 0045 49       		.byte	73
+  99 0046 01       		.byte	1
+ 100 0047 40       		.byte	64
+ 101 0048 03       		.byte	3
+ 102 0049 50       		.byte	80
+ 103 004a 01       		.byte	1
+ 104 004b 40       		.byte	64
+ 105 004c 01       		.byte	1
+ 106 004d 51       		.byte	81
+ 107 004e 01       		.byte	1
+ 108 004f 40       		.byte	64
+ 109 0050 1E       		.byte	30
+ 110 0051 01       		.byte	1
+ 111 0052 08       		.byte	8
+ 112 0053 FF       		.byte	-1
+ 113 0054 0C       		.byte	12
+ 114 0055 FF       		.byte	-1
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccD48tws.s 			page 3
+
+
+ 115 0056 0D       		.byte	13
+ 116 0057 FF       		.byte	-1
+ 117 0058 1C       		.byte	28
+ 118 0059 FF       		.byte	-1
+ 119 005a 1D       		.byte	29
+ 120 005b FF       		.byte	-1
+ 121 005c 2C       		.byte	44
+ 122 005d FF       		.byte	-1
+ 123 005e 2D       		.byte	45
+ 124 005f FF       		.byte	-1
+ 125 0060 8A       		.byte	-118
+ 126 0061 1F       		.byte	31
+ 127 0062 E2       		.byte	-30
+ 128 0063 08       		.byte	8
+ 129 0064 E6       		.byte	-26
+ 130 0065 04       		.byte	4
+ 131 0066 0A       		.byte	10
+ 132 0067 01       		.byte	1
+ 133 0068 0C       		.byte	12
+ 134 0069 04       		.byte	4
+ 135 006a 1C       		.byte	28
+ 136 006b 04       		.byte	4
+ 137 006c 26       		.byte	38
+ 138 006d 02       		.byte	2
+ 139 006e 2C       		.byte	44
+ 140 006f 01       		.byte	1
+ 141 0070 2E       		.byte	46
+ 142 0071 02       		.byte	2
+ 143 0072 30       		.byte	48
+ 144 0073 03       		.byte	3
+ 145 0074 34       		.byte	52
+ 146 0075 04       		.byte	4
+ 147 0076 38       		.byte	56
+ 148 0077 20       		.byte	32
+ 149 0078 3E       		.byte	62
+ 150 0079 01       		.byte	1
+ 151 007a 40       		.byte	64
+ 152 007b 56       		.byte	86
+ 153 007c 45       		.byte	69
+ 154 007d 40       		.byte	64
+ 155 007e 46       		.byte	70
+ 156 007f 02       		.byte	2
+ 157 0080 47       		.byte	71
+ 158 0081 50       		.byte	80
+ 159 0082 48       		.byte	72
+ 160 0083 26       		.byte	38
+ 161 0084 49       		.byte	73
+ 162 0085 FF       		.byte	-1
+ 163 0086 4A       		.byte	74
+ 164 0087 FF       		.byte	-1
+ 165 0088 4B       		.byte	75
+ 166 0089 FF       		.byte	-1
+ 167 008a 4C       		.byte	76
+ 168 008b 02       		.byte	2
+ 169 008c 4D       		.byte	77
+ 170 008d 20       		.byte	32
+ 171 008e 4F       		.byte	79
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccD48tws.s 			page 4
+
+
+ 172 008f 05       		.byte	5
+ 173 0090 51       		.byte	81
+ 174 0091 10       		.byte	16
+ 175 0092 58       		.byte	88
+ 176 0093 04       		.byte	4
+ 177 0094 5A       		.byte	90
+ 178 0095 04       		.byte	4
+ 179 0096 5F       		.byte	95
+ 180 0097 01       		.byte	1
+ 181 0098 60       		.byte	96
+ 182 0099 40       		.byte	64
+ 183 009a 61       		.byte	97
+ 184 009b 40       		.byte	64
+ 185 009c 62       		.byte	98
+ 186 009d 80       		.byte	-128
+ 187 009e 64       		.byte	100
+ 188 009f 80       		.byte	-128
+ 189 00a0 66       		.byte	102
+ 190 00a1 80       		.byte	-128
+ 191 00a2 84       		.byte	-124
+ 192 00a3 03       		.byte	3
+ 193 00a4 85       		.byte	-123
+ 194 00a5 02       		.byte	2
+ 195 00a6 87       		.byte	-121
+ 196 00a7 01       		.byte	1
+ 197 00a8 89       		.byte	-119
+ 198 00a9 02       		.byte	2
+ 199 00aa 8E       		.byte	-114
+ 200 00ab 01       		.byte	1
+ 201 00ac 91       		.byte	-111
+ 202 00ad 03       		.byte	3
+ 203 00ae 94       		.byte	-108
+ 204 00af 01       		.byte	1
+ 205 00b0 96       		.byte	-106
+ 206 00b1 02       		.byte	2
+ 207 00b2 99       		.byte	-103
+ 208 00b3 01       		.byte	1
+ 209 00b4 9B       		.byte	-101
+ 210 00b5 02       		.byte	2
+ 211 00b6 9C       		.byte	-100
+ 212 00b7 02       		.byte	2
+ 213 00b8 9E       		.byte	-98
+ 214 00b9 01       		.byte	1
+ 215 00ba AA       		.byte	-86
+ 216 00bb 02       		.byte	2
+ 217 00bc B5       		.byte	-75
+ 218 00bd 03       		.byte	3
+ 219 00be B6       		.byte	-74
+ 220 00bf 03       		.byte	3
+ 221 00c0 D2       		.byte	-46
+ 222 00c1 17       		.byte	23
+ 223 00c2 D8       		.byte	-40
+ 224 00c3 04       		.byte	4
+ 225 00c4 D9       		.byte	-39
+ 226 00c5 04       		.byte	4
+ 227 00c6 DB       		.byte	-37
+ 228 00c7 04       		.byte	4
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccD48tws.s 			page 5
+
+
+ 229 00c8 DF       		.byte	-33
+ 230 00c9 01       		.byte	1
+ 231 00ca 00       		.byte	0
+ 232 00cb 04       		.byte	4
+ 233 00cc 01       		.byte	1
+ 234 00cd 40       		.byte	64
+ 235 00ce 05       		.byte	5
+ 236 00cf 10       		.byte	16
+ 237 00d0 06       		.byte	6
+ 238 00d1 01       		.byte	1
+ 239 00d2 0A       		.byte	10
+ 240 00d3 22       		.byte	34
+ 241 00d4 0F       		.byte	15
+ 242 00d5 02       		.byte	2
+ 243 00d6 10       		.byte	16
+ 244 00d7 08       		.byte	8
+ 245 00d8 16       		.byte	22
+ 246 00d9 22       		.byte	34
+ 247 00da 18       		.byte	24
+ 248 00db 02       		.byte	2
+ 249 00dc 1A       		.byte	26
+ 250 00dd 02       		.byte	2
+ 251 00de 1D       		.byte	29
+ 252 00df 10       		.byte	16
+ 253 00e0 1E       		.byte	30
+ 254 00e1 08       		.byte	8
+ 255 00e2 1F       		.byte	31
+ 256 00e3 21       		.byte	33
+ 257 00e4 22       		.byte	34
+ 258 00e5 10       		.byte	16
+ 259 00e6 32       		.byte	50
+ 260 00e7 11       		.byte	17
+ 261 00e8 38       		.byte	56
+ 262 00e9 04       		.byte	4
+ 263 00ea 39       		.byte	57
+ 264 00eb 10       		.byte	16
+ 265 00ec 4F       		.byte	79
+ 266 00ed A2       		.byte	-94
+ 267 00ee 56       		.byte	86
+ 268 00ef 01       		.byte	1
+ 269 00f0 57       		.byte	87
+ 270 00f1 40       		.byte	64
+ 271 00f2 68       		.byte	104
+ 272 00f3 08       		.byte	8
+ 273 00f4 69       		.byte	105
+ 274 00f5 54       		.byte	84
+ 275 00f6 72       		.byte	114
+ 276 00f7 02       		.byte	2
+ 277 00f8 83       		.byte	-125
+ 278 00f9 01       		.byte	1
+ 279 00fa 90       		.byte	-112
+ 280 00fb 04       		.byte	4
+ 281 00fc 94       		.byte	-108
+ 282 00fd 02       		.byte	2
+ 283 00fe 95       		.byte	-107
+ 284 00ff 44       		.byte	68
+ 285 0100 96       		.byte	-106
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccD48tws.s 			page 6
+
+
+ 286 0101 22       		.byte	34
+ 287 0102 9A       		.byte	-102
+ 288 0103 20       		.byte	32
+ 289 0104 A3       		.byte	-93
+ 290 0105 10       		.byte	16
+ 291 0106 A6       		.byte	-90
+ 292 0107 04       		.byte	4
+ 293 0108 A7       		.byte	-89
+ 294 0109 20       		.byte	32
+ 295 010a C0       		.byte	-64
+ 296 010b C5       		.byte	-59
+ 297 010c C2       		.byte	-62
+ 298 010d 85       		.byte	-123
+ 299 010e C4       		.byte	-60
+ 300 010f A2       		.byte	-94
+ 301 0110 CC       		.byte	-52
+ 302 0111 05       		.byte	5
+ 303 0112 CE       		.byte	-50
+ 304 0113 06       		.byte	6
+ 305 0114 D2       		.byte	-46
+ 306 0115 30       		.byte	48
+ 307 0116 03       		.byte	3
+ 308 0117 02       		.byte	2
+ 309 0118 04       		.byte	4
+ 310 0119 01       		.byte	1
+ 311 011a 07       		.byte	7
+ 312 011b 02       		.byte	2
+ 313 011c 09       		.byte	9
+ 314 011d 3D       		.byte	61
+ 315 011e 0B       		.byte	11
+ 316 011f 02       		.byte	2
+ 317 0120 0D       		.byte	13
+ 318 0121 26       		.byte	38
+ 319 0122 0E       		.byte	14
+ 320 0123 01       		.byte	1
+ 321 0124 0F       		.byte	15
+ 322 0125 19       		.byte	25
+ 323 0126 14       		.byte	20
+ 324 0127 01       		.byte	1
+ 325 0128 15       		.byte	21
+ 326 0129 3F       		.byte	63
+ 327 012a 19       		.byte	25
+ 328 012b 3B       		.byte	59
+ 329 012c 1B       		.byte	27
+ 330 012d 04       		.byte	4
+ 331 012e 1C       		.byte	28
+ 332 012f 01       		.byte	1
+ 333 0130 21       		.byte	33
+ 334 0131 10       		.byte	16
+ 335 0132 23       		.byte	35
+ 336 0133 01       		.byte	1
+ 337 0134 25       		.byte	37
+ 338 0135 08       		.byte	8
+ 339 0136 27       		.byte	39
+ 340 0137 01       		.byte	1
+ 341 0138 29       		.byte	41
+ 342 0139 1F       		.byte	31
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccD48tws.s 			page 7
+
+
+ 343 013a 2B       		.byte	43
+ 344 013b 20       		.byte	32
+ 345 013c 2D       		.byte	45
+ 346 013d 04       		.byte	4
+ 347 013e 33       		.byte	51
+ 348 013f 03       		.byte	3
+ 349 0140 34       		.byte	52
+ 350 0141 01       		.byte	1
+ 351 0142 35       		.byte	53
+ 352 0143 3C       		.byte	60
+ 353 0144 40       		.byte	64
+ 354 0145 04       		.byte	4
+ 355 0146 41       		.byte	65
+ 356 0147 02       		.byte	2
+ 357 0148 49       		.byte	73
+ 358 0149 FF       		.byte	-1
+ 359 014a 4A       		.byte	74
+ 360 014b FF       		.byte	-1
+ 361 014c 4B       		.byte	75
+ 362 014d FF       		.byte	-1
+ 363 014e 4C       		.byte	76
+ 364 014f 02       		.byte	2
+ 365 0150 4D       		.byte	77
+ 366 0151 0C       		.byte	12
+ 367 0152 4E       		.byte	78
+ 368 0153 F8       		.byte	-8
+ 369 0154 56       		.byte	86
+ 370 0155 02       		.byte	2
+ 371 0156 58       		.byte	88
+ 372 0157 04       		.byte	4
+ 373 0158 59       		.byte	89
+ 374 0159 04       		.byte	4
+ 375 015a 5A       		.byte	90
+ 376 015b 04       		.byte	4
+ 377 015c 5B       		.byte	91
+ 378 015d 04       		.byte	4
+ 379 015e 5E       		.byte	94
+ 380 015f 08       		.byte	8
+ 381 0160 5F       		.byte	95
+ 382 0161 01       		.byte	1
+ 383 0162 62       		.byte	98
+ 384 0163 48       		.byte	72
+ 385 0164 63       		.byte	99
+ 386 0165 A1       		.byte	-95
+ 387 0166 68       		.byte	104
+ 388 0167 F0       		.byte	-16
+ 389 0168 6A       		.byte	106
+ 390 0169 F0       		.byte	-16
+ 391 016a 6C       		.byte	108
+ 392 016b F0       		.byte	-16
+ 393 016c 6E       		.byte	110
+ 394 016d F0       		.byte	-16
+ 395 016e 9A       		.byte	-102
+ 396 016f 01       		.byte	1
+ 397 0170 A7       		.byte	-89
+ 398 0171 01       		.byte	1
+ 399 0172 AC       		.byte	-84
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccD48tws.s 			page 8
+
+
+ 400 0173 01       		.byte	1
+ 401 0174 B0       		.byte	-80
+ 402 0175 01       		.byte	1
+ 403 0176 B1       		.byte	-79
+ 404 0177 01       		.byte	1
+ 405 0178 B6       		.byte	-74
+ 406 0179 01       		.byte	1
+ 407 017a C0       		.byte	-64
+ 408 017b 01       		.byte	1
+ 409 017c C1       		.byte	-63
+ 410 017d 06       		.byte	6
+ 411 017e C6       		.byte	-58
+ 412 017f A0       		.byte	-96
+ 413 0180 C9       		.byte	-55
+ 414 0181 FF       		.byte	-1
+ 415 0182 CA       		.byte	-54
+ 416 0183 FF       		.byte	-1
+ 417 0184 CB       		.byte	-53
+ 418 0185 FF       		.byte	-1
+ 419 0186 CC       		.byte	-52
+ 420 0187 03       		.byte	3
+ 421 0188 CD       		.byte	-51
+ 422 0189 0C       		.byte	12
+ 423 018a CE       		.byte	-50
+ 424 018b F4       		.byte	-12
+ 425 018c D8       		.byte	-40
+ 426 018d 04       		.byte	4
+ 427 018e D9       		.byte	-39
+ 428 018f 04       		.byte	4
+ 429 0190 DA       		.byte	-38
+ 430 0191 04       		.byte	4
+ 431 0192 DF       		.byte	-33
+ 432 0193 01       		.byte	1
+ 433 0194 E2       		.byte	-30
+ 434 0195 48       		.byte	72
+ 435 0196 E3       		.byte	-29
+ 436 0197 A1       		.byte	-95
+ 437 0198 E8       		.byte	-24
+ 438 0199 F0       		.byte	-16
+ 439 019a EA       		.byte	-22
+ 440 019b F0       		.byte	-16
+ 441 019c EC       		.byte	-20
+ 442 019d F0       		.byte	-16
+ 443 019e EE       		.byte	-18
+ 444 019f F0       		.byte	-16
+ 445 01a0 00       		.byte	0
+ 446 01a1 04       		.byte	4
+ 447 01a2 01       		.byte	1
+ 448 01a3 40       		.byte	64
+ 449 01a4 08       		.byte	8
+ 450 01a5 04       		.byte	4
+ 451 01a6 0A       		.byte	10
+ 452 01a7 22       		.byte	34
+ 453 01a8 0E       		.byte	14
+ 454 01a9 08       		.byte	8
+ 455 01aa 17       		.byte	23
+ 456 01ab 80       		.byte	-128
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccD48tws.s 			page 9
+
+
+ 457 01ac 18       		.byte	24
+ 458 01ad 04       		.byte	4
+ 459 01ae 1B       		.byte	27
+ 460 01af 10       		.byte	16
+ 461 01b0 1C       		.byte	28
+ 462 01b1 40       		.byte	64
+ 463 01b2 1D       		.byte	29
+ 464 01b3 80       		.byte	-128
+ 465 01b4 20       		.byte	32
+ 466 01b5 10       		.byte	16
+ 467 01b6 22       		.byte	34
+ 468 01b7 28       		.byte	40
+ 469 01b8 27       		.byte	39
+ 470 01b9 80       		.byte	-128
+ 471 01ba 29       		.byte	41
+ 472 01bb 18       		.byte	24
+ 473 01bc 2A       		.byte	42
+ 474 01bd 80       		.byte	-128
+ 475 01be 2B       		.byte	43
+ 476 01bf 40       		.byte	64
+ 477 01c0 2F       		.byte	47
+ 478 01c1 20       		.byte	32
+ 479 01c2 30       		.byte	48
+ 480 01c3 04       		.byte	4
+ 481 01c4 32       		.byte	50
+ 482 01c5 20       		.byte	32
+ 483 01c6 38       		.byte	56
+ 484 01c7 92       		.byte	-110
+ 485 01c8 39       		.byte	57
+ 486 01c9 04       		.byte	4
+ 487 01ca 40       		.byte	64
+ 488 01cb 44       		.byte	68
+ 489 01cc 45       		.byte	69
+ 490 01cd 80       		.byte	-128
+ 491 01ce 4F       		.byte	79
+ 492 01cf 20       		.byte	32
+ 493 01d0 56       		.byte	86
+ 494 01d1 20       		.byte	32
+ 495 01d2 72       		.byte	114
+ 496 01d3 80       		.byte	-128
+ 497 01d4 73       		.byte	115
+ 498 01d5 40       		.byte	64
+ 499 01d6 7B       		.byte	123
+ 500 01d7 10       		.byte	16
+ 501 01d8 90       		.byte	-112
+ 502 01d9 80       		.byte	-128
+ 503 01da 95       		.byte	-107
+ 504 01db 04       		.byte	4
+ 505 01dc 96       		.byte	-106
+ 506 01dd 22       		.byte	34
+ 507 01de 97       		.byte	-105
+ 508 01df 40       		.byte	64
+ 509 01e0 99       		.byte	-103
+ 510 01e1 18       		.byte	24
+ 511 01e2 A3       		.byte	-93
+ 512 01e3 40       		.byte	64
+ 513 01e4 A6       		.byte	-90
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccD48tws.s 			page 10
+
+
+ 514 01e5 28       		.byte	40
+ 515 01e6 B6       		.byte	-74
+ 516 01e7 40       		.byte	64
+ 517 01e8 C0       		.byte	-64
+ 518 01e9 05       		.byte	5
+ 519 01ea C2       		.byte	-62
+ 520 01eb 45       		.byte	69
+ 521 01ec C4       		.byte	-60
+ 522 01ed 80       		.byte	-128
+ 523 01ee CA       		.byte	-54
+ 524 01ef 4F       		.byte	79
+ 525 01f0 CC       		.byte	-52
+ 526 01f1 06       		.byte	6
+ 527 01f2 CE       		.byte	-50
+ 528 01f3 0F       		.byte	15
+ 529 01f4 D0       		.byte	-48
+ 530 01f5 15       		.byte	21
+ 531 01f6 D2       		.byte	-46
+ 532 01f7 20       		.byte	32
+ 533 01f8 DE       		.byte	-34
+ 534 01f9 02       		.byte	2
+ 535 01fa 08       		.byte	8
+ 536 01fb 19       		.byte	25
+ 537 01fc 0A       		.byte	10
+ 538 01fd 04       		.byte	4
+ 539 01fe 0E       		.byte	14
+ 540 01ff 1B       		.byte	27
+ 541 0200 10       		.byte	16
+ 542 0201 11       		.byte	17
+ 543 0202 12       		.byte	18
+ 544 0203 02       		.byte	2
+ 545 0204 18       		.byte	24
+ 546 0205 0A       		.byte	10
+ 547 0206 1A       		.byte	26
+ 548 0207 01       		.byte	1
+ 549 0208 32       		.byte	50
+ 550 0209 06       		.byte	6
+ 551 020a 34       		.byte	52
+ 552 020b 18       		.byte	24
+ 553 020c 36       		.byte	54
+ 554 020d 01       		.byte	1
+ 555 020e 3E       		.byte	62
+ 556 020f 54       		.byte	84
+ 557 0210 40       		.byte	64
+ 558 0211 13       		.byte	19
+ 559 0212 41       		.byte	65
+ 560 0213 02       		.byte	2
+ 561 0214 45       		.byte	69
+ 562 0215 02       		.byte	2
+ 563 0216 46       		.byte	70
+ 564 0217 26       		.byte	38
+ 565 0218 48       		.byte	72
+ 566 0219 0D       		.byte	13
+ 567 021a 58       		.byte	88
+ 568 021b 04       		.byte	4
+ 569 021c 5A       		.byte	90
+ 570 021d 04       		.byte	4
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccD48tws.s 			page 11
+
+
+ 571 021e 5F       		.byte	95
+ 572 021f 01       		.byte	1
+ 573 0220 61       		.byte	97
+ 574 0221 0C       		.byte	12
+ 575 0222 62       		.byte	98
+ 576 0223 F0       		.byte	-16
+ 577 0224 63       		.byte	99
+ 578 0225 0C       		.byte	12
+ 579 0226 65       		.byte	101
+ 580 0227 0C       		.byte	12
+ 581 0228 67       		.byte	103
+ 582 0229 0C       		.byte	12
+ 583 022a 68       		.byte	104
+ 584 022b 40       		.byte	64
+ 585 022c 69       		.byte	105
+ 586 022d 4C       		.byte	76
+ 587 022e 6A       		.byte	106
+ 588 022f 40       		.byte	64
+ 589 0230 6B       		.byte	107
+ 590 0231 4C       		.byte	76
+ 591 0232 6C       		.byte	108
+ 592 0233 90       		.byte	-112
+ 593 0234 6D       		.byte	109
+ 594 0235 58       		.byte	88
+ 595 0236 6F       		.byte	111
+ 596 0237 0C       		.byte	12
+ 597 0238 86       		.byte	-122
+ 598 0239 01       		.byte	1
+ 599 023a 89       		.byte	-119
+ 600 023b 29       		.byte	41
+ 601 023c 8C       		.byte	-116
+ 602 023d 03       		.byte	3
+ 603 023e 92       		.byte	-110
+ 604 023f 02       		.byte	2
+ 605 0240 94       		.byte	-108
+ 606 0241 03       		.byte	3
+ 607 0242 97       		.byte	-105
+ 608 0243 60       		.byte	96
+ 609 0244 98       		.byte	-104
+ 610 0245 03       		.byte	3
+ 611 0246 9B       		.byte	-101
+ 612 0247 03       		.byte	3
+ 613 0248 9E       		.byte	-98
+ 614 0249 01       		.byte	1
+ 615 024a 9F       		.byte	-97
+ 616 024b 7B       		.byte	123
+ 617 024c A1       		.byte	-95
+ 618 024d 52       		.byte	82
+ 619 024e A4       		.byte	-92
+ 620 024f 01       		.byte	1
+ 621 0250 A6       		.byte	-90
+ 622 0251 02       		.byte	2
+ 623 0252 A8       		.byte	-88
+ 624 0253 03       		.byte	3
+ 625 0254 A9       		.byte	-87
+ 626 0255 78       		.byte	120
+ 627 0256 AB       		.byte	-85
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccD48tws.s 			page 12
+
+
+ 628 0257 04       		.byte	4
+ 629 0258 AD       		.byte	-83
+ 630 0259 7B       		.byte	123
+ 631 025a B0       		.byte	-80
+ 632 025b 02       		.byte	2
+ 633 025c B1       		.byte	-79
+ 634 025d 60       		.byte	96
+ 635 025e B3       		.byte	-77
+ 636 025f 18       		.byte	24
+ 637 0260 B4       		.byte	-76
+ 638 0261 01       		.byte	1
+ 639 0262 B5       		.byte	-75
+ 640 0263 07       		.byte	7
+ 641 0264 BF       		.byte	-65
+ 642 0265 15       		.byte	21
+ 643 0266 C0       		.byte	-64
+ 644 0267 42       		.byte	66
+ 645 0268 C1       		.byte	-63
+ 646 0269 03       		.byte	3
+ 647 026a C5       		.byte	-59
+ 648 026b 06       		.byte	6
+ 649 026c C7       		.byte	-57
+ 650 026d 02       		.byte	2
+ 651 026e C8       		.byte	-56
+ 652 026f 11       		.byte	17
+ 653 0270 D6       		.byte	-42
+ 654 0271 08       		.byte	8
+ 655 0272 D8       		.byte	-40
+ 656 0273 04       		.byte	4
+ 657 0274 D9       		.byte	-39
+ 658 0275 04       		.byte	4
+ 659 0276 DA       		.byte	-38
+ 660 0277 04       		.byte	4
+ 661 0278 DB       		.byte	-37
+ 662 0279 0F       		.byte	15
+ 663 027a DF       		.byte	-33
+ 664 027b 01       		.byte	1
+ 665 027c E1       		.byte	-31
+ 666 027d 0C       		.byte	12
+ 667 027e E2       		.byte	-30
+ 668 027f F0       		.byte	-16
+ 669 0280 E3       		.byte	-29
+ 670 0281 0C       		.byte	12
+ 671 0282 E5       		.byte	-27
+ 672 0283 0C       		.byte	12
+ 673 0284 E7       		.byte	-25
+ 674 0285 0C       		.byte	12
+ 675 0286 E8       		.byte	-24
+ 676 0287 40       		.byte	64
+ 677 0288 E9       		.byte	-23
+ 678 0289 4C       		.byte	76
+ 679 028a EA       		.byte	-22
+ 680 028b 40       		.byte	64
+ 681 028c EB       		.byte	-21
+ 682 028d 4C       		.byte	76
+ 683 028e EC       		.byte	-20
+ 684 028f 90       		.byte	-112
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccD48tws.s 			page 13
+
+
+ 685 0290 ED       		.byte	-19
+ 686 0291 58       		.byte	88
+ 687 0292 EF       		.byte	-17
+ 688 0293 0C       		.byte	12
+ 689 0294 01       		.byte	1
+ 690 0295 04       		.byte	4
+ 691 0296 03       		.byte	3
+ 692 0297 02       		.byte	2
+ 693 0298 04       		.byte	4
+ 694 0299 80       		.byte	-128
+ 695 029a 05       		.byte	5
+ 696 029b 10       		.byte	16
+ 697 029c 08       		.byte	8
+ 698 029d 01       		.byte	1
+ 699 029e 0A       		.byte	10
+ 700 029f 26       		.byte	38
+ 701 02a0 0B       		.byte	11
+ 702 02a1 40       		.byte	64
+ 703 02a2 0F       		.byte	15
+ 704 02a3 88       		.byte	-120
+ 705 02a4 12       		.byte	18
+ 706 02a5 28       		.byte	40
+ 707 02a6 18       		.byte	24
+ 708 02a7 80       		.byte	-128
+ 709 02a8 19       		.byte	25
+ 710 02a9 10       		.byte	16
+ 711 02aa 1A       		.byte	26
+ 712 02ab 84       		.byte	-124
+ 713 02ac 1B       		.byte	27
+ 714 02ad 02       		.byte	2
+ 715 02ae 1D       		.byte	29
+ 716 02af A8       		.byte	-88
+ 717 02b0 20       		.byte	32
+ 718 02b1 54       		.byte	84
+ 719 02b2 28       		.byte	40
+ 720 02b3 02       		.byte	2
+ 721 02b4 29       		.byte	41
+ 722 02b5 10       		.byte	16
+ 723 02b6 2B       		.byte	43
+ 724 02b7 40       		.byte	64
+ 725 02b8 30       		.byte	48
+ 726 02b9 28       		.byte	40
+ 727 02ba 32       		.byte	50
+ 728 02bb 40       		.byte	64
+ 729 02bc 3A       		.byte	58
+ 730 02bd 20       		.byte	32
+ 731 02be 40       		.byte	64
+ 732 02bf 54       		.byte	84
+ 733 02c0 45       		.byte	69
+ 734 02c1 A8       		.byte	-88
+ 735 02c2 48       		.byte	72
+ 736 02c3 20       		.byte	32
+ 737 02c4 4D       		.byte	77
+ 738 02c5 08       		.byte	8
+ 739 02c6 4F       		.byte	79
+ 740 02c7 08       		.byte	8
+ 741 02c8 50       		.byte	80
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccD48tws.s 			page 14
+
+
+ 742 02c9 08       		.byte	8
+ 743 02ca 56       		.byte	86
+ 744 02cb 20       		.byte	32
+ 745 02cc 57       		.byte	87
+ 746 02cd 40       		.byte	64
+ 747 02ce 5A       		.byte	90
+ 748 02cf 40       		.byte	64
+ 749 02d0 60       		.byte	96
+ 750 02d1 02       		.byte	2
+ 751 02d2 78       		.byte	120
+ 752 02d3 01       		.byte	1
+ 753 02d4 84       		.byte	-124
+ 754 02d5 02       		.byte	2
+ 755 02d6 86       		.byte	-122
+ 756 02d7 08       		.byte	8
+ 757 02d8 C0       		.byte	-64
+ 758 02d9 C5       		.byte	-59
+ 759 02da C2       		.byte	-62
+ 760 02db 5F       		.byte	95
+ 761 02dc C4       		.byte	-60
+ 762 02dd 06       		.byte	6
+ 763 02de CA       		.byte	-54
+ 764 02df 0D       		.byte	13
+ 765 02e0 CC       		.byte	-52
+ 766 02e1 0E       		.byte	14
+ 767 02e2 CE       		.byte	-50
+ 768 02e3 04       		.byte	4
+ 769 02e4 D0       		.byte	-48
+ 770 02e5 77       		.byte	119
+ 771 02e6 D6       		.byte	-42
+ 772 02e7 08       		.byte	8
+ 773 02e8 D8       		.byte	-40
+ 774 02e9 08       		.byte	8
+ 775 02ea DE       		.byte	-34
+ 776 02eb 01       		.byte	1
+ 777 02ec E4       		.byte	-28
+ 778 02ed 02       		.byte	2
+ 779 02ee 31       		.byte	49
+ 780 02ef 20       		.byte	32
+ 781 02f0 CC       		.byte	-52
+ 782 02f1 10       		.byte	16
+ 783 02f2 85       		.byte	-123
+ 784 02f3 20       		.byte	32
+ 785 02f4 A5       		.byte	-91
+ 786 02f5 20       		.byte	32
+ 787 02f6 E2       		.byte	-30
+ 788 02f7 10       		.byte	16
+ 789 02f8 83       		.byte	-125
+ 790 02f9 20       		.byte	32
+ 791 02fa E6       		.byte	-26
+ 792 02fb 20       		.byte	32
+ 793 02fc 11       		.byte	17
+ 794 02fd 08       		.byte	8
+ 795 02fe 87       		.byte	-121
+ 796 02ff 10       		.byte	16
+ 797 0300 C4       		.byte	-60
+ 798 0301 08       		.byte	8
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccD48tws.s 			page 15
+
+
+ 799 0302 93       		.byte	-109
+ 800 0303 20       		.byte	32
+ 801 0304 B5       		.byte	-75
+ 802 0305 04       		.byte	4
+ 803 0306 EE       		.byte	-18
+ 804 0307 02       		.byte	2
+ 805 0308 3B       		.byte	59
+ 806 0309 20       		.byte	32
+ 807 030a 93       		.byte	-109
+ 808 030b 20       		.byte	32
+ 809 030c CE       		.byte	-50
+ 810 030d 08       		.byte	8
+ 811 030e A3       		.byte	-93
+ 812 030f 20       		.byte	32
+ 813 0310 7B       		.byte	123
+ 814 0311 20       		.byte	32
+ 815 0312 A3       		.byte	-93
+ 816 0313 20       		.byte	32
+ 817 0314 DE       		.byte	-34
+ 818 0315 40       		.byte	64
+ 819 0316 00       		.byte	0
+ 820 0317 01       		.byte	1
+ 821 0318 0C       		.byte	12
+ 822 0319 01       		.byte	1
+ 823 031a 0E       		.byte	14
+ 824 031b 01       		.byte	1
+ 825 031c 00       		.byte	0
+ 826 031d 03       		.byte	3
+ 827 031e 00       		.byte	0
+ 828 031f 00       		.byte	0
+ 829 0320 00       		.byte	0
+ 830 0321 00       		.byte	0
+ 831 0322 00       		.byte	0
+ 832 0323 00       		.byte	0
+ 833 0324 00       		.byte	0
+ 834 0325 00       		.byte	0
+ 835 0326 10       		.byte	16
+ 836 0327 00       		.byte	0
+ 837 0328 00       		.byte	0
+ 838 0329 0B       		.byte	11
+ 839 032a 0B       		.byte	11
+ 840 032b 00       		.byte	0
+ 841 032c 00       		.byte	0
+ 842 032d 00       		.byte	0
+ 843 032e 00       		.byte	0
+ 844 032f 00       		.byte	0
+ 845 0330 00       		.byte	0
+ 846 0331 02       		.byte	2
+ 847 0332 02       		.byte	2
+ 848 0333 00       		.byte	0
+ 849 0334 00       		.byte	0
+ 850 0335 00       		.byte	0
+ 851 0336 00       		.byte	0
+ 852 0337 00       		.byte	0
+ 853 0338 00       		.byte	0
+ 854 0339 00       		.byte	0
+ 855 033a 01       		.byte	1
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccD48tws.s 			page 16
+
+
+ 856 033b 00       		.byte	0
+ 857 033c 00       		.byte	0
+ 858 033d 00       		.byte	0
+ 859 033e 00       		.byte	0
+ 860 033f 00       		.byte	0
+ 861              		.section	.cywolatch,"a",%progbits
+ 862              		.align	2
+ 863              		.type	cy_meta_wonvl, %object
+ 864              		.size	cy_meta_wonvl, 4
+ 865              	cy_meta_wonvl:
+ 866 0000 BC       		.byte	-68
+ 867 0001 90       		.byte	-112
+ 868 0002 AC       		.byte	-84
+ 869 0003 AF       		.byte	-81
+ 870              		.section	.cycustnvl,"a",%progbits
+ 871              		.align	2
+ 872              		.type	cy_meta_custnvl, %object
+ 873              		.size	cy_meta_custnvl, 4
+ 874              	cy_meta_custnvl:
+ 875 0000 00       		.byte	0
+ 876 0001 00       		.byte	0
+ 877 0002 40       		.byte	64
+ 878 0003 05       		.byte	5
+ 879              		.section	.cymeta,"a",%progbits
+ 880              		.align	2
+ 881              		.type	cy_metadata, %object
+ 882              		.size	cy_metadata, 12
+ 883              	cy_metadata:
+ 884 0000 00       		.byte	0
+ 885 0001 01       		.byte	1
+ 886 0002 2E       		.byte	46
+ 887 0003 16       		.byte	22
+ 888 0004 10       		.byte	16
+ 889 0005 69       		.byte	105
+ 890 0006 00       		.byte	0
+ 891 0007 01       		.byte	1
+ 892 0008 00       		.byte	0
+ 893 0009 00       		.byte	0
+ 894 000a 00       		.byte	0
+ 895 000b 00       		.byte	0
+ 896              		.section	.cyflashprotect,"a",%progbits
+ 897              		.align	2
+ 898              		.type	cy_meta_flashprotect, %object
+ 899              		.size	cy_meta_flashprotect, 256
+ 900              	cy_meta_flashprotect:
+ 901 0000 00000000 		.space	256
+ 901      00000000 
+ 901      00000000 
+ 901      00000000 
+ 901      00000000 
+ 902              		.text
+ 903              	.Letext0:
+ 904              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 905              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 906              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+ 907              		.section	.debug_info,"",%progbits
+ 908              	.Ldebug_info0:
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccD48tws.s 			page 17
+
+
+ 909 0000 31010000 		.4byte	0x131
+ 910 0004 0400     		.2byte	0x4
+ 911 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 912 000a 04       		.byte	0x4
+ 913 000b 01       		.uleb128 0x1
+ 914 000c 24000000 		.4byte	.LASF17
+ 915 0010 0C       		.byte	0xc
+ 916 0011 C4010000 		.4byte	.LASF18
+ 917 0015 5F010000 		.4byte	.LASF19
+ 918 0019 00000000 		.4byte	.Ldebug_line0
+ 919 001d 02       		.uleb128 0x2
+ 920 001e 01       		.byte	0x1
+ 921 001f 06       		.byte	0x6
+ 922 0020 B8010000 		.4byte	.LASF0
+ 923 0024 03       		.uleb128 0x3
+ 924 0025 00000000 		.4byte	.LASF9
+ 925 0029 01       		.byte	0x1
+ 926 002a 1D       		.byte	0x1d
+ 927 002b 2F000000 		.4byte	0x2f
+ 928 002f 02       		.uleb128 0x2
+ 929 0030 01       		.byte	0x1
+ 930 0031 08       		.byte	0x8
+ 931 0032 16000000 		.4byte	.LASF1
+ 932 0036 02       		.uleb128 0x2
+ 933 0037 02       		.byte	0x2
+ 934 0038 05       		.byte	0x5
+ 935 0039 A5010000 		.4byte	.LASF2
+ 936 003d 02       		.uleb128 0x2
+ 937 003e 02       		.byte	0x2
+ 938 003f 07       		.byte	0x7
+ 939 0040 C4000000 		.4byte	.LASF3
+ 940 0044 02       		.uleb128 0x2
+ 941 0045 04       		.byte	0x4
+ 942 0046 05       		.byte	0x5
+ 943 0047 AF010000 		.4byte	.LASF4
+ 944 004b 02       		.uleb128 0x2
+ 945 004c 04       		.byte	0x4
+ 946 004d 07       		.byte	0x7
+ 947 004e B2000000 		.4byte	.LASF5
+ 948 0052 02       		.uleb128 0x2
+ 949 0053 08       		.byte	0x8
+ 950 0054 05       		.byte	0x5
+ 951 0055 51010000 		.4byte	.LASF6
+ 952 0059 02       		.uleb128 0x2
+ 953 005a 08       		.byte	0x8
+ 954 005b 07       		.byte	0x7
+ 955 005c 06010000 		.4byte	.LASF7
+ 956 0060 04       		.uleb128 0x4
+ 957 0061 04       		.byte	0x4
+ 958 0062 05       		.byte	0x5
+ 959 0063 696E7400 		.ascii	"int\000"
+ 960 0067 02       		.uleb128 0x2
+ 961 0068 04       		.byte	0x4
+ 962 0069 07       		.byte	0x7
+ 963 006a F9000000 		.4byte	.LASF8
+ 964 006e 03       		.uleb128 0x3
+ 965 006f 1D010000 		.4byte	.LASF10
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccD48tws.s 			page 18
+
+
+ 966 0073 02       		.byte	0x2
+ 967 0074 18       		.byte	0x18
+ 968 0075 24000000 		.4byte	0x24
+ 969 0079 05       		.uleb128 0x5
+ 970 007a 91000000 		.4byte	0x91
+ 971 007e 8A000000 		.4byte	0x8a
+ 972 0082 06       		.uleb128 0x6
+ 973 0083 8A000000 		.4byte	0x8a
+ 974 0087 3F03     		.2byte	0x33f
+ 975 0089 00       		.byte	0
+ 976 008a 02       		.uleb128 0x2
+ 977 008b 04       		.byte	0x4
+ 978 008c 07       		.byte	0x7
+ 979 008d 48010000 		.4byte	.LASF11
+ 980 0091 07       		.uleb128 0x7
+ 981 0092 6E000000 		.4byte	0x6e
+ 982 0096 08       		.uleb128 0x8
+ 983 0097 E7000000 		.4byte	.LASF12
+ 984 009b 03       		.byte	0x3
+ 985 009c 1F       		.byte	0x1f
+ 986 009d A7000000 		.4byte	0xa7
+ 987 00a1 05       		.uleb128 0x5
+ 988 00a2 03       		.byte	0x3
+ 989 00a3 00000000 		.4byte	cy_meta_configecc
+ 990 00a7 07       		.uleb128 0x7
+ 991 00a8 79000000 		.4byte	0x79
+ 992 00ac 05       		.uleb128 0x5
+ 993 00ad 91000000 		.4byte	0x91
+ 994 00b1 BC000000 		.4byte	0xbc
+ 995 00b5 09       		.uleb128 0x9
+ 996 00b6 8A000000 		.4byte	0x8a
+ 997 00ba 03       		.byte	0x3
+ 998 00bb 00       		.byte	0
+ 999 00bc 08       		.uleb128 0x8
+ 1000 00bd D7000000 		.4byte	.LASF13
+ 1001 00c1 03       		.byte	0x3
+ 1002 00c2 94       		.byte	0x94
+ 1003 00c3 CD000000 		.4byte	0xcd
+ 1004 00c7 05       		.uleb128 0x5
+ 1005 00c8 03       		.byte	0x3
+ 1006 00c9 00000000 		.4byte	cy_meta_custnvl
+ 1007 00cd 07       		.uleb128 0x7
+ 1008 00ce AC000000 		.4byte	0xac
+ 1009 00d2 08       		.uleb128 0x8
+ 1010 00d3 3A010000 		.4byte	.LASF14
+ 1011 00d7 03       		.byte	0x3
+ 1012 00d8 A2       		.byte	0xa2
+ 1013 00d9 E3000000 		.4byte	0xe3
+ 1014 00dd 05       		.uleb128 0x5
+ 1015 00de 03       		.byte	0x3
+ 1016 00df 00000000 		.4byte	cy_meta_wonvl
+ 1017 00e3 07       		.uleb128 0x7
+ 1018 00e4 AC000000 		.4byte	0xac
+ 1019 00e8 05       		.uleb128 0x5
+ 1020 00e9 91000000 		.4byte	0x91
+ 1021 00ed F8000000 		.4byte	0xf8
+ 1022 00f1 09       		.uleb128 0x9
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccD48tws.s 			page 19
+
+
+ 1023 00f2 8A000000 		.4byte	0x8a
+ 1024 00f6 FF       		.byte	0xff
+ 1025 00f7 00       		.byte	0
+ 1026 00f8 08       		.uleb128 0x8
+ 1027 00f9 25010000 		.4byte	.LASF15
+ 1028 00fd 03       		.byte	0x3
+ 1029 00fe B0       		.byte	0xb0
+ 1030 00ff 09010000 		.4byte	0x109
+ 1031 0103 05       		.uleb128 0x5
+ 1032 0104 03       		.byte	0x3
+ 1033 0105 00000000 		.4byte	cy_meta_flashprotect
+ 1034 0109 07       		.uleb128 0x7
+ 1035 010a E8000000 		.4byte	0xe8
+ 1036 010e 05       		.uleb128 0x5
+ 1037 010f 91000000 		.4byte	0x91
+ 1038 0113 1E010000 		.4byte	0x11e
+ 1039 0117 09       		.uleb128 0x9
+ 1040 0118 8A000000 		.4byte	0x8a
+ 1041 011c 0B       		.byte	0xb
+ 1042 011d 00       		.byte	0
+ 1043 011e 08       		.uleb128 0x8
+ 1044 011f 0A000000 		.4byte	.LASF16
+ 1045 0123 03       		.byte	0x3
+ 1046 0124 DD       		.byte	0xdd
+ 1047 0125 2F010000 		.4byte	0x12f
+ 1048 0129 05       		.uleb128 0x5
+ 1049 012a 03       		.byte	0x3
+ 1050 012b 00000000 		.4byte	cy_metadata
+ 1051 012f 07       		.uleb128 0x7
+ 1052 0130 0E010000 		.4byte	0x10e
+ 1053 0134 00       		.byte	0
+ 1054              		.section	.debug_abbrev,"",%progbits
+ 1055              	.Ldebug_abbrev0:
+ 1056 0000 01       		.uleb128 0x1
+ 1057 0001 11       		.uleb128 0x11
+ 1058 0002 01       		.byte	0x1
+ 1059 0003 25       		.uleb128 0x25
+ 1060 0004 0E       		.uleb128 0xe
+ 1061 0005 13       		.uleb128 0x13
+ 1062 0006 0B       		.uleb128 0xb
+ 1063 0007 03       		.uleb128 0x3
+ 1064 0008 0E       		.uleb128 0xe
+ 1065 0009 1B       		.uleb128 0x1b
+ 1066 000a 0E       		.uleb128 0xe
+ 1067 000b 10       		.uleb128 0x10
+ 1068 000c 17       		.uleb128 0x17
+ 1069 000d 00       		.byte	0
+ 1070 000e 00       		.byte	0
+ 1071 000f 02       		.uleb128 0x2
+ 1072 0010 24       		.uleb128 0x24
+ 1073 0011 00       		.byte	0
+ 1074 0012 0B       		.uleb128 0xb
+ 1075 0013 0B       		.uleb128 0xb
+ 1076 0014 3E       		.uleb128 0x3e
+ 1077 0015 0B       		.uleb128 0xb
+ 1078 0016 03       		.uleb128 0x3
+ 1079 0017 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccD48tws.s 			page 20
+
+
+ 1080 0018 00       		.byte	0
+ 1081 0019 00       		.byte	0
+ 1082 001a 03       		.uleb128 0x3
+ 1083 001b 16       		.uleb128 0x16
+ 1084 001c 00       		.byte	0
+ 1085 001d 03       		.uleb128 0x3
+ 1086 001e 0E       		.uleb128 0xe
+ 1087 001f 3A       		.uleb128 0x3a
+ 1088 0020 0B       		.uleb128 0xb
+ 1089 0021 3B       		.uleb128 0x3b
+ 1090 0022 0B       		.uleb128 0xb
+ 1091 0023 49       		.uleb128 0x49
+ 1092 0024 13       		.uleb128 0x13
+ 1093 0025 00       		.byte	0
+ 1094 0026 00       		.byte	0
+ 1095 0027 04       		.uleb128 0x4
+ 1096 0028 24       		.uleb128 0x24
+ 1097 0029 00       		.byte	0
+ 1098 002a 0B       		.uleb128 0xb
+ 1099 002b 0B       		.uleb128 0xb
+ 1100 002c 3E       		.uleb128 0x3e
+ 1101 002d 0B       		.uleb128 0xb
+ 1102 002e 03       		.uleb128 0x3
+ 1103 002f 08       		.uleb128 0x8
+ 1104 0030 00       		.byte	0
+ 1105 0031 00       		.byte	0
+ 1106 0032 05       		.uleb128 0x5
+ 1107 0033 01       		.uleb128 0x1
+ 1108 0034 01       		.byte	0x1
+ 1109 0035 49       		.uleb128 0x49
+ 1110 0036 13       		.uleb128 0x13
+ 1111 0037 01       		.uleb128 0x1
+ 1112 0038 13       		.uleb128 0x13
+ 1113 0039 00       		.byte	0
+ 1114 003a 00       		.byte	0
+ 1115 003b 06       		.uleb128 0x6
+ 1116 003c 21       		.uleb128 0x21
+ 1117 003d 00       		.byte	0
+ 1118 003e 49       		.uleb128 0x49
+ 1119 003f 13       		.uleb128 0x13
+ 1120 0040 2F       		.uleb128 0x2f
+ 1121 0041 05       		.uleb128 0x5
+ 1122 0042 00       		.byte	0
+ 1123 0043 00       		.byte	0
+ 1124 0044 07       		.uleb128 0x7
+ 1125 0045 26       		.uleb128 0x26
+ 1126 0046 00       		.byte	0
+ 1127 0047 49       		.uleb128 0x49
+ 1128 0048 13       		.uleb128 0x13
+ 1129 0049 00       		.byte	0
+ 1130 004a 00       		.byte	0
+ 1131 004b 08       		.uleb128 0x8
+ 1132 004c 34       		.uleb128 0x34
+ 1133 004d 00       		.byte	0
+ 1134 004e 03       		.uleb128 0x3
+ 1135 004f 0E       		.uleb128 0xe
+ 1136 0050 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccD48tws.s 			page 21
+
+
+ 1137 0051 0B       		.uleb128 0xb
+ 1138 0052 3B       		.uleb128 0x3b
+ 1139 0053 0B       		.uleb128 0xb
+ 1140 0054 49       		.uleb128 0x49
+ 1141 0055 13       		.uleb128 0x13
+ 1142 0056 3F       		.uleb128 0x3f
+ 1143 0057 19       		.uleb128 0x19
+ 1144 0058 02       		.uleb128 0x2
+ 1145 0059 18       		.uleb128 0x18
+ 1146 005a 00       		.byte	0
+ 1147 005b 00       		.byte	0
+ 1148 005c 09       		.uleb128 0x9
+ 1149 005d 21       		.uleb128 0x21
+ 1150 005e 00       		.byte	0
+ 1151 005f 49       		.uleb128 0x49
+ 1152 0060 13       		.uleb128 0x13
+ 1153 0061 2F       		.uleb128 0x2f
+ 1154 0062 0B       		.uleb128 0xb
+ 1155 0063 00       		.byte	0
+ 1156 0064 00       		.byte	0
+ 1157 0065 00       		.byte	0
+ 1158              		.section	.debug_aranges,"",%progbits
+ 1159 0000 14000000 		.4byte	0x14
+ 1160 0004 0200     		.2byte	0x2
+ 1161 0006 00000000 		.4byte	.Ldebug_info0
+ 1162 000a 04       		.byte	0x4
+ 1163 000b 00       		.byte	0
+ 1164 000c 0000     		.2byte	0
+ 1165 000e 0000     		.2byte	0
+ 1166 0010 00000000 		.4byte	0
+ 1167 0014 00000000 		.4byte	0
+ 1168              		.section	.debug_line,"",%progbits
+ 1169              	.Ldebug_line0:
+ 1170 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
+ 1170      02003701 
+ 1170      00000201 
+ 1170      FB0E0D00 
+ 1170      01010101 
+ 1171              	.LASF9:
+ 1172 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 1172      6E74385F 
+ 1172      7400
+ 1173              	.LASF16:
+ 1174 000a 63795F6D 		.ascii	"cy_metadata\000"
+ 1174      65746164 
+ 1174      61746100 
+ 1175              	.LASF1:
+ 1176 0016 756E7369 		.ascii	"unsigned char\000"
+ 1176      676E6564 
+ 1176      20636861 
+ 1176      7200
+ 1177              	.LASF17:
+ 1178 0024 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1178      43313120 
+ 1178      352E342E 
+ 1178      31203230 
+ 1178      31363036 
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccD48tws.s 			page 22
+
+
+ 1179 0057 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1179      20726576 
+ 1179      6973696F 
+ 1179      6E203233 
+ 1179      37373135 
+ 1180 008a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 1180      66756E63 
+ 1180      74696F6E 
+ 1180      2D736563 
+ 1180      74696F6E 
+ 1181              	.LASF5:
+ 1182 00b2 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1182      20756E73 
+ 1182      69676E65 
+ 1182      6420696E 
+ 1182      7400
+ 1183              	.LASF3:
+ 1184 00c4 73686F72 		.ascii	"short unsigned int\000"
+ 1184      7420756E 
+ 1184      7369676E 
+ 1184      65642069 
+ 1184      6E7400
+ 1185              	.LASF13:
+ 1186 00d7 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 1186      6574615F 
+ 1186      63757374 
+ 1186      6E766C00 
+ 1187              	.LASF12:
+ 1188 00e7 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 1188      6574615F 
+ 1188      636F6E66 
+ 1188      69676563 
+ 1188      6300
+ 1189              	.LASF8:
+ 1190 00f9 756E7369 		.ascii	"unsigned int\000"
+ 1190      676E6564 
+ 1190      20696E74 
+ 1190      00
+ 1191              	.LASF7:
+ 1192 0106 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1192      206C6F6E 
+ 1192      6720756E 
+ 1192      7369676E 
+ 1192      65642069 
+ 1193              	.LASF10:
+ 1194 011d 75696E74 		.ascii	"uint8_t\000"
+ 1194      385F7400 
+ 1195              	.LASF15:
+ 1196 0125 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 1196      6574615F 
+ 1196      666C6173 
+ 1196      6870726F 
+ 1196      74656374 
+ 1197              	.LASF14:
+ 1198 013a 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 1198      6574615F 
+ 1198      776F6E76 
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccD48tws.s 			page 23
+
+
+ 1198      6C00
+ 1199              	.LASF11:
+ 1200 0148 73697A65 		.ascii	"sizetype\000"
+ 1200      74797065 
+ 1200      00
+ 1201              	.LASF6:
+ 1202 0151 6C6F6E67 		.ascii	"long long int\000"
+ 1202      206C6F6E 
+ 1202      6720696E 
+ 1202      7400
+ 1203              	.LASF19:
+ 1204 015f 433A5C55 		.ascii	"C:\\Users\\Tri94\\Documents\\PSoC Creator\\EE4450\\"
+ 1204      73657273 
+ 1204      5C547269 
+ 1204      39345C44 
+ 1204      6F63756D 
+ 1205 018c 43617053 		.ascii	"CapSence_Proximity.cydsn\000"
+ 1205      656E6365 
+ 1205      5F50726F 
+ 1205      78696D69 
+ 1205      74792E63 
+ 1206              	.LASF2:
+ 1207 01a5 73686F72 		.ascii	"short int\000"
+ 1207      7420696E 
+ 1207      7400
+ 1208              	.LASF4:
+ 1209 01af 6C6F6E67 		.ascii	"long int\000"
+ 1209      20696E74 
+ 1209      00
+ 1210              	.LASF0:
+ 1211 01b8 7369676E 		.ascii	"signed char\000"
+ 1211      65642063 
+ 1211      68617200 
+ 1212              	.LASF18:
+ 1213 01c4 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 1213      72617465 
+ 1213      645F536F 
+ 1213      75726365 
+ 1213      5C50536F 
+ 1214              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

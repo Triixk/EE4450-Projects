@@ -1,0 +1,8 @@
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\Lab01.cydsn\Lab01.cyprj|0807f03e-6f93-4213-9cc2-4898e1274edc
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|5f3b43bc-47e3-472e-9fc3-1dacee14403a
+C:\Users\Tri94\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|94503ad7-b8ca-4250-959c-70f3bce122e3
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|36527bd4-51ff-430b-9425-c946e46c6321
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|caf1d5cd-d29f-4d8d-b213-913dcd452da5
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|b7db68af-dd10-4a6f-9a99-c791fc2b2b85
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\Lab02.cydsn\Lab02.cyprj|ac322cdb-a88e-4fa2-afef-f640b55ea107
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\PWM_Servo.cydsn\PWM_Servo.cyprj|2e0fed59-a84a-4713-90e2-622c28d15ac7

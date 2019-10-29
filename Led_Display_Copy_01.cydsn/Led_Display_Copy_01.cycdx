@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<blockRegMap version="1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://cypress.com/xsd/cyblockregmap cyblockregmap.xsd" xmlns="http://cypress.com/xsd/cyblockregmap">
+  <block name="DIG4" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="cy_constant_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="DIG2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="DIG3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="cy_constant_2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="Em_EEPROM_Dynamic" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="cy_boot" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="cy_constant_3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="cy_constant_4" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="LEDDP" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="LEDB" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="nSW" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="DIG1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="LEDA" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="LEDC" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="LEDF" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="LEDG" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="LEDD" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="LEDE" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+</blockRegMap>

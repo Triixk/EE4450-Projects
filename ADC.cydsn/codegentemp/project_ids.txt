@@ -1,0 +1,33 @@
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\Lab01.cydsn\Lab01.cyprj|43fbc709-1f13-49d5-9118-d7118bba7927
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|d3b95e97-aa78-46b5-b271-d2e8f4656ec3
+C:\Users\Tri94\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|267c08b7-2f17-4900-8cef-f23470ce9c66
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|739079a1-5c6a-4268-ae76-af04dadd0c77
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|838a3102-f340-4575-b963-cceb4209237a
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|880d98b1-02fb-47ac-9015-a5e3dfed5d07
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\Example_SoftwareControlLED.cydsn\Example_SoftwareControlLED.cyprj|c7eed63e-f047-46f1-bde4-511011350ebb
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\PWM_Servo.cydsn\PWM_Servo.cyprj|671012ca-89b9-4000-b720-b919641171e0
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\PWM_Motor.cydsn\PWM_Motor.cyprj|ab20294e-3d20-4e83-afbf-d33bf35ec15e
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\UART2PC.cydsn\UART2PC.cyprj|e29c9d2c-11f5-48f6-a9e3-a589958921a8
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\Led_Display.cydsn\Led_Display.cyprj|ac2eb322-827e-449a-8004-613921aa3834
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\Led_Display_Copy_01.cydsn\Led_Display_Copy_01.cyprj|80dda63b-6fc2-4866-9b57-a9b4d24156ed
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\Led_Display_Extra_Credit.cydsn\Led_Display_Extra_Credit.cyprj|55fd7aee-b23b-4bc4-b0e5-987ef13ab95b
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\Led_Display_Extra_Test.cydsn\Led_Display_Extra_Test.cyprj|463abcb7-c4d7-4ccc-b963-ead1e3dd1057
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\I2C_RTC.cydsn\I2C_RTC.cyprj|92172743-5325-4a14-a321-dded47342ef4
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\Timer_IRQ.cydsn\Timer_IRQ.cyprj|020bf2f4-34b1-40e9-965a-728cde5eed8b
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\PWM_BreathingLED.cydsn\PWM_BreathingLED.cyprj|5ffd9e73-7b19-49d4-bf45-3e9f2e82f439
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\CapSence_Proximity.cydsn\CapSence_Proximity.cyprj|0353a9ce-34ca-4259-815c-e3d64456dbb1
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\CapSense_Slider.cydsn\CapSense_Slider.cyprj|61871788-5ac8-4ea9-a884-e6fb47246996
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\GPIO_IRQ.cydsn\GPIO_IRQ.cyprj|c490429b-e960-4b16-862b-c8219072bdd2
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\LCD_Test.cydsn\LCD_Test.cyprj|aabc1ded-0249-43d6-8289-ac8aa964c83f
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\LCDTest.cydsn\LCDTest.cyprj|ee524f3c-e0cd-488c-ab79-61a1dae2f841
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\RTOS_MyFirstFreeRTOS.cydsn\RTOS_MyFirstFreeRTOS.cyprj|b3fb71b8-d289-492c-9fdd-e426e30a7ba9
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\RTOS_Mutex.cydsn\RTOS_Mutex.cyprj|0e414f68-9e6e-4fc8-a506-142920985583
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\RTOS_Queue.cydsn\RTOS_Queue.cyprj|110d5ced-eafa-4fc2-a138-dd8cc868ea22
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\RTOS_MessageBufferr.cydsn\RTOS_MessageBufferr.cyprj|4b580147-4bac-45fc-83d3-cc764325890b
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\RTOS_StreamBuffer.cydsn\RTOS_StreamBuffer.cyprj|41dec990-a5c7-4498-935d-19ddc0ce1ba6
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\MooreFSM_LED.cydsn\MooreFSM_LED.cyprj|d13bf1c6-4a91-4474-9a28-432817a69521
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\MooreFSM_StoplightController_1.cydsn\MooreFSM_StoplightController_1.cyprj|94fab2f6-e46e-4cea-aeb7-d1e6d78421e6
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\MooreFSM_StoplightController_2.cydsn\MooreFSM_StoplightController_2.cyprj|3a336cf8-9a2b-436e-a549-fa6f55b43e60
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\MooreFSM_StoplightController_3.cydsn\MooreFSM_StoplightController_3.cyprj|08eb9a59-1e81-4836-8cf9-3292dcacc3a3
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\RTOS_UART_StringMessage.cydsn\RTOS_UART_StringMessage.cyprj|9c33b568-4720-44e2-92ba-40ccd2378395
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\ADC.cydsn\ADC.cyprj|6f1f0aa4-c472-42fa-841f-98f554c94fe1

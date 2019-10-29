@@ -1,0 +1,13 @@
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\Lab01.cydsn\Lab01.cyprj|c64570e2-ff54-4ff0-93d0-d2a051001bd0
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|b8e18b61-509c-40cb-916f-84433ef1714c
+C:\Users\Tri94\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|2e6540c1-90ff-4469-99d2-aa9dd4176daf
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|dc29c4d8-ac78-4c51-94c2-b6d69674c0d0
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|b01df924-7602-4e36-b949-8e8d496a5fd9
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|f66d99a1-0bd4-46a1-8719-d6b590314e77
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\Example_SoftwareControlLED.cydsn\Example_SoftwareControlLED.cyprj|ae8a90e9-da75-4908-a21e-3a3a7c63afda
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\PWM_Servo.cydsn\PWM_Servo.cyprj|8ba37026-3d9e-48f0-a604-f07a54228f66
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\PWM_Motor.cydsn\PWM_Motor.cyprj|639f8277-e7f2-474d-9b53-316b5c7c3e93
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\UART2PC.cydsn\UART2PC.cyprj|8ad60777-5d04-4cf4-b1ab-74529103de32
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\Led_Display.cydsn\Led_Display.cyprj|ddde1f21-1ec5-4c31-bb68-cc472c7a18a1
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\Led_Display_Copy_01.cydsn\Led_Display_Copy_01.cyprj|e130509c-976d-4d3c-87c5-e729893b0d8c
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\Led_Display_Extra_Credit.cydsn\Led_Display_Extra_Credit.cyprj|1d8d65d8-9df5-4117-92b3-e013ee20ac2a

@@ -1,0 +1,40 @@
+
+		SoftJin Router, Version 1.0
+
+I1203: Reading Design CapSence_Proximity
+I1204: Reading netlist from file CapSence_Proximity_r.vh2
+I1206: Completed Reading of file CapSence_Proximity_r.vh2
+I1204: Reading placement from file CapSence_Proximity.pco
+I1206: Completed Reading of file CapSence_Proximity.pco
+I1204: Reading timing library from file CapSence_Proximity_r.lib
+I1206: Completed Reading of file CapSence_Proximity_r.lib
+I1204: Reading timing constraints from file CapSence_Proximity.sdc
+I1206: Completed Reading of file CapSence_Proximity.sdc
+I1204: Reading architecture from file C:\Users\Tri94\Documents\PSoC Creator\4.2\Devices\psoc5/psoc5lp/route_arch-rrg.cydata
+I1206: Completed Reading of file C:\Users\Tri94\Documents\PSoC Creator\4.2\Devices\psoc5/psoc5lp/route_arch-rrg.cydata
+I1209: Started routing
+I1223: Total Nets : 47 
+I1212: Iteration  1 :    25 unrouted : 0 seconds
+I1212: Iteration  2 :     7 unrouted : 0 seconds
+I1212: Iteration  3 :     5 unrouted : 0 seconds
+I1212: Iteration  4 :     5 unrouted : 0 seconds
+I1212: Iteration  5 :     3 unrouted : 0 seconds
+I1212: Iteration  6 :     3 unrouted : 0 seconds
+I1212: Iteration  7 :     3 unrouted : 0 seconds
+I1212: Iteration  8 :     3 unrouted : 0 seconds
+I1212: Iteration  9 :     3 unrouted : 0 seconds
+I1212: Iteration 10 :     3 unrouted : 0 seconds
+I1212: Iteration 11 :     3 unrouted : 0 seconds
+I1212: Iteration 12 :     3 unrouted : 0 seconds
+I1212: Iteration 13 :     3 unrouted : 0 seconds
+I1212: Iteration 14 :     3 unrouted : 0 seconds
+I1212: Iteration 15 :     3 unrouted : 0 seconds
+I1212: Iteration 16 :     3 unrouted : 0 seconds
+I1212: Iteration 17 :     2 unrouted : 0 seconds
+I1212: Iteration 18 :     4 unrouted : 0 seconds
+I1212: Iteration 19 :     0 unrouted : 0 seconds
+I1215: Routing is successful
+I1207: Completed routing
+I1210: Writing routes
+I1218: Exiting the router
+I1224: Total Time : 0 seconds

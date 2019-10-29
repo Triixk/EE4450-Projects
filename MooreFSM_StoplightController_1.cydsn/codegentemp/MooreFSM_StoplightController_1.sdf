@@ -1,0 +1,23 @@
+(DELAYFILE
+ (SDFVERSION "IEEE 1497 4.0")
+ (DATE "2019-10-15T21:39:10Z")
+ (DESIGN "MooreFSM_StoplightController_1")
+ (VENDOR "Cypress Semiconductor")
+ (PROGRAM "PSoC Creator")
+ (VERSION " 4.2")
+ (DIVIDER .)
+ (TIMESCALE 1 ns)
+ (CELL
+  (CELLTYPE "MooreFSM_StoplightController_1")
+  (INSTANCE *)
+  (DELAY
+   (ABSOLUTE
+    (INTERCONNECT nSW_Go\(0\)_PAD nSW_Go\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT GreenLED\(0\)_PAD GreenLED\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT nSW_STOP\(0\)_PAD nSW_STOP\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT RedLED\(0\)_PAD RedLED\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT YellowLED\(0\)_PAD YellowLED\(0\).pad_in (0.000:0.000:0.000))
+   )
+  )
+ )
+)

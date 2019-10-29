@@ -1,0 +1,18 @@
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\Lab01.cydsn\Lab01.cyprj|505cf78a-58c5-4494-9522-147d6619e24a
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|e01eea11-109a-4243-b8e2-bd18326386ba
+C:\Users\Tri94\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|c4c204c4-9894-4ba1-86bf-084d1fffaa47
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|07d2319b-2af7-441b-b199-705bd442c1c4
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|2d370e1e-38e3-4f12-adcc-4122a6ce3e0a
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|75fc049b-453a-4aa6-855f-0a79710330ca
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\Example_SoftwareControlLED.cydsn\Example_SoftwareControlLED.cyprj|3f0578be-5188-4e09-81ff-ed83369ebf68
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\PWM_Servo.cydsn\PWM_Servo.cyprj|79980bea-b746-4502-8155-beabe0551c94
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\PWM_Motor.cydsn\PWM_Motor.cyprj|9da565ba-247f-403a-b5ac-ae159a76eabe
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\UART2PC.cydsn\UART2PC.cyprj|990540a2-c22b-4a14-90ed-e93ced257d5d
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\Led_Display.cydsn\Led_Display.cyprj|b59c65d9-6d86-430e-b08d-f82647c534f5
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\Led_Display_Copy_01.cydsn\Led_Display_Copy_01.cyprj|cefae54b-2c85-4078-abfc-c73e459642fc
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\Led_Display_Extra_Credit.cydsn\Led_Display_Extra_Credit.cyprj|f8d6e705-4b34-42c7-9364-5b0a3b3ba415
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\Led_Display_Extra_Test.cydsn\Led_Display_Extra_Test.cyprj|aec19811-829b-40bc-bd5a-f555dc34b666
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\I2C_RTC.cydsn\I2C_RTC.cyprj|5ac5e988-9b80-495a-8177-7238324df40c
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\Timer_IRQ.cydsn\Timer_IRQ.cyprj|237dda56-d900-40b6-8310-181a85e3d905
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\PWM_BreathingLED.cydsn\PWM_BreathingLED.cyprj|4bdd1424-8481-49cd-b1d6-5d50a0eba7c0
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\CapSence_Proximity.cydsn\CapSence_Proximity.cyprj|08017c9c-9d2d-4867-a6b2-d3ab35128210

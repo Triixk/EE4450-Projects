@@ -1,0 +1,914 @@
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cc8i0nak.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	main, %function
+  25              	main:
+  26              	.LFB64:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** #include <stdio.h>
+  14:main.c        **** #include <stdlib.h>
+  15:main.c        **** #include <stdint.h>
+  16:main.c        **** #include <stdbool.h>
+  17:main.c        ****  
+  18:main.c        **** int main(void)
+  19:main.c        **** {
+  28              		.loc 1 19 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 38B5     		push	{r3, r4, r5, lr}
+  33              		.cfi_def_cfa_offset 16
+  34              		.cfi_offset 3, -16
+  35              		.cfi_offset 4, -12
+  36              		.cfi_offset 5, -8
+  37              		.cfi_offset 14, -4
+  20:main.c        **** 
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cc8i0nak.s 			page 2
+
+
+  21:main.c        ****      
+  22:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  38              		.loc 1 22 0
+  39              		.syntax unified
+  40              	@ 22 "main.c" 1
+  41 0002 62B6     		CPSIE   i
+  42              	@ 0 "" 2
+  43              	.LVL0:
+  23:main.c        ****  
+  24:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  25:main.c        ****     //int toogle = 0;
+  26:main.c        ****     bool preState;
+  27:main.c        ****     bool curState;
+  28:main.c        ****     
+  29:main.c        ****     //Initial value for preState
+  30:main.c        ****     preState = 1;
+  44              		.loc 1 30 0
+  45              		.thumb
+  46              		.syntax unified
+  47 0004 0124     		movs	r4, #1
+  48 0006 00E0     		b	.L2
+  49              	.LVL1:
+  50              	.L3:
+  19:main.c        **** 
+  51              		.loc 1 19 0
+  52 0008 2C46     		mov	r4, r5
+  53              	.LVL2:
+  54              	.L2:
+  31:main.c        ****     
+  32:main.c        ****     for(;;)
+  33:main.c        ****     {
+  34:main.c        ****         /* Place your application code here. */
+  35:main.c        **** 
+  36:main.c        ****         //Read current switch state
+  37:main.c        ****         curState = nSW_Read();
+  55              		.loc 1 37 0
+  56 000a FFF7FEFF 		bl	nSW_Read
+  57              	.LVL3:
+  58 000e 051C     		adds	r5, r0, #0
+  59 0010 18BF     		it	ne
+  60 0012 0125     		movne	r5, #1
+  61              	.LVL4:
+  38:main.c        ****         
+  39:main.c        ****         //Detect when switch pushed
+  40:main.c        ****         if ( (preState == 1) && (curState == 0)){
+  62              		.loc 1 40 0
+  63 0014 002C     		cmp	r4, #0
+  64 0016 F7D0     		beq	.L3
+  65              		.loc 1 40 0 is_stmt 0 discriminator 1
+  66 0018 0028     		cmp	r0, #0
+  67 001a F5D1     		bne	.L3
+  41:main.c        ****             LEDA_Write(!LEDA_Read());
+  68              		.loc 1 41 0 is_stmt 1
+  69 001c FFF7FEFF 		bl	LEDA_Read
+  70              	.LVL5:
+  71 0020 B0FA80F0 		clz	r0, r0
+  72 0024 4009     		lsrs	r0, r0, #5
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cc8i0nak.s 			page 3
+
+
+  73 0026 FFF7FEFF 		bl	LEDA_Write
+  74              	.LVL6:
+  42:main.c        ****             LEDB_Write(!LEDB_Read());
+  75              		.loc 1 42 0
+  76 002a FFF7FEFF 		bl	LEDB_Read
+  77              	.LVL7:
+  78 002e B0FA80F0 		clz	r0, r0
+  79 0032 4009     		lsrs	r0, r0, #5
+  80 0034 FFF7FEFF 		bl	LEDB_Write
+  81              	.LVL8:
+  43:main.c        ****             LEDC_Write(!LEDC_Read());
+  82              		.loc 1 43 0
+  83 0038 FFF7FEFF 		bl	LEDC_Read
+  84              	.LVL9:
+  85 003c B0FA80F0 		clz	r0, r0
+  86 0040 4009     		lsrs	r0, r0, #5
+  87 0042 FFF7FEFF 		bl	LEDC_Write
+  88              	.LVL10:
+  44:main.c        ****             LEDD_Write(!LEDD_Read());
+  89              		.loc 1 44 0
+  90 0046 FFF7FEFF 		bl	LEDD_Read
+  91              	.LVL11:
+  92 004a B0FA80F0 		clz	r0, r0
+  93 004e 4009     		lsrs	r0, r0, #5
+  94 0050 FFF7FEFF 		bl	LEDD_Write
+  95              	.LVL12:
+  45:main.c        ****             LEDE_Write(!LEDE_Read());
+  96              		.loc 1 45 0
+  97 0054 FFF7FEFF 		bl	LEDE_Read
+  98              	.LVL13:
+  99 0058 B0FA80F0 		clz	r0, r0
+ 100 005c 4009     		lsrs	r0, r0, #5
+ 101 005e FFF7FEFF 		bl	LEDE_Write
+ 102              	.LVL14:
+  46:main.c        ****             LEDF_Write(!LEDF_Read());
+ 103              		.loc 1 46 0
+ 104 0062 FFF7FEFF 		bl	LEDF_Read
+ 105              	.LVL15:
+ 106 0066 B0FA80F0 		clz	r0, r0
+ 107 006a 4009     		lsrs	r0, r0, #5
+ 108 006c FFF7FEFF 		bl	LEDF_Write
+ 109              	.LVL16:
+  47:main.c        ****             LEDG_Write(!LEDG_Read());
+ 110              		.loc 1 47 0
+ 111 0070 FFF7FEFF 		bl	LEDG_Read
+ 112              	.LVL17:
+ 113 0074 B0FA80F0 		clz	r0, r0
+ 114 0078 4009     		lsrs	r0, r0, #5
+ 115 007a FFF7FEFF 		bl	LEDG_Write
+ 116              	.LVL18:
+  48:main.c        ****             LEDDP_Write(!LEDDP_Read());
+ 117              		.loc 1 48 0
+ 118 007e FFF7FEFF 		bl	LEDDP_Read
+ 119              	.LVL19:
+ 120 0082 B0FA80F0 		clz	r0, r0
+ 121 0086 4009     		lsrs	r0, r0, #5
+ 122 0088 FFF7FEFF 		bl	LEDDP_Write
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cc8i0nak.s 			page 4
+
+
+ 123              	.LVL20:
+  49:main.c        ****             DIG1_Write(!DIG1_Read());
+ 124              		.loc 1 49 0
+ 125 008c FFF7FEFF 		bl	DIG1_Read
+ 126              	.LVL21:
+ 127 0090 B0FA80F0 		clz	r0, r0
+ 128 0094 4009     		lsrs	r0, r0, #5
+ 129 0096 FFF7FEFF 		bl	DIG1_Write
+ 130              	.LVL22:
+ 131 009a B5E7     		b	.L3
+ 132              		.cfi_endproc
+ 133              	.LFE64:
+ 134              		.size	main, .-main
+ 135              		.text
+ 136              	.Letext0:
+ 137              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 138              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 139              		.file 4 "Generated_Source\\PSoC5/nSW.h"
+ 140              		.file 5 "Generated_Source\\PSoC5/LEDA.h"
+ 141              		.file 6 "Generated_Source\\PSoC5/LEDB.h"
+ 142              		.file 7 "Generated_Source\\PSoC5/LEDC.h"
+ 143              		.file 8 "Generated_Source\\PSoC5/LEDD.h"
+ 144              		.file 9 "Generated_Source\\PSoC5/LEDE.h"
+ 145              		.file 10 "Generated_Source\\PSoC5/LEDF.h"
+ 146              		.file 11 "Generated_Source\\PSoC5/LEDG.h"
+ 147              		.file 12 "Generated_Source\\PSoC5/LEDDP.h"
+ 148              		.file 13 "Generated_Source\\PSoC5/DIG1.h"
+ 149              		.file 14 "Generated_Source\\PSoC5/core_cm3.h"
+ 150              		.section	.debug_info,"",%progbits
+ 151              	.Ldebug_info0:
+ 152 0000 6D020000 		.4byte	0x26d
+ 153 0004 0400     		.2byte	0x4
+ 154 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 155 000a 04       		.byte	0x4
+ 156 000b 01       		.uleb128 0x1
+ 157 000c 8D000000 		.4byte	.LASF38
+ 158 0010 0C       		.byte	0xc
+ 159 0011 FB010000 		.4byte	.LASF39
+ 160 0015 28000000 		.4byte	.LASF40
+ 161 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 162 001d 00000000 		.4byte	0
+ 163 0021 00000000 		.4byte	.Ldebug_line0
+ 164 0025 02       		.uleb128 0x2
+ 165 0026 01       		.byte	0x1
+ 166 0027 06       		.byte	0x6
+ 167 0028 64020000 		.4byte	.LASF0
+ 168 002c 02       		.uleb128 0x2
+ 169 002d 01       		.byte	0x1
+ 170 002e 08       		.byte	0x8
+ 171 002f 7F000000 		.4byte	.LASF1
+ 172 0033 02       		.uleb128 0x2
+ 173 0034 02       		.byte	0x2
+ 174 0035 05       		.byte	0x5
+ 175 0036 25020000 		.4byte	.LASF2
+ 176 003a 02       		.uleb128 0x2
+ 177 003b 02       		.byte	0x2
+ 178 003c 07       		.byte	0x7
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cc8i0nak.s 			page 5
+
+
+ 179 003d 37010000 		.4byte	.LASF3
+ 180 0041 03       		.uleb128 0x3
+ 181 0042 0A000000 		.4byte	.LASF9
+ 182 0046 02       		.byte	0x2
+ 183 0047 3F       		.byte	0x3f
+ 184 0048 4C000000 		.4byte	0x4c
+ 185 004c 02       		.uleb128 0x2
+ 186 004d 04       		.byte	0x4
+ 187 004e 05       		.byte	0x5
+ 188 004f 44020000 		.4byte	.LASF4
+ 189 0053 02       		.uleb128 0x2
+ 190 0054 04       		.byte	0x4
+ 191 0055 07       		.byte	0x7
+ 192 0056 1B010000 		.4byte	.LASF5
+ 193 005a 02       		.uleb128 0x2
+ 194 005b 08       		.byte	0x8
+ 195 005c 05       		.byte	0x5
+ 196 005d ED010000 		.4byte	.LASF6
+ 197 0061 02       		.uleb128 0x2
+ 198 0062 08       		.byte	0x8
+ 199 0063 07       		.byte	0x7
+ 200 0064 A5010000 		.4byte	.LASF7
+ 201 0068 04       		.uleb128 0x4
+ 202 0069 04       		.byte	0x4
+ 203 006a 05       		.byte	0x5
+ 204 006b 696E7400 		.ascii	"int\000"
+ 205 006f 02       		.uleb128 0x2
+ 206 0070 04       		.byte	0x4
+ 207 0071 07       		.byte	0x7
+ 208 0072 8E010000 		.4byte	.LASF8
+ 209 0076 03       		.uleb128 0x3
+ 210 0077 D1010000 		.4byte	.LASF10
+ 211 007b 03       		.byte	0x3
+ 212 007c 2C       		.byte	0x2c
+ 213 007d 41000000 		.4byte	0x41
+ 214 0081 02       		.uleb128 0x2
+ 215 0082 04       		.byte	0x4
+ 216 0083 04       		.byte	0x4
+ 217 0084 6F000000 		.4byte	.LASF11
+ 218 0088 02       		.uleb128 0x2
+ 219 0089 08       		.byte	0x8
+ 220 008a 04       		.byte	0x4
+ 221 008b 5F010000 		.4byte	.LASF12
+ 222 008f 02       		.uleb128 0x2
+ 223 0090 01       		.byte	0x1
+ 224 0091 08       		.byte	0x8
+ 225 0092 02020000 		.4byte	.LASF13
+ 226 0096 02       		.uleb128 0x2
+ 227 0097 08       		.byte	0x8
+ 228 0098 04       		.byte	0x4
+ 229 0099 58020000 		.4byte	.LASF14
+ 230 009d 02       		.uleb128 0x2
+ 231 009e 04       		.byte	0x4
+ 232 009f 07       		.byte	0x7
+ 233 00a0 E4010000 		.4byte	.LASF15
+ 234 00a4 05       		.uleb128 0x5
+ 235 00a5 66010000 		.4byte	.LASF41
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cc8i0nak.s 			page 6
+
+
+ 236 00a9 01       		.byte	0x1
+ 237 00aa 12       		.byte	0x12
+ 238 00ab 68000000 		.4byte	0x68
+ 239 00af 00000000 		.4byte	.LFB64
+ 240 00b3 9C000000 		.4byte	.LFE64-.LFB64
+ 241 00b7 01       		.uleb128 0x1
+ 242 00b8 9C       		.byte	0x9c
+ 243 00b9 87010000 		.4byte	0x187
+ 244 00bd 06       		.uleb128 0x6
+ 245 00be 11020000 		.4byte	.LASF16
+ 246 00c2 01       		.byte	0x1
+ 247 00c3 1A       		.byte	0x1a
+ 248 00c4 87010000 		.4byte	0x187
+ 249 00c8 00000000 		.4byte	.LLST0
+ 250 00cc 06       		.uleb128 0x6
+ 251 00cd C8010000 		.4byte	.LASF17
+ 252 00d1 01       		.byte	0x1
+ 253 00d2 1B       		.byte	0x1b
+ 254 00d3 87010000 		.4byte	0x187
+ 255 00d7 1F000000 		.4byte	.LLST1
+ 256 00db 07       		.uleb128 0x7
+ 257 00dc 0E000000 		.4byte	.LVL3
+ 258 00e0 9F010000 		.4byte	0x19f
+ 259 00e4 07       		.uleb128 0x7
+ 260 00e5 20000000 		.4byte	.LVL5
+ 261 00e9 AA010000 		.4byte	0x1aa
+ 262 00ed 07       		.uleb128 0x7
+ 263 00ee 2A000000 		.4byte	.LVL6
+ 264 00f2 B5010000 		.4byte	0x1b5
+ 265 00f6 07       		.uleb128 0x7
+ 266 00f7 2E000000 		.4byte	.LVL7
+ 267 00fb C0010000 		.4byte	0x1c0
+ 268 00ff 07       		.uleb128 0x7
+ 269 0100 38000000 		.4byte	.LVL8
+ 270 0104 CB010000 		.4byte	0x1cb
+ 271 0108 07       		.uleb128 0x7
+ 272 0109 3C000000 		.4byte	.LVL9
+ 273 010d D6010000 		.4byte	0x1d6
+ 274 0111 07       		.uleb128 0x7
+ 275 0112 46000000 		.4byte	.LVL10
+ 276 0116 E1010000 		.4byte	0x1e1
+ 277 011a 07       		.uleb128 0x7
+ 278 011b 4A000000 		.4byte	.LVL11
+ 279 011f EC010000 		.4byte	0x1ec
+ 280 0123 07       		.uleb128 0x7
+ 281 0124 54000000 		.4byte	.LVL12
+ 282 0128 F7010000 		.4byte	0x1f7
+ 283 012c 07       		.uleb128 0x7
+ 284 012d 58000000 		.4byte	.LVL13
+ 285 0131 02020000 		.4byte	0x202
+ 286 0135 07       		.uleb128 0x7
+ 287 0136 62000000 		.4byte	.LVL14
+ 288 013a 0D020000 		.4byte	0x20d
+ 289 013e 07       		.uleb128 0x7
+ 290 013f 66000000 		.4byte	.LVL15
+ 291 0143 18020000 		.4byte	0x218
+ 292 0147 07       		.uleb128 0x7
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cc8i0nak.s 			page 7
+
+
+ 293 0148 70000000 		.4byte	.LVL16
+ 294 014c 23020000 		.4byte	0x223
+ 295 0150 07       		.uleb128 0x7
+ 296 0151 74000000 		.4byte	.LVL17
+ 297 0155 2E020000 		.4byte	0x22e
+ 298 0159 07       		.uleb128 0x7
+ 299 015a 7E000000 		.4byte	.LVL18
+ 300 015e 39020000 		.4byte	0x239
+ 301 0162 07       		.uleb128 0x7
+ 302 0163 82000000 		.4byte	.LVL19
+ 303 0167 44020000 		.4byte	0x244
+ 304 016b 07       		.uleb128 0x7
+ 305 016c 8C000000 		.4byte	.LVL20
+ 306 0170 4F020000 		.4byte	0x24f
+ 307 0174 07       		.uleb128 0x7
+ 308 0175 90000000 		.4byte	.LVL21
+ 309 0179 5A020000 		.4byte	0x25a
+ 310 017d 07       		.uleb128 0x7
+ 311 017e 9A000000 		.4byte	.LVL22
+ 312 0182 65020000 		.4byte	0x265
+ 313 0186 00       		.byte	0
+ 314 0187 02       		.uleb128 0x2
+ 315 0188 01       		.byte	0x1
+ 316 0189 02       		.byte	0x2
+ 317 018a 7A020000 		.4byte	.LASF18
+ 318 018e 08       		.uleb128 0x8
+ 319 018f 81010000 		.4byte	.LASF42
+ 320 0193 0E       		.byte	0xe
+ 321 0194 1207     		.2byte	0x712
+ 322 0196 9A010000 		.4byte	0x19a
+ 323 019a 09       		.uleb128 0x9
+ 324 019b 76000000 		.4byte	0x76
+ 325 019f 0A       		.uleb128 0xa
+ 326 01a0 1F000000 		.4byte	.LASF19
+ 327 01a4 1F000000 		.4byte	.LASF19
+ 328 01a8 04       		.byte	0x4
+ 329 01a9 29       		.byte	0x29
+ 330 01aa 0A       		.uleb128 0xa
+ 331 01ab 55010000 		.4byte	.LASF20
+ 332 01af 55010000 		.4byte	.LASF20
+ 333 01b3 05       		.byte	0x5
+ 334 01b4 29       		.byte	0x29
+ 335 01b5 0A       		.uleb128 0xa
+ 336 01b6 4A010000 		.4byte	.LASF21
+ 337 01ba 4A010000 		.4byte	.LASF21
+ 338 01be 05       		.byte	0x5
+ 339 01bf 26       		.byte	0x26
+ 340 01c0 0A       		.uleb128 0xa
+ 341 01c1 2F020000 		.4byte	.LASF22
+ 342 01c5 2F020000 		.4byte	.LASF22
+ 343 01c9 06       		.byte	0x6
+ 344 01ca 29       		.byte	0x29
+ 345 01cb 0A       		.uleb128 0xa
+ 346 01cc 76010000 		.4byte	.LASF23
+ 347 01d0 76010000 		.4byte	.LASF23
+ 348 01d4 06       		.byte	0x6
+ 349 01d5 26       		.byte	0x26
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cc8i0nak.s 			page 8
+
+
+ 350 01d6 0A       		.uleb128 0xa
+ 351 01d7 00000000 		.4byte	.LASF24
+ 352 01db 00000000 		.4byte	.LASF24
+ 353 01df 07       		.byte	0x7
+ 354 01e0 29       		.byte	0x29
+ 355 01e1 0A       		.uleb128 0xa
+ 356 01e2 6B010000 		.4byte	.LASF25
+ 357 01e6 6B010000 		.4byte	.LASF25
+ 358 01ea 07       		.byte	0x7
+ 359 01eb 26       		.byte	0x26
+ 360 01ec 0A       		.uleb128 0xa
+ 361 01ed 2D010000 		.4byte	.LASF26
+ 362 01f1 2D010000 		.4byte	.LASF26
+ 363 01f5 08       		.byte	0x8
+ 364 01f6 29       		.byte	0x29
+ 365 01f7 0A       		.uleb128 0xa
+ 366 01f8 D9010000 		.4byte	.LASF27
+ 367 01fc D9010000 		.4byte	.LASF27
+ 368 0200 08       		.byte	0x8
+ 369 0201 26       		.byte	0x26
+ 370 0202 0A       		.uleb128 0xa
+ 371 0203 9B010000 		.4byte	.LASF28
+ 372 0207 9B010000 		.4byte	.LASF28
+ 373 020b 09       		.byte	0x9
+ 374 020c 29       		.byte	0x29
+ 375 020d 0A       		.uleb128 0xa
+ 376 020e 1A020000 		.4byte	.LASF29
+ 377 0212 1A020000 		.4byte	.LASF29
+ 378 0216 09       		.byte	0x9
+ 379 0217 26       		.byte	0x26
+ 380 0218 0A       		.uleb128 0xa
+ 381 0219 70020000 		.4byte	.LASF30
+ 382 021d 70020000 		.4byte	.LASF30
+ 383 0221 0A       		.byte	0xa
+ 384 0222 29       		.byte	0x29
+ 385 0223 0A       		.uleb128 0xa
+ 386 0224 4D020000 		.4byte	.LASF31
+ 387 0228 4D020000 		.4byte	.LASF31
+ 388 022c 0A       		.byte	0xa
+ 389 022d 26       		.byte	0x26
+ 390 022e 0A       		.uleb128 0xa
+ 391 022f 75000000 		.4byte	.LASF32
+ 392 0233 75000000 		.4byte	.LASF32
+ 393 0237 0B       		.byte	0xb
+ 394 0238 29       		.byte	0x29
+ 395 0239 0A       		.uleb128 0xa
+ 396 023a 80020000 		.4byte	.LASF33
+ 397 023e 80020000 		.4byte	.LASF33
+ 398 0242 0B       		.byte	0xb
+ 399 0243 26       		.byte	0x26
+ 400 0244 0A       		.uleb128 0xa
+ 401 0245 39020000 		.4byte	.LASF34
+ 402 0249 39020000 		.4byte	.LASF34
+ 403 024d 0C       		.byte	0xc
+ 404 024e 29       		.byte	0x29
+ 405 024f 0A       		.uleb128 0xa
+ 406 0250 BC010000 		.4byte	.LASF35
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cc8i0nak.s 			page 9
+
+
+ 407 0254 BC010000 		.4byte	.LASF35
+ 408 0258 0C       		.byte	0xc
+ 409 0259 26       		.byte	0x26
+ 410 025a 0A       		.uleb128 0xa
+ 411 025b 07020000 		.4byte	.LASF36
+ 412 025f 07020000 		.4byte	.LASF36
+ 413 0263 0D       		.byte	0xd
+ 414 0264 29       		.byte	0x29
+ 415 0265 0A       		.uleb128 0xa
+ 416 0266 14000000 		.4byte	.LASF37
+ 417 026a 14000000 		.4byte	.LASF37
+ 418 026e 0D       		.byte	0xd
+ 419 026f 26       		.byte	0x26
+ 420 0270 00       		.byte	0
+ 421              		.section	.debug_abbrev,"",%progbits
+ 422              	.Ldebug_abbrev0:
+ 423 0000 01       		.uleb128 0x1
+ 424 0001 11       		.uleb128 0x11
+ 425 0002 01       		.byte	0x1
+ 426 0003 25       		.uleb128 0x25
+ 427 0004 0E       		.uleb128 0xe
+ 428 0005 13       		.uleb128 0x13
+ 429 0006 0B       		.uleb128 0xb
+ 430 0007 03       		.uleb128 0x3
+ 431 0008 0E       		.uleb128 0xe
+ 432 0009 1B       		.uleb128 0x1b
+ 433 000a 0E       		.uleb128 0xe
+ 434 000b 55       		.uleb128 0x55
+ 435 000c 17       		.uleb128 0x17
+ 436 000d 11       		.uleb128 0x11
+ 437 000e 01       		.uleb128 0x1
+ 438 000f 10       		.uleb128 0x10
+ 439 0010 17       		.uleb128 0x17
+ 440 0011 00       		.byte	0
+ 441 0012 00       		.byte	0
+ 442 0013 02       		.uleb128 0x2
+ 443 0014 24       		.uleb128 0x24
+ 444 0015 00       		.byte	0
+ 445 0016 0B       		.uleb128 0xb
+ 446 0017 0B       		.uleb128 0xb
+ 447 0018 3E       		.uleb128 0x3e
+ 448 0019 0B       		.uleb128 0xb
+ 449 001a 03       		.uleb128 0x3
+ 450 001b 0E       		.uleb128 0xe
+ 451 001c 00       		.byte	0
+ 452 001d 00       		.byte	0
+ 453 001e 03       		.uleb128 0x3
+ 454 001f 16       		.uleb128 0x16
+ 455 0020 00       		.byte	0
+ 456 0021 03       		.uleb128 0x3
+ 457 0022 0E       		.uleb128 0xe
+ 458 0023 3A       		.uleb128 0x3a
+ 459 0024 0B       		.uleb128 0xb
+ 460 0025 3B       		.uleb128 0x3b
+ 461 0026 0B       		.uleb128 0xb
+ 462 0027 49       		.uleb128 0x49
+ 463 0028 13       		.uleb128 0x13
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cc8i0nak.s 			page 10
+
+
+ 464 0029 00       		.byte	0
+ 465 002a 00       		.byte	0
+ 466 002b 04       		.uleb128 0x4
+ 467 002c 24       		.uleb128 0x24
+ 468 002d 00       		.byte	0
+ 469 002e 0B       		.uleb128 0xb
+ 470 002f 0B       		.uleb128 0xb
+ 471 0030 3E       		.uleb128 0x3e
+ 472 0031 0B       		.uleb128 0xb
+ 473 0032 03       		.uleb128 0x3
+ 474 0033 08       		.uleb128 0x8
+ 475 0034 00       		.byte	0
+ 476 0035 00       		.byte	0
+ 477 0036 05       		.uleb128 0x5
+ 478 0037 2E       		.uleb128 0x2e
+ 479 0038 01       		.byte	0x1
+ 480 0039 3F       		.uleb128 0x3f
+ 481 003a 19       		.uleb128 0x19
+ 482 003b 03       		.uleb128 0x3
+ 483 003c 0E       		.uleb128 0xe
+ 484 003d 3A       		.uleb128 0x3a
+ 485 003e 0B       		.uleb128 0xb
+ 486 003f 3B       		.uleb128 0x3b
+ 487 0040 0B       		.uleb128 0xb
+ 488 0041 27       		.uleb128 0x27
+ 489 0042 19       		.uleb128 0x19
+ 490 0043 49       		.uleb128 0x49
+ 491 0044 13       		.uleb128 0x13
+ 492 0045 8701     		.uleb128 0x87
+ 493 0047 19       		.uleb128 0x19
+ 494 0048 11       		.uleb128 0x11
+ 495 0049 01       		.uleb128 0x1
+ 496 004a 12       		.uleb128 0x12
+ 497 004b 06       		.uleb128 0x6
+ 498 004c 40       		.uleb128 0x40
+ 499 004d 18       		.uleb128 0x18
+ 500 004e 9742     		.uleb128 0x2117
+ 501 0050 19       		.uleb128 0x19
+ 502 0051 01       		.uleb128 0x1
+ 503 0052 13       		.uleb128 0x13
+ 504 0053 00       		.byte	0
+ 505 0054 00       		.byte	0
+ 506 0055 06       		.uleb128 0x6
+ 507 0056 34       		.uleb128 0x34
+ 508 0057 00       		.byte	0
+ 509 0058 03       		.uleb128 0x3
+ 510 0059 0E       		.uleb128 0xe
+ 511 005a 3A       		.uleb128 0x3a
+ 512 005b 0B       		.uleb128 0xb
+ 513 005c 3B       		.uleb128 0x3b
+ 514 005d 0B       		.uleb128 0xb
+ 515 005e 49       		.uleb128 0x49
+ 516 005f 13       		.uleb128 0x13
+ 517 0060 02       		.uleb128 0x2
+ 518 0061 17       		.uleb128 0x17
+ 519 0062 00       		.byte	0
+ 520 0063 00       		.byte	0
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cc8i0nak.s 			page 11
+
+
+ 521 0064 07       		.uleb128 0x7
+ 522 0065 898201   		.uleb128 0x4109
+ 523 0068 00       		.byte	0
+ 524 0069 11       		.uleb128 0x11
+ 525 006a 01       		.uleb128 0x1
+ 526 006b 31       		.uleb128 0x31
+ 527 006c 13       		.uleb128 0x13
+ 528 006d 00       		.byte	0
+ 529 006e 00       		.byte	0
+ 530 006f 08       		.uleb128 0x8
+ 531 0070 34       		.uleb128 0x34
+ 532 0071 00       		.byte	0
+ 533 0072 03       		.uleb128 0x3
+ 534 0073 0E       		.uleb128 0xe
+ 535 0074 3A       		.uleb128 0x3a
+ 536 0075 0B       		.uleb128 0xb
+ 537 0076 3B       		.uleb128 0x3b
+ 538 0077 05       		.uleb128 0x5
+ 539 0078 49       		.uleb128 0x49
+ 540 0079 13       		.uleb128 0x13
+ 541 007a 3F       		.uleb128 0x3f
+ 542 007b 19       		.uleb128 0x19
+ 543 007c 3C       		.uleb128 0x3c
+ 544 007d 19       		.uleb128 0x19
+ 545 007e 00       		.byte	0
+ 546 007f 00       		.byte	0
+ 547 0080 09       		.uleb128 0x9
+ 548 0081 35       		.uleb128 0x35
+ 549 0082 00       		.byte	0
+ 550 0083 49       		.uleb128 0x49
+ 551 0084 13       		.uleb128 0x13
+ 552 0085 00       		.byte	0
+ 553 0086 00       		.byte	0
+ 554 0087 0A       		.uleb128 0xa
+ 555 0088 2E       		.uleb128 0x2e
+ 556 0089 00       		.byte	0
+ 557 008a 3F       		.uleb128 0x3f
+ 558 008b 19       		.uleb128 0x19
+ 559 008c 3C       		.uleb128 0x3c
+ 560 008d 19       		.uleb128 0x19
+ 561 008e 6E       		.uleb128 0x6e
+ 562 008f 0E       		.uleb128 0xe
+ 563 0090 03       		.uleb128 0x3
+ 564 0091 0E       		.uleb128 0xe
+ 565 0092 3A       		.uleb128 0x3a
+ 566 0093 0B       		.uleb128 0xb
+ 567 0094 3B       		.uleb128 0x3b
+ 568 0095 0B       		.uleb128 0xb
+ 569 0096 00       		.byte	0
+ 570 0097 00       		.byte	0
+ 571 0098 00       		.byte	0
+ 572              		.section	.debug_loc,"",%progbits
+ 573              	.Ldebug_loc0:
+ 574              	.LLST0:
+ 575 0000 04000000 		.4byte	.LVL0
+ 576 0004 08000000 		.4byte	.LVL1
+ 577 0008 0200     		.2byte	0x2
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cc8i0nak.s 			page 12
+
+
+ 578 000a 31       		.byte	0x31
+ 579 000b 9F       		.byte	0x9f
+ 580 000c 08000000 		.4byte	.LVL1
+ 581 0010 9C000000 		.4byte	.LFE64
+ 582 0014 0100     		.2byte	0x1
+ 583 0016 54       		.byte	0x54
+ 584 0017 00000000 		.4byte	0
+ 585 001b 00000000 		.4byte	0
+ 586              	.LLST1:
+ 587 001f 08000000 		.4byte	.LVL1
+ 588 0023 0A000000 		.4byte	.LVL2
+ 589 0027 0100     		.2byte	0x1
+ 590 0029 55       		.byte	0x55
+ 591 002a 14000000 		.4byte	.LVL4
+ 592 002e 9C000000 		.4byte	.LFE64
+ 593 0032 0100     		.2byte	0x1
+ 594 0034 55       		.byte	0x55
+ 595 0035 00000000 		.4byte	0
+ 596 0039 00000000 		.4byte	0
+ 597              		.section	.debug_aranges,"",%progbits
+ 598 0000 1C000000 		.4byte	0x1c
+ 599 0004 0200     		.2byte	0x2
+ 600 0006 00000000 		.4byte	.Ldebug_info0
+ 601 000a 04       		.byte	0x4
+ 602 000b 00       		.byte	0
+ 603 000c 0000     		.2byte	0
+ 604 000e 0000     		.2byte	0
+ 605 0010 00000000 		.4byte	.LFB64
+ 606 0014 9C000000 		.4byte	.LFE64-.LFB64
+ 607 0018 00000000 		.4byte	0
+ 608 001c 00000000 		.4byte	0
+ 609              		.section	.debug_ranges,"",%progbits
+ 610              	.Ldebug_ranges0:
+ 611 0000 00000000 		.4byte	.LFB64
+ 612 0004 9C000000 		.4byte	.LFE64
+ 613 0008 00000000 		.4byte	0
+ 614 000c 00000000 		.4byte	0
+ 615              		.section	.debug_line,"",%progbits
+ 616              	.Ldebug_line0:
+ 617 0000 D1010000 		.section	.debug_str,"MS",%progbits,1
+ 617      0200A301 
+ 617      00000201 
+ 617      FB0E0D00 
+ 617      01010101 
+ 618              	.LASF24:
+ 619 0000 4C454443 		.ascii	"LEDC_Read\000"
+ 619      5F526561 
+ 619      6400
+ 620              	.LASF9:
+ 621 000a 5F5F696E 		.ascii	"__int32_t\000"
+ 621      7433325F 
+ 621      7400
+ 622              	.LASF37:
+ 623 0014 44494731 		.ascii	"DIG1_Write\000"
+ 623      5F577269 
+ 623      746500
+ 624              	.LASF19:
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cc8i0nak.s 			page 13
+
+
+ 625 001f 6E53575F 		.ascii	"nSW_Read\000"
+ 625      52656164 
+ 625      00
+ 626              	.LASF40:
+ 627 0028 433A5C55 		.ascii	"C:\\Users\\Tri94\\Documents\\PSoC Creator\\EE4450\\"
+ 627      73657273 
+ 627      5C547269 
+ 627      39345C44 
+ 627      6F63756D 
+ 628 0055 4C65645F 		.ascii	"Led_Display_Copy_01.cydsn\000"
+ 628      44697370 
+ 628      6C61795F 
+ 628      436F7079 
+ 628      5F30312E 
+ 629              	.LASF11:
+ 630 006f 666C6F61 		.ascii	"float\000"
+ 630      7400
+ 631              	.LASF32:
+ 632 0075 4C454447 		.ascii	"LEDG_Read\000"
+ 632      5F526561 
+ 632      6400
+ 633              	.LASF1:
+ 634 007f 756E7369 		.ascii	"unsigned char\000"
+ 634      676E6564 
+ 634      20636861 
+ 634      7200
+ 635              	.LASF38:
+ 636 008d 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 636      43313120 
+ 636      352E342E 
+ 636      31203230 
+ 636      31363036 
+ 637 00c0 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 637      20726576 
+ 637      6973696F 
+ 637      6E203233 
+ 637      37373135 
+ 638 00f3 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 638      66756E63 
+ 638      74696F6E 
+ 638      2D736563 
+ 638      74696F6E 
+ 639              	.LASF5:
+ 640 011b 6C6F6E67 		.ascii	"long unsigned int\000"
+ 640      20756E73 
+ 640      69676E65 
+ 640      6420696E 
+ 640      7400
+ 641              	.LASF26:
+ 642 012d 4C454444 		.ascii	"LEDD_Read\000"
+ 642      5F526561 
+ 642      6400
+ 643              	.LASF3:
+ 644 0137 73686F72 		.ascii	"short unsigned int\000"
+ 644      7420756E 
+ 644      7369676E 
+ 644      65642069 
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cc8i0nak.s 			page 14
+
+
+ 644      6E7400
+ 645              	.LASF21:
+ 646 014a 4C454441 		.ascii	"LEDA_Write\000"
+ 646      5F577269 
+ 646      746500
+ 647              	.LASF20:
+ 648 0155 4C454441 		.ascii	"LEDA_Read\000"
+ 648      5F526561 
+ 648      6400
+ 649              	.LASF12:
+ 650 015f 646F7562 		.ascii	"double\000"
+ 650      6C6500
+ 651              	.LASF41:
+ 652 0166 6D61696E 		.ascii	"main\000"
+ 652      00
+ 653              	.LASF25:
+ 654 016b 4C454443 		.ascii	"LEDC_Write\000"
+ 654      5F577269 
+ 654      746500
+ 655              	.LASF23:
+ 656 0176 4C454442 		.ascii	"LEDB_Write\000"
+ 656      5F577269 
+ 656      746500
+ 657              	.LASF42:
+ 658 0181 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 658      52784275 
+ 658      66666572 
+ 658      00
+ 659              	.LASF8:
+ 660 018e 756E7369 		.ascii	"unsigned int\000"
+ 660      676E6564 
+ 660      20696E74 
+ 660      00
+ 661              	.LASF28:
+ 662 019b 4C454445 		.ascii	"LEDE_Read\000"
+ 662      5F526561 
+ 662      6400
+ 663              	.LASF7:
+ 664 01a5 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 664      206C6F6E 
+ 664      6720756E 
+ 664      7369676E 
+ 664      65642069 
+ 665              	.LASF35:
+ 666 01bc 4C454444 		.ascii	"LEDDP_Write\000"
+ 666      505F5772 
+ 666      69746500 
+ 667              	.LASF17:
+ 668 01c8 63757253 		.ascii	"curState\000"
+ 668      74617465 
+ 668      00
+ 669              	.LASF10:
+ 670 01d1 696E7433 		.ascii	"int32_t\000"
+ 670      325F7400 
+ 671              	.LASF27:
+ 672 01d9 4C454444 		.ascii	"LEDD_Write\000"
+ 672      5F577269 
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cc8i0nak.s 			page 15
+
+
+ 672      746500
+ 673              	.LASF15:
+ 674 01e4 73697A65 		.ascii	"sizetype\000"
+ 674      74797065 
+ 674      00
+ 675              	.LASF6:
+ 676 01ed 6C6F6E67 		.ascii	"long long int\000"
+ 676      206C6F6E 
+ 676      6720696E 
+ 676      7400
+ 677              	.LASF39:
+ 678 01fb 6D61696E 		.ascii	"main.c\000"
+ 678      2E6300
+ 679              	.LASF13:
+ 680 0202 63686172 		.ascii	"char\000"
+ 680      00
+ 681              	.LASF36:
+ 682 0207 44494731 		.ascii	"DIG1_Read\000"
+ 682      5F526561 
+ 682      6400
+ 683              	.LASF16:
+ 684 0211 70726553 		.ascii	"preState\000"
+ 684      74617465 
+ 684      00
+ 685              	.LASF29:
+ 686 021a 4C454445 		.ascii	"LEDE_Write\000"
+ 686      5F577269 
+ 686      746500
+ 687              	.LASF2:
+ 688 0225 73686F72 		.ascii	"short int\000"
+ 688      7420696E 
+ 688      7400
+ 689              	.LASF22:
+ 690 022f 4C454442 		.ascii	"LEDB_Read\000"
+ 690      5F526561 
+ 690      6400
+ 691              	.LASF34:
+ 692 0239 4C454444 		.ascii	"LEDDP_Read\000"
+ 692      505F5265 
+ 692      616400
+ 693              	.LASF4:
+ 694 0244 6C6F6E67 		.ascii	"long int\000"
+ 694      20696E74 
+ 694      00
+ 695              	.LASF31:
+ 696 024d 4C454446 		.ascii	"LEDF_Write\000"
+ 696      5F577269 
+ 696      746500
+ 697              	.LASF14:
+ 698 0258 6C6F6E67 		.ascii	"long double\000"
+ 698      20646F75 
+ 698      626C6500 
+ 699              	.LASF0:
+ 700 0264 7369676E 		.ascii	"signed char\000"
+ 700      65642063 
+ 700      68617200 
+ 701              	.LASF30:
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cc8i0nak.s 			page 16
+
+
+ 702 0270 4C454446 		.ascii	"LEDF_Read\000"
+ 702      5F526561 
+ 702      6400
+ 703              	.LASF18:
+ 704 027a 5F426F6F 		.ascii	"_Bool\000"
+ 704      6C00
+ 705              	.LASF33:
+ 706 0280 4C454447 		.ascii	"LEDG_Write\000"
+ 706      5F577269 
+ 706      746500
+ 707              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

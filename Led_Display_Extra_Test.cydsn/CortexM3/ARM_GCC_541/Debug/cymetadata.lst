@@ -1,0 +1,891 @@
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccpq5pJC.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_metadata
+  20              		.global	cy_meta_flashprotect
+  21              		.global	cy_meta_wonvl
+  22              		.global	cy_meta_custnvl
+  23              		.global	cy_meta_configecc
+  24              		.section	.cyconfigecc,"a",%progbits
+  25              		.align	2
+  26              		.type	cy_meta_configecc, %object
+  27              		.size	cy_meta_configecc, 384
+  28              	cy_meta_configecc:
+  29 0000 04       		.byte	4
+  30 0001 52       		.byte	82
+  31 0002 00       		.byte	0
+  32 0003 40       		.byte	64
+  33 0004 02       		.byte	2
+  34 0005 03       		.byte	3
+  35 0006 01       		.byte	1
+  36 0007 40       		.byte	64
+  37 0008 01       		.byte	1
+  38 0009 05       		.byte	5
+  39 000a 01       		.byte	1
+  40 000b 40       		.byte	64
+  41 000c 0B       		.byte	11
+  42 000d 06       		.byte	6
+  43 000e 01       		.byte	1
+  44 000f 40       		.byte	64
+  45 0010 14       		.byte	20
+  46 0011 07       		.byte	7
+  47 0012 01       		.byte	1
+  48 0013 40       		.byte	64
+  49 0014 02       		.byte	2
+  50 0015 09       		.byte	9
+  51 0016 01       		.byte	1
+  52 0017 40       		.byte	64
+  53 0018 03       		.byte	3
+  54 0019 15       		.byte	21
+  55 001a 01       		.byte	1
+  56 001b 40       		.byte	64
+  57 001c 0C       		.byte	12
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccpq5pJC.s 			page 2
+
+
+  58 001d 17       		.byte	23
+  59 001e 01       		.byte	1
+  60 001f 40       		.byte	64
+  61 0020 03       		.byte	3
+  62 0021 19       		.byte	25
+  63 0022 01       		.byte	1
+  64 0023 40       		.byte	64
+  65 0024 01       		.byte	1
+  66 0025 1B       		.byte	27
+  67 0026 01       		.byte	1
+  68 0027 40       		.byte	64
+  69 0028 06       		.byte	6
+  70 0029 40       		.byte	64
+  71 002a 01       		.byte	1
+  72 002b 40       		.byte	64
+  73 002c 03       		.byte	3
+  74 002d 41       		.byte	65
+  75 002e 01       		.byte	1
+  76 002f 40       		.byte	64
+  77 0030 04       		.byte	4
+  78 0031 42       		.byte	66
+  79 0032 01       		.byte	1
+  80 0033 40       		.byte	64
+  81 0034 05       		.byte	5
+  82 0035 43       		.byte	67
+  83 0036 01       		.byte	1
+  84 0037 40       		.byte	64
+  85 0038 04       		.byte	4
+  86 0039 44       		.byte	68
+  87 003a 01       		.byte	1
+  88 003b 40       		.byte	64
+  89 003c 09       		.byte	9
+  90 003d 45       		.byte	69
+  91 003e 01       		.byte	1
+  92 003f 40       		.byte	64
+  93 0040 04       		.byte	4
+  94 0041 46       		.byte	70
+  95 0042 01       		.byte	1
+  96 0043 40       		.byte	64
+  97 0044 08       		.byte	8
+  98 0045 47       		.byte	71
+  99 0046 01       		.byte	1
+ 100 0047 40       		.byte	64
+ 101 0048 0B       		.byte	11
+ 102 0049 48       		.byte	72
+ 103 004a 01       		.byte	1
+ 104 004b 40       		.byte	64
+ 105 004c 05       		.byte	5
+ 106 004d 49       		.byte	73
+ 107 004e 01       		.byte	1
+ 108 004f 40       		.byte	64
+ 109 0050 04       		.byte	4
+ 110 0051 4C       		.byte	76
+ 111 0052 01       		.byte	1
+ 112 0053 40       		.byte	64
+ 113 0054 06       		.byte	6
+ 114 0055 4D       		.byte	77
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccpq5pJC.s 			page 3
+
+
+ 115 0056 01       		.byte	1
+ 116 0057 40       		.byte	64
+ 117 0058 01       		.byte	1
+ 118 0059 51       		.byte	81
+ 119 005a 01       		.byte	1
+ 120 005b 40       		.byte	64
+ 121 005c 10       		.byte	16
+ 122 005d 20       		.byte	32
+ 123 005e 11       		.byte	17
+ 124 005f 60       		.byte	96
+ 125 0060 60       		.byte	96
+ 126 0061 C5       		.byte	-59
+ 127 0062 61       		.byte	97
+ 128 0063 99       		.byte	-103
+ 129 0064 9B       		.byte	-101
+ 130 0065 20       		.byte	32
+ 131 0066 AB       		.byte	-85
+ 132 0067 20       		.byte	32
+ 133 0068 9B       		.byte	-101
+ 134 0069 20       		.byte	32
+ 135 006a 10       		.byte	16
+ 136 006b 02       		.byte	2
+ 137 006c 12       		.byte	18
+ 138 006d 01       		.byte	1
+ 139 006e 28       		.byte	40
+ 140 006f 01       		.byte	1
+ 141 0070 2A       		.byte	42
+ 142 0071 02       		.byte	2
+ 143 0072 32       		.byte	50
+ 144 0073 03       		.byte	3
+ 145 0074 3E       		.byte	62
+ 146 0075 04       		.byte	4
+ 147 0076 58       		.byte	88
+ 148 0077 04       		.byte	4
+ 149 0078 5B       		.byte	91
+ 150 0079 04       		.byte	4
+ 151 007a 5F       		.byte	95
+ 152 007b 01       		.byte	1
+ 153 007c DB       		.byte	-37
+ 154 007d 04       		.byte	4
+ 155 007e DF       		.byte	-33
+ 156 007f 01       		.byte	1
+ 157 0080 0F       		.byte	15
+ 158 0081 40       		.byte	64
+ 159 0082 17       		.byte	23
+ 160 0083 20       		.byte	32
+ 161 0084 1F       		.byte	31
+ 162 0085 08       		.byte	8
+ 163 0086 69       		.byte	105
+ 164 0087 14       		.byte	20
+ 165 0088 6B       		.byte	107
+ 166 0089 41       		.byte	65
+ 167 008a 6D       		.byte	109
+ 168 008b 81       		.byte	-127
+ 169 008c 6F       		.byte	111
+ 170 008d 14       		.byte	20
+ 171 008e 74       		.byte	116
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccpq5pJC.s 			page 4
+
+
+ 172 008f 40       		.byte	64
+ 173 0090 75       		.byte	117
+ 174 0091 0A       		.byte	10
+ 175 0092 77       		.byte	119
+ 176 0093 08       		.byte	8
+ 177 0094 87       		.byte	-121
+ 178 0095 09       		.byte	9
+ 179 0096 89       		.byte	-119
+ 180 0097 41       		.byte	65
+ 181 0098 8F       		.byte	-113
+ 182 0099 40       		.byte	64
+ 183 009a 95       		.byte	-107
+ 184 009b 04       		.byte	4
+ 185 009c 9B       		.byte	-101
+ 186 009d 20       		.byte	32
+ 187 009e B1       		.byte	-79
+ 188 009f 04       		.byte	4
+ 189 00a0 C2       		.byte	-62
+ 190 00a1 10       		.byte	16
+ 191 00a2 C4       		.byte	-60
+ 192 00a3 40       		.byte	64
+ 193 00a4 E0       		.byte	-32
+ 194 00a5 0A       		.byte	10
+ 195 00a6 E6       		.byte	-26
+ 196 00a7 A0       		.byte	-96
+ 197 00a8 E0       		.byte	-32
+ 198 00a9 1A       		.byte	26
+ 199 00aa E8       		.byte	-24
+ 200 00ab 20       		.byte	32
+ 201 00ac 84       		.byte	-124
+ 202 00ad 40       		.byte	64
+ 203 00ae A0       		.byte	-96
+ 204 00af 40       		.byte	64
+ 205 00b0 E0       		.byte	-32
+ 206 00b1 02       		.byte	2
+ 207 00b2 83       		.byte	-125
+ 208 00b3 10       		.byte	16
+ 209 00b4 85       		.byte	-123
+ 210 00b5 02       		.byte	2
+ 211 00b6 87       		.byte	-121
+ 212 00b7 40       		.byte	64
+ 213 00b8 97       		.byte	-105
+ 214 00b9 40       		.byte	64
+ 215 00ba 99       		.byte	-103
+ 216 00bb 02       		.byte	2
+ 217 00bc 9B       		.byte	-101
+ 218 00bd 10       		.byte	16
+ 219 00be A0       		.byte	-96
+ 220 00bf 40       		.byte	64
+ 221 00c0 AB       		.byte	-85
+ 222 00c1 0C       		.byte	12
+ 223 00c2 AD       		.byte	-83
+ 224 00c3 10       		.byte	16
+ 225 00c4 B5       		.byte	-75
+ 226 00c5 08       		.byte	8
+ 227 00c6 E4       		.byte	-28
+ 228 00c7 08       		.byte	8
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccpq5pJC.s 			page 5
+
+
+ 229 00c8 EC       		.byte	-20
+ 230 00c9 08       		.byte	8
+ 231 00ca E4       		.byte	-28
+ 232 00cb 08       		.byte	8
+ 233 00cc E8       		.byte	-24
+ 234 00cd 40       		.byte	64
+ 235 00ce EC       		.byte	-20
+ 236 00cf 08       		.byte	8
+ 237 00d0 E0       		.byte	-32
+ 238 00d1 02       		.byte	2
+ 239 00d2 13       		.byte	19
+ 240 00d3 04       		.byte	4
+ 241 00d4 17       		.byte	23
+ 242 00d5 04       		.byte	4
+ 243 00d6 3B       		.byte	59
+ 244 00d7 04       		.byte	4
+ 245 00d8 3F       		.byte	63
+ 246 00d9 20       		.byte	32
+ 247 00da C4       		.byte	-60
+ 248 00db 30       		.byte	48
+ 249 00dc CE       		.byte	-50
+ 250 00dd 60       		.byte	96
+ 251 00de A7       		.byte	-89
+ 252 00df 10       		.byte	16
+ 253 00e0 AB       		.byte	-85
+ 254 00e1 04       		.byte	4
+ 255 00e2 E8       		.byte	-24
+ 256 00e3 80       		.byte	-128
+ 257 00e4 53       		.byte	83
+ 258 00e5 40       		.byte	64
+ 259 00e6 56       		.byte	86
+ 260 00e7 80       		.byte	-128
+ 261 00e8 A7       		.byte	-89
+ 262 00e9 10       		.byte	16
+ 263 00ea D4       		.byte	-44
+ 264 00eb 60       		.byte	96
+ 265 00ec 8A       		.byte	-118
+ 266 00ed 80       		.byte	-128
+ 267 00ee 8B       		.byte	-117
+ 268 00ef 40       		.byte	64
+ 269 00f0 97       		.byte	-105
+ 270 00f1 80       		.byte	-128
+ 271 00f2 9E       		.byte	-98
+ 272 00f3 80       		.byte	-128
+ 273 00f4 A7       		.byte	-89
+ 274 00f5 10       		.byte	16
+ 275 00f6 70       		.byte	112
+ 276 00f7 02       		.byte	2
+ 277 00f8 75       		.byte	117
+ 278 00f9 08       		.byte	8
+ 279 00fa DC       		.byte	-36
+ 280 00fb 01       		.byte	1
+ 281 00fc DE       		.byte	-34
+ 282 00fd 04       		.byte	4
+ 283 00fe 50       		.byte	80
+ 284 00ff 08       		.byte	8
+ 285 0100 61       		.byte	97
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccpq5pJC.s 			page 6
+
+
+ 286 0101 04       		.byte	4
+ 287 0102 62       		.byte	98
+ 288 0103 80       		.byte	-128
+ 289 0104 64       		.byte	100
+ 290 0105 10       		.byte	16
+ 291 0106 9D       		.byte	-99
+ 292 0107 08       		.byte	8
+ 293 0108 A4       		.byte	-92
+ 294 0109 02       		.byte	2
+ 295 010a D4       		.byte	-44
+ 296 010b 04       		.byte	4
+ 297 010c D6       		.byte	-42
+ 298 010d 02       		.byte	2
+ 299 010e D8       		.byte	-40
+ 300 010f 03       		.byte	3
+ 301 0110 9C       		.byte	-100
+ 302 0111 10       		.byte	16
+ 303 0112 9D       		.byte	-99
+ 304 0113 0C       		.byte	12
+ 305 0114 A4       		.byte	-92
+ 306 0115 0A       		.byte	10
+ 307 0116 A6       		.byte	-90
+ 308 0117 80       		.byte	-128
+ 309 0118 84       		.byte	-124
+ 310 0119 0A       		.byte	10
+ 311 011a 8D       		.byte	-115
+ 312 011b 04       		.byte	4
+ 313 011c 9D       		.byte	-99
+ 314 011d 0C       		.byte	12
+ 315 011e A4       		.byte	-92
+ 316 011f 0A       		.byte	10
+ 317 0120 A6       		.byte	-90
+ 318 0121 80       		.byte	-128
+ 319 0122 B0       		.byte	-80
+ 320 0123 10       		.byte	16
+ 321 0124 E0       		.byte	-32
+ 322 0125 08       		.byte	8
+ 323 0126 E8       		.byte	-24
+ 324 0127 04       		.byte	4
+ 325 0128 27       		.byte	39
+ 326 0129 02       		.byte	2
+ 327 012a 80       		.byte	-128
+ 328 012b 02       		.byte	2
+ 329 012c 87       		.byte	-121
+ 330 012d 02       		.byte	2
+ 331 012e A0       		.byte	-96
+ 332 012f 08       		.byte	8
+ 333 0130 A8       		.byte	-88
+ 334 0131 08       		.byte	8
+ 335 0132 AB       		.byte	-85
+ 336 0133 10       		.byte	16
+ 337 0134 C8       		.byte	-56
+ 338 0135 20       		.byte	32
+ 339 0136 E2       		.byte	-30
+ 340 0137 20       		.byte	32
+ 341 0138 E4       		.byte	-28
+ 342 0139 40       		.byte	64
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccpq5pJC.s 			page 7
+
+
+ 343 013a EA       		.byte	-22
+ 344 013b 80       		.byte	-128
+ 345 013c EE       		.byte	-18
+ 346 013d 80       		.byte	-128
+ 347 013e 70       		.byte	112
+ 348 013f 08       		.byte	8
+ 349 0140 74       		.byte	116
+ 350 0141 02       		.byte	2
+ 351 0142 A0       		.byte	-96
+ 352 0143 0A       		.byte	10
+ 353 0144 DC       		.byte	-36
+ 354 0145 80       		.byte	-128
+ 355 0146 DE       		.byte	-34
+ 356 0147 20       		.byte	32
+ 357 0148 85       		.byte	-123
+ 358 0149 02       		.byte	2
+ 359 014a AE       		.byte	-82
+ 360 014b 80       		.byte	-128
+ 361 014c B5       		.byte	-75
+ 362 014d 08       		.byte	8
+ 363 014e E8       		.byte	-24
+ 364 014f 02       		.byte	2
+ 365 0150 70       		.byte	112
+ 366 0151 08       		.byte	8
+ 367 0152 75       		.byte	117
+ 368 0153 02       		.byte	2
+ 369 0154 84       		.byte	-124
+ 370 0155 08       		.byte	8
+ 371 0156 99       		.byte	-103
+ 372 0157 02       		.byte	2
+ 373 0158 DC       		.byte	-36
+ 374 0159 01       		.byte	1
+ 375 015a DE       		.byte	-34
+ 376 015b 04       		.byte	4
+ 377 015c 10       		.byte	16
+ 378 015d 0A       		.byte	10
+ 379 015e 00       		.byte	0
+ 380 015f 00       		.byte	0
+ 381 0160 00       		.byte	0
+ 382 0161 FF       		.byte	-1
+ 383 0162 FF       		.byte	-1
+ 384 0163 00       		.byte	0
+ 385 0164 FF       		.byte	-1
+ 386 0165 00       		.byte	0
+ 387 0166 00       		.byte	0
+ 388 0167 00       		.byte	0
+ 389 0168 00       		.byte	0
+ 390 0169 0B       		.byte	11
+ 391 016a 0B       		.byte	11
+ 392 016b 00       		.byte	0
+ 393 016c 00       		.byte	0
+ 394 016d 00       		.byte	0
+ 395 016e 00       		.byte	0
+ 396 016f 00       		.byte	0
+ 397 0170 04       		.byte	4
+ 398 0171 00       		.byte	0
+ 399 0172 00       		.byte	0
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccpq5pJC.s 			page 8
+
+
+ 400 0173 7E       		.byte	126
+ 401 0174 7A       		.byte	122
+ 402 0175 00       		.byte	0
+ 403 0176 78       		.byte	120
+ 404 0177 00       		.byte	0
+ 405 0178 00       		.byte	0
+ 406 0179 00       		.byte	0
+ 407 017a 00       		.byte	0
+ 408 017b 00       		.byte	0
+ 409 017c 00       		.byte	0
+ 410 017d 01       		.byte	1
+ 411 017e 00       		.byte	0
+ 412 017f 00       		.byte	0
+ 413              		.section	.cywolatch,"a",%progbits
+ 414              		.align	2
+ 415              		.type	cy_meta_wonvl, %object
+ 416              		.size	cy_meta_wonvl, 4
+ 417              	cy_meta_wonvl:
+ 418 0000 BC       		.byte	-68
+ 419 0001 90       		.byte	-112
+ 420 0002 AC       		.byte	-84
+ 421 0003 AF       		.byte	-81
+ 422              		.section	.cycustnvl,"a",%progbits
+ 423              		.align	2
+ 424              		.type	cy_meta_custnvl, %object
+ 425              		.size	cy_meta_custnvl, 4
+ 426              	cy_meta_custnvl:
+ 427 0000 00       		.byte	0
+ 428 0001 00       		.byte	0
+ 429 0002 40       		.byte	64
+ 430 0003 05       		.byte	5
+ 431              		.section	.cymeta,"a",%progbits
+ 432              		.align	2
+ 433              		.type	cy_metadata, %object
+ 434              		.size	cy_metadata, 12
+ 435              	cy_metadata:
+ 436 0000 00       		.byte	0
+ 437 0001 01       		.byte	1
+ 438 0002 2E       		.byte	46
+ 439 0003 16       		.byte	22
+ 440 0004 10       		.byte	16
+ 441 0005 69       		.byte	105
+ 442 0006 00       		.byte	0
+ 443 0007 01       		.byte	1
+ 444 0008 00       		.byte	0
+ 445 0009 00       		.byte	0
+ 446 000a 00       		.byte	0
+ 447 000b 00       		.byte	0
+ 448              		.section	.cyflashprotect,"a",%progbits
+ 449              		.align	2
+ 450              		.type	cy_meta_flashprotect, %object
+ 451              		.size	cy_meta_flashprotect, 256
+ 452              	cy_meta_flashprotect:
+ 453 0000 00000000 		.space	256
+ 453      00000000 
+ 453      00000000 
+ 453      00000000 
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccpq5pJC.s 			page 9
+
+
+ 453      00000000 
+ 454              		.text
+ 455              	.Letext0:
+ 456              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 457              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 458              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+ 459              		.section	.debug_info,"",%progbits
+ 460              	.Ldebug_info0:
+ 461 0000 31010000 		.4byte	0x131
+ 462 0004 0400     		.2byte	0x4
+ 463 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 464 000a 04       		.byte	0x4
+ 465 000b 01       		.uleb128 0x1
+ 466 000c 6E000000 		.4byte	.LASF17
+ 467 0010 0C       		.byte	0xc
+ 468 0011 C8010000 		.4byte	.LASF18
+ 469 0015 0A000000 		.4byte	.LASF19
+ 470 0019 00000000 		.4byte	.Ldebug_line0
+ 471 001d 02       		.uleb128 0x2
+ 472 001e 01       		.byte	0x1
+ 473 001f 06       		.byte	0x6
+ 474 0020 BC010000 		.4byte	.LASF0
+ 475 0024 03       		.uleb128 0x3
+ 476 0025 00000000 		.4byte	.LASF9
+ 477 0029 01       		.byte	0x1
+ 478 002a 1D       		.byte	0x1d
+ 479 002b 2F000000 		.4byte	0x2f
+ 480 002f 02       		.uleb128 0x2
+ 481 0030 01       		.byte	0x1
+ 482 0031 08       		.byte	0x8
+ 483 0032 60000000 		.4byte	.LASF1
+ 484 0036 02       		.uleb128 0x2
+ 485 0037 02       		.byte	0x2
+ 486 0038 05       		.byte	0x5
+ 487 0039 A9010000 		.4byte	.LASF2
+ 488 003d 02       		.uleb128 0x2
+ 489 003e 02       		.byte	0x2
+ 490 003f 07       		.byte	0x7
+ 491 0040 0E010000 		.4byte	.LASF3
+ 492 0044 02       		.uleb128 0x2
+ 493 0045 04       		.byte	0x4
+ 494 0046 05       		.byte	0x5
+ 495 0047 B3010000 		.4byte	.LASF4
+ 496 004b 02       		.uleb128 0x2
+ 497 004c 04       		.byte	0x4
+ 498 004d 07       		.byte	0x7
+ 499 004e FC000000 		.4byte	.LASF5
+ 500 0052 02       		.uleb128 0x2
+ 501 0053 08       		.byte	0x8
+ 502 0054 05       		.byte	0x5
+ 503 0055 9B010000 		.4byte	.LASF6
+ 504 0059 02       		.uleb128 0x2
+ 505 005a 08       		.byte	0x8
+ 506 005b 07       		.byte	0x7
+ 507 005c 50010000 		.4byte	.LASF7
+ 508 0060 04       		.uleb128 0x4
+ 509 0061 04       		.byte	0x4
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccpq5pJC.s 			page 10
+
+
+ 510 0062 05       		.byte	0x5
+ 511 0063 696E7400 		.ascii	"int\000"
+ 512 0067 02       		.uleb128 0x2
+ 513 0068 04       		.byte	0x4
+ 514 0069 07       		.byte	0x7
+ 515 006a 43010000 		.4byte	.LASF8
+ 516 006e 03       		.uleb128 0x3
+ 517 006f 67010000 		.4byte	.LASF10
+ 518 0073 02       		.byte	0x2
+ 519 0074 18       		.byte	0x18
+ 520 0075 24000000 		.4byte	0x24
+ 521 0079 05       		.uleb128 0x5
+ 522 007a 91000000 		.4byte	0x91
+ 523 007e 8A000000 		.4byte	0x8a
+ 524 0082 06       		.uleb128 0x6
+ 525 0083 8A000000 		.4byte	0x8a
+ 526 0087 7F01     		.2byte	0x17f
+ 527 0089 00       		.byte	0
+ 528 008a 02       		.uleb128 0x2
+ 529 008b 04       		.byte	0x4
+ 530 008c 07       		.byte	0x7
+ 531 008d 92010000 		.4byte	.LASF11
+ 532 0091 07       		.uleb128 0x7
+ 533 0092 6E000000 		.4byte	0x6e
+ 534 0096 08       		.uleb128 0x8
+ 535 0097 31010000 		.4byte	.LASF12
+ 536 009b 03       		.byte	0x3
+ 537 009c 1F       		.byte	0x1f
+ 538 009d A7000000 		.4byte	0xa7
+ 539 00a1 05       		.uleb128 0x5
+ 540 00a2 03       		.byte	0x3
+ 541 00a3 00000000 		.4byte	cy_meta_configecc
+ 542 00a7 07       		.uleb128 0x7
+ 543 00a8 79000000 		.4byte	0x79
+ 544 00ac 05       		.uleb128 0x5
+ 545 00ad 91000000 		.4byte	0x91
+ 546 00b1 BC000000 		.4byte	0xbc
+ 547 00b5 09       		.uleb128 0x9
+ 548 00b6 8A000000 		.4byte	0x8a
+ 549 00ba 03       		.byte	0x3
+ 550 00bb 00       		.byte	0
+ 551 00bc 08       		.uleb128 0x8
+ 552 00bd 21010000 		.4byte	.LASF13
+ 553 00c1 03       		.byte	0x3
+ 554 00c2 5C       		.byte	0x5c
+ 555 00c3 CD000000 		.4byte	0xcd
+ 556 00c7 05       		.uleb128 0x5
+ 557 00c8 03       		.byte	0x3
+ 558 00c9 00000000 		.4byte	cy_meta_custnvl
+ 559 00cd 07       		.uleb128 0x7
+ 560 00ce AC000000 		.4byte	0xac
+ 561 00d2 08       		.uleb128 0x8
+ 562 00d3 84010000 		.4byte	.LASF14
+ 563 00d7 03       		.byte	0x3
+ 564 00d8 6A       		.byte	0x6a
+ 565 00d9 E3000000 		.4byte	0xe3
+ 566 00dd 05       		.uleb128 0x5
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccpq5pJC.s 			page 11
+
+
+ 567 00de 03       		.byte	0x3
+ 568 00df 00000000 		.4byte	cy_meta_wonvl
+ 569 00e3 07       		.uleb128 0x7
+ 570 00e4 AC000000 		.4byte	0xac
+ 571 00e8 05       		.uleb128 0x5
+ 572 00e9 91000000 		.4byte	0x91
+ 573 00ed F8000000 		.4byte	0xf8
+ 574 00f1 09       		.uleb128 0x9
+ 575 00f2 8A000000 		.4byte	0x8a
+ 576 00f6 FF       		.byte	0xff
+ 577 00f7 00       		.byte	0
+ 578 00f8 08       		.uleb128 0x8
+ 579 00f9 6F010000 		.4byte	.LASF15
+ 580 00fd 03       		.byte	0x3
+ 581 00fe 78       		.byte	0x78
+ 582 00ff 09010000 		.4byte	0x109
+ 583 0103 05       		.uleb128 0x5
+ 584 0104 03       		.byte	0x3
+ 585 0105 00000000 		.4byte	cy_meta_flashprotect
+ 586 0109 07       		.uleb128 0x7
+ 587 010a E8000000 		.4byte	0xe8
+ 588 010e 05       		.uleb128 0x5
+ 589 010f 91000000 		.4byte	0x91
+ 590 0113 1E010000 		.4byte	0x11e
+ 591 0117 09       		.uleb128 0x9
+ 592 0118 8A000000 		.4byte	0x8a
+ 593 011c 0B       		.byte	0xb
+ 594 011d 00       		.byte	0
+ 595 011e 08       		.uleb128 0x8
+ 596 011f 54000000 		.4byte	.LASF16
+ 597 0123 03       		.byte	0x3
+ 598 0124 A5       		.byte	0xa5
+ 599 0125 2F010000 		.4byte	0x12f
+ 600 0129 05       		.uleb128 0x5
+ 601 012a 03       		.byte	0x3
+ 602 012b 00000000 		.4byte	cy_metadata
+ 603 012f 07       		.uleb128 0x7
+ 604 0130 0E010000 		.4byte	0x10e
+ 605 0134 00       		.byte	0
+ 606              		.section	.debug_abbrev,"",%progbits
+ 607              	.Ldebug_abbrev0:
+ 608 0000 01       		.uleb128 0x1
+ 609 0001 11       		.uleb128 0x11
+ 610 0002 01       		.byte	0x1
+ 611 0003 25       		.uleb128 0x25
+ 612 0004 0E       		.uleb128 0xe
+ 613 0005 13       		.uleb128 0x13
+ 614 0006 0B       		.uleb128 0xb
+ 615 0007 03       		.uleb128 0x3
+ 616 0008 0E       		.uleb128 0xe
+ 617 0009 1B       		.uleb128 0x1b
+ 618 000a 0E       		.uleb128 0xe
+ 619 000b 10       		.uleb128 0x10
+ 620 000c 17       		.uleb128 0x17
+ 621 000d 00       		.byte	0
+ 622 000e 00       		.byte	0
+ 623 000f 02       		.uleb128 0x2
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccpq5pJC.s 			page 12
+
+
+ 624 0010 24       		.uleb128 0x24
+ 625 0011 00       		.byte	0
+ 626 0012 0B       		.uleb128 0xb
+ 627 0013 0B       		.uleb128 0xb
+ 628 0014 3E       		.uleb128 0x3e
+ 629 0015 0B       		.uleb128 0xb
+ 630 0016 03       		.uleb128 0x3
+ 631 0017 0E       		.uleb128 0xe
+ 632 0018 00       		.byte	0
+ 633 0019 00       		.byte	0
+ 634 001a 03       		.uleb128 0x3
+ 635 001b 16       		.uleb128 0x16
+ 636 001c 00       		.byte	0
+ 637 001d 03       		.uleb128 0x3
+ 638 001e 0E       		.uleb128 0xe
+ 639 001f 3A       		.uleb128 0x3a
+ 640 0020 0B       		.uleb128 0xb
+ 641 0021 3B       		.uleb128 0x3b
+ 642 0022 0B       		.uleb128 0xb
+ 643 0023 49       		.uleb128 0x49
+ 644 0024 13       		.uleb128 0x13
+ 645 0025 00       		.byte	0
+ 646 0026 00       		.byte	0
+ 647 0027 04       		.uleb128 0x4
+ 648 0028 24       		.uleb128 0x24
+ 649 0029 00       		.byte	0
+ 650 002a 0B       		.uleb128 0xb
+ 651 002b 0B       		.uleb128 0xb
+ 652 002c 3E       		.uleb128 0x3e
+ 653 002d 0B       		.uleb128 0xb
+ 654 002e 03       		.uleb128 0x3
+ 655 002f 08       		.uleb128 0x8
+ 656 0030 00       		.byte	0
+ 657 0031 00       		.byte	0
+ 658 0032 05       		.uleb128 0x5
+ 659 0033 01       		.uleb128 0x1
+ 660 0034 01       		.byte	0x1
+ 661 0035 49       		.uleb128 0x49
+ 662 0036 13       		.uleb128 0x13
+ 663 0037 01       		.uleb128 0x1
+ 664 0038 13       		.uleb128 0x13
+ 665 0039 00       		.byte	0
+ 666 003a 00       		.byte	0
+ 667 003b 06       		.uleb128 0x6
+ 668 003c 21       		.uleb128 0x21
+ 669 003d 00       		.byte	0
+ 670 003e 49       		.uleb128 0x49
+ 671 003f 13       		.uleb128 0x13
+ 672 0040 2F       		.uleb128 0x2f
+ 673 0041 05       		.uleb128 0x5
+ 674 0042 00       		.byte	0
+ 675 0043 00       		.byte	0
+ 676 0044 07       		.uleb128 0x7
+ 677 0045 26       		.uleb128 0x26
+ 678 0046 00       		.byte	0
+ 679 0047 49       		.uleb128 0x49
+ 680 0048 13       		.uleb128 0x13
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccpq5pJC.s 			page 13
+
+
+ 681 0049 00       		.byte	0
+ 682 004a 00       		.byte	0
+ 683 004b 08       		.uleb128 0x8
+ 684 004c 34       		.uleb128 0x34
+ 685 004d 00       		.byte	0
+ 686 004e 03       		.uleb128 0x3
+ 687 004f 0E       		.uleb128 0xe
+ 688 0050 3A       		.uleb128 0x3a
+ 689 0051 0B       		.uleb128 0xb
+ 690 0052 3B       		.uleb128 0x3b
+ 691 0053 0B       		.uleb128 0xb
+ 692 0054 49       		.uleb128 0x49
+ 693 0055 13       		.uleb128 0x13
+ 694 0056 3F       		.uleb128 0x3f
+ 695 0057 19       		.uleb128 0x19
+ 696 0058 02       		.uleb128 0x2
+ 697 0059 18       		.uleb128 0x18
+ 698 005a 00       		.byte	0
+ 699 005b 00       		.byte	0
+ 700 005c 09       		.uleb128 0x9
+ 701 005d 21       		.uleb128 0x21
+ 702 005e 00       		.byte	0
+ 703 005f 49       		.uleb128 0x49
+ 704 0060 13       		.uleb128 0x13
+ 705 0061 2F       		.uleb128 0x2f
+ 706 0062 0B       		.uleb128 0xb
+ 707 0063 00       		.byte	0
+ 708 0064 00       		.byte	0
+ 709 0065 00       		.byte	0
+ 710              		.section	.debug_aranges,"",%progbits
+ 711 0000 14000000 		.4byte	0x14
+ 712 0004 0200     		.2byte	0x2
+ 713 0006 00000000 		.4byte	.Ldebug_info0
+ 714 000a 04       		.byte	0x4
+ 715 000b 00       		.byte	0
+ 716 000c 0000     		.2byte	0
+ 717 000e 0000     		.2byte	0
+ 718 0010 00000000 		.4byte	0
+ 719 0014 00000000 		.4byte	0
+ 720              		.section	.debug_line,"",%progbits
+ 721              	.Ldebug_line0:
+ 722 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
+ 722      02003701 
+ 722      00000201 
+ 722      FB0E0D00 
+ 722      01010101 
+ 723              	.LASF9:
+ 724 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 724      6E74385F 
+ 724      7400
+ 725              	.LASF19:
+ 726 000a 433A5C55 		.ascii	"C:\\Users\\Tri94\\Documents\\PSoC Creator\\EE4450\\"
+ 726      73657273 
+ 726      5C547269 
+ 726      39345C44 
+ 726      6F63756D 
+ 727 0037 4C65645F 		.ascii	"Led_Display_Extra_Test.cydsn\000"
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccpq5pJC.s 			page 14
+
+
+ 727      44697370 
+ 727      6C61795F 
+ 727      45787472 
+ 727      615F5465 
+ 728              	.LASF16:
+ 729 0054 63795F6D 		.ascii	"cy_metadata\000"
+ 729      65746164 
+ 729      61746100 
+ 730              	.LASF1:
+ 731 0060 756E7369 		.ascii	"unsigned char\000"
+ 731      676E6564 
+ 731      20636861 
+ 731      7200
+ 732              	.LASF17:
+ 733 006e 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 733      43313120 
+ 733      352E342E 
+ 733      31203230 
+ 733      31363036 
+ 734 00a1 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 734      20726576 
+ 734      6973696F 
+ 734      6E203233 
+ 734      37373135 
+ 735 00d4 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 735      66756E63 
+ 735      74696F6E 
+ 735      2D736563 
+ 735      74696F6E 
+ 736              	.LASF5:
+ 737 00fc 6C6F6E67 		.ascii	"long unsigned int\000"
+ 737      20756E73 
+ 737      69676E65 
+ 737      6420696E 
+ 737      7400
+ 738              	.LASF3:
+ 739 010e 73686F72 		.ascii	"short unsigned int\000"
+ 739      7420756E 
+ 739      7369676E 
+ 739      65642069 
+ 739      6E7400
+ 740              	.LASF13:
+ 741 0121 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 741      6574615F 
+ 741      63757374 
+ 741      6E766C00 
+ 742              	.LASF12:
+ 743 0131 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 743      6574615F 
+ 743      636F6E66 
+ 743      69676563 
+ 743      6300
+ 744              	.LASF8:
+ 745 0143 756E7369 		.ascii	"unsigned int\000"
+ 745      676E6564 
+ 745      20696E74 
+ 745      00
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccpq5pJC.s 			page 15
+
+
+ 746              	.LASF7:
+ 747 0150 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 747      206C6F6E 
+ 747      6720756E 
+ 747      7369676E 
+ 747      65642069 
+ 748              	.LASF10:
+ 749 0167 75696E74 		.ascii	"uint8_t\000"
+ 749      385F7400 
+ 750              	.LASF15:
+ 751 016f 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 751      6574615F 
+ 751      666C6173 
+ 751      6870726F 
+ 751      74656374 
+ 752              	.LASF14:
+ 753 0184 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 753      6574615F 
+ 753      776F6E76 
+ 753      6C00
+ 754              	.LASF11:
+ 755 0192 73697A65 		.ascii	"sizetype\000"
+ 755      74797065 
+ 755      00
+ 756              	.LASF6:
+ 757 019b 6C6F6E67 		.ascii	"long long int\000"
+ 757      206C6F6E 
+ 757      6720696E 
+ 757      7400
+ 758              	.LASF2:
+ 759 01a9 73686F72 		.ascii	"short int\000"
+ 759      7420696E 
+ 759      7400
+ 760              	.LASF4:
+ 761 01b3 6C6F6E67 		.ascii	"long int\000"
+ 761      20696E74 
+ 761      00
+ 762              	.LASF0:
+ 763 01bc 7369676E 		.ascii	"signed char\000"
+ 763      65642063 
+ 763      68617200 
+ 764              	.LASF18:
+ 765 01c8 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 765      72617465 
+ 765      645F536F 
+ 765      75726365 
+ 765      5C50536F 
+ 766              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

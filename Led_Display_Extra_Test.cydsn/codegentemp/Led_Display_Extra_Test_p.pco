@@ -1,0 +1,31 @@
+dont_use_io iocell 1 0
+dont_use_io iocell 1 1
+dont_use_io iocell 1 3
+set_location "\LCD:Net_1332\" macrocell 3 2 0 3
+set_location "ClockBlock" clockblockcell -1 -1 0
+set_io "Com(2)" iocell 2 5
+set_io "nSW(0)" iocell 2 2
+# Note: port 12 is the logical name for port 7
+set_io "Seg(3)" iocell 12 3
+# Note: port 12 is the logical name for port 7
+set_io "Seg(1)" iocell 12 1
+set_io "Com(0)" iocell 2 3
+# Note: port 12 is the logical name for port 7
+set_io "Seg(6)" iocell 12 6
+# Note: port 12 is the logical name for port 7
+set_io "Seg(5)" iocell 12 5
+# Note: port 12 is the logical name for port 7
+set_io "Seg(4)" iocell 12 4
+# Note: port 12 is the logical name for port 7
+set_io "Seg(0)" iocell 12 0
+set_io "Com(1)" iocell 2 4
+set_location "\LCD:DMA_Seg\" drqcell -1 -1 1
+set_location "\LCD:DMA_Com\" drqcell -1 -1 0
+set_location "\LCD:Seg_Driver_L:Sync:ctrl_reg\" controlcell 3 2 6 
+set_io "Com(3)" iocell 2 6
+set_io "LED_Board(0)" iocell 2 1
+# Note: port 12 is the logical name for port 7
+set_io "Seg(2)" iocell 12 2
+set_location "\LCD:Com_Driver:Sync:ctrl_reg\" controlcell 2 2 6 
+# Note: port 12 is the logical name for port 7
+set_io "Seg(7)" iocell 12 7

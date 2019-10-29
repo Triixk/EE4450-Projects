@@ -1,0 +1,1000 @@
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccbCjF5n.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	main, %function
+  25              	main:
+  26              	.LFB64:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** #include <stdio.h>
+  14:main.c        **** #include <stdlib.h>
+  15:main.c        **** #include <stdint.h>
+  16:main.c        **** #include <stdbool.h>
+  17:main.c        **** 
+  18:main.c        **** typedef enum STATES{
+  19:main.c        ****     S_IDLE,
+  20:main.c        ****     S_25,
+  21:main.c        ****     S_50,
+  22:main.c        ****     S_100
+  23:main.c        **** } STATES;
+  24:main.c        **** 
+  25:main.c        **** int main(void)
+  26:main.c        **** {
+  28              		.loc 1 26 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccbCjF5n.s 			page 2
+
+
+  32 0000 70B5     		push	{r4, r5, r6, lr}
+  33              		.cfi_def_cfa_offset 16
+  34              		.cfi_offset 4, -16
+  35              		.cfi_offset 5, -12
+  36              		.cfi_offset 6, -8
+  37              		.cfi_offset 14, -4
+  38              	.LVL0:
+  27:main.c        ****     STATES state = S_IDLE;
+  28:main.c        ****     bool preSW = 1; // Negative logic input
+  29:main.c        ****     bool curSW;
+  30:main.c        ****     bool bSWEdge = false;
+  31:main.c        ****     
+  32:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  39              		.loc 1 32 0
+  40              		.syntax unified
+  41              	@ 32 "main.c" 1
+  42 0002 62B6     		CPSIE   i
+  43              	@ 0 "" 2
+  33:main.c        **** 
+  34:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  35:main.c        ****     PWM_Start();
+  44              		.loc 1 35 0
+  45              		.thumb
+  46              		.syntax unified
+  47 0004 FFF7FEFF 		bl	PWM_Start
+  48              	.LVL1:
+  28:main.c        ****     bool curSW;
+  49              		.loc 1 28 0
+  50 0008 0125     		movs	r5, #1
+  27:main.c        ****     STATES state = S_IDLE;
+  51              		.loc 1 27 0
+  52 000a 0024     		movs	r4, #0
+  53              	.LVL2:
+  54              	.L9:
+  36:main.c        ****     
+  37:main.c        ****     for(;;)
+  38:main.c        ****     {
+  39:main.c        ****         /* Place your application code here. */
+  40:main.c        ****     
+  41:main.c        ****         // 1. Read current SW state to curSW
+  42:main.c        ****         curSW = nSW_Read();
+  55              		.loc 1 42 0
+  56 000c FFF7FEFF 		bl	nSW_Read
+  57              	.LVL3:
+  58 0010 061C     		adds	r6, r0, #0
+  59 0012 18BF     		it	ne
+  60 0014 0126     		movne	r6, #1
+  61              	.LVL4:
+  43:main.c        ****         
+  44:main.c        ****         // 2. Check the falling edge
+  45:main.c        ****         if ((preSW == 1) && (curSW == 0)){
+  62              		.loc 1 45 0
+  63 0016 15B1     		cbz	r5, .L10
+  64              		.loc 1 45 0 is_stmt 0 discriminator 1
+  65 0018 18B1     		cbz	r0, .L11
+  46:main.c        ****             bSWEdge = true;
+  47:main.c        ****         } else 
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccbCjF5n.s 			page 3
+
+
+  48:main.c        ****             bSWEdge = false;
+  66              		.loc 1 48 0 is_stmt 1
+  67 001a 0025     		movs	r5, #0
+  68              	.LVL5:
+  69 001c 02E0     		b	.L2
+  70              	.LVL6:
+  71              	.L10:
+  72 001e 0025     		movs	r5, #0
+  73              	.LVL7:
+  74 0020 00E0     		b	.L2
+  75              	.LVL8:
+  76              	.L11:
+  46:main.c        ****             bSWEdge = true;
+  77              		.loc 1 46 0
+  78 0022 0125     		movs	r5, #1
+  79              	.LVL9:
+  80              	.L2:
+  49:main.c        ****         // 3. Update current SW state to prevous state
+  50:main.c        ****         preSW = curSW;
+  51:main.c        ****         
+  52:main.c        ****         switch(state){
+  81              		.loc 1 52 0
+  82 0024 032C     		cmp	r4, #3
+  83 0026 1ED8     		bhi	.L3
+  84 0028 DFE804F0 		tbb	[pc, r4]
+  85              	.L5:
+  86 002c 02       		.byte	(.L4-.L5)/2
+  87 002d 07       		.byte	(.L6-.L5)/2
+  88 002e 0C       		.byte	(.L7-.L5)/2
+  89 002f 11       		.byte	(.L8-.L5)/2
+  90              		.p2align 1
+  91              	.L4:
+  53:main.c        ****             case S_IDLE:
+  54:main.c        ****                 PWM_WriteCompare(0);    // Set output
+  92              		.loc 1 54 0
+  93 0030 0020     		movs	r0, #0
+  94 0032 FFF7FEFF 		bl	PWM_WriteCompare
+  95              	.LVL10:
+  55:main.c        ****                 if (bSWEdge){
+  96              		.loc 1 55 0
+  97 0036 7DB9     		cbnz	r5, .L12
+  98 0038 15E0     		b	.L3
+  99              	.L6:
+  56:main.c        ****                     state = S_25;
+  57:main.c        ****                 }
+  58:main.c        ****                 break;
+  59:main.c        ****             case S_25:
+  60:main.c        ****                 PWM_WriteCompare(25);    // Set output
+ 100              		.loc 1 60 0
+ 101 003a 1920     		movs	r0, #25
+ 102 003c FFF7FEFF 		bl	PWM_WriteCompare
+ 103              	.LVL11:
+  61:main.c        ****                 if (bSWEdge){
+ 104              		.loc 1 61 0
+ 105 0040 65B9     		cbnz	r5, .L13
+ 106 0042 10E0     		b	.L3
+ 107              	.L7:
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccbCjF5n.s 			page 4
+
+
+  62:main.c        ****                     state = S_50;
+  63:main.c        ****                 }
+  64:main.c        ****                 break;
+  65:main.c        ****             case S_50:
+  66:main.c        ****                 PWM_WriteCompare(50);    // Set output
+ 108              		.loc 1 66 0
+ 109 0044 3220     		movs	r0, #50
+ 110 0046 FFF7FEFF 		bl	PWM_WriteCompare
+ 111              	.LVL12:
+  67:main.c        ****                 if (bSWEdge){
+ 112              		.loc 1 67 0
+ 113 004a 4DB9     		cbnz	r5, .L14
+ 114 004c 0BE0     		b	.L3
+ 115              	.L8:
+  68:main.c        ****                     state = S_100;
+  69:main.c        ****                 }
+  70:main.c        ****                 break;
+  71:main.c        ****             case S_100:
+  72:main.c        ****                 PWM_WriteCompare(100);    // Set output
+ 116              		.loc 1 72 0
+ 117 004e 6420     		movs	r0, #100
+ 118 0050 FFF7FEFF 		bl	PWM_WriteCompare
+ 119              	.LVL13:
+  73:main.c        ****                 if (bSWEdge){
+ 120              		.loc 1 73 0
+ 121 0054 35B9     		cbnz	r5, .L15
+ 122 0056 06E0     		b	.L3
+ 123              	.L12:
+  56:main.c        ****                 }
+ 124              		.loc 1 56 0
+ 125 0058 0124     		movs	r4, #1
+ 126              	.LVL14:
+ 127 005a 04E0     		b	.L3
+ 128              	.LVL15:
+ 129              	.L13:
+  62:main.c        ****                 }
+ 130              		.loc 1 62 0
+ 131 005c 0224     		movs	r4, #2
+ 132              	.LVL16:
+ 133 005e 02E0     		b	.L3
+ 134              	.LVL17:
+ 135              	.L14:
+  68:main.c        ****                 }
+ 136              		.loc 1 68 0
+ 137 0060 0324     		movs	r4, #3
+ 138              	.LVL18:
+ 139 0062 00E0     		b	.L3
+ 140              	.LVL19:
+ 141              	.L15:
+  74:main.c        ****                     state = S_IDLE;
+ 142              		.loc 1 74 0
+ 143 0064 0024     		movs	r4, #0
+ 144              	.LVL20:
+ 145              	.L3:
+  75:main.c        ****                 }
+  76:main.c        ****                 break;
+  77:main.c        ****         }
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccbCjF5n.s 			page 5
+
+
+  78:main.c        ****         CyDelay(50);
+ 146              		.loc 1 78 0
+ 147 0066 3220     		movs	r0, #50
+ 148 0068 FFF7FEFF 		bl	CyDelay
+ 149              	.LVL21:
+  50:main.c        ****         
+ 150              		.loc 1 50 0
+ 151 006c 3546     		mov	r5, r6
+ 152              	.LVL22:
+  79:main.c        ****     }
+ 153              		.loc 1 79 0
+ 154 006e CDE7     		b	.L9
+ 155              		.cfi_endproc
+ 156              	.LFE64:
+ 157              		.size	main, .-main
+ 158              		.text
+ 159              	.Letext0:
+ 160              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 161              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 162              		.file 4 "Generated_Source\\PSoC5/PWM.h"
+ 163              		.file 5 "Generated_Source\\PSoC5/nSW.h"
+ 164              		.file 6 "Generated_Source\\PSoC5/CyLib.h"
+ 165              		.file 7 "Generated_Source\\PSoC5/core_cm3.h"
+ 166              		.section	.debug_info,"",%progbits
+ 167              	.Ldebug_info0:
+ 168 0000 DD010000 		.4byte	0x1dd
+ 169 0004 0400     		.2byte	0x4
+ 170 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 171 000a 04       		.byte	0x4
+ 172 000b 01       		.uleb128 0x1
+ 173 000c 3A000000 		.4byte	.LASF30
+ 174 0010 0C       		.byte	0xc
+ 175 0011 6F010000 		.4byte	.LASF31
+ 176 0015 CE010000 		.4byte	.LASF32
+ 177 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 178 001d 00000000 		.4byte	0
+ 179 0021 00000000 		.4byte	.Ldebug_line0
+ 180 0025 02       		.uleb128 0x2
+ 181 0026 01       		.byte	0x1
+ 182 0027 06       		.byte	0x6
+ 183 0028 B4010000 		.4byte	.LASF0
+ 184 002c 02       		.uleb128 0x2
+ 185 002d 01       		.byte	0x1
+ 186 002e 08       		.byte	0x8
+ 187 002f 2C000000 		.4byte	.LASF1
+ 188 0033 02       		.uleb128 0x2
+ 189 0034 02       		.byte	0x2
+ 190 0035 05       		.byte	0x5
+ 191 0036 17010000 		.4byte	.LASF2
+ 192 003a 02       		.uleb128 0x2
+ 193 003b 02       		.byte	0x2
+ 194 003c 07       		.byte	0x7
+ 195 003d DF000000 		.4byte	.LASF3
+ 196 0041 03       		.uleb128 0x3
+ 197 0042 0C000000 		.4byte	.LASF9
+ 198 0046 02       		.byte	0x2
+ 199 0047 3F       		.byte	0x3f
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccbCjF5n.s 			page 6
+
+
+ 200 0048 4C000000 		.4byte	0x4c
+ 201 004c 02       		.uleb128 0x2
+ 202 004d 04       		.byte	0x4
+ 203 004e 05       		.byte	0x5
+ 204 004f 99010000 		.4byte	.LASF4
+ 205 0053 02       		.uleb128 0x2
+ 206 0054 04       		.byte	0x4
+ 207 0055 07       		.byte	0x7
+ 208 0056 CD000000 		.4byte	.LASF5
+ 209 005a 02       		.uleb128 0x2
+ 210 005b 08       		.byte	0x8
+ 211 005c 05       		.byte	0x5
+ 212 005d 5B010000 		.4byte	.LASF6
+ 213 0061 02       		.uleb128 0x2
+ 214 0062 08       		.byte	0x8
+ 215 0063 07       		.byte	0x7
+ 216 0064 33010000 		.4byte	.LASF7
+ 217 0068 04       		.uleb128 0x4
+ 218 0069 04       		.byte	0x4
+ 219 006a 05       		.byte	0x5
+ 220 006b 696E7400 		.ascii	"int\000"
+ 221 006f 02       		.uleb128 0x2
+ 222 0070 04       		.byte	0x4
+ 223 0071 07       		.byte	0x7
+ 224 0072 26010000 		.4byte	.LASF8
+ 225 0076 03       		.uleb128 0x3
+ 226 0077 4A010000 		.4byte	.LASF10
+ 227 007b 03       		.byte	0x3
+ 228 007c 2C       		.byte	0x2c
+ 229 007d 41000000 		.4byte	0x41
+ 230 0081 02       		.uleb128 0x2
+ 231 0082 04       		.byte	0x4
+ 232 0083 04       		.byte	0x4
+ 233 0084 1F000000 		.4byte	.LASF11
+ 234 0088 02       		.uleb128 0x2
+ 235 0089 08       		.byte	0x8
+ 236 008a 04       		.byte	0x4
+ 237 008b FF000000 		.4byte	.LASF12
+ 238 008f 02       		.uleb128 0x2
+ 239 0090 01       		.byte	0x1
+ 240 0091 08       		.byte	0x8
+ 241 0092 76010000 		.4byte	.LASF13
+ 242 0096 02       		.uleb128 0x2
+ 243 0097 08       		.byte	0x8
+ 244 0098 04       		.byte	0x4
+ 245 0099 A2010000 		.4byte	.LASF14
+ 246 009d 02       		.uleb128 0x2
+ 247 009e 04       		.byte	0x4
+ 248 009f 07       		.byte	0x7
+ 249 00a0 52010000 		.4byte	.LASF15
+ 250 00a4 05       		.uleb128 0x5
+ 251 00a5 92010000 		.4byte	.LASF20
+ 252 00a9 01       		.byte	0x1
+ 253 00aa 2C000000 		.4byte	0x2c
+ 254 00ae 01       		.byte	0x1
+ 255 00af 12       		.byte	0x12
+ 256 00b0 CD000000 		.4byte	0xcd
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccbCjF5n.s 			page 7
+
+
+ 257 00b4 06       		.uleb128 0x6
+ 258 00b5 25000000 		.4byte	.LASF16
+ 259 00b9 00       		.byte	0
+ 260 00ba 06       		.uleb128 0x6
+ 261 00bb 83010000 		.4byte	.LASF17
+ 262 00bf 01       		.byte	0x1
+ 263 00c0 06       		.uleb128 0x6
+ 264 00c1 C8000000 		.4byte	.LASF18
+ 265 00c5 02       		.byte	0x2
+ 266 00c6 06       		.uleb128 0x6
+ 267 00c7 00000000 		.4byte	.LASF19
+ 268 00cb 03       		.byte	0x3
+ 269 00cc 00       		.byte	0
+ 270 00cd 03       		.uleb128 0x3
+ 271 00ce 92010000 		.4byte	.LASF20
+ 272 00d2 01       		.byte	0x1
+ 273 00d3 17       		.byte	0x17
+ 274 00d4 A4000000 		.4byte	0xa4
+ 275 00d8 07       		.uleb128 0x7
+ 276 00d9 21010000 		.4byte	.LASF33
+ 277 00dd 01       		.byte	0x1
+ 278 00de 19       		.byte	0x19
+ 279 00df 68000000 		.4byte	0x68
+ 280 00e3 00000000 		.4byte	.LFB64
+ 281 00e7 70000000 		.4byte	.LFE64-.LFB64
+ 282 00eb 01       		.uleb128 0x1
+ 283 00ec 9C       		.byte	0x9c
+ 284 00ed 9C010000 		.4byte	0x19c
+ 285 00f1 08       		.uleb128 0x8
+ 286 00f2 06000000 		.4byte	.LASF21
+ 287 00f6 01       		.byte	0x1
+ 288 00f7 1B       		.byte	0x1b
+ 289 00f8 CD000000 		.4byte	0xcd
+ 290 00fc 00000000 		.4byte	.LLST0
+ 291 0100 08       		.uleb128 0x8
+ 292 0101 AE010000 		.4byte	.LASF22
+ 293 0105 01       		.byte	0x1
+ 294 0106 1C       		.byte	0x1c
+ 295 0107 9C010000 		.4byte	0x19c
+ 296 010b 40000000 		.4byte	.LLST1
+ 297 010f 09       		.uleb128 0x9
+ 298 0110 69010000 		.4byte	.LASF23
+ 299 0114 01       		.byte	0x1
+ 300 0115 1D       		.byte	0x1d
+ 301 0116 9C010000 		.4byte	0x19c
+ 302 011a 01       		.uleb128 0x1
+ 303 011b 56       		.byte	0x56
+ 304 011c 08       		.uleb128 0x8
+ 305 011d 7B010000 		.4byte	.LASF24
+ 306 0121 01       		.byte	0x1
+ 307 0122 1E       		.byte	0x1e
+ 308 0123 9C010000 		.4byte	0x19c
+ 309 0127 80000000 		.4byte	.LLST2
+ 310 012b 0A       		.uleb128 0xa
+ 311 012c 08000000 		.4byte	.LVL1
+ 312 0130 B4010000 		.4byte	0x1b4
+ 313 0134 0A       		.uleb128 0xa
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccbCjF5n.s 			page 8
+
+
+ 314 0135 10000000 		.4byte	.LVL3
+ 315 0139 BF010000 		.4byte	0x1bf
+ 316 013d 0B       		.uleb128 0xb
+ 317 013e 36000000 		.4byte	.LVL10
+ 318 0142 CA010000 		.4byte	0x1ca
+ 319 0146 50010000 		.4byte	0x150
+ 320 014a 0C       		.uleb128 0xc
+ 321 014b 01       		.uleb128 0x1
+ 322 014c 50       		.byte	0x50
+ 323 014d 01       		.uleb128 0x1
+ 324 014e 30       		.byte	0x30
+ 325 014f 00       		.byte	0
+ 326 0150 0B       		.uleb128 0xb
+ 327 0151 40000000 		.4byte	.LVL11
+ 328 0155 CA010000 		.4byte	0x1ca
+ 329 0159 63010000 		.4byte	0x163
+ 330 015d 0C       		.uleb128 0xc
+ 331 015e 01       		.uleb128 0x1
+ 332 015f 50       		.byte	0x50
+ 333 0160 01       		.uleb128 0x1
+ 334 0161 49       		.byte	0x49
+ 335 0162 00       		.byte	0
+ 336 0163 0B       		.uleb128 0xb
+ 337 0164 4A000000 		.4byte	.LVL12
+ 338 0168 CA010000 		.4byte	0x1ca
+ 339 016c 77010000 		.4byte	0x177
+ 340 0170 0C       		.uleb128 0xc
+ 341 0171 01       		.uleb128 0x1
+ 342 0172 50       		.byte	0x50
+ 343 0173 02       		.uleb128 0x2
+ 344 0174 08       		.byte	0x8
+ 345 0175 32       		.byte	0x32
+ 346 0176 00       		.byte	0
+ 347 0177 0B       		.uleb128 0xb
+ 348 0178 54000000 		.4byte	.LVL13
+ 349 017c CA010000 		.4byte	0x1ca
+ 350 0180 8B010000 		.4byte	0x18b
+ 351 0184 0C       		.uleb128 0xc
+ 352 0185 01       		.uleb128 0x1
+ 353 0186 50       		.byte	0x50
+ 354 0187 02       		.uleb128 0x2
+ 355 0188 08       		.byte	0x8
+ 356 0189 64       		.byte	0x64
+ 357 018a 00       		.byte	0
+ 358 018b 0D       		.uleb128 0xd
+ 359 018c 6C000000 		.4byte	.LVL21
+ 360 0190 D5010000 		.4byte	0x1d5
+ 361 0194 0C       		.uleb128 0xc
+ 362 0195 01       		.uleb128 0x1
+ 363 0196 50       		.byte	0x50
+ 364 0197 02       		.uleb128 0x2
+ 365 0198 08       		.byte	0x8
+ 366 0199 32       		.byte	0x32
+ 367 019a 00       		.byte	0
+ 368 019b 00       		.byte	0
+ 369 019c 02       		.uleb128 0x2
+ 370 019d 01       		.byte	0x1
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccbCjF5n.s 			page 9
+
+
+ 371 019e 02       		.byte	0x2
+ 372 019f C0010000 		.4byte	.LASF25
+ 373 01a3 0E       		.uleb128 0xe
+ 374 01a4 F2000000 		.4byte	.LASF34
+ 375 01a8 07       		.byte	0x7
+ 376 01a9 1207     		.2byte	0x712
+ 377 01ab AF010000 		.4byte	0x1af
+ 378 01af 0F       		.uleb128 0xf
+ 379 01b0 76000000 		.4byte	0x76
+ 380 01b4 10       		.uleb128 0x10
+ 381 01b5 88010000 		.4byte	.LASF26
+ 382 01b9 88010000 		.4byte	.LASF26
+ 383 01bd 04       		.byte	0x4
+ 384 01be 92       		.byte	0x92
+ 385 01bf 10       		.uleb128 0x10
+ 386 01c0 16000000 		.4byte	.LASF27
+ 387 01c4 16000000 		.4byte	.LASF27
+ 388 01c8 05       		.byte	0x5
+ 389 01c9 29       		.byte	0x29
+ 390 01ca 10       		.uleb128 0x10
+ 391 01cb 06010000 		.4byte	.LASF28
+ 392 01cf 06010000 		.4byte	.LASF28
+ 393 01d3 04       		.byte	0x4
+ 394 01d4 C3       		.byte	0xc3
+ 395 01d5 10       		.uleb128 0x10
+ 396 01d6 C6010000 		.4byte	.LASF29
+ 397 01da C6010000 		.4byte	.LASF29
+ 398 01de 06       		.byte	0x6
+ 399 01df 76       		.byte	0x76
+ 400 01e0 00       		.byte	0
+ 401              		.section	.debug_abbrev,"",%progbits
+ 402              	.Ldebug_abbrev0:
+ 403 0000 01       		.uleb128 0x1
+ 404 0001 11       		.uleb128 0x11
+ 405 0002 01       		.byte	0x1
+ 406 0003 25       		.uleb128 0x25
+ 407 0004 0E       		.uleb128 0xe
+ 408 0005 13       		.uleb128 0x13
+ 409 0006 0B       		.uleb128 0xb
+ 410 0007 03       		.uleb128 0x3
+ 411 0008 0E       		.uleb128 0xe
+ 412 0009 1B       		.uleb128 0x1b
+ 413 000a 0E       		.uleb128 0xe
+ 414 000b 55       		.uleb128 0x55
+ 415 000c 17       		.uleb128 0x17
+ 416 000d 11       		.uleb128 0x11
+ 417 000e 01       		.uleb128 0x1
+ 418 000f 10       		.uleb128 0x10
+ 419 0010 17       		.uleb128 0x17
+ 420 0011 00       		.byte	0
+ 421 0012 00       		.byte	0
+ 422 0013 02       		.uleb128 0x2
+ 423 0014 24       		.uleb128 0x24
+ 424 0015 00       		.byte	0
+ 425 0016 0B       		.uleb128 0xb
+ 426 0017 0B       		.uleb128 0xb
+ 427 0018 3E       		.uleb128 0x3e
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccbCjF5n.s 			page 10
+
+
+ 428 0019 0B       		.uleb128 0xb
+ 429 001a 03       		.uleb128 0x3
+ 430 001b 0E       		.uleb128 0xe
+ 431 001c 00       		.byte	0
+ 432 001d 00       		.byte	0
+ 433 001e 03       		.uleb128 0x3
+ 434 001f 16       		.uleb128 0x16
+ 435 0020 00       		.byte	0
+ 436 0021 03       		.uleb128 0x3
+ 437 0022 0E       		.uleb128 0xe
+ 438 0023 3A       		.uleb128 0x3a
+ 439 0024 0B       		.uleb128 0xb
+ 440 0025 3B       		.uleb128 0x3b
+ 441 0026 0B       		.uleb128 0xb
+ 442 0027 49       		.uleb128 0x49
+ 443 0028 13       		.uleb128 0x13
+ 444 0029 00       		.byte	0
+ 445 002a 00       		.byte	0
+ 446 002b 04       		.uleb128 0x4
+ 447 002c 24       		.uleb128 0x24
+ 448 002d 00       		.byte	0
+ 449 002e 0B       		.uleb128 0xb
+ 450 002f 0B       		.uleb128 0xb
+ 451 0030 3E       		.uleb128 0x3e
+ 452 0031 0B       		.uleb128 0xb
+ 453 0032 03       		.uleb128 0x3
+ 454 0033 08       		.uleb128 0x8
+ 455 0034 00       		.byte	0
+ 456 0035 00       		.byte	0
+ 457 0036 05       		.uleb128 0x5
+ 458 0037 04       		.uleb128 0x4
+ 459 0038 01       		.byte	0x1
+ 460 0039 03       		.uleb128 0x3
+ 461 003a 0E       		.uleb128 0xe
+ 462 003b 0B       		.uleb128 0xb
+ 463 003c 0B       		.uleb128 0xb
+ 464 003d 49       		.uleb128 0x49
+ 465 003e 13       		.uleb128 0x13
+ 466 003f 3A       		.uleb128 0x3a
+ 467 0040 0B       		.uleb128 0xb
+ 468 0041 3B       		.uleb128 0x3b
+ 469 0042 0B       		.uleb128 0xb
+ 470 0043 01       		.uleb128 0x1
+ 471 0044 13       		.uleb128 0x13
+ 472 0045 00       		.byte	0
+ 473 0046 00       		.byte	0
+ 474 0047 06       		.uleb128 0x6
+ 475 0048 28       		.uleb128 0x28
+ 476 0049 00       		.byte	0
+ 477 004a 03       		.uleb128 0x3
+ 478 004b 0E       		.uleb128 0xe
+ 479 004c 1C       		.uleb128 0x1c
+ 480 004d 0B       		.uleb128 0xb
+ 481 004e 00       		.byte	0
+ 482 004f 00       		.byte	0
+ 483 0050 07       		.uleb128 0x7
+ 484 0051 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccbCjF5n.s 			page 11
+
+
+ 485 0052 01       		.byte	0x1
+ 486 0053 3F       		.uleb128 0x3f
+ 487 0054 19       		.uleb128 0x19
+ 488 0055 03       		.uleb128 0x3
+ 489 0056 0E       		.uleb128 0xe
+ 490 0057 3A       		.uleb128 0x3a
+ 491 0058 0B       		.uleb128 0xb
+ 492 0059 3B       		.uleb128 0x3b
+ 493 005a 0B       		.uleb128 0xb
+ 494 005b 27       		.uleb128 0x27
+ 495 005c 19       		.uleb128 0x19
+ 496 005d 49       		.uleb128 0x49
+ 497 005e 13       		.uleb128 0x13
+ 498 005f 8701     		.uleb128 0x87
+ 499 0061 19       		.uleb128 0x19
+ 500 0062 11       		.uleb128 0x11
+ 501 0063 01       		.uleb128 0x1
+ 502 0064 12       		.uleb128 0x12
+ 503 0065 06       		.uleb128 0x6
+ 504 0066 40       		.uleb128 0x40
+ 505 0067 18       		.uleb128 0x18
+ 506 0068 9742     		.uleb128 0x2117
+ 507 006a 19       		.uleb128 0x19
+ 508 006b 01       		.uleb128 0x1
+ 509 006c 13       		.uleb128 0x13
+ 510 006d 00       		.byte	0
+ 511 006e 00       		.byte	0
+ 512 006f 08       		.uleb128 0x8
+ 513 0070 34       		.uleb128 0x34
+ 514 0071 00       		.byte	0
+ 515 0072 03       		.uleb128 0x3
+ 516 0073 0E       		.uleb128 0xe
+ 517 0074 3A       		.uleb128 0x3a
+ 518 0075 0B       		.uleb128 0xb
+ 519 0076 3B       		.uleb128 0x3b
+ 520 0077 0B       		.uleb128 0xb
+ 521 0078 49       		.uleb128 0x49
+ 522 0079 13       		.uleb128 0x13
+ 523 007a 02       		.uleb128 0x2
+ 524 007b 17       		.uleb128 0x17
+ 525 007c 00       		.byte	0
+ 526 007d 00       		.byte	0
+ 527 007e 09       		.uleb128 0x9
+ 528 007f 34       		.uleb128 0x34
+ 529 0080 00       		.byte	0
+ 530 0081 03       		.uleb128 0x3
+ 531 0082 0E       		.uleb128 0xe
+ 532 0083 3A       		.uleb128 0x3a
+ 533 0084 0B       		.uleb128 0xb
+ 534 0085 3B       		.uleb128 0x3b
+ 535 0086 0B       		.uleb128 0xb
+ 536 0087 49       		.uleb128 0x49
+ 537 0088 13       		.uleb128 0x13
+ 538 0089 02       		.uleb128 0x2
+ 539 008a 18       		.uleb128 0x18
+ 540 008b 00       		.byte	0
+ 541 008c 00       		.byte	0
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccbCjF5n.s 			page 12
+
+
+ 542 008d 0A       		.uleb128 0xa
+ 543 008e 898201   		.uleb128 0x4109
+ 544 0091 00       		.byte	0
+ 545 0092 11       		.uleb128 0x11
+ 546 0093 01       		.uleb128 0x1
+ 547 0094 31       		.uleb128 0x31
+ 548 0095 13       		.uleb128 0x13
+ 549 0096 00       		.byte	0
+ 550 0097 00       		.byte	0
+ 551 0098 0B       		.uleb128 0xb
+ 552 0099 898201   		.uleb128 0x4109
+ 553 009c 01       		.byte	0x1
+ 554 009d 11       		.uleb128 0x11
+ 555 009e 01       		.uleb128 0x1
+ 556 009f 31       		.uleb128 0x31
+ 557 00a0 13       		.uleb128 0x13
+ 558 00a1 01       		.uleb128 0x1
+ 559 00a2 13       		.uleb128 0x13
+ 560 00a3 00       		.byte	0
+ 561 00a4 00       		.byte	0
+ 562 00a5 0C       		.uleb128 0xc
+ 563 00a6 8A8201   		.uleb128 0x410a
+ 564 00a9 00       		.byte	0
+ 565 00aa 02       		.uleb128 0x2
+ 566 00ab 18       		.uleb128 0x18
+ 567 00ac 9142     		.uleb128 0x2111
+ 568 00ae 18       		.uleb128 0x18
+ 569 00af 00       		.byte	0
+ 570 00b0 00       		.byte	0
+ 571 00b1 0D       		.uleb128 0xd
+ 572 00b2 898201   		.uleb128 0x4109
+ 573 00b5 01       		.byte	0x1
+ 574 00b6 11       		.uleb128 0x11
+ 575 00b7 01       		.uleb128 0x1
+ 576 00b8 31       		.uleb128 0x31
+ 577 00b9 13       		.uleb128 0x13
+ 578 00ba 00       		.byte	0
+ 579 00bb 00       		.byte	0
+ 580 00bc 0E       		.uleb128 0xe
+ 581 00bd 34       		.uleb128 0x34
+ 582 00be 00       		.byte	0
+ 583 00bf 03       		.uleb128 0x3
+ 584 00c0 0E       		.uleb128 0xe
+ 585 00c1 3A       		.uleb128 0x3a
+ 586 00c2 0B       		.uleb128 0xb
+ 587 00c3 3B       		.uleb128 0x3b
+ 588 00c4 05       		.uleb128 0x5
+ 589 00c5 49       		.uleb128 0x49
+ 590 00c6 13       		.uleb128 0x13
+ 591 00c7 3F       		.uleb128 0x3f
+ 592 00c8 19       		.uleb128 0x19
+ 593 00c9 3C       		.uleb128 0x3c
+ 594 00ca 19       		.uleb128 0x19
+ 595 00cb 00       		.byte	0
+ 596 00cc 00       		.byte	0
+ 597 00cd 0F       		.uleb128 0xf
+ 598 00ce 35       		.uleb128 0x35
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccbCjF5n.s 			page 13
+
+
+ 599 00cf 00       		.byte	0
+ 600 00d0 49       		.uleb128 0x49
+ 601 00d1 13       		.uleb128 0x13
+ 602 00d2 00       		.byte	0
+ 603 00d3 00       		.byte	0
+ 604 00d4 10       		.uleb128 0x10
+ 605 00d5 2E       		.uleb128 0x2e
+ 606 00d6 00       		.byte	0
+ 607 00d7 3F       		.uleb128 0x3f
+ 608 00d8 19       		.uleb128 0x19
+ 609 00d9 3C       		.uleb128 0x3c
+ 610 00da 19       		.uleb128 0x19
+ 611 00db 6E       		.uleb128 0x6e
+ 612 00dc 0E       		.uleb128 0xe
+ 613 00dd 03       		.uleb128 0x3
+ 614 00de 0E       		.uleb128 0xe
+ 615 00df 3A       		.uleb128 0x3a
+ 616 00e0 0B       		.uleb128 0xb
+ 617 00e1 3B       		.uleb128 0x3b
+ 618 00e2 0B       		.uleb128 0xb
+ 619 00e3 00       		.byte	0
+ 620 00e4 00       		.byte	0
+ 621 00e5 00       		.byte	0
+ 622              		.section	.debug_loc,"",%progbits
+ 623              	.Ldebug_loc0:
+ 624              	.LLST0:
+ 625 0000 02000000 		.4byte	.LVL0
+ 626 0004 0C000000 		.4byte	.LVL2
+ 627 0008 0200     		.2byte	0x2
+ 628 000a 30       		.byte	0x30
+ 629 000b 9F       		.byte	0x9f
+ 630 000c 0C000000 		.4byte	.LVL2
+ 631 0010 5A000000 		.4byte	.LVL14
+ 632 0014 0100     		.2byte	0x1
+ 633 0016 54       		.byte	0x54
+ 634 0017 5C000000 		.4byte	.LVL15
+ 635 001b 5E000000 		.4byte	.LVL16
+ 636 001f 0100     		.2byte	0x1
+ 637 0021 54       		.byte	0x54
+ 638 0022 60000000 		.4byte	.LVL17
+ 639 0026 62000000 		.4byte	.LVL18
+ 640 002a 0100     		.2byte	0x1
+ 641 002c 54       		.byte	0x54
+ 642 002d 64000000 		.4byte	.LVL19
+ 643 0031 70000000 		.4byte	.LFE64
+ 644 0035 0100     		.2byte	0x1
+ 645 0037 54       		.byte	0x54
+ 646 0038 00000000 		.4byte	0
+ 647 003c 00000000 		.4byte	0
+ 648              	.LLST1:
+ 649 0040 02000000 		.4byte	.LVL0
+ 650 0044 0C000000 		.4byte	.LVL2
+ 651 0048 0200     		.2byte	0x2
+ 652 004a 31       		.byte	0x31
+ 653 004b 9F       		.byte	0x9f
+ 654 004c 0C000000 		.4byte	.LVL2
+ 655 0050 1C000000 		.4byte	.LVL5
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccbCjF5n.s 			page 14
+
+
+ 656 0054 0100     		.2byte	0x1
+ 657 0056 55       		.byte	0x55
+ 658 0057 1E000000 		.4byte	.LVL6
+ 659 005b 20000000 		.4byte	.LVL7
+ 660 005f 0100     		.2byte	0x1
+ 661 0061 55       		.byte	0x55
+ 662 0062 22000000 		.4byte	.LVL8
+ 663 0066 24000000 		.4byte	.LVL9
+ 664 006a 0100     		.2byte	0x1
+ 665 006c 55       		.byte	0x55
+ 666 006d 24000000 		.4byte	.LVL9
+ 667 0071 70000000 		.4byte	.LFE64
+ 668 0075 0100     		.2byte	0x1
+ 669 0077 56       		.byte	0x56
+ 670 0078 00000000 		.4byte	0
+ 671 007c 00000000 		.4byte	0
+ 672              	.LLST2:
+ 673 0080 02000000 		.4byte	.LVL0
+ 674 0084 0C000000 		.4byte	.LVL2
+ 675 0088 0200     		.2byte	0x2
+ 676 008a 30       		.byte	0x30
+ 677 008b 9F       		.byte	0x9f
+ 678 008c 24000000 		.4byte	.LVL9
+ 679 0090 6E000000 		.4byte	.LVL22
+ 680 0094 0100     		.2byte	0x1
+ 681 0096 55       		.byte	0x55
+ 682 0097 00000000 		.4byte	0
+ 683 009b 00000000 		.4byte	0
+ 684              		.section	.debug_aranges,"",%progbits
+ 685 0000 1C000000 		.4byte	0x1c
+ 686 0004 0200     		.2byte	0x2
+ 687 0006 00000000 		.4byte	.Ldebug_info0
+ 688 000a 04       		.byte	0x4
+ 689 000b 00       		.byte	0
+ 690 000c 0000     		.2byte	0
+ 691 000e 0000     		.2byte	0
+ 692 0010 00000000 		.4byte	.LFB64
+ 693 0014 70000000 		.4byte	.LFE64-.LFB64
+ 694 0018 00000000 		.4byte	0
+ 695 001c 00000000 		.4byte	0
+ 696              		.section	.debug_ranges,"",%progbits
+ 697              	.Ldebug_ranges0:
+ 698 0000 00000000 		.4byte	.LFB64
+ 699 0004 70000000 		.4byte	.LFE64
+ 700 0008 00000000 		.4byte	0
+ 701 000c 00000000 		.4byte	0
+ 702              		.section	.debug_line,"",%progbits
+ 703              	.Ldebug_line0:
+ 704 0000 9A010000 		.section	.debug_str,"MS",%progbits,1
+ 704      02005C01 
+ 704      00000201 
+ 704      FB0E0D00 
+ 704      01010101 
+ 705              	.LASF19:
+ 706 0000 535F3130 		.ascii	"S_100\000"
+ 706      3000
+ 707              	.LASF21:
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccbCjF5n.s 			page 15
+
+
+ 708 0006 73746174 		.ascii	"state\000"
+ 708      6500
+ 709              	.LASF9:
+ 710 000c 5F5F696E 		.ascii	"__int32_t\000"
+ 710      7433325F 
+ 710      7400
+ 711              	.LASF27:
+ 712 0016 6E53575F 		.ascii	"nSW_Read\000"
+ 712      52656164 
+ 712      00
+ 713              	.LASF11:
+ 714 001f 666C6F61 		.ascii	"float\000"
+ 714      7400
+ 715              	.LASF16:
+ 716 0025 535F4944 		.ascii	"S_IDLE\000"
+ 716      4C4500
+ 717              	.LASF1:
+ 718 002c 756E7369 		.ascii	"unsigned char\000"
+ 718      676E6564 
+ 718      20636861 
+ 718      7200
+ 719              	.LASF30:
+ 720 003a 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 720      43313120 
+ 720      352E342E 
+ 720      31203230 
+ 720      31363036 
+ 721 006d 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 721      20726576 
+ 721      6973696F 
+ 721      6E203233 
+ 721      37373135 
+ 722 00a0 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 722      66756E63 
+ 722      74696F6E 
+ 722      2D736563 
+ 722      74696F6E 
+ 723              	.LASF18:
+ 724 00c8 535F3530 		.ascii	"S_50\000"
+ 724      00
+ 725              	.LASF5:
+ 726 00cd 6C6F6E67 		.ascii	"long unsigned int\000"
+ 726      20756E73 
+ 726      69676E65 
+ 726      6420696E 
+ 726      7400
+ 727              	.LASF3:
+ 728 00df 73686F72 		.ascii	"short unsigned int\000"
+ 728      7420756E 
+ 728      7369676E 
+ 728      65642069 
+ 728      6E7400
+ 729              	.LASF34:
+ 730 00f2 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 730      52784275 
+ 730      66666572 
+ 730      00
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccbCjF5n.s 			page 16
+
+
+ 731              	.LASF12:
+ 732 00ff 646F7562 		.ascii	"double\000"
+ 732      6C6500
+ 733              	.LASF28:
+ 734 0106 50574D5F 		.ascii	"PWM_WriteCompare\000"
+ 734      57726974 
+ 734      65436F6D 
+ 734      70617265 
+ 734      00
+ 735              	.LASF2:
+ 736 0117 73686F72 		.ascii	"short int\000"
+ 736      7420696E 
+ 736      7400
+ 737              	.LASF33:
+ 738 0121 6D61696E 		.ascii	"main\000"
+ 738      00
+ 739              	.LASF8:
+ 740 0126 756E7369 		.ascii	"unsigned int\000"
+ 740      676E6564 
+ 740      20696E74 
+ 740      00
+ 741              	.LASF7:
+ 742 0133 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 742      206C6F6E 
+ 742      6720756E 
+ 742      7369676E 
+ 742      65642069 
+ 743              	.LASF10:
+ 744 014a 696E7433 		.ascii	"int32_t\000"
+ 744      325F7400 
+ 745              	.LASF15:
+ 746 0152 73697A65 		.ascii	"sizetype\000"
+ 746      74797065 
+ 746      00
+ 747              	.LASF6:
+ 748 015b 6C6F6E67 		.ascii	"long long int\000"
+ 748      206C6F6E 
+ 748      6720696E 
+ 748      7400
+ 749              	.LASF23:
+ 750 0169 63757253 		.ascii	"curSW\000"
+ 750      5700
+ 751              	.LASF31:
+ 752 016f 6D61696E 		.ascii	"main.c\000"
+ 752      2E6300
+ 753              	.LASF13:
+ 754 0176 63686172 		.ascii	"char\000"
+ 754      00
+ 755              	.LASF24:
+ 756 017b 62535745 		.ascii	"bSWEdge\000"
+ 756      64676500 
+ 757              	.LASF17:
+ 758 0183 535F3235 		.ascii	"S_25\000"
+ 758      00
+ 759              	.LASF26:
+ 760 0188 50574D5F 		.ascii	"PWM_Start\000"
+ 760      53746172 
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccbCjF5n.s 			page 17
+
+
+ 760      7400
+ 761              	.LASF20:
+ 762 0192 53544154 		.ascii	"STATES\000"
+ 762      455300
+ 763              	.LASF4:
+ 764 0199 6C6F6E67 		.ascii	"long int\000"
+ 764      20696E74 
+ 764      00
+ 765              	.LASF14:
+ 766 01a2 6C6F6E67 		.ascii	"long double\000"
+ 766      20646F75 
+ 766      626C6500 
+ 767              	.LASF22:
+ 768 01ae 70726553 		.ascii	"preSW\000"
+ 768      5700
+ 769              	.LASF0:
+ 770 01b4 7369676E 		.ascii	"signed char\000"
+ 770      65642063 
+ 770      68617200 
+ 771              	.LASF25:
+ 772 01c0 5F426F6F 		.ascii	"_Bool\000"
+ 772      6C00
+ 773              	.LASF29:
+ 774 01c6 43794465 		.ascii	"CyDelay\000"
+ 774      6C617900 
+ 775              	.LASF32:
+ 776 01ce 433A5C55 		.ascii	"C:\\Users\\Tri94\\Documents\\PSoC Creator\\EE4450\\"
+ 776      73657273 
+ 776      5C547269 
+ 776      39345C44 
+ 776      6F63756D 
+ 777 01fb 4D6F6F72 		.ascii	"MooreFSM_LED.cydsn\000"
+ 777      6546534D 
+ 777      5F4C4544 
+ 777      2E637964 
+ 777      736E00
+ 778              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
