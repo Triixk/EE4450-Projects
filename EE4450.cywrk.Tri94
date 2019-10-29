@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="EE4450\TimerCapture">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="EE4450\RTOS_Mutex">
 <ExpandedNodeIds>
 <v>EE4450</v>
 <v>EE4450\ADC\TopDesign</v>
@@ -658,6 +658,7 @@
 <v>EE4450\RTOS_UART_StringMessage\Source Files\main.c</v>
 <v>EE4450\RTOS_UART_StringMessage\Generated_Source</v>
 <v>EE4450\RTOS_UART_StringMessage\Generated_Source\PSoC5</v>
+<v>EE4450\Timer_IRQ</v>
 <v>EE4450\Timer_IRQ\TopDesign</v>
 <v>EE4450\Timer_IRQ\Timer_IRQ.cydwr</v>
 <v>EE4450\Timer_IRQ\Timer_IRQ.cydwr\Pins</v>
@@ -692,6 +693,8 @@
 <v>EE4450\TimerCapture\Header Files\cyapicallbacks.h</v>
 <v>EE4450\TimerCapture\Source Files</v>
 <v>EE4450\TimerCapture\Source Files\main.c</v>
+<v>EE4450\TimerCapture\Generated_Source</v>
+<v>EE4450\TimerCapture\Generated_Source\PSoC5</v>
 <v>EE4450\UART2PC\TopDesign</v>
 <v>EE4450\UART2PC\UART2PC.cydwr</v>
 <v>EE4450\UART2PC\UART2PC.cydwr\Pins</v>
@@ -711,16 +714,6 @@
 <v>EE4450\UART2PC\Generated_Source\PSoC5</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>EE4450</v>
-<v>EE4450\ADC</v>
-<v>EE4450\CapSence_Proximity</v>
-<v>EE4450\CapSense_Slider</v>
-<v>EE4450\Example_SoftwareControlLED</v>
-<v>EE4450\GPIO_IRQ</v>
-<v>EE4450\I2C_RTC</v>
-<v>EE4450\Lab01</v>
-<v>EE4450\LCD_Test</v>
-<v>EE4450\LCDTest</v>
 <v>EE4450\Led_Display</v>
 <v>EE4450\Led_Display_Copy_01</v>
 <v>EE4450\Led_Display_Extra_Credit</v>
@@ -739,13 +732,23 @@
 <v>EE4450\RTOS_StreamBuffer</v>
 <v>EE4450\RTOS_UART_StringMessage</v>
 <v>EE4450\Timer_IRQ</v>
-<v>EE4450\TimerCapture</v>
-<v>EE4450\TimerCapture\TopDesign</v>
-<v>EE4450\TimerCapture\TimerCapture.cydwr</v>
-<v>EE4450\TimerCapture\TimerCapture.cydwr\Pins</v>
-<v>EE4450\TimerCapture\TimerCapture.cydwr\Analog</v>
-<v>EE4450\TimerCapture\TimerCapture.cydwr\Clocks</v>
-<v>EE4450\TimerCapture\TimerCapture.cydwr\Interrupts</v>
+<v>EE4450\Timer_IRQ\TopDesign</v>
+<v>EE4450\Timer_IRQ\Timer_IRQ.cydwr</v>
+<v>EE4450\Timer_IRQ\Timer_IRQ.cydwr\Pins</v>
+<v>EE4450\Timer_IRQ\Timer_IRQ.cydwr\Analog</v>
+<v>EE4450\Timer_IRQ\Timer_IRQ.cydwr\Clocks</v>
+<v>EE4450\Timer_IRQ\Timer_IRQ.cydwr\Interrupts</v>
+<v>EE4450\Timer_IRQ\Timer_IRQ.cydwr\DMA</v>
+<v>EE4450\Timer_IRQ\Timer_IRQ.cydwr\System</v>
+<v>EE4450\Timer_IRQ\Timer_IRQ.cydwr\Directives</v>
+<v>EE4450\Timer_IRQ\Timer_IRQ.cydwr\Flash Security</v>
+<v>EE4450\Timer_IRQ\Timer_IRQ.cydwr\EEPROM</v>
+<v>EE4450\Timer_IRQ\Header Files</v>
+<v>EE4450\Timer_IRQ\Header Files\cyapicallbacks.h</v>
+<v>EE4450\Timer_IRQ\Source Files</v>
+<v>EE4450\Timer_IRQ\Source Files\main.c</v>
+<v>EE4450\Timer_IRQ\Generated_Source</v>
+<v>EE4450\Timer_IRQ\Generated_Source\PSoC5</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -885,10 +888,79 @@
 <v>EE4450\ADC\ADC.rpt</v>
 <v>EE4450\ADC\ADC_timing.html</v>
 <v>EE4450\CapSence_Proximity</v>
+<v>EE4450\CapSence_Proximity\CortexM3</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_AMuxCH0.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_CompCH0.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_CompCH0_PM.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_CSHL.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_IdacCH0.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_IdacCH0_PM.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_INT.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_IntClock.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_Pins.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_PM.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_SMS_Wrapper.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_TunerHelper.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\CapSence_Proximity.elf</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\CapSence_Proximity.hex</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\CapSence_Proximity.map</v>
 <v>EE4450\CapSence_Proximity\CapSence_Proximity.gpdsc</v>
 <v>EE4450\CapSence_Proximity\CapSence_Proximity.rpt</v>
 <v>EE4450\CapSence_Proximity\CapSence_Proximity_timing.html</v>
 <v>EE4450\CapSense_Slider</v>
+<v>EE4450\CapSense_Slider\CortexM3</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_AMuxCH0.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_CompCH0.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_CompCH0_PM.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_CSHL.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_IdacCH0.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_IdacCH0_PM.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_INT.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_IntClock.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_Pins.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_PM.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_SMS_Wrapper.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_TunerHelper.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_PM.lst</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\CapSense_Slider.elf</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\CapSense_Slider.hex</v>
+<v>EE4450\CapSense_Slider\CortexM3\ARM_GCC_541\Debug\CapSense_Slider.map</v>
 <v>EE4450\CapSense_Slider\CapSense_Slider.gpdsc</v>
 <v>EE4450\CapSense_Slider\CapSense_Slider.rpt</v>
 <v>EE4450\CapSense_Slider\CapSense_Slider_timing.html</v>
@@ -1476,34 +1548,34 @@
 <v>EE4450\ADC\ADC_timing.html</v>
 <v>EE4450\CapSence_Proximity</v>
 <v>EE4450\CapSence_Proximity\CortexM3</v>
-<v>EE4450\CapSence_Proximity\CapSence_Proximity.gpdsc</v>
-<v>EE4450\CapSence_Proximity\CapSence_Proximity.rpt</v>
-<v>EE4450\CapSence_Proximity\CapSence_Proximity_timing.html</v>
-<v>EE4450\CapSense_Slider</v>
-<v>EE4450\CapSense_Slider\CortexM3</v>
-<v>EE4450\CapSense_Slider\CapSense_Slider.gpdsc</v>
-<v>EE4450\CapSense_Slider\CapSense_Slider.rpt</v>
-<v>EE4450\CapSense_Slider\CapSense_Slider_timing.html</v>
-<v>EE4450\Example_SoftwareControlLED</v>
-<v>EE4450\Example_SoftwareControlLED\CortexM3</v>
-<v>EE4450\Example_SoftwareControlLED\CortexM3\ARM_GCC_541</v>
-<v>EE4450\Example_SoftwareControlLED\CortexM3\ARM_GCC_541\Debug</v>
-<v>EE4450\Example_SoftwareControlLED\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
-<v>EE4450\Example_SoftwareControlLED\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
-<v>EE4450\Example_SoftwareControlLED\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
-<v>EE4450\Example_SoftwareControlLED\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>EE4450\Example_SoftwareControlLED\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
-<v>EE4450\Example_SoftwareControlLED\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>EE4450\Example_SoftwareControlLED\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>EE4450\Example_SoftwareControlLED\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>EE4450\Example_SoftwareControlLED\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>EE4450\Example_SoftwareControlLED\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>EE4450\Example_SoftwareControlLED\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
-<v>EE4450\Example_SoftwareControlLED\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>EE4450\Example_SoftwareControlLED\CortexM3\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
-<v>EE4450\Example_SoftwareControlLED\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
-<v>EE4450\Example_SoftwareControlLED\CortexM3\ARM_GCC_541\Debug\Listing Files\nSW.lst</v>
-<v>EE4450\Example_SoftwareControlLED\CortexM3\ARM_GCC_541\Debug\Example_SoftwareControlLED.elf</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_AMuxCH0.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_CompCH0.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_CompCH0_PM.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_CSHL.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_IdacCH0.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_IdacCH0_PM.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_INT.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_IntClock.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_Pins.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_PM.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_SMS_Wrapper.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CapSense_TunerHelper.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -1751,9 +1823,14 @@
 <v>EE4450\TimerCapture\CY8C58LP Family Datasheet</v>
 <v>EE4450\TimerCapture\System Reference Guides</v>
 <v>EE4450\TimerCapture\System Reference Guides\cy_boot_v5_70</v>
-<v>EE4450\TimerCapture\cy_clock_v2_20.pdf</v>
+<v>EE4450\TimerCapture\CharLCD_v2_20.pdf</v>
+<v>EE4450\TimerCapture\cy_clock_v2_20</v>
+<v>EE4450\TimerCapture\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
+<v>EE4450\TimerCapture\cy_pins_v2_20.pdf</v>
+<v>EE4450\TimerCapture\PWM_v3_30.pdf</v>
 <v>EE4450\TimerCapture\Timer_v2_80.pdf</v>
-<v>EE4450\TimerCapture\ZeroTerminal.pdf</v>
+<v>EE4450\TimerCapture\ZeroTerminal</v>
+<v>EE4450\TimerCapture\ZeroTerminal\ZeroTerminal.pdf</v>
 <v>EE4450\UART2PC</v>
 <v>EE4450\UART2PC\PSoC 5LP Architecture TRM</v>
 <v>EE4450\UART2PC\CY8C58LP Family Datasheet</v>
