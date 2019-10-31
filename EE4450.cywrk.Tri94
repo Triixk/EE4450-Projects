@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="EE4450\RTOS_Mutex">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="EE4450\SPI\Source Files\main.c">
 <ExpandedNodeIds>
 <v>EE4450</v>
 <v>EE4450\ADC\TopDesign</v>
@@ -658,6 +658,24 @@
 <v>EE4450\RTOS_UART_StringMessage\Source Files\main.c</v>
 <v>EE4450\RTOS_UART_StringMessage\Generated_Source</v>
 <v>EE4450\RTOS_UART_StringMessage\Generated_Source\PSoC5</v>
+<v>EE4450\SPI</v>
+<v>EE4450\SPI\TopDesign</v>
+<v>EE4450\SPI\SPI.cydwr</v>
+<v>EE4450\SPI\SPI.cydwr\Pins</v>
+<v>EE4450\SPI\SPI.cydwr\Analog</v>
+<v>EE4450\SPI\SPI.cydwr\Clocks</v>
+<v>EE4450\SPI\SPI.cydwr\Interrupts</v>
+<v>EE4450\SPI\SPI.cydwr\DMA</v>
+<v>EE4450\SPI\SPI.cydwr\System</v>
+<v>EE4450\SPI\SPI.cydwr\Directives</v>
+<v>EE4450\SPI\SPI.cydwr\Flash Security</v>
+<v>EE4450\SPI\SPI.cydwr\EEPROM</v>
+<v>EE4450\SPI\Header Files</v>
+<v>EE4450\SPI\Header Files\cyapicallbacks.h</v>
+<v>EE4450\SPI\Source Files</v>
+<v>EE4450\SPI\Source Files\main.c</v>
+<v>EE4450\SPI\Generated_Source</v>
+<v>EE4450\SPI\Generated_Source\PSoC5</v>
 <v>EE4450\Timer_IRQ</v>
 <v>EE4450\Timer_IRQ\TopDesign</v>
 <v>EE4450\Timer_IRQ\Timer_IRQ.cydwr</v>
@@ -714,11 +732,6 @@
 <v>EE4450\UART2PC\Generated_Source\PSoC5</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>EE4450\Led_Display</v>
-<v>EE4450\Led_Display_Copy_01</v>
-<v>EE4450\Led_Display_Extra_Credit</v>
-<v>EE4450\Led_Display_Extra_Test</v>
-<v>EE4450\MooreFSM_LED</v>
 <v>EE4450\MooreFSM_StoplightController_1</v>
 <v>EE4450\MooreFSM_StoplightController_2</v>
 <v>EE4450\MooreFSM_StoplightController_3</v>
@@ -731,24 +744,29 @@
 <v>EE4450\RTOS_Queue</v>
 <v>EE4450\RTOS_StreamBuffer</v>
 <v>EE4450\RTOS_UART_StringMessage</v>
-<v>EE4450\Timer_IRQ</v>
-<v>EE4450\Timer_IRQ\TopDesign</v>
-<v>EE4450\Timer_IRQ\Timer_IRQ.cydwr</v>
-<v>EE4450\Timer_IRQ\Timer_IRQ.cydwr\Pins</v>
-<v>EE4450\Timer_IRQ\Timer_IRQ.cydwr\Analog</v>
-<v>EE4450\Timer_IRQ\Timer_IRQ.cydwr\Clocks</v>
-<v>EE4450\Timer_IRQ\Timer_IRQ.cydwr\Interrupts</v>
-<v>EE4450\Timer_IRQ\Timer_IRQ.cydwr\DMA</v>
-<v>EE4450\Timer_IRQ\Timer_IRQ.cydwr\System</v>
-<v>EE4450\Timer_IRQ\Timer_IRQ.cydwr\Directives</v>
-<v>EE4450\Timer_IRQ\Timer_IRQ.cydwr\Flash Security</v>
-<v>EE4450\Timer_IRQ\Timer_IRQ.cydwr\EEPROM</v>
-<v>EE4450\Timer_IRQ\Header Files</v>
-<v>EE4450\Timer_IRQ\Header Files\cyapicallbacks.h</v>
-<v>EE4450\Timer_IRQ\Source Files</v>
-<v>EE4450\Timer_IRQ\Source Files\main.c</v>
-<v>EE4450\Timer_IRQ\Generated_Source</v>
-<v>EE4450\Timer_IRQ\Generated_Source\PSoC5</v>
+<v>EE4450\SPI</v>
+<v>EE4450\SPI\TopDesign</v>
+<v>EE4450\SPI\SPI.cydwr</v>
+<v>EE4450\SPI\SPI.cydwr\Pins</v>
+<v>EE4450\SPI\SPI.cydwr\Analog</v>
+<v>EE4450\SPI\SPI.cydwr\Clocks</v>
+<v>EE4450\SPI\SPI.cydwr\Interrupts</v>
+<v>EE4450\SPI\SPI.cydwr\DMA</v>
+<v>EE4450\SPI\SPI.cydwr\System</v>
+<v>EE4450\SPI\SPI.cydwr\Directives</v>
+<v>EE4450\SPI\SPI.cydwr\Flash Security</v>
+<v>EE4450\SPI\SPI.cydwr\EEPROM</v>
+<v>EE4450\SPI\Header Files</v>
+<v>EE4450\SPI\Header Files\cyapicallbacks.h</v>
+<v>EE4450\SPI\Source Files</v>
+<v>EE4450\SPI\Source Files\main.c</v>
+<v>EE4450\SPI\Generated_Source</v>
+<v>EE4450\SPI\Generated_Source\PSoC5</v>
+<v>EE4450\SPI\Generated_Source\PSoC5\cy_boot</v>
+<v>EE4450\SPI\Generated_Source\PSoC5\Em_EEPROM_Dynamic</v>
+<v>EE4450\SPI\Generated_Source\PSoC5\MISO</v>
+<v>EE4450\SPI\Generated_Source\PSoC5\MOSI</v>
+<v>EE4450\SPI\Generated_Source\PSoC5\SCLK</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -832,6 +850,9 @@
 <v>EE4450\RTOS_UART_StringMessage</v>
 <v>EE4450\RTOS_UART_StringMessage\TopDesign</v>
 <v>EE4450\RTOS_UART_StringMessage\TopDesign\TopDesign.cysch</v>
+<v>EE4450\SPI</v>
+<v>EE4450\SPI\TopDesign</v>
+<v>EE4450\SPI\TopDesign\TopDesign.cysch</v>
 <v>EE4450\Timer_IRQ</v>
 <v>EE4450\Timer_IRQ\TopDesign</v>
 <v>EE4450\Timer_IRQ\TopDesign\TopDesign.cysch</v>
@@ -1478,6 +1499,10 @@
 <v>EE4450\RTOS_UART_StringMessage\RTOS_UART_StringMessage.gpdsc</v>
 <v>EE4450\RTOS_UART_StringMessage\RTOS_UART_StringMessage.rpt</v>
 <v>EE4450\RTOS_UART_StringMessage\RTOS_UART_StringMessage_timing.html</v>
+<v>EE4450\SPI</v>
+<v>EE4450\SPI\SPI.gpdsc</v>
+<v>EE4450\SPI\SPI.rpt</v>
+<v>EE4450\SPI\SPI_timing.html</v>
 <v>EE4450\Timer_IRQ</v>
 <v>EE4450\Timer_IRQ\CortexM3</v>
 <v>EE4450\Timer_IRQ\CortexM3\ARM_GCC_541</v>
@@ -1808,6 +1833,19 @@
 <v>EE4450\RTOS_UART_StringMessage\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
 <v>EE4450\RTOS_UART_StringMessage\PWM_v3_30.pdf</v>
 <v>EE4450\RTOS_UART_StringMessage\UART_v2_50.pdf</v>
+<v>EE4450\SPI</v>
+<v>EE4450\SPI\PSoC 5LP Architecture TRM</v>
+<v>EE4450\SPI\CY8C58LP Family Datasheet</v>
+<v>EE4450\SPI\System Reference Guides</v>
+<v>EE4450\SPI\System Reference Guides\cy_boot_v5_70</v>
+<v>EE4450\SPI\cy_constant_v1_0.pdf</v>
+<v>EE4450\SPI\cy_pins_v2_20</v>
+<v>EE4450\SPI\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>EE4450\SPI\CyControlReg_v1_80.pdf</v>
+<v>EE4450\SPI\demux_v1_10.pdf</v>
+<v>EE4450\SPI\not_v1_0</v>
+<v>EE4450\SPI\not_v1_0\not_v1_0.pdf</v>
+<v>EE4450\SPI\SPI_Master_v2_50.pdf</v>
 <v>EE4450\Timer_IRQ</v>
 <v>EE4450\Timer_IRQ\PSoC 5LP Architecture TRM</v>
 <v>EE4450\Timer_IRQ\CY8C58LP Family Datasheet</v>
@@ -1891,10 +1929,9 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\ADC.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\ADC.cydsn\ADC.cydwr" />
-<name v=".\ADC.cydsn\main.c" />
 <name v=".\TimerCapture.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\TimerCapture.cydsn\main.c" />
+<name v=".\RTOS_Mutex.cydsn\main.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -1902,7 +1939,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="689, 515" SelectedTabbedMdiWindow="f3daebf5-a337-4908-86f3-a0c14ee3d825"><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\ADC.cydsn\TopDesign\TopDesign.cysch" Guid="8ee13337-fc5f-4025-aaa8-990157b3da0f" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\ADC.cydsn\ADC.cydwr" Guid="aad4d6b2-0101-4c0f-8678-98d193287f1a" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\ADC.cydsn\main.c" Guid="023de80f-47ab-4757-a6af-c838ed66bd76" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="30109699-737c-4a6d-958b-8c28bb754e51" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\TimerCapture.cydsn\TopDesign\TopDesign.cysch" Guid="f3daebf5-a337-4908-86f3-a0c14ee3d825" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="686, 515" SelectedTabbedMdiWindow="9e8e3746-1a19-4148-b5d9-68c8c5a36b25"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="30109699-737c-4a6d-958b-8c28bb754e51" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\TimerCapture.cydsn\TopDesign\TopDesign.cysch" Guid="3be9ddfe-4fb2-4acd-8e15-ac3b3e82060a" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\TimerCapture.cydsn\main.c" Guid="9e8e3746-1a19-4148-b5d9-68c8c5a36b25" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_Mutex.cydsn\main.c" Guid="ceaf563f-dbb9-4b40-bac8-04f3405ffbbc" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

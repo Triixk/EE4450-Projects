@@ -1,0 +1,39 @@
+# SPI
+# 2019-10-31 21:29:58Z
+
+# IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 0
+# IO_1@[IOP=(1)][IoId=(1)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 1
+# IO_3@[IOP=(1)][IoId=(3)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 3
+set_location "ClockBlock" clockblockcell -1 -1 0
+set_io "MOSI(0)" iocell 2 1
+set_io "SCLK(0)" iocell 2 2
+set_io "MISO(0)" iocell 2 0
+set_io "SS0(0)" iocell 2 3
+set_io "SS1(0)" iocell 2 4
+set_io "SS2(0)" iocell 2 5
+set_io "SS3(0)" iocell 2 6
+set_location "\SPI:BSPIM:load_rx_data\" 1 4 0 1
+set_location "\SPI:BSPIM:tx_status_0\" 1 4 0 2
+set_location "\SPI:BSPIM:tx_status_4\" 1 4 0 3
+set_location "\SPI:BSPIM:rx_status_6\" 1 5 0 0
+set_location "Net_32" 0 5 1 2
+set_location "Net_34" 0 5 1 3
+set_location "Net_36" 0 5 1 0
+set_location "Net_38" 0 5 0 0
+set_location "\SPI:BSPIM:BitCounter\" 1 4 7
+set_location "\SPI:BSPIM:TxStsReg\" 1 5 4
+set_location "\SPI:BSPIM:RxStsReg\" 0 5 4
+set_location "\SPI:BSPIM:sR8:Dp:u0\" 1 4 2
+set_location "\SPI_SS_Reg:Sync:ctrl_reg\" 0 5 6
+set_location "Net_1" 1 4 0 0
+set_location "\SPI:BSPIM:state_2\" 1 4 1 1
+set_location "\SPI:BSPIM:state_1\" 1 4 1 0
+set_location "\SPI:BSPIM:state_0\" 0 4 1 1
+set_location "Net_3" 1 5 1 0
+set_location "\SPI:BSPIM:load_cond\" 1 5 1 1
+set_location "\SPI:BSPIM:ld_ident\" 1 4 1 2
+set_location "\SPI:BSPIM:cnt_enable\" 0 5 0 2
+set_location "Net_2" 0 5 1 1
