@@ -1,0 +1,19 @@
+(DELAYFILE
+ (SDFVERSION "IEEE 1497 4.0")
+ (DATE "2019-11-07T22:35:19Z")
+ (DESIGN "MaxDetect1Wire")
+ (VENDOR "Cypress Semiconductor")
+ (PROGRAM "PSoC Creator")
+ (VERSION " 4.2")
+ (DIVIDER .)
+ (TIMESCALE 1 ns)
+ (CELL
+  (CELLTYPE "MaxDetect1Wire")
+  (INSTANCE *)
+  (DELAY
+   (ABSOLUTE
+    (INTERCONNECT OneWire\(0\)_PAD OneWire\(0\).pad_in (0.000:0.000:0.000))
+   )
+  )
+ )
+)
