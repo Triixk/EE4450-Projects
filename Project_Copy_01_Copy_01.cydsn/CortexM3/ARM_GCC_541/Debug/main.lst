@@ -1,0 +1,747 @@
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccrUvhL3.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	main, %function
+  25              	main:
+  26              	.LFB64:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** #include <stdio.h>
+  14:main.c        **** #include <stdlib.h>
+  15:main.c        **** #include <stdint.h>
+  16:main.c        **** #include <stdbool.h>
+  17:main.c        **** 
+  18:main.c        **** 
+  19:main.c        **** char auth[] = "htWD8znEJsrgIpZZI8atoZixwlOv1_Y7";
+  20:main.c        **** 	
+  21:main.c        **** 
+  22:main.c        **** 
+  23:main.c        **** 
+  24:main.c        **** int main()
+  25:main.c        **** {
+  28              		.loc 1 25 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccrUvhL3.s 			page 2
+
+
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  26:main.c        ****     CyGlobalIntEnable;
+  36              		.loc 1 26 0
+  37              		.syntax unified
+  38              	@ 26 "main.c" 1
+  39 0002 62B6     		CPSIE   i
+  40              	@ 0 "" 2
+  27:main.c        **** 
+  28:main.c        ****     UART_Start();
+  41              		.loc 1 28 0
+  42              		.thumb
+  43              		.syntax unified
+  44 0004 FFF7FEFF 		bl	UART_Start
+  45              	.LVL0:
+  29:main.c        ****     UARTB_Start();
+  46              		.loc 1 29 0
+  47 0008 FFF7FEFF 		bl	UARTB_Start
+  48              	.LVL1:
+  30:main.c        ****     UART_PutString("Start\r\n");
+  49              		.loc 1 30 0
+  50 000c 0648     		ldr	r0, .L5
+  51 000e FFF7FEFF 		bl	UART_PutString
+  52              	.LVL2:
+  53              	.L3:
+  31:main.c        ****     char ch;
+  32:main.c        ****     for(;;)
+  33:main.c        ****     {
+  34:main.c        ****         ch = UARTB_GetChar();
+  54              		.loc 1 34 0
+  55 0012 FFF7FEFF 		bl	UARTB_GetChar
+  56              	.LVL3:
+  35:main.c        ****         if ( ch == 'a')
+  57              		.loc 1 35 0
+  58 0016 6128     		cmp	r0, #97
+  59 0018 01D1     		bne	.L2
+  36:main.c        ****             UART_PutChar(ch);
+  60              		.loc 1 36 0
+  61 001a FFF7FEFF 		bl	UART_PutChar
+  62              	.LVL4:
+  63              	.L2:
+  37:main.c        ****         CyDelay(10);
+  64              		.loc 1 37 0
+  65 001e 0A20     		movs	r0, #10
+  66 0020 FFF7FEFF 		bl	CyDelay
+  67              	.LVL5:
+  38:main.c        ****     }
+  68              		.loc 1 38 0
+  69 0024 F5E7     		b	.L3
+  70              	.L6:
+  71 0026 00BF     		.align	2
+  72              	.L5:
+  73 0028 00000000 		.word	.LC0
+  74              		.cfi_endproc
+  75              	.LFE64:
+  76              		.size	main, .-main
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccrUvhL3.s 			page 3
+
+
+  77              		.global	auth
+  78              		.data
+  79              		.align	2
+  80              		.type	auth, %object
+  81              		.size	auth, 33
+  82              	auth:
+  83 0000 68745744 		.ascii	"htWD8znEJsrgIpZZI8atoZixwlOv1_Y7\000"
+  83      387A6E45 
+  83      4A737267 
+  83      49705A5A 
+  83      49386174 
+  84              		.section	.rodata.str1.4,"aMS",%progbits,1
+  85              		.align	2
+  86              	.LC0:
+  87 0000 53746172 		.ascii	"Start\015\012\000"
+  87      740D0A00 
+  88              		.text
+  89              	.Letext0:
+  90              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+  91              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+  92              		.file 4 "Generated_Source\\PSoC5/core_cm3.h"
+  93              		.file 5 "Generated_Source\\PSoC5/UART.h"
+  94              		.file 6 "Generated_Source\\PSoC5/UARTB.h"
+  95              		.file 7 "Generated_Source\\PSoC5/CyLib.h"
+  96              		.section	.debug_info,"",%progbits
+  97              	.Ldebug_info0:
+  98 0000 87010000 		.4byte	0x187
+  99 0004 0400     		.2byte	0x4
+ 100 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 101 000a 04       		.byte	0x4
+ 102 000b 01       		.uleb128 0x1
+ 103 000c 3A000000 		.4byte	.LASF24
+ 104 0010 0C       		.byte	0xc
+ 105 0011 2E000000 		.4byte	.LASF25
+ 106 0015 B2010000 		.4byte	.LASF26
+ 107 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 108 001d 00000000 		.4byte	0
+ 109 0021 00000000 		.4byte	.Ldebug_line0
+ 110 0025 02       		.uleb128 0x2
+ 111 0026 01       		.byte	0x1
+ 112 0027 06       		.byte	0x6
+ 113 0028 6E010000 		.4byte	.LASF0
+ 114 002c 02       		.uleb128 0x2
+ 115 002d 01       		.byte	0x1
+ 116 002e 08       		.byte	0x8
+ 117 002f 10010000 		.4byte	.LASF1
+ 118 0033 02       		.uleb128 0x2
+ 119 0034 02       		.byte	0x2
+ 120 0035 05       		.byte	0x5
+ 121 0036 9B010000 		.4byte	.LASF2
+ 122 003a 02       		.uleb128 0x2
+ 123 003b 02       		.byte	0x2
+ 124 003c 07       		.byte	0x7
+ 125 003d 0E000000 		.4byte	.LASF3
+ 126 0041 03       		.uleb128 0x3
+ 127 0042 86010000 		.4byte	.LASF9
+ 128 0046 02       		.byte	0x2
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccrUvhL3.s 			page 4
+
+
+ 129 0047 3F       		.byte	0x3f
+ 130 0048 4C000000 		.4byte	0x4c
+ 131 004c 02       		.uleb128 0x2
+ 132 004d 04       		.byte	0x4
+ 133 004e 05       		.byte	0x5
+ 134 004f 2C010000 		.4byte	.LASF4
+ 135 0053 02       		.uleb128 0x2
+ 136 0054 04       		.byte	0x4
+ 137 0055 07       		.byte	0x7
+ 138 0056 D0000000 		.4byte	.LASF5
+ 139 005a 02       		.uleb128 0x2
+ 140 005b 08       		.byte	0x8
+ 141 005c 05       		.byte	0x5
+ 142 005d 00000000 		.4byte	.LASF6
+ 143 0061 02       		.uleb128 0x2
+ 144 0062 08       		.byte	0x8
+ 145 0063 07       		.byte	0x7
+ 146 0064 E2000000 		.4byte	.LASF7
+ 147 0068 04       		.uleb128 0x4
+ 148 0069 04       		.byte	0x4
+ 149 006a 05       		.byte	0x5
+ 150 006b 696E7400 		.ascii	"int\000"
+ 151 006f 02       		.uleb128 0x2
+ 152 0070 04       		.byte	0x4
+ 153 0071 07       		.byte	0x7
+ 154 0072 21000000 		.4byte	.LASF8
+ 155 0076 03       		.uleb128 0x3
+ 156 0077 A5010000 		.4byte	.LASF10
+ 157 007b 03       		.byte	0x3
+ 158 007c 2C       		.byte	0x2c
+ 159 007d 41000000 		.4byte	0x41
+ 160 0081 02       		.uleb128 0x2
+ 161 0082 04       		.byte	0x4
+ 162 0083 04       		.byte	0x4
+ 163 0084 95010000 		.4byte	.LASF11
+ 164 0088 02       		.uleb128 0x2
+ 165 0089 08       		.byte	0x8
+ 166 008a 04       		.byte	0x4
+ 167 008b 42010000 		.4byte	.LASF12
+ 168 008f 02       		.uleb128 0x2
+ 169 0090 01       		.byte	0x1
+ 170 0091 08       		.byte	0x8
+ 171 0092 AD010000 		.4byte	.LASF13
+ 172 0096 02       		.uleb128 0x2
+ 173 0097 08       		.byte	0x8
+ 174 0098 04       		.byte	0x4
+ 175 0099 7A010000 		.4byte	.LASF14
+ 176 009d 02       		.uleb128 0x2
+ 177 009e 04       		.byte	0x4
+ 178 009f 07       		.byte	0x7
+ 179 00a0 58010000 		.4byte	.LASF15
+ 180 00a4 05       		.uleb128 0x5
+ 181 00a5 35000000 		.4byte	.LASF27
+ 182 00a9 01       		.byte	0x1
+ 183 00aa 18       		.byte	0x18
+ 184 00ab 68000000 		.4byte	0x68
+ 185 00af 00000000 		.4byte	.LFB64
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccrUvhL3.s 			page 5
+
+
+ 186 00b3 2C000000 		.4byte	.LFE64-.LFB64
+ 187 00b7 01       		.uleb128 0x1
+ 188 00b8 9C       		.byte	0x9c
+ 189 00b9 16010000 		.4byte	0x116
+ 190 00bd 06       		.uleb128 0x6
+ 191 00be 636800   		.ascii	"ch\000"
+ 192 00c1 01       		.byte	0x1
+ 193 00c2 1F       		.byte	0x1f
+ 194 00c3 8F000000 		.4byte	0x8f
+ 195 00c7 00000000 		.4byte	.LLST0
+ 196 00cb 07       		.uleb128 0x7
+ 197 00cc 08000000 		.4byte	.LVL0
+ 198 00d0 48010000 		.4byte	0x148
+ 199 00d4 07       		.uleb128 0x7
+ 200 00d5 0C000000 		.4byte	.LVL1
+ 201 00d9 53010000 		.4byte	0x153
+ 202 00dd 08       		.uleb128 0x8
+ 203 00de 12000000 		.4byte	.LVL2
+ 204 00e2 5E010000 		.4byte	0x15e
+ 205 00e6 F4000000 		.4byte	0xf4
+ 206 00ea 09       		.uleb128 0x9
+ 207 00eb 01       		.uleb128 0x1
+ 208 00ec 50       		.byte	0x50
+ 209 00ed 05       		.uleb128 0x5
+ 210 00ee 03       		.byte	0x3
+ 211 00ef 00000000 		.4byte	.LC0
+ 212 00f3 00       		.byte	0
+ 213 00f4 07       		.uleb128 0x7
+ 214 00f5 16000000 		.4byte	.LVL3
+ 215 00f9 69010000 		.4byte	0x169
+ 216 00fd 07       		.uleb128 0x7
+ 217 00fe 1E000000 		.4byte	.LVL4
+ 218 0102 74010000 		.4byte	0x174
+ 219 0106 0A       		.uleb128 0xa
+ 220 0107 24000000 		.4byte	.LVL5
+ 221 010b 7F010000 		.4byte	0x17f
+ 222 010f 09       		.uleb128 0x9
+ 223 0110 01       		.uleb128 0x1
+ 224 0111 50       		.byte	0x50
+ 225 0112 01       		.uleb128 0x1
+ 226 0113 3A       		.byte	0x3a
+ 227 0114 00       		.byte	0
+ 228 0115 00       		.byte	0
+ 229 0116 0B       		.uleb128 0xb
+ 230 0117 61010000 		.4byte	.LASF16
+ 231 011b 04       		.byte	0x4
+ 232 011c 1207     		.2byte	0x712
+ 233 011e 22010000 		.4byte	0x122
+ 234 0122 0C       		.uleb128 0xc
+ 235 0123 76000000 		.4byte	0x76
+ 236 0127 0D       		.uleb128 0xd
+ 237 0128 8F000000 		.4byte	0x8f
+ 238 012c 37010000 		.4byte	0x137
+ 239 0130 0E       		.uleb128 0xe
+ 240 0131 9D000000 		.4byte	0x9d
+ 241 0135 20       		.byte	0x20
+ 242 0136 00       		.byte	0
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccrUvhL3.s 			page 6
+
+
+ 243 0137 0F       		.uleb128 0xf
+ 244 0138 90010000 		.4byte	.LASF17
+ 245 013c 01       		.byte	0x1
+ 246 013d 13       		.byte	0x13
+ 247 013e 27010000 		.4byte	0x127
+ 248 0142 05       		.uleb128 0x5
+ 249 0143 03       		.byte	0x3
+ 250 0144 00000000 		.4byte	auth
+ 251 0148 10       		.uleb128 0x10
+ 252 0149 05010000 		.4byte	.LASF18
+ 253 014d 05010000 		.4byte	.LASF18
+ 254 0151 05       		.byte	0x5
+ 255 0152 54       		.byte	0x54
+ 256 0153 10       		.uleb128 0x10
+ 257 0154 F9000000 		.4byte	.LASF19
+ 258 0158 F9000000 		.4byte	.LASF19
+ 259 015c 06       		.byte	0x6
+ 260 015d 54       		.byte	0x54
+ 261 015e 10       		.uleb128 0x10
+ 262 015f 49010000 		.4byte	.LASF20
+ 263 0163 49010000 		.4byte	.LASF20
+ 264 0167 05       		.byte	0x5
+ 265 0168 8B       		.byte	0x8b
+ 266 0169 10       		.uleb128 0x10
+ 267 016a 1E010000 		.4byte	.LASF21
+ 268 016e 1E010000 		.4byte	.LASF21
+ 269 0172 06       		.byte	0x6
+ 270 0173 71       		.byte	0x71
+ 271 0174 10       		.uleb128 0x10
+ 272 0175 35010000 		.4byte	.LASF22
+ 273 0179 35010000 		.4byte	.LASF22
+ 274 017d 05       		.byte	0x5
+ 275 017e 8A       		.byte	0x8a
+ 276 017f 10       		.uleb128 0x10
+ 277 0180 C8000000 		.4byte	.LASF23
+ 278 0184 C8000000 		.4byte	.LASF23
+ 279 0188 07       		.byte	0x7
+ 280 0189 76       		.byte	0x76
+ 281 018a 00       		.byte	0
+ 282              		.section	.debug_abbrev,"",%progbits
+ 283              	.Ldebug_abbrev0:
+ 284 0000 01       		.uleb128 0x1
+ 285 0001 11       		.uleb128 0x11
+ 286 0002 01       		.byte	0x1
+ 287 0003 25       		.uleb128 0x25
+ 288 0004 0E       		.uleb128 0xe
+ 289 0005 13       		.uleb128 0x13
+ 290 0006 0B       		.uleb128 0xb
+ 291 0007 03       		.uleb128 0x3
+ 292 0008 0E       		.uleb128 0xe
+ 293 0009 1B       		.uleb128 0x1b
+ 294 000a 0E       		.uleb128 0xe
+ 295 000b 55       		.uleb128 0x55
+ 296 000c 17       		.uleb128 0x17
+ 297 000d 11       		.uleb128 0x11
+ 298 000e 01       		.uleb128 0x1
+ 299 000f 10       		.uleb128 0x10
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccrUvhL3.s 			page 7
+
+
+ 300 0010 17       		.uleb128 0x17
+ 301 0011 00       		.byte	0
+ 302 0012 00       		.byte	0
+ 303 0013 02       		.uleb128 0x2
+ 304 0014 24       		.uleb128 0x24
+ 305 0015 00       		.byte	0
+ 306 0016 0B       		.uleb128 0xb
+ 307 0017 0B       		.uleb128 0xb
+ 308 0018 3E       		.uleb128 0x3e
+ 309 0019 0B       		.uleb128 0xb
+ 310 001a 03       		.uleb128 0x3
+ 311 001b 0E       		.uleb128 0xe
+ 312 001c 00       		.byte	0
+ 313 001d 00       		.byte	0
+ 314 001e 03       		.uleb128 0x3
+ 315 001f 16       		.uleb128 0x16
+ 316 0020 00       		.byte	0
+ 317 0021 03       		.uleb128 0x3
+ 318 0022 0E       		.uleb128 0xe
+ 319 0023 3A       		.uleb128 0x3a
+ 320 0024 0B       		.uleb128 0xb
+ 321 0025 3B       		.uleb128 0x3b
+ 322 0026 0B       		.uleb128 0xb
+ 323 0027 49       		.uleb128 0x49
+ 324 0028 13       		.uleb128 0x13
+ 325 0029 00       		.byte	0
+ 326 002a 00       		.byte	0
+ 327 002b 04       		.uleb128 0x4
+ 328 002c 24       		.uleb128 0x24
+ 329 002d 00       		.byte	0
+ 330 002e 0B       		.uleb128 0xb
+ 331 002f 0B       		.uleb128 0xb
+ 332 0030 3E       		.uleb128 0x3e
+ 333 0031 0B       		.uleb128 0xb
+ 334 0032 03       		.uleb128 0x3
+ 335 0033 08       		.uleb128 0x8
+ 336 0034 00       		.byte	0
+ 337 0035 00       		.byte	0
+ 338 0036 05       		.uleb128 0x5
+ 339 0037 2E       		.uleb128 0x2e
+ 340 0038 01       		.byte	0x1
+ 341 0039 3F       		.uleb128 0x3f
+ 342 003a 19       		.uleb128 0x19
+ 343 003b 03       		.uleb128 0x3
+ 344 003c 0E       		.uleb128 0xe
+ 345 003d 3A       		.uleb128 0x3a
+ 346 003e 0B       		.uleb128 0xb
+ 347 003f 3B       		.uleb128 0x3b
+ 348 0040 0B       		.uleb128 0xb
+ 349 0041 49       		.uleb128 0x49
+ 350 0042 13       		.uleb128 0x13
+ 351 0043 8701     		.uleb128 0x87
+ 352 0045 19       		.uleb128 0x19
+ 353 0046 11       		.uleb128 0x11
+ 354 0047 01       		.uleb128 0x1
+ 355 0048 12       		.uleb128 0x12
+ 356 0049 06       		.uleb128 0x6
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccrUvhL3.s 			page 8
+
+
+ 357 004a 40       		.uleb128 0x40
+ 358 004b 18       		.uleb128 0x18
+ 359 004c 9742     		.uleb128 0x2117
+ 360 004e 19       		.uleb128 0x19
+ 361 004f 01       		.uleb128 0x1
+ 362 0050 13       		.uleb128 0x13
+ 363 0051 00       		.byte	0
+ 364 0052 00       		.byte	0
+ 365 0053 06       		.uleb128 0x6
+ 366 0054 34       		.uleb128 0x34
+ 367 0055 00       		.byte	0
+ 368 0056 03       		.uleb128 0x3
+ 369 0057 08       		.uleb128 0x8
+ 370 0058 3A       		.uleb128 0x3a
+ 371 0059 0B       		.uleb128 0xb
+ 372 005a 3B       		.uleb128 0x3b
+ 373 005b 0B       		.uleb128 0xb
+ 374 005c 49       		.uleb128 0x49
+ 375 005d 13       		.uleb128 0x13
+ 376 005e 02       		.uleb128 0x2
+ 377 005f 17       		.uleb128 0x17
+ 378 0060 00       		.byte	0
+ 379 0061 00       		.byte	0
+ 380 0062 07       		.uleb128 0x7
+ 381 0063 898201   		.uleb128 0x4109
+ 382 0066 00       		.byte	0
+ 383 0067 11       		.uleb128 0x11
+ 384 0068 01       		.uleb128 0x1
+ 385 0069 31       		.uleb128 0x31
+ 386 006a 13       		.uleb128 0x13
+ 387 006b 00       		.byte	0
+ 388 006c 00       		.byte	0
+ 389 006d 08       		.uleb128 0x8
+ 390 006e 898201   		.uleb128 0x4109
+ 391 0071 01       		.byte	0x1
+ 392 0072 11       		.uleb128 0x11
+ 393 0073 01       		.uleb128 0x1
+ 394 0074 31       		.uleb128 0x31
+ 395 0075 13       		.uleb128 0x13
+ 396 0076 01       		.uleb128 0x1
+ 397 0077 13       		.uleb128 0x13
+ 398 0078 00       		.byte	0
+ 399 0079 00       		.byte	0
+ 400 007a 09       		.uleb128 0x9
+ 401 007b 8A8201   		.uleb128 0x410a
+ 402 007e 00       		.byte	0
+ 403 007f 02       		.uleb128 0x2
+ 404 0080 18       		.uleb128 0x18
+ 405 0081 9142     		.uleb128 0x2111
+ 406 0083 18       		.uleb128 0x18
+ 407 0084 00       		.byte	0
+ 408 0085 00       		.byte	0
+ 409 0086 0A       		.uleb128 0xa
+ 410 0087 898201   		.uleb128 0x4109
+ 411 008a 01       		.byte	0x1
+ 412 008b 11       		.uleb128 0x11
+ 413 008c 01       		.uleb128 0x1
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccrUvhL3.s 			page 9
+
+
+ 414 008d 31       		.uleb128 0x31
+ 415 008e 13       		.uleb128 0x13
+ 416 008f 00       		.byte	0
+ 417 0090 00       		.byte	0
+ 418 0091 0B       		.uleb128 0xb
+ 419 0092 34       		.uleb128 0x34
+ 420 0093 00       		.byte	0
+ 421 0094 03       		.uleb128 0x3
+ 422 0095 0E       		.uleb128 0xe
+ 423 0096 3A       		.uleb128 0x3a
+ 424 0097 0B       		.uleb128 0xb
+ 425 0098 3B       		.uleb128 0x3b
+ 426 0099 05       		.uleb128 0x5
+ 427 009a 49       		.uleb128 0x49
+ 428 009b 13       		.uleb128 0x13
+ 429 009c 3F       		.uleb128 0x3f
+ 430 009d 19       		.uleb128 0x19
+ 431 009e 3C       		.uleb128 0x3c
+ 432 009f 19       		.uleb128 0x19
+ 433 00a0 00       		.byte	0
+ 434 00a1 00       		.byte	0
+ 435 00a2 0C       		.uleb128 0xc
+ 436 00a3 35       		.uleb128 0x35
+ 437 00a4 00       		.byte	0
+ 438 00a5 49       		.uleb128 0x49
+ 439 00a6 13       		.uleb128 0x13
+ 440 00a7 00       		.byte	0
+ 441 00a8 00       		.byte	0
+ 442 00a9 0D       		.uleb128 0xd
+ 443 00aa 01       		.uleb128 0x1
+ 444 00ab 01       		.byte	0x1
+ 445 00ac 49       		.uleb128 0x49
+ 446 00ad 13       		.uleb128 0x13
+ 447 00ae 01       		.uleb128 0x1
+ 448 00af 13       		.uleb128 0x13
+ 449 00b0 00       		.byte	0
+ 450 00b1 00       		.byte	0
+ 451 00b2 0E       		.uleb128 0xe
+ 452 00b3 21       		.uleb128 0x21
+ 453 00b4 00       		.byte	0
+ 454 00b5 49       		.uleb128 0x49
+ 455 00b6 13       		.uleb128 0x13
+ 456 00b7 2F       		.uleb128 0x2f
+ 457 00b8 0B       		.uleb128 0xb
+ 458 00b9 00       		.byte	0
+ 459 00ba 00       		.byte	0
+ 460 00bb 0F       		.uleb128 0xf
+ 461 00bc 34       		.uleb128 0x34
+ 462 00bd 00       		.byte	0
+ 463 00be 03       		.uleb128 0x3
+ 464 00bf 0E       		.uleb128 0xe
+ 465 00c0 3A       		.uleb128 0x3a
+ 466 00c1 0B       		.uleb128 0xb
+ 467 00c2 3B       		.uleb128 0x3b
+ 468 00c3 0B       		.uleb128 0xb
+ 469 00c4 49       		.uleb128 0x49
+ 470 00c5 13       		.uleb128 0x13
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccrUvhL3.s 			page 10
+
+
+ 471 00c6 3F       		.uleb128 0x3f
+ 472 00c7 19       		.uleb128 0x19
+ 473 00c8 02       		.uleb128 0x2
+ 474 00c9 18       		.uleb128 0x18
+ 475 00ca 00       		.byte	0
+ 476 00cb 00       		.byte	0
+ 477 00cc 10       		.uleb128 0x10
+ 478 00cd 2E       		.uleb128 0x2e
+ 479 00ce 00       		.byte	0
+ 480 00cf 3F       		.uleb128 0x3f
+ 481 00d0 19       		.uleb128 0x19
+ 482 00d1 3C       		.uleb128 0x3c
+ 483 00d2 19       		.uleb128 0x19
+ 484 00d3 6E       		.uleb128 0x6e
+ 485 00d4 0E       		.uleb128 0xe
+ 486 00d5 03       		.uleb128 0x3
+ 487 00d6 0E       		.uleb128 0xe
+ 488 00d7 3A       		.uleb128 0x3a
+ 489 00d8 0B       		.uleb128 0xb
+ 490 00d9 3B       		.uleb128 0x3b
+ 491 00da 0B       		.uleb128 0xb
+ 492 00db 00       		.byte	0
+ 493 00dc 00       		.byte	0
+ 494 00dd 00       		.byte	0
+ 495              		.section	.debug_loc,"",%progbits
+ 496              	.Ldebug_loc0:
+ 497              	.LLST0:
+ 498 0000 16000000 		.4byte	.LVL3
+ 499 0004 1D000000 		.4byte	.LVL4-1
+ 500 0008 0100     		.2byte	0x1
+ 501 000a 50       		.byte	0x50
+ 502 000b 00000000 		.4byte	0
+ 503 000f 00000000 		.4byte	0
+ 504              		.section	.debug_aranges,"",%progbits
+ 505 0000 1C000000 		.4byte	0x1c
+ 506 0004 0200     		.2byte	0x2
+ 507 0006 00000000 		.4byte	.Ldebug_info0
+ 508 000a 04       		.byte	0x4
+ 509 000b 00       		.byte	0
+ 510 000c 0000     		.2byte	0
+ 511 000e 0000     		.2byte	0
+ 512 0010 00000000 		.4byte	.LFB64
+ 513 0014 2C000000 		.4byte	.LFE64-.LFB64
+ 514 0018 00000000 		.4byte	0
+ 515 001c 00000000 		.4byte	0
+ 516              		.section	.debug_ranges,"",%progbits
+ 517              	.Ldebug_ranges0:
+ 518 0000 00000000 		.4byte	.LFB64
+ 519 0004 2C000000 		.4byte	.LFE64
+ 520 0008 00000000 		.4byte	0
+ 521 000c 00000000 		.4byte	0
+ 522              		.section	.debug_line,"",%progbits
+ 523              	.Ldebug_line0:
+ 524 0000 7D010000 		.section	.debug_str,"MS",%progbits,1
+ 524      02005F01 
+ 524      00000201 
+ 524      FB0E0D00 
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccrUvhL3.s 			page 11
+
+
+ 524      01010101 
+ 525              	.LASF6:
+ 526 0000 6C6F6E67 		.ascii	"long long int\000"
+ 526      206C6F6E 
+ 526      6720696E 
+ 526      7400
+ 527              	.LASF3:
+ 528 000e 73686F72 		.ascii	"short unsigned int\000"
+ 528      7420756E 
+ 528      7369676E 
+ 528      65642069 
+ 528      6E7400
+ 529              	.LASF8:
+ 530 0021 756E7369 		.ascii	"unsigned int\000"
+ 530      676E6564 
+ 530      20696E74 
+ 530      00
+ 531              	.LASF25:
+ 532 002e 6D61696E 		.ascii	"main.c\000"
+ 532      2E6300
+ 533              	.LASF27:
+ 534 0035 6D61696E 		.ascii	"main\000"
+ 534      00
+ 535              	.LASF24:
+ 536 003a 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 536      43313120 
+ 536      352E342E 
+ 536      31203230 
+ 536      31363036 
+ 537 006d 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 537      20726576 
+ 537      6973696F 
+ 537      6E203233 
+ 537      37373135 
+ 538 00a0 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 538      66756E63 
+ 538      74696F6E 
+ 538      2D736563 
+ 538      74696F6E 
+ 539              	.LASF23:
+ 540 00c8 43794465 		.ascii	"CyDelay\000"
+ 540      6C617900 
+ 541              	.LASF5:
+ 542 00d0 6C6F6E67 		.ascii	"long unsigned int\000"
+ 542      20756E73 
+ 542      69676E65 
+ 542      6420696E 
+ 542      7400
+ 543              	.LASF7:
+ 544 00e2 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 544      206C6F6E 
+ 544      6720756E 
+ 544      7369676E 
+ 544      65642069 
+ 545              	.LASF19:
+ 546 00f9 55415254 		.ascii	"UARTB_Start\000"
+ 546      425F5374 
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccrUvhL3.s 			page 12
+
+
+ 546      61727400 
+ 547              	.LASF18:
+ 548 0105 55415254 		.ascii	"UART_Start\000"
+ 548      5F537461 
+ 548      727400
+ 549              	.LASF1:
+ 550 0110 756E7369 		.ascii	"unsigned char\000"
+ 550      676E6564 
+ 550      20636861 
+ 550      7200
+ 551              	.LASF21:
+ 552 011e 55415254 		.ascii	"UARTB_GetChar\000"
+ 552      425F4765 
+ 552      74436861 
+ 552      7200
+ 553              	.LASF4:
+ 554 012c 6C6F6E67 		.ascii	"long int\000"
+ 554      20696E74 
+ 554      00
+ 555              	.LASF22:
+ 556 0135 55415254 		.ascii	"UART_PutChar\000"
+ 556      5F507574 
+ 556      43686172 
+ 556      00
+ 557              	.LASF12:
+ 558 0142 646F7562 		.ascii	"double\000"
+ 558      6C6500
+ 559              	.LASF20:
+ 560 0149 55415254 		.ascii	"UART_PutString\000"
+ 560      5F507574 
+ 560      53747269 
+ 560      6E6700
+ 561              	.LASF15:
+ 562 0158 73697A65 		.ascii	"sizetype\000"
+ 562      74797065 
+ 562      00
+ 563              	.LASF16:
+ 564 0161 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 564      52784275 
+ 564      66666572 
+ 564      00
+ 565              	.LASF0:
+ 566 016e 7369676E 		.ascii	"signed char\000"
+ 566      65642063 
+ 566      68617200 
+ 567              	.LASF14:
+ 568 017a 6C6F6E67 		.ascii	"long double\000"
+ 568      20646F75 
+ 568      626C6500 
+ 569              	.LASF9:
+ 570 0186 5F5F696E 		.ascii	"__int32_t\000"
+ 570      7433325F 
+ 570      7400
+ 571              	.LASF17:
+ 572 0190 61757468 		.ascii	"auth\000"
+ 572      00
+ 573              	.LASF11:
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccrUvhL3.s 			page 13
+
+
+ 574 0195 666C6F61 		.ascii	"float\000"
+ 574      7400
+ 575              	.LASF2:
+ 576 019b 73686F72 		.ascii	"short int\000"
+ 576      7420696E 
+ 576      7400
+ 577              	.LASF10:
+ 578 01a5 696E7433 		.ascii	"int32_t\000"
+ 578      325F7400 
+ 579              	.LASF13:
+ 580 01ad 63686172 		.ascii	"char\000"
+ 580      00
+ 581              	.LASF26:
+ 582 01b2 433A5C55 		.ascii	"C:\\Users\\Tri94\\Documents\\PSoC Creator\\EE4450\\"
+ 582      73657273 
+ 582      5C547269 
+ 582      39345C44 
+ 582      6F63756D 
+ 583 01df 45453434 		.ascii	"EE4450-Projects\\Project_Copy_01_Copy_01.cydsn\000"
+ 583      35302D50 
+ 583      726F6A65 
+ 583      6374735C 
+ 583      50726F6A 
+ 584              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

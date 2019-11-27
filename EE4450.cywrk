@@ -3,7 +3,7 @@
 <!--This file is machine generated and read. It is not intended to be edited by hand.-->
 <!--Due to this, there is no schema for this file.-->
 <CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWorkspaceSerialize" version="5" xml_contents_version="3" name="EE4450" persistent="EE4450.cywrk" platform="NOT_USED">
-<current_project name=".\MaxDetect1Wire.cydsn\MaxDetect1Wire.cyprj" />
+<current_project name=".\Project_Copy_01_Copy_01.cydsn\Project_Copy_01_Copy_01.cyprj" />
 <wrkspc_folders />
 <files />
 <projects>
@@ -39,6 +39,11 @@
 <v>.\SPI.cydsn\SPI.cyprj</v>
 <v>.\MovingMeanCalculation.cydsn\MovingMeanCalculation.cyprj</v>
 <v>.\MaxDetect1Wire.cydsn\MaxDetect1Wire.cyprj</v>
+<v>.\SimpleLEDControl.cydsn\SimpleLEDControl.cyprj</v>
+<v>.\Project.cydsn\Project.cyprj</v>
+<v>.\Project_Copy_01.cydsn\Project_Copy_01.cyprj</v>
+<v>.\MessageStruct.cydsn\MessageStruct.cyprj</v>
+<v>.\Project_Copy_01_Copy_01.cydsn\Project_Copy_01_Copy_01.cyprj</v>
 </projects>
 <workspace_id v="439bb1e9-1655-49e7-a635-dc40dbe227d4" />
 <WriteAppVersionLastSavedWith v="4.2.0.641" />

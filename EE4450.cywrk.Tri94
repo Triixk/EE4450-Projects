@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="EE4450\MaxDetect1Wire\Source Files\main.c">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="EE4450\RTOS_Queue\FreeRTOs">
 <ExpandedNodeIds>
 <v>EE4450</v>
 <v>EE4450\ADC\TopDesign</v>
@@ -237,7 +237,6 @@
 <v>EE4450\Led_Display_Extra_Test\Source Files\main.c</v>
 <v>EE4450\Led_Display_Extra_Test\Generated_Source</v>
 <v>EE4450\Led_Display_Extra_Test\Generated_Source\PSoC5</v>
-<v>EE4450\MaxDetect1Wire</v>
 <v>EE4450\MaxDetect1Wire\TopDesign</v>
 <v>EE4450\MaxDetect1Wire\MaxDetect1Wire.cydwr</v>
 <v>EE4450\MaxDetect1Wire\MaxDetect1Wire.cydwr\Pins</v>
@@ -255,6 +254,21 @@
 <v>EE4450\MaxDetect1Wire\Source Files\main.c</v>
 <v>EE4450\MaxDetect1Wire\Generated_Source</v>
 <v>EE4450\MaxDetect1Wire\Generated_Source\PSoC5</v>
+<v>EE4450\MessageStruct\TopDesign</v>
+<v>EE4450\MessageStruct\MessageStruct.cydwr</v>
+<v>EE4450\MessageStruct\MessageStruct.cydwr\Pins</v>
+<v>EE4450\MessageStruct\MessageStruct.cydwr\Analog</v>
+<v>EE4450\MessageStruct\MessageStruct.cydwr\Clocks</v>
+<v>EE4450\MessageStruct\MessageStruct.cydwr\Interrupts</v>
+<v>EE4450\MessageStruct\MessageStruct.cydwr\DMA</v>
+<v>EE4450\MessageStruct\MessageStruct.cydwr\System</v>
+<v>EE4450\MessageStruct\MessageStruct.cydwr\Directives</v>
+<v>EE4450\MessageStruct\MessageStruct.cydwr\Flash Security</v>
+<v>EE4450\MessageStruct\MessageStruct.cydwr\EEPROM</v>
+<v>EE4450\MessageStruct\Header Files</v>
+<v>EE4450\MessageStruct\Header Files\cyapicallbacks.h</v>
+<v>EE4450\MessageStruct\Source Files</v>
+<v>EE4450\MessageStruct\Source Files\main.c</v>
 <v>EE4450\MooreFSM_LED\TopDesign</v>
 <v>EE4450\MooreFSM_LED\MooreFSM_LED.cydwr</v>
 <v>EE4450\MooreFSM_LED\MooreFSM_LED.cydwr\Pins</v>
@@ -323,7 +337,6 @@
 <v>EE4450\MooreFSM_StoplightController_3\Source Files\main.c</v>
 <v>EE4450\MooreFSM_StoplightController_3\Generated_Source</v>
 <v>EE4450\MooreFSM_StoplightController_3\Generated_Source\PSoC5</v>
-<v>EE4450\MovingMeanCalculation</v>
 <v>EE4450\MovingMeanCalculation\TopDesign</v>
 <v>EE4450\MovingMeanCalculation\MovingMeanCalculation.cydwr</v>
 <v>EE4450\MovingMeanCalculation\MovingMeanCalculation.cydwr\Pins</v>
@@ -339,6 +352,93 @@
 <v>EE4450\MovingMeanCalculation\Header Files\cyapicallbacks.h</v>
 <v>EE4450\MovingMeanCalculation\Source Files</v>
 <v>EE4450\MovingMeanCalculation\Source Files\main.c</v>
+<v>EE4450\Project\TopDesign</v>
+<v>EE4450\Project\Project.cydwr</v>
+<v>EE4450\Project\Project.cydwr\Pins</v>
+<v>EE4450\Project\Project.cydwr\Analog</v>
+<v>EE4450\Project\Project.cydwr\Clocks</v>
+<v>EE4450\Project\Project.cydwr\Interrupts</v>
+<v>EE4450\Project\Project.cydwr\DMA</v>
+<v>EE4450\Project\Project.cydwr\System</v>
+<v>EE4450\Project\Project.cydwr\Directives</v>
+<v>EE4450\Project\Project.cydwr\Flash Security</v>
+<v>EE4450\Project\Project.cydwr\EEPROM</v>
+<v>EE4450\Project\Blynk\examples</v>
+<v>EE4450\Project\Blynk\linux</v>
+<v>EE4450\Project\Blynk\scr</v>
+<v>EE4450\Project\Blynk\scr\Adapters</v>
+<v>EE4450\Project\Blynk\scr\Adapters\BlynkArduinoClient.h</v>
+<v>EE4450\Project\Blynk\scr\Adapters\BlynkArduinoGSM.h</v>
+<v>EE4450\Project\Blynk\scr\Adapters\BlynkArduinoNB.h</v>
+<v>EE4450\Project\Blynk\scr\Adapters\BlynkBLEPeripheralSerial.h</v>
+<v>EE4450\Project\Blynk\scr\Adapters\BlynkCC3000.h</v>
+<v>EE4450\Project\Blynk\scr\Adapters\BlynkEthernet.h</v>
+<v>EE4450\Project\Blynk\scr\Adapters\BlynkGsmClient.h</v>
+<v>EE4450\Project\Blynk\scr\Adapters\BlynkSerial.h</v>
+<v>EE4450\Project\Blynk\scr\Adapters\BlynkWiFiCommon.h</v>
+<v>EE4450\Project\Blynk\scr\Adapters\BlynkWiFly.h</v>
+<v>EE4450\Project\Blynk\scr\Adapters\BlynkWildFire.h</v>
+<v>EE4450\Project\Blynk\scr\Blynk</v>
+<v>EE4450\Project\Blynk\scr\Blynk\BlynkApi.h</v>
+<v>EE4450\Project\Blynk\scr\Blynk\BlynkConfig.h</v>
+<v>EE4450\Project\Blynk\scr\Blynk\BlynkDebug.h</v>
+<v>EE4450\Project\Blynk\scr\Blynk\BlynkDetectDevice.h</v>
+<v>EE4450\Project\Blynk\scr\Blynk\BlynkEveryN.h</v>
+<v>EE4450\Project\Blynk\scr\Blynk\BlynkHandlers.h</v>
+<v>EE4450\Project\Blynk\scr\Blynk\BlynkParam.h</v>
+<v>EE4450\Project\Blynk\scr\Blynk\BlynkProtocol.h</v>
+<v>EE4450\Project\Blynk\scr\Blynk\BlynkProtocolDefs.h</v>
+<v>EE4450\Project\Blynk\scr\Blynk\BlynkTemplates.h</v>
+<v>EE4450\Project\Blynk\scr\Blynk\BlynkTimer.h</v>
+<v>EE4450\Project\Blynk\scr\Blynk\BlynkWidgetBase.h</v>
+<v>EE4450\Project\Blynk\scripts</v>
+<v>EE4450\Project\Blynk\tests</v>
+<v>EE4450\Project\Blynk\keywords.txt</v>
+<v>EE4450\Project\Blynk\library.json</v>
+<v>EE4450\Project\Blynk\library.properties</v>
+<v>EE4450\Project\Blynk\LICENSE</v>
+<v>EE4450\Project\Blynk\Makefile</v>
+<v>EE4450\Project\Blynk\README.md</v>
+<v>EE4450\Project\Header Files</v>
+<v>EE4450\Project\Header Files\cyapicallbacks.h</v>
+<v>EE4450\Project\Source Files</v>
+<v>EE4450\Project\Source Files\main.c</v>
+<v>EE4450\Project\Generated_Source</v>
+<v>EE4450\Project\Generated_Source\PSoC5</v>
+<v>EE4450\Project_Copy_01\TopDesign</v>
+<v>EE4450\Project_Copy_01\Project_Copy_01.cydwr</v>
+<v>EE4450\Project_Copy_01\Project_Copy_01.cydwr\Pins</v>
+<v>EE4450\Project_Copy_01\Project_Copy_01.cydwr\Analog</v>
+<v>EE4450\Project_Copy_01\Project_Copy_01.cydwr\Clocks</v>
+<v>EE4450\Project_Copy_01\Project_Copy_01.cydwr\Interrupts</v>
+<v>EE4450\Project_Copy_01\Project_Copy_01.cydwr\DMA</v>
+<v>EE4450\Project_Copy_01\Project_Copy_01.cydwr\System</v>
+<v>EE4450\Project_Copy_01\Project_Copy_01.cydwr\Directives</v>
+<v>EE4450\Project_Copy_01\Project_Copy_01.cydwr\Flash Security</v>
+<v>EE4450\Project_Copy_01\Project_Copy_01.cydwr\EEPROM</v>
+<v>EE4450\Project_Copy_01\Header Files</v>
+<v>EE4450\Project_Copy_01\Header Files\cyapicallbacks.h</v>
+<v>EE4450\Project_Copy_01\Source Files</v>
+<v>EE4450\Project_Copy_01\Source Files\main.c</v>
+<v>EE4450\Project_Copy_01\Generated_Source</v>
+<v>EE4450\Project_Copy_01\Generated_Source\PSoC5</v>
+<v>EE4450\Project_Copy_01_Copy_01\TopDesign</v>
+<v>EE4450\Project_Copy_01_Copy_01\Project_Copy_01_Copy_01.cydwr</v>
+<v>EE4450\Project_Copy_01_Copy_01\Project_Copy_01_Copy_01.cydwr\Pins</v>
+<v>EE4450\Project_Copy_01_Copy_01\Project_Copy_01_Copy_01.cydwr\Analog</v>
+<v>EE4450\Project_Copy_01_Copy_01\Project_Copy_01_Copy_01.cydwr\Clocks</v>
+<v>EE4450\Project_Copy_01_Copy_01\Project_Copy_01_Copy_01.cydwr\Interrupts</v>
+<v>EE4450\Project_Copy_01_Copy_01\Project_Copy_01_Copy_01.cydwr\DMA</v>
+<v>EE4450\Project_Copy_01_Copy_01\Project_Copy_01_Copy_01.cydwr\System</v>
+<v>EE4450\Project_Copy_01_Copy_01\Project_Copy_01_Copy_01.cydwr\Directives</v>
+<v>EE4450\Project_Copy_01_Copy_01\Project_Copy_01_Copy_01.cydwr\Flash Security</v>
+<v>EE4450\Project_Copy_01_Copy_01\Project_Copy_01_Copy_01.cydwr\EEPROM</v>
+<v>EE4450\Project_Copy_01_Copy_01\Header Files</v>
+<v>EE4450\Project_Copy_01_Copy_01\Header Files\cyapicallbacks.h</v>
+<v>EE4450\Project_Copy_01_Copy_01\Source Files</v>
+<v>EE4450\Project_Copy_01_Copy_01\Source Files\main.c</v>
+<v>EE4450\Project_Copy_01_Copy_01\Generated_Source</v>
+<v>EE4450\Project_Copy_01_Copy_01\Generated_Source\PSoC5</v>
 <v>EE4450\PWM_BreathingLED\TopDesign</v>
 <v>EE4450\PWM_BreathingLED\PWM_BreathingLED.cydwr</v>
 <v>EE4450\PWM_BreathingLED\PWM_BreathingLED.cydwr\Pins</v>
@@ -400,7 +500,6 @@
 <v>EE4450\RTOS_MessageBufferr\RTOS_MessageBufferr.cydwr\Directives</v>
 <v>EE4450\RTOS_MessageBufferr\RTOS_MessageBufferr.cydwr\Flash Security</v>
 <v>EE4450\RTOS_MessageBufferr\RTOS_MessageBufferr.cydwr\EEPROM</v>
-<v>EE4450\RTOS_MessageBufferr\FreeRTOs</v>
 <v>EE4450\RTOS_MessageBufferr\FreeRTOs\ARM_M3</v>
 <v>EE4450\RTOS_MessageBufferr\FreeRTOs\ARM_M3\port.c</v>
 <v>EE4450\RTOS_MessageBufferr\FreeRTOs\ARM_M3\portmacro.h</v>
@@ -541,6 +640,7 @@
 <v>EE4450\RTOS_MyFirstFreeRTOS\Source Files\main.c</v>
 <v>EE4450\RTOS_MyFirstFreeRTOS\Generated_Source</v>
 <v>EE4450\RTOS_MyFirstFreeRTOS\Generated_Source\PSoC5</v>
+<v>EE4450\RTOS_Queue</v>
 <v>EE4450\RTOS_Queue\TopDesign</v>
 <v>EE4450\RTOS_Queue\RTOS_Queue.cydwr</v>
 <v>EE4450\RTOS_Queue\RTOS_Queue.cydwr\Pins</v>
@@ -692,6 +792,23 @@
 <v>EE4450\RTOS_UART_StringMessage\Source Files\main.c</v>
 <v>EE4450\RTOS_UART_StringMessage\Generated_Source</v>
 <v>EE4450\RTOS_UART_StringMessage\Generated_Source\PSoC5</v>
+<v>EE4450\SimpleLEDControl\TopDesign</v>
+<v>EE4450\SimpleLEDControl\SimpleLEDControl.cydwr</v>
+<v>EE4450\SimpleLEDControl\SimpleLEDControl.cydwr\Pins</v>
+<v>EE4450\SimpleLEDControl\SimpleLEDControl.cydwr\Analog</v>
+<v>EE4450\SimpleLEDControl\SimpleLEDControl.cydwr\Clocks</v>
+<v>EE4450\SimpleLEDControl\SimpleLEDControl.cydwr\Interrupts</v>
+<v>EE4450\SimpleLEDControl\SimpleLEDControl.cydwr\DMA</v>
+<v>EE4450\SimpleLEDControl\SimpleLEDControl.cydwr\System</v>
+<v>EE4450\SimpleLEDControl\SimpleLEDControl.cydwr\Directives</v>
+<v>EE4450\SimpleLEDControl\SimpleLEDControl.cydwr\Flash Security</v>
+<v>EE4450\SimpleLEDControl\SimpleLEDControl.cydwr\EEPROM</v>
+<v>EE4450\SimpleLEDControl\Header Files</v>
+<v>EE4450\SimpleLEDControl\Header Files\cyapicallbacks.h</v>
+<v>EE4450\SimpleLEDControl\Source Files</v>
+<v>EE4450\SimpleLEDControl\Source Files\main.c</v>
+<v>EE4450\SimpleLEDControl\Generated_Source</v>
+<v>EE4450\SimpleLEDControl\Generated_Source\PSoC5</v>
 <v>EE4450\SPI\TopDesign</v>
 <v>EE4450\SPI\SPI.cydwr</v>
 <v>EE4450\SPI\SPI.cydwr\Pins</v>
@@ -763,41 +880,42 @@
 <v>EE4450\UART2PC\Generated_Source\PSoC5</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>EE4450</v>
-<v>EE4450\ADC</v>
-<v>EE4450\CapSence_Proximity</v>
-<v>EE4450\CapSense_Slider</v>
-<v>EE4450\Example_SoftwareControlLED</v>
-<v>EE4450\GPIO_IRQ</v>
-<v>EE4450\I2C_RTC</v>
-<v>EE4450\Lab01</v>
-<v>EE4450\LCD_Test</v>
-<v>EE4450\LCDTest</v>
-<v>EE4450\Led_Display</v>
-<v>EE4450\Led_Display_Copy_01</v>
-<v>EE4450\Led_Display_Extra_Credit</v>
-<v>EE4450\Led_Display_Extra_Test</v>
-<v>EE4450\MaxDetect1Wire</v>
-<v>EE4450\MaxDetect1Wire\TopDesign</v>
-<v>EE4450\MaxDetect1Wire\MaxDetect1Wire.cydwr</v>
-<v>EE4450\MaxDetect1Wire\MaxDetect1Wire.cydwr\Pins</v>
-<v>EE4450\MaxDetect1Wire\MaxDetect1Wire.cydwr\Analog</v>
-<v>EE4450\MaxDetect1Wire\MaxDetect1Wire.cydwr\Clocks</v>
-<v>EE4450\MaxDetect1Wire\MaxDetect1Wire.cydwr\Interrupts</v>
-<v>EE4450\MaxDetect1Wire\MaxDetect1Wire.cydwr\DMA</v>
-<v>EE4450\MaxDetect1Wire\MaxDetect1Wire.cydwr\System</v>
-<v>EE4450\MaxDetect1Wire\MaxDetect1Wire.cydwr\Directives</v>
-<v>EE4450\MaxDetect1Wire\MaxDetect1Wire.cydwr\Flash Security</v>
-<v>EE4450\MaxDetect1Wire\MaxDetect1Wire.cydwr\EEPROM</v>
-<v>EE4450\MaxDetect1Wire\Header Files</v>
-<v>EE4450\MaxDetect1Wire\Header Files\cyapicallbacks.h</v>
-<v>EE4450\MaxDetect1Wire\Source Files</v>
-<v>EE4450\MaxDetect1Wire\Source Files\main.c</v>
-<v>EE4450\MaxDetect1Wire\Generated_Source</v>
-<v>EE4450\MaxDetect1Wire\Generated_Source\PSoC5</v>
-<v>EE4450\MaxDetect1Wire\Generated_Source\PSoC5\cy_boot</v>
-<v>EE4450\MaxDetect1Wire\Generated_Source\PSoC5\Em_EEPROM_Dynamic</v>
-<v>EE4450\MaxDetect1Wire\Generated_Source\PSoC5\OneWire</v>
+<v>EE4450\MooreFSM_StoplightController_3</v>
+<v>EE4450\MovingMeanCalculation</v>
+<v>EE4450\Project</v>
+<v>EE4450\Project_Copy_01</v>
+<v>EE4450\Project_Copy_01_Copy_01</v>
+<v>EE4450\PWM_BreathingLED</v>
+<v>EE4450\PWM_Motor</v>
+<v>EE4450\PWM_Servo</v>
+<v>EE4450\RTOS_MessageBufferr</v>
+<v>EE4450\RTOS_Mutex</v>
+<v>EE4450\RTOS_MyFirstFreeRTOS</v>
+<v>EE4450\RTOS_Queue</v>
+<v>EE4450\RTOS_Queue\TopDesign</v>
+<v>EE4450\RTOS_Queue\RTOS_Queue.cydwr</v>
+<v>EE4450\RTOS_Queue\RTOS_Queue.cydwr\Pins</v>
+<v>EE4450\RTOS_Queue\RTOS_Queue.cydwr\Analog</v>
+<v>EE4450\RTOS_Queue\RTOS_Queue.cydwr\Clocks</v>
+<v>EE4450\RTOS_Queue\RTOS_Queue.cydwr\Interrupts</v>
+<v>EE4450\RTOS_Queue\RTOS_Queue.cydwr\DMA</v>
+<v>EE4450\RTOS_Queue\RTOS_Queue.cydwr\System</v>
+<v>EE4450\RTOS_Queue\RTOS_Queue.cydwr\Directives</v>
+<v>EE4450\RTOS_Queue\RTOS_Queue.cydwr\Flash Security</v>
+<v>EE4450\RTOS_Queue\RTOS_Queue.cydwr\EEPROM</v>
+<v>EE4450\RTOS_Queue\FreeRTOs</v>
+<v>EE4450\RTOS_Queue\Header Files</v>
+<v>EE4450\RTOS_Queue\Header Files\cyapicallbacks.h</v>
+<v>EE4450\RTOS_Queue\Source Files</v>
+<v>EE4450\RTOS_Queue\Source Files\main.c</v>
+<v>EE4450\RTOS_Queue\Generated_Source</v>
+<v>EE4450\RTOS_StreamBuffer</v>
+<v>EE4450\RTOS_UART_StringMessage</v>
+<v>EE4450\SimpleLEDControl</v>
+<v>EE4450\SPI</v>
+<v>EE4450\Timer_IRQ</v>
+<v>EE4450\TimerCapture</v>
+<v>EE4450\UART2PC</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -845,6 +963,9 @@
 <v>EE4450\MaxDetect1Wire</v>
 <v>EE4450\MaxDetect1Wire\TopDesign</v>
 <v>EE4450\MaxDetect1Wire\TopDesign\TopDesign.cysch</v>
+<v>EE4450\MessageStruct</v>
+<v>EE4450\MessageStruct\TopDesign</v>
+<v>EE4450\MessageStruct\TopDesign\TopDesign.cysch</v>
 <v>EE4450\MooreFSM_LED</v>
 <v>EE4450\MooreFSM_LED\TopDesign</v>
 <v>EE4450\MooreFSM_LED\TopDesign\TopDesign.cysch</v>
@@ -860,6 +981,15 @@
 <v>EE4450\MovingMeanCalculation</v>
 <v>EE4450\MovingMeanCalculation\TopDesign</v>
 <v>EE4450\MovingMeanCalculation\TopDesign\TopDesign.cysch</v>
+<v>EE4450\Project</v>
+<v>EE4450\Project\TopDesign</v>
+<v>EE4450\Project\TopDesign\TopDesign.cysch</v>
+<v>EE4450\Project_Copy_01</v>
+<v>EE4450\Project_Copy_01\TopDesign</v>
+<v>EE4450\Project_Copy_01\TopDesign\TopDesign.cysch</v>
+<v>EE4450\Project_Copy_01_Copy_01</v>
+<v>EE4450\Project_Copy_01_Copy_01\TopDesign</v>
+<v>EE4450\Project_Copy_01_Copy_01\TopDesign\TopDesign.cysch</v>
 <v>EE4450\PWM_BreathingLED</v>
 <v>EE4450\PWM_BreathingLED\TopDesign</v>
 <v>EE4450\PWM_BreathingLED\TopDesign\TopDesign.cysch</v>
@@ -887,6 +1017,9 @@
 <v>EE4450\RTOS_UART_StringMessage</v>
 <v>EE4450\RTOS_UART_StringMessage\TopDesign</v>
 <v>EE4450\RTOS_UART_StringMessage\TopDesign\TopDesign.cysch</v>
+<v>EE4450\SimpleLEDControl</v>
+<v>EE4450\SimpleLEDControl\TopDesign</v>
+<v>EE4450\SimpleLEDControl\TopDesign\TopDesign.cysch</v>
 <v>EE4450\SPI</v>
 <v>EE4450\SPI\TopDesign</v>
 <v>EE4450\SPI\TopDesign\TopDesign.cysch</v>
@@ -936,6 +1069,7 @@
 <v>EE4450\Led_Display_Copy_01\TopDesign</v>
 <v>EE4450\Led_Display_Copy_01\TopDesign\TopDesign.cysch</v>
 <v>EE4450\Led_Display_Extra_Credit</v>
+<v>EE4450\Led_Display_Extra_Credit\TopDesign</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -1328,6 +1462,10 @@
 <v>EE4450\MaxDetect1Wire\MaxDetect1Wire.gpdsc</v>
 <v>EE4450\MaxDetect1Wire\MaxDetect1Wire.rpt</v>
 <v>EE4450\MaxDetect1Wire\MaxDetect1Wire_timing.html</v>
+<v>EE4450\MessageStruct</v>
+<v>EE4450\MessageStruct\MessageStruct.gpdsc</v>
+<v>EE4450\MessageStruct\MessageStruct.rpt</v>
+<v>EE4450\MessageStruct\MessageStruct_timing.html</v>
 <v>EE4450\MooreFSM_LED</v>
 <v>EE4450\MooreFSM_LED\CortexM3</v>
 <v>EE4450\MooreFSM_LED\CortexM3\ARM_GCC_541</v>
@@ -1390,6 +1528,101 @@
 <v>EE4450\MovingMeanCalculation\MovingMeanCalculation.gpdsc</v>
 <v>EE4450\MovingMeanCalculation\MovingMeanCalculation.rpt</v>
 <v>EE4450\MovingMeanCalculation\MovingMeanCalculation_timing.html</v>
+<v>EE4450\Project</v>
+<v>EE4450\Project\CortexM3</v>
+<v>EE4450\Project\CortexM3\ARM_GCC_541</v>
+<v>EE4450\Project\CortexM3\ARM_GCC_541\Debug</v>
+<v>EE4450\Project\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>EE4450\Project\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>EE4450\Project\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>EE4450\Project\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>EE4450\Project\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>EE4450\Project\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>EE4450\Project\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>EE4450\Project\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>EE4450\Project\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>EE4450\Project\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>EE4450\Project\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>EE4450\Project\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>EE4450\Project\CortexM3\ARM_GCC_541\Debug\Listing Files\Echo.lst</v>
+<v>EE4450\Project\CortexM3\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
+<v>EE4450\Project\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>EE4450\Project\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer.lst</v>
+<v>EE4450\Project\CortexM3\ARM_GCC_541\Debug\Listing Files\timer_clock.lst</v>
+<v>EE4450\Project\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer_PM.lst</v>
+<v>EE4450\Project\CortexM3\ARM_GCC_541\Debug\Listing Files\Trigger.lst</v>
+<v>EE4450\Project\CortexM3\ARM_GCC_541\Debug\Project.elf</v>
+<v>EE4450\Project\CortexM3\ARM_GCC_541\Debug\Project.hex</v>
+<v>EE4450\Project\CortexM3\ARM_GCC_541\Debug\Project.map</v>
+<v>EE4450\Project\Project.gpdsc</v>
+<v>EE4450\Project\Project.rpt</v>
+<v>EE4450\Project\Project_timing.html</v>
+<v>EE4450\Project_Copy_01</v>
+<v>EE4450\Project_Copy_01\CortexM3</v>
+<v>EE4450\Project_Copy_01\CortexM3\ARM_GCC_541</v>
+<v>EE4450\Project_Copy_01\CortexM3\ARM_GCC_541\Debug</v>
+<v>EE4450\Project_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>EE4450\Project_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>EE4450\Project_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>EE4450\Project_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>EE4450\Project_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>EE4450\Project_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>EE4450\Project_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>EE4450\Project_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>EE4450\Project_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>EE4450\Project_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>EE4450\Project_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>EE4450\Project_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>EE4450\Project_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>EE4450\Project_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\UART.lst</v>
+<v>EE4450\Project_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_BOOT.lst</v>
+<v>EE4450\Project_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_INT.lst</v>
+<v>EE4450\Project_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_IntClock.lst</v>
+<v>EE4450\Project_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_PM.lst</v>
+<v>EE4450\Project_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\UARTB.lst</v>
+<v>EE4450\Project_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\UARTB_BOOT.lst</v>
+<v>EE4450\Project_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\UARTB_INT.lst</v>
+<v>EE4450\Project_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\UARTB_IntClock.lst</v>
+<v>EE4450\Project_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\UARTB_PM.lst</v>
+<v>EE4450\Project_Copy_01\CortexM3\ARM_GCC_541\Debug\Project_Copy_01.elf</v>
+<v>EE4450\Project_Copy_01\CortexM3\ARM_GCC_541\Debug\Project_Copy_01.hex</v>
+<v>EE4450\Project_Copy_01\CortexM3\ARM_GCC_541\Debug\Project_Copy_01.map</v>
+<v>EE4450\Project_Copy_01\Project_Copy_01.gpdsc</v>
+<v>EE4450\Project_Copy_01\Project_Copy_01.rpt</v>
+<v>EE4450\Project_Copy_01\Project_Copy_01_timing.html</v>
+<v>EE4450\Project_Copy_01_Copy_01</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3\ARM_GCC_541</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3\ARM_GCC_541\Debug</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\UART.lst</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_BOOT.lst</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_INT.lst</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_IntClock.lst</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_PM.lst</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\UARTB.lst</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\UARTB_BOOT.lst</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\UARTB_INT.lst</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\UARTB_IntClock.lst</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3\ARM_GCC_541\Debug\Listing Files\UARTB_PM.lst</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3\ARM_GCC_541\Debug\Project_Copy_01_Copy_01.elf</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3\ARM_GCC_541\Debug\Project_Copy_01_Copy_01.hex</v>
+<v>EE4450\Project_Copy_01_Copy_01\CortexM3\ARM_GCC_541\Debug\Project_Copy_01_Copy_01.map</v>
+<v>EE4450\Project_Copy_01_Copy_01\Project_Copy_01_Copy_01.gpdsc</v>
+<v>EE4450\Project_Copy_01_Copy_01\Project_Copy_01_Copy_01.rpt</v>
+<v>EE4450\Project_Copy_01_Copy_01\Project_Copy_01_Copy_01_timing.html</v>
 <v>EE4450\PWM_BreathingLED</v>
 <v>EE4450\PWM_BreathingLED\CortexM3</v>
 <v>EE4450\PWM_BreathingLED\CortexM3\ARM_GCC_541</v>
@@ -1544,6 +1777,34 @@
 <v>EE4450\RTOS_UART_StringMessage\RTOS_UART_StringMessage.gpdsc</v>
 <v>EE4450\RTOS_UART_StringMessage\RTOS_UART_StringMessage.rpt</v>
 <v>EE4450\RTOS_UART_StringMessage\RTOS_UART_StringMessage_timing.html</v>
+<v>EE4450\SimpleLEDControl</v>
+<v>EE4450\SimpleLEDControl\CortexM3</v>
+<v>EE4450\SimpleLEDControl\CortexM3\ARM_GCC_541</v>
+<v>EE4450\SimpleLEDControl\CortexM3\ARM_GCC_541\Debug</v>
+<v>EE4450\SimpleLEDControl\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>EE4450\SimpleLEDControl\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
+<v>EE4450\SimpleLEDControl\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_2.lst</v>
+<v>EE4450\SimpleLEDControl\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>EE4450\SimpleLEDControl\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>EE4450\SimpleLEDControl\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>EE4450\SimpleLEDControl\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>EE4450\SimpleLEDControl\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>EE4450\SimpleLEDControl\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>EE4450\SimpleLEDControl\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>EE4450\SimpleLEDControl\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>EE4450\SimpleLEDControl\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>EE4450\SimpleLEDControl\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>EE4450\SimpleLEDControl\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>EE4450\SimpleLEDControl\CortexM3\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
+<v>EE4450\SimpleLEDControl\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>EE4450\SimpleLEDControl\CortexM3\ARM_GCC_541\Debug\Listing Files\nSW.lst</v>
+<v>EE4450\SimpleLEDControl\CortexM3\ARM_GCC_541\Debug\Listing Files\Status_nSW.lst</v>
+<v>EE4450\SimpleLEDControl\CortexM3\ARM_GCC_541\Debug\SimpleLEDControl.elf</v>
+<v>EE4450\SimpleLEDControl\CortexM3\ARM_GCC_541\Debug\SimpleLEDControl.hex</v>
+<v>EE4450\SimpleLEDControl\CortexM3\ARM_GCC_541\Debug\SimpleLEDControl.map</v>
+<v>EE4450\SimpleLEDControl\SimpleLEDControl.gpdsc</v>
+<v>EE4450\SimpleLEDControl\SimpleLEDControl.rpt</v>
+<v>EE4450\SimpleLEDControl\SimpleLEDControl_timing.html</v>
 <v>EE4450\SPI</v>
 <v>EE4450\SPI\SPI.gpdsc</v>
 <v>EE4450\SPI\SPI.rpt</v>
@@ -1646,6 +1907,7 @@
 <v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
 <v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
 <v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -1777,6 +2039,11 @@
 <v>EE4450\MaxDetect1Wire\System Reference Guides</v>
 <v>EE4450\MaxDetect1Wire\System Reference Guides\cy_boot_v5_70</v>
 <v>EE4450\MaxDetect1Wire\cy_pins_v2_20.pdf</v>
+<v>EE4450\MessageStruct</v>
+<v>EE4450\MessageStruct\PSoC 5LP Architecture TRM</v>
+<v>EE4450\MessageStruct\CY8C58LP Family Datasheet</v>
+<v>EE4450\MessageStruct\System Reference Guides</v>
+<v>EE4450\MessageStruct\System Reference Guides\cy_boot_v5_70</v>
 <v>EE4450\MooreFSM_LED</v>
 <v>EE4450\MooreFSM_LED\PSoC 5LP Architecture TRM</v>
 <v>EE4450\MooreFSM_LED\CY8C58LP Family Datasheet</v>
@@ -1813,6 +2080,35 @@
 <v>EE4450\MovingMeanCalculation\CY8C58LP Family Datasheet</v>
 <v>EE4450\MovingMeanCalculation\System Reference Guides</v>
 <v>EE4450\MovingMeanCalculation\System Reference Guides\cy_boot_v5_70</v>
+<v>EE4450\Project</v>
+<v>EE4450\Project\PSoC 5LP Architecture TRM</v>
+<v>EE4450\Project\CY8C58LP Family Datasheet</v>
+<v>EE4450\Project\System Reference Guides</v>
+<v>EE4450\Project\System Reference Guides\cy_boot_v5_70</v>
+<v>EE4450\Project\cy_clock_v2_20.pdf</v>
+<v>EE4450\Project\cy_pins_v2_20</v>
+<v>EE4450\Project\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>EE4450\Project\Timer_v2_80.pdf</v>
+<v>EE4450\Project\UART_v2_50.pdf</v>
+<v>EE4450\Project\ZeroTerminal.pdf</v>
+<v>EE4450\Project_Copy_01</v>
+<v>EE4450\Project_Copy_01\PSoC 5LP Architecture TRM</v>
+<v>EE4450\Project_Copy_01\CY8C58LP Family Datasheet</v>
+<v>EE4450\Project_Copy_01\System Reference Guides</v>
+<v>EE4450\Project_Copy_01\System Reference Guides\cy_boot_v5_70</v>
+<v>EE4450\Project_Copy_01\cy_pins_v2_20</v>
+<v>EE4450\Project_Copy_01\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>EE4450\Project_Copy_01\UART_v2_50</v>
+<v>EE4450\Project_Copy_01\UART_v2_50\UART_v2_50.pdf</v>
+<v>EE4450\Project_Copy_01_Copy_01</v>
+<v>EE4450\Project_Copy_01_Copy_01\PSoC 5LP Architecture TRM</v>
+<v>EE4450\Project_Copy_01_Copy_01\CY8C58LP Family Datasheet</v>
+<v>EE4450\Project_Copy_01_Copy_01\System Reference Guides</v>
+<v>EE4450\Project_Copy_01_Copy_01\System Reference Guides\cy_boot_v5_70</v>
+<v>EE4450\Project_Copy_01_Copy_01\cy_pins_v2_20</v>
+<v>EE4450\Project_Copy_01_Copy_01\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>EE4450\Project_Copy_01_Copy_01\UART_v2_50</v>
+<v>EE4450\Project_Copy_01_Copy_01\UART_v2_50\UART_v2_50.pdf</v>
 <v>EE4450\PWM_BreathingLED</v>
 <v>EE4450\PWM_BreathingLED\PSoC 5LP Architecture TRM</v>
 <v>EE4450\PWM_BreathingLED\CY8C58LP Family Datasheet</v>
@@ -1889,6 +2185,17 @@
 <v>EE4450\RTOS_UART_StringMessage\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
 <v>EE4450\RTOS_UART_StringMessage\PWM_v3_30.pdf</v>
 <v>EE4450\RTOS_UART_StringMessage\UART_v2_50.pdf</v>
+<v>EE4450\SimpleLEDControl</v>
+<v>EE4450\SimpleLEDControl\PSoC 5LP Architecture TRM</v>
+<v>EE4450\SimpleLEDControl\CY8C58LP Family Datasheet</v>
+<v>EE4450\SimpleLEDControl\System Reference Guides</v>
+<v>EE4450\SimpleLEDControl\System Reference Guides\cy_boot_v5_70</v>
+<v>EE4450\SimpleLEDControl\cy_clock_v2_20</v>
+<v>EE4450\SimpleLEDControl\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
+<v>EE4450\SimpleLEDControl\cy_pins_v2_20</v>
+<v>EE4450\SimpleLEDControl\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>EE4450\SimpleLEDControl\CyStatusReg_v1_90.pdf</v>
+<v>EE4450\SimpleLEDControl\Debouncer_v1_0.pdf</v>
 <v>EE4450\SPI</v>
 <v>EE4450\SPI\PSoC 5LP Architecture TRM</v>
 <v>EE4450\SPI\CY8C58LP Family Datasheet</v>
@@ -1971,6 +2278,7 @@
 <v>EE4450\Example_SoftwareControlLED\cy_pins_v2_20</v>
 <v>EE4450\Example_SoftwareControlLED\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
 <v>EE4450\GPIO_IRQ</v>
+<v>EE4450\GPIO_IRQ\PSoC 5LP Architecture TRM</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -1985,8 +2293,19 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\MovingMeanCalculation.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\MovingMeanCalculation.cydsn\main.c" />
+<name v=".\Project_Copy_01.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\Project_Copy_01.cydsn\Project_Copy_01.cydwr" />
+<name v=".\Project_Copy_01.cydsn\main.c" />
+<name v=".\UART2PC.cydsn\main.c" />
+<name v=".\UART2PC.cydsn\UART2PC.cydwr" />
+<name v=".\UART2PC.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\Project.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\Project.cydsn\main.c" />
+<name v=".\MessageStruct.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\MessageStruct.cydsn\main.c" />
+<name v=".\Project_Copy_01_Copy_01.cydsn\main.c" />
+<name v=".\Project_Copy_01_Copy_01.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\Project_Copy_01_Copy_01.cydsn\Project_Copy_01_Copy_01.cydwr" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -1994,7 +2313,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="686, 515" SelectedTabbedMdiWindow="26b36a54-7a66-40a3-9d03-2ac8b9404cea"><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\MovingMeanCalculation.cydsn\TopDesign\TopDesign.cysch" Guid="4f061e0e-faeb-474b-9ce3-227e42aa82f9" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\MovingMeanCalculation.cydsn\main.c" Guid="26b36a54-7a66-40a3-9d03-2ac8b9404cea" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1069, 524" SelectedTabbedMdiWindow="d64bb71e-8f4e-4eb4-af5b-8d0ead9b2e0c"><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\Project_Copy_01.cydsn\TopDesign\TopDesign.cysch" Guid="b6e43679-afd3-403e-8430-57d54b0dd8f8" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\Project_Copy_01.cydsn\Project_Copy_01.cydwr" Guid="b2b7b74b-f765-4a8e-be19-c5ece8c2f5fe" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\Project_Copy_01.cydsn\main.c" Guid="a96007b1-2085-4416-a47b-204f2ea83623" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\UART2PC.cydsn\main.c" Guid="f1bf491b-6fef-4ce0-9925-18c891fe6419" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\UART2PC.cydsn\UART2PC.cydwr" Guid="fdb52c00-c6b4-4fcc-8722-14fd1eb00f98" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\UART2PC.cydsn\TopDesign\TopDesign.cysch" Guid="bb08be96-cf67-4c0a-899d-efc9e3e03a44" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\Project.cydsn\TopDesign\TopDesign.cysch" Guid="6fb2a435-987f-44c8-a8c4-1f5e6217be25" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\Project.cydsn\main.c" Guid="36d3b2da-e9f0-4099-9711-00de3e2ea87c" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\MessageStruct.cydsn\TopDesign\TopDesign.cysch" Guid="38ed92bd-9632-438f-ae25-f198943c410e" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\MessageStruct.cydsn\main.c" Guid="fe10a6a4-0c78-40cf-b56a-9cd575e3a8e9" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\Project_Copy_01_Copy_01.cydsn\main.c" Guid="d64bb71e-8f4e-4eb4-af5b-8d0ead9b2e0c" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\Project_Copy_01_Copy_01.cydsn\TopDesign\TopDesign.cysch" Guid="799cccb6-23eb-4cfc-8865-6341efe4cc78" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\Project_Copy_01_Copy_01.cydsn\Project_Copy_01_Copy_01.cydwr" Guid="f097326c-fdb9-44d2-bf74-c7ff58091932" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="30109699-737c-4a6d-958b-8c28bb754e51" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

@@ -33,6 +33,7 @@ bool MaxDetect_read(int *temperatureC, int *humidity){
     int bitReceived = 0;
     int byteReceived = 0;
     int timer = 0;
+    uint8_t rhtData = 0;
     
     while ( (state != S_DONE) && (state != S_ERROR)){
         switch (state){
@@ -60,12 +61,61 @@ bool MaxDetect_read(int *temperatureC, int *humidity){
                 }
                 break;
             case S_RESPONSE:
+                if (timer > 0){
+                    if (OneWire_Read() == 1){
+                        state = S_READY_TO_SEND_DATA;
+                        timer = 50;
+                        break;
+                    }
+                }else{
+                    state = S_ERROR;
+                }
                 break;
             case S_READY_TO_SEND_DATA:
+                if (timer > 0){
+                    if (OneWire_Read() == 0){
+                        state = S_DATA_START;
+                        timer = 50;
+                        break;
+                    }
+                }else{
+                    state = S_ERROR;
+                }
                 break;
             case S_DATA_START:
+                if (timer > 0){
+                    if (OneWire_Read() == 1){
+                        state = S_DATA_GOT;
+                        timer = 70;
+                        break;
+                    }
+                }else{
+                    state = S_ERROR;
+                }
                 break;
             case S_DATA_GOT:
+                if (timer > 0){
+                    if (OneWire_Read() == 0){
+                        rhtData = rhtData << 1;
+                        if (timer < 40)
+                            rhtData |= 0x01;
+                        bitReceived++;
+                        if (bitReceived % 8 == 0){
+                            buf[bitReceived] = rhtData;
+                            byteReceived++;
+                            rhtData = 0;
+                        }
+                        if (bitReceived >= 40){
+                        state = S_DONE;
+                        } else {
+                            timer = 50;
+                            state = S_DATA_START;
+                        }
+                        break;
+                    }
+                }else{
+                    state = S_ERROR;
+                }
                 break;
             case S_DONE:
                 break;
@@ -75,6 +125,16 @@ bool MaxDetect_read(int *temperatureC, int *humidity){
         if (timer > 0) timer--;
         CyDelayUs(1);   // Delay 1 us
     }
+    if (state == S_DONE){
+        // Calculate the temperature and humidity
+        float hum, tmp;
+        hum = (uint16_t)((buf[0]<<8)+buf[1]) / 10.0;
+        tmp = (int16_t)((buf[2]<<8)+buf[3]) / 10.0;
+        *temperatureC = tmp;
+        *humidity = hum;
+        return true;
+    }
+    return false;
 }
 
 int main(void)

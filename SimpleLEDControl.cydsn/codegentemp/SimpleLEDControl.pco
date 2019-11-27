@@ -1,0 +1,14 @@
+# SimpleLEDControl
+# 2019-11-14 22:06:06Z
+
+# IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 0
+# IO_1@[IOP=(1)][IoId=(1)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 1
+# IO_3@[IOP=(1)][IoId=(3)] is reserved: SWDDebugEnabled
+dont_use_io iocell 1 3
+set_location "ClockBlock" clockblockcell -1 -1 0
+set_io "nSW(0)" iocell 2 2
+set_io "LED(0)" iocell 2 1
+set_location "\Status_nSW:sts:sts_reg\" 0 4 3
+set_location "Net_4" 0 4 0 0

@@ -1,0 +1,23 @@
+(DELAYFILE
+ (SDFVERSION "IEEE 1497 4.0")
+ (DATE "2019-11-14T22:06:08Z")
+ (DESIGN "SimpleLEDControl")
+ (VENDOR "Cypress Semiconductor")
+ (PROGRAM "PSoC Creator")
+ (VERSION " 4.2")
+ (DIVIDER .)
+ (TIMESCALE 1 ns)
+ (CELL
+  (CELLTYPE "SimpleLEDControl")
+  (INSTANCE *)
+  (DELAY
+   (ABSOLUTE
+    (INTERCONNECT nSW\(0\).fb Net_4.main_0 (4.657:4.657:4.657))
+    (INTERCONNECT ClockBlock.dclk_glb_1 Net_4.clock_0 (0.000:0.000:0.000))
+    (INTERCONNECT Net_4.q \\Status_nSW\:sts\:sts_reg\\.status_0 (2.314:2.314:2.314))
+    (INTERCONNECT nSW\(0\)_PAD nSW\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT LED\(0\)_PAD LED\(0\).pad_in (0.000:0.000:0.000))
+   )
+  )
+ )
+)

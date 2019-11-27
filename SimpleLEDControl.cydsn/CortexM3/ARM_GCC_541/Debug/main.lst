@@ -1,0 +1,632 @@
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccspdD36.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	main, %function
+  25              	main:
+  26              	.LFB64:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** #include <stdio.h>
+  14:main.c        **** #include <stdlib.h>
+  15:main.c        **** #include <stdint.h>
+  16:main.c        **** #include <stdbool.h>
+  17:main.c        **** 
+  18:main.c        **** int main(void)
+  19:main.c        **** {
+  28              		.loc 1 19 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 10B5     		push	{r4, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+  36              	.LVL0:
+  20:main.c        ****     int count = 0;
+  21:main.c        ****     bool currSW;
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccspdD36.s 			page 2
+
+
+  22:main.c        ****     
+  23:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  37              		.loc 1 23 0
+  38              		.syntax unified
+  39              	@ 23 "main.c" 1
+  40 0002 62B6     		CPSIE   i
+  41              	@ 0 "" 2
+  20:main.c        ****     int count = 0;
+  42              		.loc 1 20 0
+  43              		.thumb
+  44              		.syntax unified
+  45 0004 0024     		movs	r4, #0
+  46              	.LVL1:
+  47              	.L2:
+  24:main.c        **** 
+  25:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  26:main.c        **** 
+  27:main.c        ****     for(;;)
+  28:main.c        ****     {
+  29:main.c        ****         /* Place your application code here. */
+  30:main.c        ****         currSW = Status_nSW_Read();
+  48              		.loc 1 30 0
+  49 0006 FFF7FEFF 		bl	Status_nSW_Read
+  50              	.LVL2:
+  31:main.c        ****         
+  32:main.c        ****         if (currSW == 0)
+  51              		.loc 1 32 0
+  52 000a 00B9     		cbnz	r0, .L3
+  33:main.c        ****             count = count + 1;
+  53              		.loc 1 33 0
+  54 000c 0134     		adds	r4, r4, #1
+  55              	.LVL3:
+  56              	.L3:
+  34:main.c        ****         if (count == 3)
+  57              		.loc 1 34 0
+  58 000e 032C     		cmp	r4, #3
+  59 0010 F9D1     		bne	.L2
+  35:main.c        ****             LED_Write(1);
+  60              		.loc 1 35 0
+  61 0012 0120     		movs	r0, #1
+  62              	.LVL4:
+  63 0014 FFF7FEFF 		bl	LED_Write
+  64              	.LVL5:
+  65 0018 F5E7     		b	.L2
+  66              		.cfi_endproc
+  67              	.LFE64:
+  68              		.size	main, .-main
+  69 001a 00BF     		.text
+  70              	.Letext0:
+  71              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+  72              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+  73              		.file 4 "Generated_Source\\PSoC5/Status_nSW.h"
+  74              		.file 5 "Generated_Source\\PSoC5/LED.h"
+  75              		.file 6 "Generated_Source\\PSoC5/core_cm3.h"
+  76              		.section	.debug_info,"",%progbits
+  77              	.Ldebug_info0:
+  78 0000 1F010000 		.4byte	0x11f
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccspdD36.s 			page 3
+
+
+  79 0004 0400     		.2byte	0x4
+  80 0006 00000000 		.4byte	.Ldebug_abbrev0
+  81 000a 04       		.byte	0x4
+  82 000b 01       		.uleb128 0x1
+  83 000c 3A000000 		.4byte	.LASF21
+  84 0010 0C       		.byte	0xc
+  85 0011 2E000000 		.4byte	.LASF22
+  86 0015 09010000 		.4byte	.LASF23
+  87 0019 00000000 		.4byte	.Ldebug_ranges0+0
+  88 001d 00000000 		.4byte	0
+  89 0021 00000000 		.4byte	.Ldebug_line0
+  90 0025 02       		.uleb128 0x2
+  91 0026 01       		.byte	0x1
+  92 0027 06       		.byte	0x6
+  93 0028 9F010000 		.4byte	.LASF0
+  94 002c 02       		.uleb128 0x2
+  95 002d 01       		.byte	0x1
+  96 002e 08       		.byte	0x8
+  97 002f FB000000 		.4byte	.LASF1
+  98 0033 02       		.uleb128 0x2
+  99 0034 02       		.byte	0x2
+ 100 0035 05       		.byte	0x5
+ 101 0036 CE010000 		.4byte	.LASF2
+ 102 003a 02       		.uleb128 0x2
+ 103 003b 02       		.byte	0x2
+ 104 003c 07       		.byte	0x7
+ 105 003d 0E000000 		.4byte	.LASF3
+ 106 0041 03       		.uleb128 0x3
+ 107 0042 BE010000 		.4byte	.LASF9
+ 108 0046 02       		.byte	0x2
+ 109 0047 3F       		.byte	0x3f
+ 110 0048 4C000000 		.4byte	0x4c
+ 111 004c 02       		.uleb128 0x2
+ 112 004d 04       		.byte	0x4
+ 113 004e 05       		.byte	0x5
+ 114 004f 63010000 		.4byte	.LASF4
+ 115 0053 02       		.uleb128 0x2
+ 116 0054 04       		.byte	0x4
+ 117 0055 07       		.byte	0x7
+ 118 0056 D2000000 		.4byte	.LASF5
+ 119 005a 02       		.uleb128 0x2
+ 120 005b 08       		.byte	0x8
+ 121 005c 05       		.byte	0x5
+ 122 005d 00000000 		.4byte	.LASF6
+ 123 0061 02       		.uleb128 0x2
+ 124 0062 08       		.byte	0x8
+ 125 0063 07       		.byte	0x7
+ 126 0064 E4000000 		.4byte	.LASF7
+ 127 0068 04       		.uleb128 0x4
+ 128 0069 04       		.byte	0x4
+ 129 006a 05       		.byte	0x5
+ 130 006b 696E7400 		.ascii	"int\000"
+ 131 006f 02       		.uleb128 0x2
+ 132 0070 04       		.byte	0x4
+ 133 0071 07       		.byte	0x7
+ 134 0072 21000000 		.4byte	.LASF8
+ 135 0076 03       		.uleb128 0x3
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccspdD36.s 			page 4
+
+
+ 136 0077 D8010000 		.4byte	.LASF10
+ 137 007b 03       		.byte	0x3
+ 138 007c 2C       		.byte	0x2c
+ 139 007d 41000000 		.4byte	0x41
+ 140 0081 02       		.uleb128 0x2
+ 141 0082 04       		.byte	0x4
+ 142 0083 04       		.byte	0x4
+ 143 0084 C8010000 		.4byte	.LASF11
+ 144 0088 02       		.uleb128 0x2
+ 145 0089 08       		.byte	0x8
+ 146 008a 04       		.byte	0x4
+ 147 008b 6C010000 		.4byte	.LASF12
+ 148 008f 02       		.uleb128 0x2
+ 149 0090 01       		.byte	0x1
+ 150 0091 08       		.byte	0x8
+ 151 0092 E0010000 		.4byte	.LASF13
+ 152 0096 02       		.uleb128 0x2
+ 153 0097 08       		.byte	0x8
+ 154 0098 04       		.byte	0x4
+ 155 0099 AB010000 		.4byte	.LASF14
+ 156 009d 02       		.uleb128 0x2
+ 157 009e 04       		.byte	0x4
+ 158 009f 07       		.byte	0x7
+ 159 00a0 89010000 		.4byte	.LASF15
+ 160 00a4 05       		.uleb128 0x5
+ 161 00a5 35000000 		.4byte	.LASF24
+ 162 00a9 01       		.byte	0x1
+ 163 00aa 12       		.byte	0x12
+ 164 00ab 68000000 		.4byte	0x68
+ 165 00af 00000000 		.4byte	.LFB64
+ 166 00b3 1A000000 		.4byte	.LFE64-.LFB64
+ 167 00b7 01       		.uleb128 0x1
+ 168 00b8 9C       		.byte	0x9c
+ 169 00b9 F4000000 		.4byte	0xf4
+ 170 00bd 06       		.uleb128 0x6
+ 171 00be 5D010000 		.4byte	.LASF16
+ 172 00c2 01       		.byte	0x1
+ 173 00c3 14       		.byte	0x14
+ 174 00c4 68000000 		.4byte	0x68
+ 175 00c8 00000000 		.4byte	.LLST0
+ 176 00cc 06       		.uleb128 0x6
+ 177 00cd B7010000 		.4byte	.LASF17
+ 178 00d1 01       		.byte	0x1
+ 179 00d2 15       		.byte	0x15
+ 180 00d3 F4000000 		.4byte	0xf4
+ 181 00d7 1F000000 		.4byte	.LLST1
+ 182 00db 07       		.uleb128 0x7
+ 183 00dc 0A000000 		.4byte	.LVL2
+ 184 00e0 0C010000 		.4byte	0x10c
+ 185 00e4 08       		.uleb128 0x8
+ 186 00e5 18000000 		.4byte	.LVL5
+ 187 00e9 17010000 		.4byte	0x117
+ 188 00ed 09       		.uleb128 0x9
+ 189 00ee 01       		.uleb128 0x1
+ 190 00ef 50       		.byte	0x50
+ 191 00f0 01       		.uleb128 0x1
+ 192 00f1 31       		.byte	0x31
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccspdD36.s 			page 5
+
+
+ 193 00f2 00       		.byte	0
+ 194 00f3 00       		.byte	0
+ 195 00f4 02       		.uleb128 0x2
+ 196 00f5 01       		.byte	0x1
+ 197 00f6 02       		.byte	0x2
+ 198 00f7 83010000 		.4byte	.LASF18
+ 199 00fb 0A       		.uleb128 0xa
+ 200 00fc 92010000 		.4byte	.LASF25
+ 201 0100 06       		.byte	0x6
+ 202 0101 1207     		.2byte	0x712
+ 203 0103 07010000 		.4byte	0x107
+ 204 0107 0B       		.uleb128 0xb
+ 205 0108 76000000 		.4byte	0x76
+ 206 010c 0C       		.uleb128 0xc
+ 207 010d 73010000 		.4byte	.LASF19
+ 208 0111 73010000 		.4byte	.LASF19
+ 209 0115 04       		.byte	0x4
+ 210 0116 30       		.byte	0x30
+ 211 0117 0C       		.uleb128 0xc
+ 212 0118 C8000000 		.4byte	.LASF20
+ 213 011c C8000000 		.4byte	.LASF20
+ 214 0120 05       		.byte	0x5
+ 215 0121 26       		.byte	0x26
+ 216 0122 00       		.byte	0
+ 217              		.section	.debug_abbrev,"",%progbits
+ 218              	.Ldebug_abbrev0:
+ 219 0000 01       		.uleb128 0x1
+ 220 0001 11       		.uleb128 0x11
+ 221 0002 01       		.byte	0x1
+ 222 0003 25       		.uleb128 0x25
+ 223 0004 0E       		.uleb128 0xe
+ 224 0005 13       		.uleb128 0x13
+ 225 0006 0B       		.uleb128 0xb
+ 226 0007 03       		.uleb128 0x3
+ 227 0008 0E       		.uleb128 0xe
+ 228 0009 1B       		.uleb128 0x1b
+ 229 000a 0E       		.uleb128 0xe
+ 230 000b 55       		.uleb128 0x55
+ 231 000c 17       		.uleb128 0x17
+ 232 000d 11       		.uleb128 0x11
+ 233 000e 01       		.uleb128 0x1
+ 234 000f 10       		.uleb128 0x10
+ 235 0010 17       		.uleb128 0x17
+ 236 0011 00       		.byte	0
+ 237 0012 00       		.byte	0
+ 238 0013 02       		.uleb128 0x2
+ 239 0014 24       		.uleb128 0x24
+ 240 0015 00       		.byte	0
+ 241 0016 0B       		.uleb128 0xb
+ 242 0017 0B       		.uleb128 0xb
+ 243 0018 3E       		.uleb128 0x3e
+ 244 0019 0B       		.uleb128 0xb
+ 245 001a 03       		.uleb128 0x3
+ 246 001b 0E       		.uleb128 0xe
+ 247 001c 00       		.byte	0
+ 248 001d 00       		.byte	0
+ 249 001e 03       		.uleb128 0x3
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccspdD36.s 			page 6
+
+
+ 250 001f 16       		.uleb128 0x16
+ 251 0020 00       		.byte	0
+ 252 0021 03       		.uleb128 0x3
+ 253 0022 0E       		.uleb128 0xe
+ 254 0023 3A       		.uleb128 0x3a
+ 255 0024 0B       		.uleb128 0xb
+ 256 0025 3B       		.uleb128 0x3b
+ 257 0026 0B       		.uleb128 0xb
+ 258 0027 49       		.uleb128 0x49
+ 259 0028 13       		.uleb128 0x13
+ 260 0029 00       		.byte	0
+ 261 002a 00       		.byte	0
+ 262 002b 04       		.uleb128 0x4
+ 263 002c 24       		.uleb128 0x24
+ 264 002d 00       		.byte	0
+ 265 002e 0B       		.uleb128 0xb
+ 266 002f 0B       		.uleb128 0xb
+ 267 0030 3E       		.uleb128 0x3e
+ 268 0031 0B       		.uleb128 0xb
+ 269 0032 03       		.uleb128 0x3
+ 270 0033 08       		.uleb128 0x8
+ 271 0034 00       		.byte	0
+ 272 0035 00       		.byte	0
+ 273 0036 05       		.uleb128 0x5
+ 274 0037 2E       		.uleb128 0x2e
+ 275 0038 01       		.byte	0x1
+ 276 0039 3F       		.uleb128 0x3f
+ 277 003a 19       		.uleb128 0x19
+ 278 003b 03       		.uleb128 0x3
+ 279 003c 0E       		.uleb128 0xe
+ 280 003d 3A       		.uleb128 0x3a
+ 281 003e 0B       		.uleb128 0xb
+ 282 003f 3B       		.uleb128 0x3b
+ 283 0040 0B       		.uleb128 0xb
+ 284 0041 27       		.uleb128 0x27
+ 285 0042 19       		.uleb128 0x19
+ 286 0043 49       		.uleb128 0x49
+ 287 0044 13       		.uleb128 0x13
+ 288 0045 8701     		.uleb128 0x87
+ 289 0047 19       		.uleb128 0x19
+ 290 0048 11       		.uleb128 0x11
+ 291 0049 01       		.uleb128 0x1
+ 292 004a 12       		.uleb128 0x12
+ 293 004b 06       		.uleb128 0x6
+ 294 004c 40       		.uleb128 0x40
+ 295 004d 18       		.uleb128 0x18
+ 296 004e 9742     		.uleb128 0x2117
+ 297 0050 19       		.uleb128 0x19
+ 298 0051 01       		.uleb128 0x1
+ 299 0052 13       		.uleb128 0x13
+ 300 0053 00       		.byte	0
+ 301 0054 00       		.byte	0
+ 302 0055 06       		.uleb128 0x6
+ 303 0056 34       		.uleb128 0x34
+ 304 0057 00       		.byte	0
+ 305 0058 03       		.uleb128 0x3
+ 306 0059 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccspdD36.s 			page 7
+
+
+ 307 005a 3A       		.uleb128 0x3a
+ 308 005b 0B       		.uleb128 0xb
+ 309 005c 3B       		.uleb128 0x3b
+ 310 005d 0B       		.uleb128 0xb
+ 311 005e 49       		.uleb128 0x49
+ 312 005f 13       		.uleb128 0x13
+ 313 0060 02       		.uleb128 0x2
+ 314 0061 17       		.uleb128 0x17
+ 315 0062 00       		.byte	0
+ 316 0063 00       		.byte	0
+ 317 0064 07       		.uleb128 0x7
+ 318 0065 898201   		.uleb128 0x4109
+ 319 0068 00       		.byte	0
+ 320 0069 11       		.uleb128 0x11
+ 321 006a 01       		.uleb128 0x1
+ 322 006b 31       		.uleb128 0x31
+ 323 006c 13       		.uleb128 0x13
+ 324 006d 00       		.byte	0
+ 325 006e 00       		.byte	0
+ 326 006f 08       		.uleb128 0x8
+ 327 0070 898201   		.uleb128 0x4109
+ 328 0073 01       		.byte	0x1
+ 329 0074 11       		.uleb128 0x11
+ 330 0075 01       		.uleb128 0x1
+ 331 0076 31       		.uleb128 0x31
+ 332 0077 13       		.uleb128 0x13
+ 333 0078 00       		.byte	0
+ 334 0079 00       		.byte	0
+ 335 007a 09       		.uleb128 0x9
+ 336 007b 8A8201   		.uleb128 0x410a
+ 337 007e 00       		.byte	0
+ 338 007f 02       		.uleb128 0x2
+ 339 0080 18       		.uleb128 0x18
+ 340 0081 9142     		.uleb128 0x2111
+ 341 0083 18       		.uleb128 0x18
+ 342 0084 00       		.byte	0
+ 343 0085 00       		.byte	0
+ 344 0086 0A       		.uleb128 0xa
+ 345 0087 34       		.uleb128 0x34
+ 346 0088 00       		.byte	0
+ 347 0089 03       		.uleb128 0x3
+ 348 008a 0E       		.uleb128 0xe
+ 349 008b 3A       		.uleb128 0x3a
+ 350 008c 0B       		.uleb128 0xb
+ 351 008d 3B       		.uleb128 0x3b
+ 352 008e 05       		.uleb128 0x5
+ 353 008f 49       		.uleb128 0x49
+ 354 0090 13       		.uleb128 0x13
+ 355 0091 3F       		.uleb128 0x3f
+ 356 0092 19       		.uleb128 0x19
+ 357 0093 3C       		.uleb128 0x3c
+ 358 0094 19       		.uleb128 0x19
+ 359 0095 00       		.byte	0
+ 360 0096 00       		.byte	0
+ 361 0097 0B       		.uleb128 0xb
+ 362 0098 35       		.uleb128 0x35
+ 363 0099 00       		.byte	0
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccspdD36.s 			page 8
+
+
+ 364 009a 49       		.uleb128 0x49
+ 365 009b 13       		.uleb128 0x13
+ 366 009c 00       		.byte	0
+ 367 009d 00       		.byte	0
+ 368 009e 0C       		.uleb128 0xc
+ 369 009f 2E       		.uleb128 0x2e
+ 370 00a0 00       		.byte	0
+ 371 00a1 3F       		.uleb128 0x3f
+ 372 00a2 19       		.uleb128 0x19
+ 373 00a3 3C       		.uleb128 0x3c
+ 374 00a4 19       		.uleb128 0x19
+ 375 00a5 6E       		.uleb128 0x6e
+ 376 00a6 0E       		.uleb128 0xe
+ 377 00a7 03       		.uleb128 0x3
+ 378 00a8 0E       		.uleb128 0xe
+ 379 00a9 3A       		.uleb128 0x3a
+ 380 00aa 0B       		.uleb128 0xb
+ 381 00ab 3B       		.uleb128 0x3b
+ 382 00ac 0B       		.uleb128 0xb
+ 383 00ad 00       		.byte	0
+ 384 00ae 00       		.byte	0
+ 385 00af 00       		.byte	0
+ 386              		.section	.debug_loc,"",%progbits
+ 387              	.Ldebug_loc0:
+ 388              	.LLST0:
+ 389 0000 02000000 		.4byte	.LVL0
+ 390 0004 06000000 		.4byte	.LVL1
+ 391 0008 0200     		.2byte	0x2
+ 392 000a 30       		.byte	0x30
+ 393 000b 9F       		.byte	0x9f
+ 394 000c 06000000 		.4byte	.LVL1
+ 395 0010 1A000000 		.4byte	.LFE64
+ 396 0014 0100     		.2byte	0x1
+ 397 0016 54       		.byte	0x54
+ 398 0017 00000000 		.4byte	0
+ 399 001b 00000000 		.4byte	0
+ 400              	.LLST1:
+ 401 001f 0A000000 		.4byte	.LVL2
+ 402 0023 14000000 		.4byte	.LVL4
+ 403 0027 0700     		.2byte	0x7
+ 404 0029 70       		.byte	0x70
+ 405 002a 00       		.sleb128 0
+ 406 002b 48       		.byte	0x48
+ 407 002c 24       		.byte	0x24
+ 408 002d 30       		.byte	0x30
+ 409 002e 2E       		.byte	0x2e
+ 410 002f 9F       		.byte	0x9f
+ 411 0030 00000000 		.4byte	0
+ 412 0034 00000000 		.4byte	0
+ 413              		.section	.debug_aranges,"",%progbits
+ 414 0000 1C000000 		.4byte	0x1c
+ 415 0004 0200     		.2byte	0x2
+ 416 0006 00000000 		.4byte	.Ldebug_info0
+ 417 000a 04       		.byte	0x4
+ 418 000b 00       		.byte	0
+ 419 000c 0000     		.2byte	0
+ 420 000e 0000     		.2byte	0
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccspdD36.s 			page 9
+
+
+ 421 0010 00000000 		.4byte	.LFB64
+ 422 0014 1A000000 		.4byte	.LFE64-.LFB64
+ 423 0018 00000000 		.4byte	0
+ 424 001c 00000000 		.4byte	0
+ 425              		.section	.debug_ranges,"",%progbits
+ 426              	.Ldebug_ranges0:
+ 427 0000 00000000 		.4byte	.LFB64
+ 428 0004 1A000000 		.4byte	.LFE64
+ 429 0008 00000000 		.4byte	0
+ 430 000c 00000000 		.4byte	0
+ 431              		.section	.debug_line,"",%progbits
+ 432              	.Ldebug_line0:
+ 433 0000 76010000 		.section	.debug_str,"MS",%progbits,1
+ 433      02005801 
+ 433      00000201 
+ 433      FB0E0D00 
+ 433      01010101 
+ 434              	.LASF6:
+ 435 0000 6C6F6E67 		.ascii	"long long int\000"
+ 435      206C6F6E 
+ 435      6720696E 
+ 435      7400
+ 436              	.LASF3:
+ 437 000e 73686F72 		.ascii	"short unsigned int\000"
+ 437      7420756E 
+ 437      7369676E 
+ 437      65642069 
+ 437      6E7400
+ 438              	.LASF8:
+ 439 0021 756E7369 		.ascii	"unsigned int\000"
+ 439      676E6564 
+ 439      20696E74 
+ 439      00
+ 440              	.LASF22:
+ 441 002e 6D61696E 		.ascii	"main.c\000"
+ 441      2E6300
+ 442              	.LASF24:
+ 443 0035 6D61696E 		.ascii	"main\000"
+ 443      00
+ 444              	.LASF21:
+ 445 003a 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 445      43313120 
+ 445      352E342E 
+ 445      31203230 
+ 445      31363036 
+ 446 006d 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 446      20726576 
+ 446      6973696F 
+ 446      6E203233 
+ 446      37373135 
+ 447 00a0 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 447      66756E63 
+ 447      74696F6E 
+ 447      2D736563 
+ 447      74696F6E 
+ 448              	.LASF20:
+ 449 00c8 4C45445F 		.ascii	"LED_Write\000"
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccspdD36.s 			page 10
+
+
+ 449      57726974 
+ 449      6500
+ 450              	.LASF5:
+ 451 00d2 6C6F6E67 		.ascii	"long unsigned int\000"
+ 451      20756E73 
+ 451      69676E65 
+ 451      6420696E 
+ 451      7400
+ 452              	.LASF7:
+ 453 00e4 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 453      206C6F6E 
+ 453      6720756E 
+ 453      7369676E 
+ 453      65642069 
+ 454              	.LASF1:
+ 455 00fb 756E7369 		.ascii	"unsigned char\000"
+ 455      676E6564 
+ 455      20636861 
+ 455      7200
+ 456              	.LASF23:
+ 457 0109 433A5C55 		.ascii	"C:\\Users\\Tri94\\Documents\\PSoC Creator\\EE4450\\"
+ 457      73657273 
+ 457      5C547269 
+ 457      39345C44 
+ 457      6F63756D 
+ 458 0136 45453434 		.ascii	"EE4450-Projects\\SimpleLEDControl.cydsn\000"
+ 458      35302D50 
+ 458      726F6A65 
+ 458      6374735C 
+ 458      53696D70 
+ 459              	.LASF16:
+ 460 015d 636F756E 		.ascii	"count\000"
+ 460      7400
+ 461              	.LASF4:
+ 462 0163 6C6F6E67 		.ascii	"long int\000"
+ 462      20696E74 
+ 462      00
+ 463              	.LASF12:
+ 464 016c 646F7562 		.ascii	"double\000"
+ 464      6C6500
+ 465              	.LASF19:
+ 466 0173 53746174 		.ascii	"Status_nSW_Read\000"
+ 466      75735F6E 
+ 466      53575F52 
+ 466      65616400 
+ 467              	.LASF18:
+ 468 0183 5F426F6F 		.ascii	"_Bool\000"
+ 468      6C00
+ 469              	.LASF15:
+ 470 0189 73697A65 		.ascii	"sizetype\000"
+ 470      74797065 
+ 470      00
+ 471              	.LASF25:
+ 472 0192 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 472      52784275 
+ 472      66666572 
+ 472      00
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccspdD36.s 			page 11
+
+
+ 473              	.LASF0:
+ 474 019f 7369676E 		.ascii	"signed char\000"
+ 474      65642063 
+ 474      68617200 
+ 475              	.LASF14:
+ 476 01ab 6C6F6E67 		.ascii	"long double\000"
+ 476      20646F75 
+ 476      626C6500 
+ 477              	.LASF17:
+ 478 01b7 63757272 		.ascii	"currSW\000"
+ 478      535700
+ 479              	.LASF9:
+ 480 01be 5F5F696E 		.ascii	"__int32_t\000"
+ 480      7433325F 
+ 480      7400
+ 481              	.LASF11:
+ 482 01c8 666C6F61 		.ascii	"float\000"
+ 482      7400
+ 483              	.LASF2:
+ 484 01ce 73686F72 		.ascii	"short int\000"
+ 484      7420696E 
+ 484      7400
+ 485              	.LASF10:
+ 486 01d8 696E7433 		.ascii	"int32_t\000"
+ 486      325F7400 
+ 487              	.LASF13:
+ 488 01e0 63686172 		.ascii	"char\000"
+ 488      00
+ 489              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
