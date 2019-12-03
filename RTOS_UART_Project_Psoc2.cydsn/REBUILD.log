@@ -1,0 +1,34 @@
+--------------- Rebuild Started: 11/26/2019 19:52:58 Project: main.c, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I..\FreeRTOS -I..\FreeRTOS\include -I..\FreeRTOS\portable\GCC\ARM_CM3 -I..\FreeRTOS\portable\MemMang -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c main.c -o .\CortexM3\ARM_GCC_541\Debug\main.o
+main.c: In function 'main':
+main.c:53:9: warning: implicit declaration of function 'LCD_PrintString' [-Wimplicit-function-declaration]
+         LCD_PrintString("Message Buffer Error!");
+         ^
+main.c: In function 'myPSoCSetup':
+main.c:97:5: warning: implicit declaration of function 'LCD_Init' [-Wimplicit-function-declaration]
+     LCD_Init();
+     ^
+main.c:98:5: warning: implicit declaration of function 'LCD_Start' [-Wimplicit-function-declaration]
+     LCD_Start();
+     ^
+main.c:99:5: warning: implicit declaration of function 'LCD_ClearDisplay' [-Wimplicit-function-declaration]
+     LCD_ClearDisplay();
+     ^
+In file included from main.c:26:0:
+main.c: In function 'myISR_UART':
+main.c:131:73: warning: passing argument 4 of 'xStreamBufferSendFromISR' makes pointer from integer without a cast [-Wint-conversion]
+                     xMessageBufferSendFromISR(xMessageBuffer, buf, idx, xHigherPriorityTaskWoken);
+                                                                         ^
+..\FreeRTOS\include/message_buffer.h:408:203: note: in definition of macro 'xMessageBufferSendFromISR'
+ #define xMessageBufferSendFromISR( xMessageBuffer, pvTxData, xDataLengthBytes, pxHigherPriorityTaskWoken ) xStreamBufferSendFromISR( ( StreamBufferHandle_t ) xMessageBuffer, pvTxData, xDataLengthBytes, pxHigherPriorityTaskWoken )
+                                                                                                                                                                                                           ^
+In file included from ..\FreeRTOS\include/message_buffer.h:67:0,
+                 from main.c:26:
+..\FreeRTOS\include/stream_buffer.h:405:8: note: expected 'BaseType_t * const {aka long int * const}' but argument is of type 'BaseType_t {aka long int}'
+ size_t xStreamBufferSendFromISR( StreamBufferHandle_t xStreamBuffer,
+        ^
+main.c: In function 'vAppTask2':
+main.c:184:13: warning: implicit declaration of function 'LCD_Position' [-Wimplicit-function-declaration]
+             LCD_Position(1,0);
+             ^
+--------------- Rebuild Succeeded: 11/26/2019 19:52:59 ---------------

@@ -1,5 +1,5 @@
--- Project:   C:\Users\Tri94\Documents\PSoC Creator\EE4450\RTOS_UART_StringMessage.cydsn\RTOS_UART_StringMessage.cyprj
--- Generated: 10/22/2019 14:06:39
+-- Project:   C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_StringMessage.cydsn\RTOS_UART_StringMessage.cyprj
+-- Generated: 11/26/2019 20:08:55
 -- PSoC Creator  4.2
 
 ENTITY RTOS_UART_StringMessage IS

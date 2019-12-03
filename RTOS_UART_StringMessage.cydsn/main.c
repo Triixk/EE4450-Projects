@@ -50,12 +50,11 @@ int main(void)
    xMessageBuffer = xMessageBufferCreate(MESSAGE_BUFFER_SIZE);
 
     if (xMessageBuffer == NULL){
-        LCD_PrintString("Message Buffer Error!");
         while(1);   // Stop system here
     }
     
     // Create Task
-    err = xTaskCreate(vAppTask1,                    // Taskfunction_t pvTaskCode,
+    err = xTaskCreate(vUARTTask1,                    // Taskfunction_t pvTaskCode,
                         "Task 1",                   // const char * const pcName,
                         configMINIMAL_STACK_SIZE,   // unsigned short usStackDepth,
                         NULL,                       // void *pvParameters,
@@ -66,18 +65,7 @@ int main(void)
         // Cannot create task!
         while(1);
     }
-    
-    err = xTaskCreate(vAppTask2,                    // Taskfunction_t pvTaskCode,
-                        "Task 2",                   // const char * const pcName,
-                        configMINIMAL_STACK_SIZE,   // unsigned short usStackDepth,
-                        NULL,                       // void *pvParameters,
-                        configMAX_PRIORITIES-1,     // UBaseType_t uxPriority,
-                        NULL);                      // TaskHandle_t *pxCreatedTask );
-    
-    if (err != pdPASS){
-        // Cannot create task!
-        while(1);
-    }
+
     
     // Start the scheduler, so the tasks start executing
     vTaskStartScheduler();
@@ -173,24 +161,6 @@ void vUARTTask1(void *pvParaments){
         vTaskDelay(pdMS_TO_TICKS(50)); // Delay for 50 ms
     }
 }
-void vAppTask2(void *pvParaments){
-    
-    char        rxBuff[100];
-    size_t      xBytesReceived;
-    int arraySize = sizeof(rxBuff) / sizeof(rxBuff[0]);
-    
-    while(1){
-        xBytesReceived = xMessageBufferReceive(xMessageBuffer, rxBuff,
-                                        arraySize,pdMS_TO_TICKS(10));
-        
-        if (xBytesReceived > 0){
-            rxBuff[xBytesReceived] = '\0';
-            LCD_Position(1,0);
-            LCD_PrintString(rxBuff);
-        }
-        
-        vTaskDelay(pdMS_TO_TICKS(50)); // Delay for 850 ms
-    }
-}
-æ
+
+
 /* [] END OF FILE */

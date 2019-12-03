@@ -1,5 +1,5 @@
 -- Project:   RTOS_UART_StringMessage
--- Generated: 10/22/2019 14:06:37
+-- Generated: 11/26/2019 20:08:52
 -- PSoC Creator  4.2
 
 ENTITY RTOS_UART_StringMessage IS

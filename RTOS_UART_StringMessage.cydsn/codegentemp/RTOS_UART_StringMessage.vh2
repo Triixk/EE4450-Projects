@@ -2,7 +2,7 @@
 --	Conversion of RTOS_UART_StringMessage.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Tue Oct 22 14:06:36 2019
+--	Tue Nov 26 20:08:52 2019
 --
 
 USE cypress.cypress.all;

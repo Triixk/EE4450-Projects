@@ -1,0 +1,606 @@
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccFOl06m.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_metadata
+  20              		.global	cy_meta_flashprotect
+  21              		.global	cy_meta_wonvl
+  22              		.global	cy_meta_custnvl
+  23              		.global	cy_meta_configecc
+  24              		.section	.cyconfigecc,"a",%progbits
+  25              		.align	2
+  26              		.type	cy_meta_configecc, %object
+  27              		.size	cy_meta_configecc, 120
+  28              	cy_meta_configecc:
+  29 0000 01       		.byte	1
+  30 0001 4F       		.byte	79
+  31 0002 00       		.byte	0
+  32 0003 40       		.byte	64
+  33 0004 01       		.byte	1
+  34 0005 07       		.byte	7
+  35 0006 01       		.byte	1
+  36 0007 40       		.byte	64
+  37 0008 01       		.byte	1
+  38 0009 09       		.byte	9
+  39 000a 01       		.byte	1
+  40 000b 40       		.byte	64
+  41 000c 04       		.byte	4
+  42 000d 0A       		.byte	10
+  43 000e 01       		.byte	1
+  44 000f 40       		.byte	64
+  45 0010 01       		.byte	1
+  46 0011 0B       		.byte	11
+  47 0012 01       		.byte	1
+  48 0013 40       		.byte	64
+  49 0014 01       		.byte	1
+  50 0015 17       		.byte	23
+  51 0016 01       		.byte	1
+  52 0017 40       		.byte	64
+  53 0018 01       		.byte	1
+  54 0019 19       		.byte	25
+  55 001a 01       		.byte	1
+  56 001b 40       		.byte	64
+  57 001c 02       		.byte	2
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccFOl06m.s 			page 2
+
+
+  58 001d 42       		.byte	66
+  59 001e 01       		.byte	1
+  60 001f 40       		.byte	64
+  61 0020 04       		.byte	4
+  62 0021 43       		.byte	67
+  63 0022 01       		.byte	1
+  64 0023 40       		.byte	64
+  65 0024 02       		.byte	2
+  66 0025 45       		.byte	69
+  67 0026 01       		.byte	1
+  68 0027 40       		.byte	64
+  69 0028 01       		.byte	1
+  70 0029 46       		.byte	70
+  71 002a 01       		.byte	1
+  72 002b 40       		.byte	64
+  73 002c 01       		.byte	1
+  74 002d 47       		.byte	71
+  75 002e 01       		.byte	1
+  76 002f 40       		.byte	64
+  77 0030 01       		.byte	1
+  78 0031 48       		.byte	72
+  79 0032 01       		.byte	1
+  80 0033 40       		.byte	64
+  81 0034 02       		.byte	2
+  82 0035 4C       		.byte	76
+  83 0036 01       		.byte	1
+  84 0037 40       		.byte	64
+  85 0038 0A       		.byte	10
+  86 0039 4B       		.byte	75
+  87 003a EE       		.byte	-18
+  88 003b 08       		.byte	8
+  89 003c AF       		.byte	-81
+  90 003d 20       		.byte	32
+  91 003e B8       		.byte	-72
+  92 003f 20       		.byte	32
+  93 0040 BE       		.byte	-66
+  94 0041 10       		.byte	16
+  95 0042 D8       		.byte	-40
+  96 0043 04       		.byte	4
+  97 0044 DF       		.byte	-33
+  98 0045 01       		.byte	1
+  99 0046 1F       		.byte	31
+ 100 0047 20       		.byte	32
+ 101 0048 E8       		.byte	-24
+ 102 0049 10       		.byte	16
+ 103 004a E8       		.byte	-24
+ 104 004b 10       		.byte	16
+ 105 004c 63       		.byte	99
+ 106 004d 02       		.byte	2
+ 107 004e D6       		.byte	-42
+ 108 004f 40       		.byte	64
+ 109 0050 18       		.byte	24
+ 110 0051 10       		.byte	16
+ 111 0052 AF       		.byte	-81
+ 112 0053 01       		.byte	1
+ 113 0054 C6       		.byte	-58
+ 114 0055 10       		.byte	16
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccFOl06m.s 			page 3
+
+
+ 115 0056 EE       		.byte	-18
+ 116 0057 10       		.byte	16
+ 117 0058 50       		.byte	80
+ 118 0059 04       		.byte	4
+ 119 005a D4       		.byte	-44
+ 120 005b 04       		.byte	4
+ 121 005c 94       		.byte	-108
+ 122 005d 08       		.byte	8
+ 123 005e 94       		.byte	-108
+ 124 005f 08       		.byte	8
+ 125 0060 B4       		.byte	-76
+ 126 0061 10       		.byte	16
+ 127 0062 B4       		.byte	-76
+ 128 0063 04       		.byte	4
+ 129 0064 E8       		.byte	-24
+ 130 0065 08       		.byte	8
+ 131 0066 00       		.byte	0
+ 132 0067 00       		.byte	0
+ 133 0068 00       		.byte	0
+ 134 0069 0B       		.byte	11
+ 135 006a 0B       		.byte	11
+ 136 006b 00       		.byte	0
+ 137 006c 00       		.byte	0
+ 138 006d 00       		.byte	0
+ 139 006e 00       		.byte	0
+ 140 006f 00       		.byte	0
+ 141 0070 00       		.byte	0
+ 142 0071 08       		.byte	8
+ 143 0072 08       		.byte	8
+ 144 0073 00       		.byte	0
+ 145 0074 08       		.byte	8
+ 146 0075 00       		.byte	0
+ 147 0076 00       		.byte	0
+ 148 0077 00       		.byte	0
+ 149              		.section	.cywolatch,"a",%progbits
+ 150              		.align	2
+ 151              		.type	cy_meta_wonvl, %object
+ 152              		.size	cy_meta_wonvl, 4
+ 153              	cy_meta_wonvl:
+ 154 0000 BC       		.byte	-68
+ 155 0001 90       		.byte	-112
+ 156 0002 AC       		.byte	-84
+ 157 0003 AF       		.byte	-81
+ 158              		.section	.cycustnvl,"a",%progbits
+ 159              		.align	2
+ 160              		.type	cy_meta_custnvl, %object
+ 161              		.size	cy_meta_custnvl, 4
+ 162              	cy_meta_custnvl:
+ 163 0000 00       		.byte	0
+ 164 0001 00       		.byte	0
+ 165 0002 40       		.byte	64
+ 166 0003 05       		.byte	5
+ 167              		.section	.cymeta,"a",%progbits
+ 168              		.align	2
+ 169              		.type	cy_metadata, %object
+ 170              		.size	cy_metadata, 12
+ 171              	cy_metadata:
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccFOl06m.s 			page 4
+
+
+ 172 0000 00       		.byte	0
+ 173 0001 01       		.byte	1
+ 174 0002 2E       		.byte	46
+ 175 0003 16       		.byte	22
+ 176 0004 10       		.byte	16
+ 177 0005 69       		.byte	105
+ 178 0006 00       		.byte	0
+ 179 0007 01       		.byte	1
+ 180 0008 00       		.byte	0
+ 181 0009 00       		.byte	0
+ 182 000a 00       		.byte	0
+ 183 000b 00       		.byte	0
+ 184              		.section	.cyflashprotect,"a",%progbits
+ 185              		.align	2
+ 186              		.type	cy_meta_flashprotect, %object
+ 187              		.size	cy_meta_flashprotect, 256
+ 188              	cy_meta_flashprotect:
+ 189 0000 00000000 		.space	256
+ 189      00000000 
+ 189      00000000 
+ 189      00000000 
+ 189      00000000 
+ 190              		.text
+ 191              	.Letext0:
+ 192              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 193              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 194              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+ 195              		.section	.debug_info,"",%progbits
+ 196              	.Ldebug_info0:
+ 197 0000 30010000 		.4byte	0x130
+ 198 0004 0400     		.2byte	0x4
+ 199 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 200 000a 04       		.byte	0x4
+ 201 000b 01       		.uleb128 0x1
+ 202 000c 76000000 		.4byte	.LASF17
+ 203 0010 0C       		.byte	0xc
+ 204 0011 D0010000 		.4byte	.LASF18
+ 205 0015 0A000000 		.4byte	.LASF19
+ 206 0019 00000000 		.4byte	.Ldebug_line0
+ 207 001d 02       		.uleb128 0x2
+ 208 001e 01       		.byte	0x1
+ 209 001f 06       		.byte	0x6
+ 210 0020 C4010000 		.4byte	.LASF0
+ 211 0024 03       		.uleb128 0x3
+ 212 0025 00000000 		.4byte	.LASF9
+ 213 0029 01       		.byte	0x1
+ 214 002a 1D       		.byte	0x1d
+ 215 002b 2F000000 		.4byte	0x2f
+ 216 002f 02       		.uleb128 0x2
+ 217 0030 01       		.byte	0x1
+ 218 0031 08       		.byte	0x8
+ 219 0032 68000000 		.4byte	.LASF1
+ 220 0036 02       		.uleb128 0x2
+ 221 0037 02       		.byte	0x2
+ 222 0038 05       		.byte	0x5
+ 223 0039 B1010000 		.4byte	.LASF2
+ 224 003d 02       		.uleb128 0x2
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccFOl06m.s 			page 5
+
+
+ 225 003e 02       		.byte	0x2
+ 226 003f 07       		.byte	0x7
+ 227 0040 16010000 		.4byte	.LASF3
+ 228 0044 02       		.uleb128 0x2
+ 229 0045 04       		.byte	0x4
+ 230 0046 05       		.byte	0x5
+ 231 0047 BB010000 		.4byte	.LASF4
+ 232 004b 02       		.uleb128 0x2
+ 233 004c 04       		.byte	0x4
+ 234 004d 07       		.byte	0x7
+ 235 004e 04010000 		.4byte	.LASF5
+ 236 0052 02       		.uleb128 0x2
+ 237 0053 08       		.byte	0x8
+ 238 0054 05       		.byte	0x5
+ 239 0055 A3010000 		.4byte	.LASF6
+ 240 0059 02       		.uleb128 0x2
+ 241 005a 08       		.byte	0x8
+ 242 005b 07       		.byte	0x7
+ 243 005c 58010000 		.4byte	.LASF7
+ 244 0060 04       		.uleb128 0x4
+ 245 0061 04       		.byte	0x4
+ 246 0062 05       		.byte	0x5
+ 247 0063 696E7400 		.ascii	"int\000"
+ 248 0067 02       		.uleb128 0x2
+ 249 0068 04       		.byte	0x4
+ 250 0069 07       		.byte	0x7
+ 251 006a 4B010000 		.4byte	.LASF8
+ 252 006e 03       		.uleb128 0x3
+ 253 006f 6F010000 		.4byte	.LASF10
+ 254 0073 02       		.byte	0x2
+ 255 0074 18       		.byte	0x18
+ 256 0075 24000000 		.4byte	0x24
+ 257 0079 05       		.uleb128 0x5
+ 258 007a 90000000 		.4byte	0x90
+ 259 007e 89000000 		.4byte	0x89
+ 260 0082 06       		.uleb128 0x6
+ 261 0083 89000000 		.4byte	0x89
+ 262 0087 77       		.byte	0x77
+ 263 0088 00       		.byte	0
+ 264 0089 02       		.uleb128 0x2
+ 265 008a 04       		.byte	0x4
+ 266 008b 07       		.byte	0x7
+ 267 008c 9A010000 		.4byte	.LASF11
+ 268 0090 07       		.uleb128 0x7
+ 269 0091 6E000000 		.4byte	0x6e
+ 270 0095 08       		.uleb128 0x8
+ 271 0096 39010000 		.4byte	.LASF12
+ 272 009a 03       		.byte	0x3
+ 273 009b 1F       		.byte	0x1f
+ 274 009c A6000000 		.4byte	0xa6
+ 275 00a0 05       		.uleb128 0x5
+ 276 00a1 03       		.byte	0x3
+ 277 00a2 00000000 		.4byte	cy_meta_configecc
+ 278 00a6 07       		.uleb128 0x7
+ 279 00a7 79000000 		.4byte	0x79
+ 280 00ab 05       		.uleb128 0x5
+ 281 00ac 90000000 		.4byte	0x90
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccFOl06m.s 			page 6
+
+
+ 282 00b0 BB000000 		.4byte	0xbb
+ 283 00b4 06       		.uleb128 0x6
+ 284 00b5 89000000 		.4byte	0x89
+ 285 00b9 03       		.byte	0x3
+ 286 00ba 00       		.byte	0
+ 287 00bb 08       		.uleb128 0x8
+ 288 00bc 29010000 		.4byte	.LASF13
+ 289 00c0 03       		.byte	0x3
+ 290 00c1 3B       		.byte	0x3b
+ 291 00c2 CC000000 		.4byte	0xcc
+ 292 00c6 05       		.uleb128 0x5
+ 293 00c7 03       		.byte	0x3
+ 294 00c8 00000000 		.4byte	cy_meta_custnvl
+ 295 00cc 07       		.uleb128 0x7
+ 296 00cd AB000000 		.4byte	0xab
+ 297 00d1 08       		.uleb128 0x8
+ 298 00d2 8C010000 		.4byte	.LASF14
+ 299 00d6 03       		.byte	0x3
+ 300 00d7 49       		.byte	0x49
+ 301 00d8 E2000000 		.4byte	0xe2
+ 302 00dc 05       		.uleb128 0x5
+ 303 00dd 03       		.byte	0x3
+ 304 00de 00000000 		.4byte	cy_meta_wonvl
+ 305 00e2 07       		.uleb128 0x7
+ 306 00e3 AB000000 		.4byte	0xab
+ 307 00e7 05       		.uleb128 0x5
+ 308 00e8 90000000 		.4byte	0x90
+ 309 00ec F7000000 		.4byte	0xf7
+ 310 00f0 06       		.uleb128 0x6
+ 311 00f1 89000000 		.4byte	0x89
+ 312 00f5 FF       		.byte	0xff
+ 313 00f6 00       		.byte	0
+ 314 00f7 08       		.uleb128 0x8
+ 315 00f8 77010000 		.4byte	.LASF15
+ 316 00fc 03       		.byte	0x3
+ 317 00fd 57       		.byte	0x57
+ 318 00fe 08010000 		.4byte	0x108
+ 319 0102 05       		.uleb128 0x5
+ 320 0103 03       		.byte	0x3
+ 321 0104 00000000 		.4byte	cy_meta_flashprotect
+ 322 0108 07       		.uleb128 0x7
+ 323 0109 E7000000 		.4byte	0xe7
+ 324 010d 05       		.uleb128 0x5
+ 325 010e 90000000 		.4byte	0x90
+ 326 0112 1D010000 		.4byte	0x11d
+ 327 0116 06       		.uleb128 0x6
+ 328 0117 89000000 		.4byte	0x89
+ 329 011b 0B       		.byte	0xb
+ 330 011c 00       		.byte	0
+ 331 011d 08       		.uleb128 0x8
+ 332 011e 5C000000 		.4byte	.LASF16
+ 333 0122 03       		.byte	0x3
+ 334 0123 84       		.byte	0x84
+ 335 0124 2E010000 		.4byte	0x12e
+ 336 0128 05       		.uleb128 0x5
+ 337 0129 03       		.byte	0x3
+ 338 012a 00000000 		.4byte	cy_metadata
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccFOl06m.s 			page 7
+
+
+ 339 012e 07       		.uleb128 0x7
+ 340 012f 0D010000 		.4byte	0x10d
+ 341 0133 00       		.byte	0
+ 342              		.section	.debug_abbrev,"",%progbits
+ 343              	.Ldebug_abbrev0:
+ 344 0000 01       		.uleb128 0x1
+ 345 0001 11       		.uleb128 0x11
+ 346 0002 01       		.byte	0x1
+ 347 0003 25       		.uleb128 0x25
+ 348 0004 0E       		.uleb128 0xe
+ 349 0005 13       		.uleb128 0x13
+ 350 0006 0B       		.uleb128 0xb
+ 351 0007 03       		.uleb128 0x3
+ 352 0008 0E       		.uleb128 0xe
+ 353 0009 1B       		.uleb128 0x1b
+ 354 000a 0E       		.uleb128 0xe
+ 355 000b 10       		.uleb128 0x10
+ 356 000c 17       		.uleb128 0x17
+ 357 000d 00       		.byte	0
+ 358 000e 00       		.byte	0
+ 359 000f 02       		.uleb128 0x2
+ 360 0010 24       		.uleb128 0x24
+ 361 0011 00       		.byte	0
+ 362 0012 0B       		.uleb128 0xb
+ 363 0013 0B       		.uleb128 0xb
+ 364 0014 3E       		.uleb128 0x3e
+ 365 0015 0B       		.uleb128 0xb
+ 366 0016 03       		.uleb128 0x3
+ 367 0017 0E       		.uleb128 0xe
+ 368 0018 00       		.byte	0
+ 369 0019 00       		.byte	0
+ 370 001a 03       		.uleb128 0x3
+ 371 001b 16       		.uleb128 0x16
+ 372 001c 00       		.byte	0
+ 373 001d 03       		.uleb128 0x3
+ 374 001e 0E       		.uleb128 0xe
+ 375 001f 3A       		.uleb128 0x3a
+ 376 0020 0B       		.uleb128 0xb
+ 377 0021 3B       		.uleb128 0x3b
+ 378 0022 0B       		.uleb128 0xb
+ 379 0023 49       		.uleb128 0x49
+ 380 0024 13       		.uleb128 0x13
+ 381 0025 00       		.byte	0
+ 382 0026 00       		.byte	0
+ 383 0027 04       		.uleb128 0x4
+ 384 0028 24       		.uleb128 0x24
+ 385 0029 00       		.byte	0
+ 386 002a 0B       		.uleb128 0xb
+ 387 002b 0B       		.uleb128 0xb
+ 388 002c 3E       		.uleb128 0x3e
+ 389 002d 0B       		.uleb128 0xb
+ 390 002e 03       		.uleb128 0x3
+ 391 002f 08       		.uleb128 0x8
+ 392 0030 00       		.byte	0
+ 393 0031 00       		.byte	0
+ 394 0032 05       		.uleb128 0x5
+ 395 0033 01       		.uleb128 0x1
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccFOl06m.s 			page 8
+
+
+ 396 0034 01       		.byte	0x1
+ 397 0035 49       		.uleb128 0x49
+ 398 0036 13       		.uleb128 0x13
+ 399 0037 01       		.uleb128 0x1
+ 400 0038 13       		.uleb128 0x13
+ 401 0039 00       		.byte	0
+ 402 003a 00       		.byte	0
+ 403 003b 06       		.uleb128 0x6
+ 404 003c 21       		.uleb128 0x21
+ 405 003d 00       		.byte	0
+ 406 003e 49       		.uleb128 0x49
+ 407 003f 13       		.uleb128 0x13
+ 408 0040 2F       		.uleb128 0x2f
+ 409 0041 0B       		.uleb128 0xb
+ 410 0042 00       		.byte	0
+ 411 0043 00       		.byte	0
+ 412 0044 07       		.uleb128 0x7
+ 413 0045 26       		.uleb128 0x26
+ 414 0046 00       		.byte	0
+ 415 0047 49       		.uleb128 0x49
+ 416 0048 13       		.uleb128 0x13
+ 417 0049 00       		.byte	0
+ 418 004a 00       		.byte	0
+ 419 004b 08       		.uleb128 0x8
+ 420 004c 34       		.uleb128 0x34
+ 421 004d 00       		.byte	0
+ 422 004e 03       		.uleb128 0x3
+ 423 004f 0E       		.uleb128 0xe
+ 424 0050 3A       		.uleb128 0x3a
+ 425 0051 0B       		.uleb128 0xb
+ 426 0052 3B       		.uleb128 0x3b
+ 427 0053 0B       		.uleb128 0xb
+ 428 0054 49       		.uleb128 0x49
+ 429 0055 13       		.uleb128 0x13
+ 430 0056 3F       		.uleb128 0x3f
+ 431 0057 19       		.uleb128 0x19
+ 432 0058 02       		.uleb128 0x2
+ 433 0059 18       		.uleb128 0x18
+ 434 005a 00       		.byte	0
+ 435 005b 00       		.byte	0
+ 436 005c 00       		.byte	0
+ 437              		.section	.debug_aranges,"",%progbits
+ 438 0000 14000000 		.4byte	0x14
+ 439 0004 0200     		.2byte	0x2
+ 440 0006 00000000 		.4byte	.Ldebug_info0
+ 441 000a 04       		.byte	0x4
+ 442 000b 00       		.byte	0
+ 443 000c 0000     		.2byte	0
+ 444 000e 0000     		.2byte	0
+ 445 0010 00000000 		.4byte	0
+ 446 0014 00000000 		.4byte	0
+ 447              		.section	.debug_line,"",%progbits
+ 448              	.Ldebug_line0:
+ 449 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
+ 449      02003701 
+ 449      00000201 
+ 449      FB0E0D00 
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccFOl06m.s 			page 9
+
+
+ 449      01010101 
+ 450              	.LASF9:
+ 451 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 451      6E74385F 
+ 451      7400
+ 452              	.LASF19:
+ 453 000a 433A5C55 		.ascii	"C:\\Users\\Tri94\\Documents\\PSoC Creator\\EE4450\\"
+ 453      73657273 
+ 453      5C547269 
+ 453      39345C44 
+ 453      6F63756D 
+ 454 0037 45453434 		.ascii	"EE4450-Projects\\PWM_Servo_Test.cydsn\000"
+ 454      35302D50 
+ 454      726F6A65 
+ 454      6374735C 
+ 454      50574D5F 
+ 455              	.LASF16:
+ 456 005c 63795F6D 		.ascii	"cy_metadata\000"
+ 456      65746164 
+ 456      61746100 
+ 457              	.LASF1:
+ 458 0068 756E7369 		.ascii	"unsigned char\000"
+ 458      676E6564 
+ 458      20636861 
+ 458      7200
+ 459              	.LASF17:
+ 460 0076 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 460      43313120 
+ 460      352E342E 
+ 460      31203230 
+ 460      31363036 
+ 461 00a9 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 461      20726576 
+ 461      6973696F 
+ 461      6E203233 
+ 461      37373135 
+ 462 00dc 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 462      66756E63 
+ 462      74696F6E 
+ 462      2D736563 
+ 462      74696F6E 
+ 463              	.LASF5:
+ 464 0104 6C6F6E67 		.ascii	"long unsigned int\000"
+ 464      20756E73 
+ 464      69676E65 
+ 464      6420696E 
+ 464      7400
+ 465              	.LASF3:
+ 466 0116 73686F72 		.ascii	"short unsigned int\000"
+ 466      7420756E 
+ 466      7369676E 
+ 466      65642069 
+ 466      6E7400
+ 467              	.LASF13:
+ 468 0129 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 468      6574615F 
+ 468      63757374 
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccFOl06m.s 			page 10
+
+
+ 468      6E766C00 
+ 469              	.LASF12:
+ 470 0139 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 470      6574615F 
+ 470      636F6E66 
+ 470      69676563 
+ 470      6300
+ 471              	.LASF8:
+ 472 014b 756E7369 		.ascii	"unsigned int\000"
+ 472      676E6564 
+ 472      20696E74 
+ 472      00
+ 473              	.LASF7:
+ 474 0158 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 474      206C6F6E 
+ 474      6720756E 
+ 474      7369676E 
+ 474      65642069 
+ 475              	.LASF10:
+ 476 016f 75696E74 		.ascii	"uint8_t\000"
+ 476      385F7400 
+ 477              	.LASF15:
+ 478 0177 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 478      6574615F 
+ 478      666C6173 
+ 478      6870726F 
+ 478      74656374 
+ 479              	.LASF14:
+ 480 018c 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 480      6574615F 
+ 480      776F6E76 
+ 480      6C00
+ 481              	.LASF11:
+ 482 019a 73697A65 		.ascii	"sizetype\000"
+ 482      74797065 
+ 482      00
+ 483              	.LASF6:
+ 484 01a3 6C6F6E67 		.ascii	"long long int\000"
+ 484      206C6F6E 
+ 484      6720696E 
+ 484      7400
+ 485              	.LASF2:
+ 486 01b1 73686F72 		.ascii	"short int\000"
+ 486      7420696E 
+ 486      7400
+ 487              	.LASF4:
+ 488 01bb 6C6F6E67 		.ascii	"long int\000"
+ 488      20696E74 
+ 488      00
+ 489              	.LASF0:
+ 490 01c4 7369676E 		.ascii	"signed char\000"
+ 490      65642063 
+ 490      68617200 
+ 491              	.LASF18:
+ 492 01d0 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 492      72617465 
+ 492      645F536F 
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccFOl06m.s 			page 11
+
+
+ 492      75726365 
+ 492      5C50536F 
+ 493              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

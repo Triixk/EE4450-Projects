@@ -1,4 +1,4 @@
-C:\Users\Tri94\Documents\PSoC Creator\EE4450\RTOS_UART_StringMessage.cydsn\TopDesign\TopDesign.cysch
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_StringMessage.cydsn\TopDesign\TopDesign.cysch
 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\PWM_v3_30\PWM_v3_30.cysym
 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\PWM_v3_30\PWM_v3_30.pdf
 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\PWM_v3_30\PWM_v3_30.cystate
@@ -122,7 +122,7 @@ C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrim
 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\version.cypatch
 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0
 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\Custom\custom.cs
-C:\Users\Tri94\Documents\PSoC Creator\EE4450\RTOS_UART_StringMessage.cydsn\RTOS_UART_StringMessage.cydwr
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_StringMessage.cydsn\RTOS_UART_StringMessage.cydwr
 C:\Users\Tri94\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Em_EEPROM_Dynamic_v2_20\API\cy_em_eeprom.c
 C:\Users\Tri94\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Em_EEPROM_Dynamic_v2_20\API\cy_em_eeprom.h
 C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\cy_boot_v5_70\PSoC5\API\cm3gcc.ld

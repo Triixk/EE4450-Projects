@@ -1,6 +1,6 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
- (DATE "2019-10-22T21:06:39Z")
+ (DATE "2019-11-27T04:08:55Z")
  (DESIGN "RTOS_UART_StringMessage")
  (VENDOR "Cypress Semiconductor")
  (PROGRAM "PSoC Creator")

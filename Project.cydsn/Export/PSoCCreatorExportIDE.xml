@@ -105,13 +105,20 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Timer_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_1.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_1.h</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_1_PM.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_1_INT.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_1_BOOT.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_1_IntClock.c</File>
-          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_1_IntClock.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\PWM_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_1.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Clock_1.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SERVO_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SERVO.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\SERVO.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LCD.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LCD.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LCD_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LCD_LCDPort_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LCD_LCDPort.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\LCD_LCDPort.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\Project.cydsn">

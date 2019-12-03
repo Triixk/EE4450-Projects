@@ -253,7 +253,11 @@
     <Group key="Pin">
       <Data key="7bca2dd0-eed7-497c-8ae0-5fb22fdc58f4" value="LED" />
       <Data key="8d318d8b-cf7b-4b6b-b02c-ab1c5c49d0ba" value="Echo" />
+      <Data key="52f31aa9-2f0a-497d-9a1f-1424095e13e6" value="Seg" />
+      <Data key="252f7505-007f-41e9-917f-1ffc80c864de" value="Com" />
+      <Data key="58805bc7-33ba-4d1a-bef1-cdc85c9fdf87" value="SERVO" />
       <Data key="1425177d-0d0e-4468-8bcc-e638e5509a9b" value="Rx_1" />
+      <Data key="a1e2a471-487a-49e6-940e-0f4373746654/ed092b9b-d398-4703-be89-cebf998501f6" value="LCD_Char_1_LCDPort" />
       <Data key="e851a3b9-efb8-48be-bbb8-b303b216c393" value="Trigger" />
       <Data key="ed092b9b-d398-4703-be89-cebf998501f6" value="Tx_1" />
     </Group>
@@ -3352,8 +3356,62 @@
         <Data key="Port Format" value="2,4" />
       </Group>
     </Group>
+    <Group key="52f31aa9-2f0a-497d-9a1f-1424095e13e6">
+      <Group key="0">
+        <Data key="Port Format" value="12,0" />
+      </Group>
+      <Group key="1">
+        <Data key="Port Format" value="12,1" />
+      </Group>
+      <Group key="2">
+        <Data key="Port Format" value="12,2" />
+      </Group>
+      <Group key="3">
+        <Data key="Port Format" value="12,3" />
+      </Group>
+      <Group key="4">
+        <Data key="Port Format" value="12,4" />
+      </Group>
+      <Group key="5">
+        <Data key="Port Format" value="12,5" />
+      </Group>
+      <Group key="6">
+        <Data key="Port Format" value="12,6" />
+      </Group>
+      <Group key="7">
+        <Data key="Port Format" value="12,7" />
+      </Group>
+    </Group>
+    <Group key="58805bc7-33ba-4d1a-bef1-cdc85c9fdf87">
+      <Group key="0">
+        <Data key="Port Format" value="2,5" />
+      </Group>
+    </Group>
     <Group key="1425177d-0d0e-4468-8bcc-e638e5509a9b">
       <Group key="0">
+        <Data key="Port Format" value="12,6" />
+      </Group>
+    </Group>
+    <Group key="a1e2a471-487a-49e6-940e-0f4373746654/ed092b9b-d398-4703-be89-cebf998501f6">
+      <Group key="0">
+        <Data key="Port Format" value="12,0" />
+      </Group>
+      <Group key="1">
+        <Data key="Port Format" value="12,1" />
+      </Group>
+      <Group key="2">
+        <Data key="Port Format" value="12,2" />
+      </Group>
+      <Group key="3">
+        <Data key="Port Format" value="12,3" />
+      </Group>
+      <Group key="4">
+        <Data key="Port Format" value="12,4" />
+      </Group>
+      <Group key="5">
+        <Data key="Port Format" value="12,5" />
+      </Group>
+      <Group key="6">
         <Data key="Port Format" value="12,6" />
       </Group>
     </Group>

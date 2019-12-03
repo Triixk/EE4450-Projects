@@ -1,0 +1,24 @@
+(DELAYFILE
+ (SDFVERSION "IEEE 1497 4.0")
+ (DATE "2019-11-27T00:44:23Z")
+ (DESIGN "PWM_Servo_Test")
+ (VENDOR "Cypress Semiconductor")
+ (PROGRAM "PSoC Creator")
+ (VERSION " 4.2")
+ (DIVIDER .)
+ (TIMESCALE 1 ns)
+ (CELL
+  (CELLTYPE "PWM_Servo_Test")
+  (INSTANCE *)
+  (DELAY
+   (ABSOLUTE
+    (INTERCONNECT \\PWM\:PWMHW\\.cmp SERVO\(0\).pin_input (8.670:8.670:8.670))
+    (INTERCONNECT SERVO\(0\).pad_out SERVO\(0\).pad_in (0.000:0.000:0.000))
+    (INTERCONNECT __ONE__.q \\PWM\:PWMHW\\.enable (0.000:0.000:0.000))
+    (INTERCONNECT ClockBlock.dclk_glb_ff_0 \\PWM\:PWMHW\\.clock (0.000:0.000:0.000))
+    (INTERCONNECT SERVO\(0\).pad_out SERVO\(0\)_PAD (0.000:0.000:0.000))
+    (INTERCONNECT SERVO\(0\)_PAD SERVO\(0\).pad_in (0.000:0.000:0.000))
+   )
+  )
+ )
+)

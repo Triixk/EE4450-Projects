@@ -136,5 +136,5 @@ void vAppTask2(void *pvParaments){
         vTaskDelay(pdMS_TO_TICKS(50)); // Delay for 850 ms
     }
 }
-æ
+
 /* [] END OF FILE */
