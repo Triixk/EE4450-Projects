@@ -105,8 +105,7 @@ void myPSoC2Setup(){
     
     CyDelay(2000);
     UART_PutString(";S2:");
-    
-    
+      
 }
 
 typedef enum STATES_CMD{
