@@ -6,7 +6,7 @@
 
 #Build Date:         Dec  5 2017 15:35:27
 
-#File Generated:     Nov 26 2019 21:42:35
+#File Generated:     Dec 6 2019 13:22:25
 
 #Purpose:            
 
@@ -84,12 +84,12 @@ Clock: Clock_1              | Frequency: N/A       | Target:   1.0 MHz
 Clock: Clock_1(fixed-function) | Frequency: N/A       | Target:   1.0 MHz
 Clock: Clock_2              | Frequency: N/A       | Target:   1.0 MHz
 Clock: Clock_2(fixed-function) | Frequency: N/A       | Target:   1.0 MHz
-Clock: CyBUS_CLK            | Frequency:  57.6 MHz | Target:  24.0 MHz
+Clock: CyBUS_CLK            | Frequency:  55.5 MHz | Target:  24.0 MHz
 Clock: CyILO                | Frequency: N/A       | Target:   0.0 MHz
 Clock: CyIMO                | Frequency: N/A       | Target:   3.0 MHz
 Clock: CyMASTER_CLK         | Frequency: N/A       | Target:  24.0 MHz
 Clock: CyPLL_OUT            | Frequency: N/A       | Target:  24.0 MHz
-Clock: UART_IntClock        | Frequency:  57.2 MHz | Target:   0.1 MHz
+Clock: UART_IntClock        | Frequency:  53.6 MHz | Target:   0.1 MHz
 Clock: timer_clock          | Frequency: N/A       | Target:   1.0 MHz
 Clock: timer_clock(fixed-function) | Frequency: N/A       | Target:   1.0 MHz
 
@@ -173,5 +173,5 @@ D2088: Phase 8, elapsed time : 0.0 (sec)
 
 D2054: Placement of the design completed successfully
 
-I2076: Total run-time: 0.6 sec.
+I2076: Total run-time: 0.7 sec.
 

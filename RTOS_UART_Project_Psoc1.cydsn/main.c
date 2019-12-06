@@ -76,7 +76,7 @@ int main(void)
     if (err != pdPASS){
         // Cannot create task!
         while(1);
-    }
+    }/*
     err = xTaskCreate(vUARTTask2,                   // Taskfunction_t pvTaskCode,
                         "Task 1",                   // const char * const pcName,
                         configMINIMAL_STACK_SIZE,   // unsigned short usStackDepth,
@@ -87,7 +87,7 @@ int main(void)
     if (err != pdPASS){
         // Cannot create task!
         while(1);
-    }
+    }*/
     // Create a task to read sensor data from the ultra sonic sensor
     err = xTaskCreate(vReadUltraSonicTask,          // Taskfunction_t pvTaskCode,
                         "Read Sensor",              // const char * const pcName,
@@ -101,7 +101,7 @@ int main(void)
         while(1);
     }
     
-    err = xTaskCreate(vMusicTask,          // Taskfunction_t pvTaskCode,
+    err = xTaskCreate(vMusicTask,                   // Taskfunction_t pvTaskCode,
                         "Read Sensor",              // const char * const pcName,
                         configMINIMAL_STACK_SIZE,   // unsigned short usStackDepth,
                         NULL,                       // void *pvParameters,
@@ -137,73 +137,59 @@ void myPSoCSetup(){
     
 }
 
-typedef enum STATES_CMD{
-    S_IDLE,
-    S_GOT_DATE
-}STATES_CMD;
-//char    buf[20];
-
-CY_ISR(myISR_UART){/*
-    static char         buf[20];
+CY_ISR(myISR_UART){ 
+    static char         buf[10];
     static int          idx = 0;
-    static STATES_CMD   state = S_IDLE;
     char                ch;
-    BaseType_t          xHigherPriorityTaskWoken = pdFALSE; // Initialised to pdFALSE 
+    BaseType_t          xHigherPriorityTaskWoken = pdFALSE; /* Initialised to pdFALSE */
     
+    strcpy(buf, "");
     
-    while (UART_GetRxBufferSize  > 0){
-        ch = UART_GetChar();
-        UART_WriteTxData(ch);
-        switch (state){
-            case S_IDLE:
-                if (ch == '+')
-                    UART_WriteTxData('1');
-                    state = S_GOT_DATE;
-                
-                break;
-            case S_GOT_DATE:
-                //UART_WriteTxData('2');
-                //if (ch == '\r')
-                //    ch = '\0';
-                if (ch == '\n'){
-                    state = S_IDLE;
-                    xMessageBufferSendFromISR(xMessageBuffer, buf, idx, xHigherPriorityTaskWoken);
-                    idx = 0;
-                }
-                buf[idx++] = ch;
-                break;
+    while (UART_GetRxBufferSize() > 0){   
+        ch = UART_GetByte();
+        buf[idx] = ch;
+        idx++;
+        CyDelay(10);
+        if (idx == 4){
+            buf[idx] = '\0';
+            xMessageBufferSendFromISR(xMessageBuffer, buf, 4, xHigherPriorityTaskWoken);
+            idx = 0;
         }
     }
-    for(int i = 0; i < strlen(buf);i++){
-        UART_WriteTxData(buf[i]);
-    }
-    UART_ReadRxStatus(); // Clear IRQ signal*/
+    UART_ReadRxStatus(); // Clear IRQ signal
 }
 
 void vUARTTask1(void *pvParaments){
     
-    char    buf[20];
+    char    buf[10];
     size_t  rxSize;
-    char    test[] = "Hello world";
-    for(int i = 0; i < strlen(test);i++){
-        UART_WriteTxData(test[i]);
-    }
+    char    *delim = ";";
+    char    *delim2 = ":";
+    char    *pch;
+    
     while(1){
-        rxSize = xMessageBufferReceive(xMessageBuffer,buf,sizeof(buf),100);
-        if (rxSize > 0){
-            if (strcmp(buf, "SERVOOPEN")){
+        if (xMessageBufferIsEmpty( xMessageBuffer ) == pdFALSE){
+            rxSize = xMessageBufferReceive(xMessageBuffer,buf,sizeof(buf),100);
+            pch = strtok(buf, delim);
+            //UART_PutString(pch);
+            CyDelay(100);
+            pch = strtok(pch, delim2);
+            //UART_PutString(pch);
+            if (strcmp(pch, "S1") == 0){
                 PWM_Servo_WriteCompare(CMP180);
-            }else if (strcmp(buf, "SERVOCLOSE")){
+            }else if (strcmp(pch, "S2") == 0){
                 PWM_Servo_WriteCompare(CMP0);
-            }else if (strcmp(buf, "LEDON")){
+            }else if (strcmp(pch, "L1") == 0){
                 LED_Write(1);
-            }else if (strcmp(buf, "LEDOFF")){
+            }else if (strcmp(pch, "L2") == 0){
                 LED_Write(0);
             }
+        
+            vTaskDelay(pdMS_TO_TICKS(50)); // Delay for 50 ms
         }
-        vTaskDelay(pdMS_TO_TICKS(50)); // Delay for 50 ms
     }
 }
+/*
 void vUARTTask2(void *pvParaments){
     
     char    ch;
@@ -228,6 +214,7 @@ void vUARTTask2(void *pvParaments){
         vTaskDelay(pdMS_TO_TICKS(50)); // Delay for 50 ms
     }
 }
+*/
 void vReadUltraSonicTask(void *pvParaments){
     
     uint16 counts = 0;

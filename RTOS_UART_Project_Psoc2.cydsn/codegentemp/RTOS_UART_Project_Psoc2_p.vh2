@@ -1,5 +1,5 @@
 -- Project:   RTOS_UART_Project_Psoc2
--- Generated: 11/26/2019 19:53:04
+-- Generated: 12/05/2019 22:27:55
 -- PSoC Creator  4.2
 
 ENTITY RTOS_UART_Project_Psoc2 IS
@@ -102,25 +102,11 @@ ARCHITECTURE __DEFAULT__ OF RTOS_UART_Project_Psoc2 IS
     SIGNAL one : bit;
     ATTRIBUTE POWER OF one : SIGNAL IS true;
     ATTRIBUTE lib_model OF Rx_1(0) : LABEL IS "iocell1";
-    ATTRIBUTE Location OF Rx_1(0) : LABEL IS "P3[0]";
+    ATTRIBUTE Location OF Rx_1(0) : LABEL IS "P12[6]";
     ATTRIBUTE lib_model OF Tx_1(0) : LABEL IS "iocell2";
-    ATTRIBUTE Location OF Tx_1(0) : LABEL IS "P3[1]";
+    ATTRIBUTE Location OF Tx_1(0) : LABEL IS "P12[7]";
     ATTRIBUTE lib_model OF LED(0) : LABEL IS "iocell3";
     ATTRIBUTE Location OF LED(0) : LABEL IS "P2[1]";
-    ATTRIBUTE lib_model OF \LCD:LCDPort(0)\ : LABEL IS "iocell4";
-    ATTRIBUTE Location OF \LCD:LCDPort(0)\ : LABEL IS "P12[0]";
-    ATTRIBUTE lib_model OF \LCD:LCDPort(1)\ : LABEL IS "iocell5";
-    ATTRIBUTE Location OF \LCD:LCDPort(1)\ : LABEL IS "P12[1]";
-    ATTRIBUTE lib_model OF \LCD:LCDPort(2)\ : LABEL IS "iocell6";
-    ATTRIBUTE Location OF \LCD:LCDPort(2)\ : LABEL IS "P12[2]";
-    ATTRIBUTE lib_model OF \LCD:LCDPort(3)\ : LABEL IS "iocell7";
-    ATTRIBUTE Location OF \LCD:LCDPort(3)\ : LABEL IS "P12[3]";
-    ATTRIBUTE lib_model OF \LCD:LCDPort(4)\ : LABEL IS "iocell8";
-    ATTRIBUTE Location OF \LCD:LCDPort(4)\ : LABEL IS "P12[4]";
-    ATTRIBUTE lib_model OF \LCD:LCDPort(5)\ : LABEL IS "iocell9";
-    ATTRIBUTE Location OF \LCD:LCDPort(5)\ : LABEL IS "P12[5]";
-    ATTRIBUTE lib_model OF \LCD:LCDPort(6)\ : LABEL IS "iocell10";
-    ATTRIBUTE Location OF \LCD:LCDPort(6)\ : LABEL IS "P12[6]";
     ATTRIBUTE lib_model OF Net_32 : LABEL IS "macrocell1";
     ATTRIBUTE lib_model OF \UART:BUART:counter_load_not\ : LABEL IS "macrocell2";
     ATTRIBUTE lib_model OF \UART:BUART:tx_status_0\ : LABEL IS "macrocell3";
@@ -1223,7 +1209,7 @@ BEGIN
 
     ISR_UART:interrupt
         GENERIC MAP(
-            int_type => "00",
+            int_type => "10",
             is_nmi => 0)
         PORT MAP(
             interrupt => Net_39,
