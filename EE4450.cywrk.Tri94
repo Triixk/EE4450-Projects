@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="EE4450\LCD_Test">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="EE4450\RTOS_UART_Project_Psoc1">
 <ExpandedNodeIds>
 <v>EE4450</v>
 <v>EE4450\ADC\TopDesign</v>
@@ -506,7 +506,6 @@
 <v>EE4450\PWM_Servo_Test\Source Files\main.c</v>
 <v>EE4450\PWM_Servo_Test\Generated_Source</v>
 <v>EE4450\PWM_Servo_Test\Generated_Source\PSoC5</v>
-<v>EE4450\RTOS_MessageBufferr</v>
 <v>EE4450\RTOS_MessageBufferr\TopDesign</v>
 <v>EE4450\RTOS_MessageBufferr\RTOS_MessageBufferr.cydwr</v>
 <v>EE4450\RTOS_MessageBufferr\RTOS_MessageBufferr.cydwr\Pins</v>
@@ -810,6 +809,7 @@
 <v>EE4450\RTOS_UART_Project_Psoc1\Source Files\main.c</v>
 <v>EE4450\RTOS_UART_Project_Psoc1\Generated_Source</v>
 <v>EE4450\RTOS_UART_Project_Psoc1\Generated_Source\PSoC5</v>
+<v>EE4450\RTOS_UART_Project_Psoc2</v>
 <v>EE4450\RTOS_UART_Project_Psoc2\TopDesign</v>
 <v>EE4450\RTOS_UART_Project_Psoc2\RTOS_UART_Project_Psoc2.cydwr</v>
 <v>EE4450\RTOS_UART_Project_Psoc2\RTOS_UART_Project_Psoc2.cydwr\Pins</v>
@@ -964,7 +964,6 @@
 <v>EE4450\RTOS_UART_ProjectTest2\Source Files\main.c</v>
 <v>EE4450\RTOS_UART_ProjectTest2\Generated_Source</v>
 <v>EE4450\RTOS_UART_ProjectTest2\Generated_Source\PSoC5</v>
-<v>EE4450\RTOS_UART_StringMessage</v>
 <v>EE4450\RTOS_UART_StringMessage\TopDesign</v>
 <v>EE4450\RTOS_UART_StringMessage\RTOS_UART_StringMessage.cydwr</v>
 <v>EE4450\RTOS_UART_StringMessage\RTOS_UART_StringMessage.cydwr\Pins</v>
@@ -1101,13 +1100,6 @@
 <v>EE4450\UART2PC\Generated_Source\PSoC5</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>EE4450</v>
-<v>EE4450\ADC</v>
-<v>EE4450\CapSence_Proximity</v>
-<v>EE4450\CapSense_Slider</v>
-<v>EE4450\Example_SoftwareControlLED</v>
-<v>EE4450\GPIO_IRQ</v>
-<v>EE4450\I2C_RTC</v>
 <v>EE4450\Lab01</v>
 <v>EE4450\LCD_Test</v>
 <v>EE4450\LCDTest</v>
@@ -1130,12 +1122,20 @@
 <v>EE4450\PWM_Servo</v>
 <v>EE4450\PWM_Servo_Test</v>
 <v>EE4450\RTOS_MessageBufferr</v>
-<v>EE4450\RTOS_MessageBufferr\TopDesign</v>
-<v>EE4450\RTOS_MessageBufferr\RTOS_MessageBufferr.cydwr</v>
-<v>EE4450\RTOS_MessageBufferr\RTOS_MessageBufferr.cydwr\Pins</v>
-<v>EE4450\RTOS_MessageBufferr\RTOS_MessageBufferr.cydwr\Analog</v>
-<v>EE4450\RTOS_MessageBufferr\RTOS_MessageBufferr.cydwr\Clocks</v>
-<v>EE4450\RTOS_MessageBufferr\RTOS_MessageBufferr.cydwr\Interrupts</v>
+<v>EE4450\RTOS_Mutex</v>
+<v>EE4450\RTOS_MyFirstFreeRTOS</v>
+<v>EE4450\RTOS_Queue</v>
+<v>EE4450\RTOS_StreamBuffer</v>
+<v>EE4450\RTOS_UART_Project_Psoc1</v>
+<v>EE4450\RTOS_UART_Project_Psoc2</v>
+<v>EE4450\RTOS_UART_Project_Psoc2\TopDesign</v>
+<v>EE4450\RTOS_UART_Project_Psoc2\RTOS_UART_Project_Psoc2.cydwr</v>
+<v>EE4450\RTOS_UART_Project_Psoc2\RTOS_UART_Project_Psoc2.cydwr\Pins</v>
+<v>EE4450\RTOS_UART_Project_Psoc2\RTOS_UART_Project_Psoc2.cydwr\Analog</v>
+<v>EE4450\RTOS_UART_Project_Psoc2\RTOS_UART_Project_Psoc2.cydwr\Clocks</v>
+<v>EE4450\RTOS_UART_Project_Psoc2\RTOS_UART_Project_Psoc2.cydwr\Interrupts</v>
+<v>EE4450\RTOS_UART_Project_Psoc2\RTOS_UART_Project_Psoc2.cydwr\DMA</v>
+<v>EE4450\RTOS_UART_Project_Psoc2\RTOS_UART_Project_Psoc2.cydwr\System</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -1304,6 +1304,7 @@
 <v>EE4450\Led_Display_Copy_01\TopDesign</v>
 <v>EE4450\Led_Display_Copy_01\TopDesign\TopDesign.cysch</v>
 <v>EE4450\Led_Display_Extra_Credit</v>
+<v>EE4450\Led_Display_Extra_Credit\TopDesign</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -2341,6 +2342,7 @@
 <v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
 <v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
 <v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -2785,6 +2787,7 @@
 <v>EE4450\Example_SoftwareControlLED\cy_pins_v2_20</v>
 <v>EE4450\Example_SoftwareControlLED\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
 <v>EE4450\GPIO_IRQ</v>
+<v>EE4450\GPIO_IRQ\PSoC 5LP Architecture TRM</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
