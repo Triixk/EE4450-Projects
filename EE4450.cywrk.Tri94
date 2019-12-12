@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="EE4450\RTOS_UART_Project_Psoc2_TEST">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
 <ExpandedNodeIds>
 <v>EE4450</v>
 <v>EE4450\ADC\TopDesign</v>
@@ -809,6 +809,58 @@
 <v>EE4450\RTOS_UART_Project_Psoc1\Source Files\main.c</v>
 <v>EE4450\RTOS_UART_Project_Psoc1\Generated_Source</v>
 <v>EE4450\RTOS_UART_Project_Psoc1\Generated_Source\PSoC5</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\TopDesign</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\RTOS_UART_Project_Psoc1_Copy_02.cydwr</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\RTOS_UART_Project_Psoc1_Copy_02.cydwr\Pins</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\RTOS_UART_Project_Psoc1_Copy_02.cydwr\Analog</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\RTOS_UART_Project_Psoc1_Copy_02.cydwr\Clocks</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\RTOS_UART_Project_Psoc1_Copy_02.cydwr\Interrupts</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\RTOS_UART_Project_Psoc1_Copy_02.cydwr\DMA</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\RTOS_UART_Project_Psoc1_Copy_02.cydwr\System</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\RTOS_UART_Project_Psoc1_Copy_02.cydwr\Directives</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\RTOS_UART_Project_Psoc1_Copy_02.cydwr\Flash Security</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\RTOS_UART_Project_Psoc1_Copy_02.cydwr\EEPROM</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\ARM_M3</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\ARM_M3\port.c</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\ARM_M3\portmacro.h</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\include</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\include\croutine.h</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\include\deprecated_definitions.h</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\include\event_groups.h</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\include\FreeRTOS.h</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\include\list.h</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\include\message_buffer.h</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\include\mpu_prototypes.h</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\include\mpu_wrappers.h</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\include\portable.h</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\include\projdefs.h</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\include\queue.h</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\include\semphr.h</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\include\stack_macros.h</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\include\StackMacros.h</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\include\stream_buffer.h</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\include\task.h</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\include\timers.h</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\MemMang</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\MemMang\heap_1.c</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\croutine.c</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\device.h</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\event_groups.c</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\FreeRTOS_PSoC.c</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\FreeRTOS_PSoC.h</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\FreeRTOSConfig.h</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\list.c</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\queue.c</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\stream_buffer.c</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\tasks.c</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs\timers.c</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\Header Files</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\Header Files\cyapicallbacks.h</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\Source Files</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\Source Files\main.c</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\Generated_Source</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\Generated_Source\PSoC5</v>
 <v>EE4450\RTOS_UART_Project_Psoc2\TopDesign</v>
 <v>EE4450\RTOS_UART_Project_Psoc2\RTOS_UART_Project_Psoc2.cydwr</v>
 <v>EE4450\RTOS_UART_Project_Psoc2\RTOS_UART_Project_Psoc2.cydwr\Pins</v>
@@ -858,9 +910,7 @@
 <v>EE4450\RTOS_UART_Project_Psoc2\Header Files\cyapicallbacks.h</v>
 <v>EE4450\RTOS_UART_Project_Psoc2\Source Files</v>
 <v>EE4450\RTOS_UART_Project_Psoc2\Source Files\main.c</v>
-<v>EE4450\RTOS_UART_Project_Psoc2\Generated_Source</v>
 <v>EE4450\RTOS_UART_Project_Psoc2\Generated_Source\PSoC5</v>
-<v>EE4450\RTOS_UART_Project_Psoc2_TEST</v>
 <v>EE4450\RTOS_UART_Project_Psoc2_TEST\TopDesign</v>
 <v>EE4450\RTOS_UART_Project_Psoc2_TEST\RTOS_UART_Project_Psoc2_TEST.cydwr</v>
 <v>EE4450\RTOS_UART_Project_Psoc2_TEST\RTOS_UART_Project_Psoc2_TEST.cydwr\Pins</v>
@@ -913,6 +963,7 @@
 <v>EE4450\RTOS_UART_Project_Psoc2_TEST\Generated_Source</v>
 <v>EE4450\RTOS_UART_Project_Psoc2_TEST\Generated_Source\PSoC5</v>
 <v>EE4450\RTOS_UART_Project_Psoc2_TEST\Generated_Source\PSoC5\UART</v>
+<v>EE4450\RTOS_UART_ProjectTest</v>
 <v>EE4450\RTOS_UART_ProjectTest\TopDesign</v>
 <v>EE4450\RTOS_UART_ProjectTest\RTOS_UART_ProjectTest.cydwr</v>
 <v>EE4450\RTOS_UART_ProjectTest\RTOS_UART_ProjectTest.cydwr\Pins</v>
@@ -1016,7 +1067,6 @@
 <v>EE4450\RTOS_UART_ProjectTest2\Source Files\main.c</v>
 <v>EE4450\RTOS_UART_ProjectTest2\Generated_Source</v>
 <v>EE4450\RTOS_UART_ProjectTest2\Generated_Source\PSoC5</v>
-<v>EE4450\RTOS_UART_StringMessage</v>
 <v>EE4450\RTOS_UART_StringMessage\TopDesign</v>
 <v>EE4450\RTOS_UART_StringMessage\RTOS_UART_StringMessage.cydwr</v>
 <v>EE4450\RTOS_UART_StringMessage\RTOS_UART_StringMessage.cydwr\Pins</v>
@@ -1153,42 +1203,42 @@
 <v>EE4450\UART2PC\Generated_Source\PSoC5</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>EE4450\PWM_Motor</v>
-<v>EE4450\PWM_Servo</v>
-<v>EE4450\PWM_Servo_Test</v>
-<v>EE4450\RTOS_MessageBufferr</v>
-<v>EE4450\RTOS_Mutex</v>
 <v>EE4450\RTOS_MyFirstFreeRTOS</v>
 <v>EE4450\RTOS_Queue</v>
 <v>EE4450\RTOS_StreamBuffer</v>
 <v>EE4450\RTOS_UART_Project_Psoc1</v>
-<v>EE4450\RTOS_UART_Project_Psoc2</v>
-<v>EE4450\RTOS_UART_Project_Psoc2_TEST</v>
-<v>EE4450\RTOS_UART_Project_Psoc2_TEST\TopDesign</v>
-<v>EE4450\RTOS_UART_Project_Psoc2_TEST\RTOS_UART_Project_Psoc2_TEST.cydwr</v>
-<v>EE4450\RTOS_UART_Project_Psoc2_TEST\RTOS_UART_Project_Psoc2_TEST.cydwr\Pins</v>
-<v>EE4450\RTOS_UART_Project_Psoc2_TEST\RTOS_UART_Project_Psoc2_TEST.cydwr\Analog</v>
-<v>EE4450\RTOS_UART_Project_Psoc2_TEST\RTOS_UART_Project_Psoc2_TEST.cydwr\Clocks</v>
-<v>EE4450\RTOS_UART_Project_Psoc2_TEST\RTOS_UART_Project_Psoc2_TEST.cydwr\Interrupts</v>
-<v>EE4450\RTOS_UART_Project_Psoc2_TEST\RTOS_UART_Project_Psoc2_TEST.cydwr\DMA</v>
-<v>EE4450\RTOS_UART_Project_Psoc2_TEST\RTOS_UART_Project_Psoc2_TEST.cydwr\System</v>
-<v>EE4450\RTOS_UART_Project_Psoc2_TEST\RTOS_UART_Project_Psoc2_TEST.cydwr\Directives</v>
-<v>EE4450\RTOS_UART_Project_Psoc2_TEST\RTOS_UART_Project_Psoc2_TEST.cydwr\Flash Security</v>
-<v>EE4450\RTOS_UART_Project_Psoc2_TEST\RTOS_UART_Project_Psoc2_TEST.cydwr\EEPROM</v>
-<v>EE4450\RTOS_UART_Project_Psoc2_TEST\FreeRTOs</v>
-<v>EE4450\RTOS_UART_Project_Psoc2_TEST\Header Files</v>
-<v>EE4450\RTOS_UART_Project_Psoc2_TEST\Header Files\cyapicallbacks.h</v>
-<v>EE4450\RTOS_UART_Project_Psoc2_TEST\Source Files</v>
-<v>EE4450\RTOS_UART_Project_Psoc2_TEST\Source Files\main.c</v>
-<v>EE4450\RTOS_UART_Project_Psoc2_TEST\Generated_Source</v>
-<v>EE4450\RTOS_UART_Project_Psoc2_TEST\Generated_Source\PSoC5</v>
-<v>EE4450\RTOS_UART_Project_Psoc2_TEST\Generated_Source\PSoC5\cy_boot</v>
-<v>EE4450\RTOS_UART_Project_Psoc2_TEST\Generated_Source\PSoC5\Em_EEPROM_Dynamic</v>
-<v>EE4450\RTOS_UART_Project_Psoc2_TEST\Generated_Source\PSoC5\ISR_UART</v>
-<v>EE4450\RTOS_UART_Project_Psoc2_TEST\Generated_Source\PSoC5\LED</v>
-<v>EE4450\RTOS_UART_Project_Psoc2_TEST\Generated_Source\PSoC5\UART</v>
-<v>EE4450\RTOS_UART_Project_Psoc2_TEST\Generated_Source\PSoC5\UART\UART.c</v>
-<v>EE4450\RTOS_UART_Project_Psoc2_TEST\Generated_Source\PSoC5\UART\UART.h</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\TopDesign</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\RTOS_UART_Project_Psoc1_Copy_02.cydwr</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\RTOS_UART_Project_Psoc1_Copy_02.cydwr\Pins</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\RTOS_UART_Project_Psoc1_Copy_02.cydwr\Analog</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\RTOS_UART_Project_Psoc1_Copy_02.cydwr\Clocks</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\RTOS_UART_Project_Psoc1_Copy_02.cydwr\Interrupts</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\RTOS_UART_Project_Psoc1_Copy_02.cydwr\DMA</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\RTOS_UART_Project_Psoc1_Copy_02.cydwr\System</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\RTOS_UART_Project_Psoc1_Copy_02.cydwr\Directives</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\RTOS_UART_Project_Psoc1_Copy_02.cydwr\Flash Security</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\RTOS_UART_Project_Psoc1_Copy_02.cydwr\EEPROM</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\FreeRTOs</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\Header Files</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\Header Files\cyapicallbacks.h</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\Source Files</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\Source Files\main.c</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\Generated_Source</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\Generated_Source\PSoC5</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\Generated_Source\PSoC5\BUZZER</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\Generated_Source\PSoC5\Clock_1</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\Generated_Source\PSoC5\Clock_2</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\Generated_Source\PSoC5\cy_boot</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\Generated_Source\PSoC5\Echo</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\Generated_Source\PSoC5\Em_EEPROM_Dynamic</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\Generated_Source\PSoC5\LCD</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\Generated_Source\PSoC5\LCD_LCDPort</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\Generated_Source\PSoC5\LED</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\Generated_Source\PSoC5\PWM_Music</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\Generated_Source\PSoC5\PWM_Servo</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\Generated_Source\PSoC5\SERVO</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\Generated_Source\PSoC5\Timer</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -1293,6 +1343,9 @@
 <v>EE4450\RTOS_UART_Project_Psoc1</v>
 <v>EE4450\RTOS_UART_Project_Psoc1\TopDesign</v>
 <v>EE4450\RTOS_UART_Project_Psoc1\TopDesign\TopDesign.cysch</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\TopDesign</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\TopDesign\TopDesign.cysch</v>
 <v>EE4450\RTOS_UART_Project_Psoc2</v>
 <v>EE4450\RTOS_UART_Project_Psoc2\TopDesign</v>
 <v>EE4450\RTOS_UART_Project_Psoc2\TopDesign\TopDesign.cysch</v>
@@ -1360,6 +1413,7 @@
 <v>EE4450\Led_Display_Copy_01\TopDesign</v>
 <v>EE4450\Led_Display_Copy_01\TopDesign\TopDesign.cysch</v>
 <v>EE4450\Led_Display_Extra_Credit</v>
+<v>EE4450\Led_Display_Extra_Credit\TopDesign</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -2138,12 +2192,67 @@
 <v>EE4450\RTOS_UART_Project_Psoc1\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_INT.lst</v>
 <v>EE4450\RTOS_UART_Project_Psoc1\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_IntClock.lst</v>
 <v>EE4450\RTOS_UART_Project_Psoc1\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_PM.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_USB.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_USB_BOOT.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_USB_INT.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_USB_IntClock.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_USB_PM.lst</v>
 <v>EE4450\RTOS_UART_Project_Psoc1\CortexM3\ARM_GCC_541\Debug\RTOS_UART_Project_Psoc1.elf</v>
 <v>EE4450\RTOS_UART_Project_Psoc1\CortexM3\ARM_GCC_541\Debug\RTOS_UART_Project_Psoc1.hex</v>
 <v>EE4450\RTOS_UART_Project_Psoc1\CortexM3\ARM_GCC_541\Debug\RTOS_UART_Project_Psoc1.map</v>
 <v>EE4450\RTOS_UART_Project_Psoc1\RTOS_UART_Project_Psoc1.gpdsc</v>
 <v>EE4450\RTOS_UART_Project_Psoc1\RTOS_UART_Project_Psoc1.rpt</v>
 <v>EE4450\RTOS_UART_Project_Psoc1\RTOS_UART_Project_Psoc1_timing.html</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\BUZZER.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_2.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\croutine.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\Echo.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\event_groups.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\FreeRTOS_PSoC.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\heap_1.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_LCDPort.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\LCD_PM.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\list.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\port.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_Music.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_Music_PM.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_Servo.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_Servo_PM.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\queue.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\SERVO.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\stream_buffer.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\tasks.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\timer_clock.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer_PM.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\timers.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\Listing Files\Trigger.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\RTOS_UART_Project_Psoc1_Copy_02.elf</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\RTOS_UART_Project_Psoc1_Copy_02.hex</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CortexM3\ARM_GCC_541\Debug\RTOS_UART_Project_Psoc1_Copy_02.map</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\RTOS_UART_Project_Psoc1_Copy_02.gpdsc</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\RTOS_UART_Project_Psoc1_Copy_02.rpt</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\RTOS_UART_Project_Psoc1_Copy_02_timing.html</v>
 <v>EE4450\RTOS_UART_Project_Psoc2</v>
 <v>EE4450\RTOS_UART_Project_Psoc2\CortexM3</v>
 <v>EE4450\RTOS_UART_Project_Psoc2\CortexM3\ARM_GCC_541</v>
@@ -2181,6 +2290,11 @@
 <v>EE4450\RTOS_UART_Project_Psoc2\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_INT.lst</v>
 <v>EE4450\RTOS_UART_Project_Psoc2\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_IntClock.lst</v>
 <v>EE4450\RTOS_UART_Project_Psoc2\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_PM.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc2\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_USB.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc2\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_USB_BOOT.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc2\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_USB_INT.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc2\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_USB_IntClock.lst</v>
+<v>EE4450\RTOS_UART_Project_Psoc2\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_USB_PM.lst</v>
 <v>EE4450\RTOS_UART_Project_Psoc2\CortexM3\ARM_GCC_541\Debug\RTOS_UART_Project_Psoc2.elf</v>
 <v>EE4450\RTOS_UART_Project_Psoc2\CortexM3\ARM_GCC_541\Debug\RTOS_UART_Project_Psoc2.hex</v>
 <v>EE4450\RTOS_UART_Project_Psoc2\CortexM3\ARM_GCC_541\Debug\RTOS_UART_Project_Psoc2.map</v>
@@ -2468,6 +2582,7 @@
 <v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
 <v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
 <v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
+<v>EE4450\CapSence_Proximity\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -2761,19 +2876,38 @@
 <v>EE4450\RTOS_UART_Project_Psoc1\PWM_v3_30</v>
 <v>EE4450\RTOS_UART_Project_Psoc1\PWM_v3_30\PWM_v3_30.pdf</v>
 <v>EE4450\RTOS_UART_Project_Psoc1\Timer_v2_80.pdf</v>
-<v>EE4450\RTOS_UART_Project_Psoc1\UART_v2_50.pdf</v>
+<v>EE4450\RTOS_UART_Project_Psoc1\UART_v2_50</v>
+<v>EE4450\RTOS_UART_Project_Psoc1\UART_v2_50\UART_v2_50.pdf</v>
 <v>EE4450\RTOS_UART_Project_Psoc1\ZeroTerminal.pdf</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\PSoC 5LP Architecture TRM</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CY8C58LP Family Datasheet</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\System Reference Guides</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\System Reference Guides\cy_boot_v5_70</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\CharLCD_v2_20.pdf</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\cy_clock_v2_20</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\cy_constant_v1_0</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\cy_pins_v2_20</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\PWM_v3_30</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\PWM_v3_30\PWM_v3_30.pdf</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\Timer_v2_80.pdf</v>
+<v>EE4450\RTOS_UART_Project_Psoc1_Copy_02\ZeroTerminal.pdf</v>
 <v>EE4450\RTOS_UART_Project_Psoc2</v>
 <v>EE4450\RTOS_UART_Project_Psoc2\PSoC 5LP Architecture TRM</v>
 <v>EE4450\RTOS_UART_Project_Psoc2\CY8C58LP Family Datasheet</v>
 <v>EE4450\RTOS_UART_Project_Psoc2\System Reference Guides</v>
 <v>EE4450\RTOS_UART_Project_Psoc2\System Reference Guides\cy_boot_v5_70</v>
 <v>EE4450\RTOS_UART_Project_Psoc2\CharLCD_v2_20.pdf</v>
-<v>EE4450\RTOS_UART_Project_Psoc2\cy_constant_v1_0.pdf</v>
+<v>EE4450\RTOS_UART_Project_Psoc2\cy_constant_v1_0</v>
+<v>EE4450\RTOS_UART_Project_Psoc2\cy_constant_v1_0\cy_constant_v1_0.pdf</v>
 <v>EE4450\RTOS_UART_Project_Psoc2\cy_isr_v1_70.pdf</v>
 <v>EE4450\RTOS_UART_Project_Psoc2\cy_pins_v2_20</v>
 <v>EE4450\RTOS_UART_Project_Psoc2\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>EE4450\RTOS_UART_Project_Psoc2\UART_v2_50.pdf</v>
+<v>EE4450\RTOS_UART_Project_Psoc2\UART_v2_50</v>
+<v>EE4450\RTOS_UART_Project_Psoc2\UART_v2_50\UART_v2_50.pdf</v>
 <v>EE4450\RTOS_UART_Project_Psoc2_TEST</v>
 <v>EE4450\RTOS_UART_Project_Psoc2_TEST\PSoC 5LP Architecture TRM</v>
 <v>EE4450\RTOS_UART_Project_Psoc2_TEST\CY8C58LP Family Datasheet</v>
@@ -2922,6 +3056,7 @@
 <v>EE4450\Example_SoftwareControlLED\cy_pins_v2_20</v>
 <v>EE4450\Example_SoftwareControlLED\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
 <v>EE4450\GPIO_IRQ</v>
+<v>EE4450\GPIO_IRQ\PSoC 5LP Architecture TRM</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -2936,20 +3071,8 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\Project.cydsn\main.c" />
-<name v=".\Project.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\RTOS_UART_ProjectTest2.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\RTOS_UART_ProjectTest.cydsn\main.c" />
-<name v=".\RTOS_UART_ProjectTest.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\RTOS_UART_ProjectTest.cydsn\RTOS_UART_ProjectTest.cydwr" />
-<name v=".\RTOS_UART_Project_Psoc2.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\RTOS_UART_Project_Psoc2.cydsn\RTOS_UART_Project_Psoc2.cydwr" />
-<name v=".\RTOS_UART_Project_Psoc2.cydsn\main.c" />
-<name v=".\RTOS_UART_Project_Psoc1.cydsn\main.c" />
-<name v=".\RTOS_UART_Project_Psoc1.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\RTOS_UART_Project_Psoc1.cydsn\RTOS_UART_Project_Psoc1.cydwr" />
-<name v=".\RTOS_UART_StringMessage.cydsn\main.c" />
-<name v=".\RTOS_MessageBufferr.cydsn\main.c" />
+<name v=".\RTOS_UART_Project_Psoc1_Copy_02.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\RTOS_UART_Project_Psoc1_Copy_02.cydsn\main.c" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -2957,7 +3080,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="822, 517" SelectedTabbedMdiWindow="8eeb0575-c728-4e7a-9007-20b93dd62210"><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\Project.cydsn\main.c" Guid="bc3ff91d-2a30-404b-ba4d-47382ee1817e" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\Project.cydsn\TopDesign\TopDesign.cysch" Guid="6b49a1be-c492-442f-ab61-716643dd90ee" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_ProjectTest2.cydsn\TopDesign\TopDesign.cysch" Guid="b813a4f1-b55d-4a9c-94ed-e738310fc8df" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_ProjectTest.cydsn\main.c" Guid="6e2f6aad-0da0-43a8-950e-1cd074631219" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_ProjectTest.cydsn\TopDesign\TopDesign.cysch" Guid="ed98fabb-f393-4d31-95d4-6bc246267975" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_ProjectTest.cydsn\RTOS_UART_ProjectTest.cydwr" Guid="7239063d-b8d3-4839-8636-0daa63280284" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc2.cydsn\TopDesign\TopDesign.cysch" Guid="9a59d271-53dd-4c8b-bde4-b583bc1211d6" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc2.cydsn\RTOS_UART_Project_Psoc2.cydwr" Guid="e67c21dc-2079-4624-a2f4-99ac92b9e783" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc2.cydsn\main.c" Guid="6eeeb2f2-d077-442a-892a-265ac962858d" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc1.cydsn\main.c" Guid="8eeb0575-c728-4e7a-9007-20b93dd62210" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc1.cydsn\TopDesign\TopDesign.cysch" Guid="dfe2776f-91f0-45b7-ae7a-bfd1f8ff8462" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc1.cydsn\RTOS_UART_Project_Psoc1.cydwr" Guid="40d82ca8-17a5-496d-9682-1fa63c19f9d0" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_StringMessage.cydsn\main.c" Guid="a7c06765-210b-47c4-bac2-a03cddc092c7" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_MessageBufferr.cydsn\main.c" Guid="96388930-ca61-4fc5-8ad8-85cbc5db1d85" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="764, 517" SelectedTabbedMdiWindow="80c5db79-2eac-41d0-9157-3c96e1b480a7"><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc1_Copy_02.cydsn\TopDesign\TopDesign.cysch" Guid="80c5db79-2eac-41d0-9157-3c96e1b480a7" /><DocumentWindow Key="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc1_Copy_02.cydsn\main.c" Guid="1a1babbb-c7ba-4df0-95ad-9938834633ac" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

@@ -100,7 +100,7 @@ CY_ISR(myISR_UART){
     BaseType_t          xHigherPriorityTaskWoken = pdFALSE; /* Initialised to pdFALSE */
     
     
-    while (UART_GetRxBufferSize  > 0){
+    while (UART_GetRxBufferSize()  > 0){
         ch = UART_GetChar();
         
         switch (state){

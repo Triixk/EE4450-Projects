@@ -1,0 +1,49 @@
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\Lab01.cydsn\Lab01.cyprj|ccf875ea-a1a1-4f37-a959-1e6713fd5f2b
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|4cb1941e-8cd3-400a-877e-e61848028530
+C:\Users\Tri94\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|95a2dd10-beff-456c-b3e4-b07757c71be8
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|a76a7a4d-a732-43c3-a385-2b24f18b2d3a
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|b575337d-8302-460b-8a0d-5131ba076d7d
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|e9b0917b-1601-45bf-831b-9053aff3cd31
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\Example_SoftwareControlLED.cydsn\Example_SoftwareControlLED.cyprj|8846580f-787b-4818-9348-e69965154459
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\PWM_Servo.cydsn\PWM_Servo.cyprj|8b087347-48ef-4c89-8102-7ad2981ef5df
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\PWM_Motor.cydsn\PWM_Motor.cyprj|34325ca4-0e88-4c77-a653-99f089a48a08
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\UART2PC.cydsn\UART2PC.cyprj|fdc2ff82-33f7-46d7-982a-9a246bcdd95d
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\Led_Display.cydsn\Led_Display.cyprj|d1eafd77-102f-4038-b529-97fa0f13518d
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\Led_Display_Copy_01.cydsn\Led_Display_Copy_01.cyprj|daf13ef6-7d07-41dc-8d2d-38ccb3c154a6
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\Led_Display_Extra_Credit.cydsn\Led_Display_Extra_Credit.cyprj|f1547595-62a4-400d-acf2-ee96a198760f
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\Led_Display_Extra_Test.cydsn\Led_Display_Extra_Test.cyprj|1c964619-318b-4841-853c-f96bee7ef8ab
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\I2C_RTC.cydsn\I2C_RTC.cyprj|4194f1f7-c88b-451d-a4e0-4af31119646e
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\Timer_IRQ.cydsn\Timer_IRQ.cyprj|153096bc-e694-4fb2-a38d-1e81e83f4f2f
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\PWM_BreathingLED.cydsn\PWM_BreathingLED.cyprj|1a0ac160-c212-4a16-947b-ecf6c1570925
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\CapSence_Proximity.cydsn\CapSence_Proximity.cyprj|59459488-112e-408e-ac74-e05f26642cd7
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\CapSense_Slider.cydsn\CapSense_Slider.cyprj|58631fe4-a880-427e-bc47-71b123e2d9e1
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\GPIO_IRQ.cydsn\GPIO_IRQ.cyprj|cb9c080a-5a93-41e0-84ec-c2aeaa6f3bdf
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\LCD_Test.cydsn\LCD_Test.cyprj|e1579665-4044-484b-b20d-b72a8af11ef4
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\LCDTest.cydsn\LCDTest.cyprj|9bb970a5-5260-4f14-bd53-3d22c1e3e2fd
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_MyFirstFreeRTOS.cydsn\RTOS_MyFirstFreeRTOS.cyprj|70fe27b8-9af4-458a-893d-1f71fab4a2e3
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_Mutex.cydsn\RTOS_Mutex.cyprj|20694faf-9cb8-4bef-836f-9449d83cd746
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_Queue.cydsn\RTOS_Queue.cyprj|0fd91072-3456-42f5-9364-95cc3f38dedb
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_MessageBufferr.cydsn\RTOS_MessageBufferr.cyprj|32b62baf-6b12-42c0-86a6-528a4328eec4
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_StreamBuffer.cydsn\RTOS_StreamBuffer.cyprj|d11c9e93-591e-486b-95b0-d46b0e8e1e3a
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\MooreFSM_LED.cydsn\MooreFSM_LED.cyprj|d78f482d-5e45-4450-8b61-616b91d00015
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\MooreFSM_StoplightController_1.cydsn\MooreFSM_StoplightController_1.cyprj|8fd1262d-4bcb-4933-b721-da42db58a143
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\MooreFSM_StoplightController_2.cydsn\MooreFSM_StoplightController_2.cyprj|11b58651-cde7-40f5-9b7c-58a35d19641a
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\MooreFSM_StoplightController_3.cydsn\MooreFSM_StoplightController_3.cyprj|2ef72c88-0829-4b04-a073-260d43e878a7
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_StringMessage.cydsn\RTOS_UART_StringMessage.cyprj|99bd5a88-188f-420d-93ec-e549bfe0c7fc
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\ADC.cydsn\ADC.cyprj|545a9fd1-453d-4935-b6b6-d9f1853b2433
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\TimerCapture.cydsn\TimerCapture.cyprj|65e217e3-3beb-4b84-92de-e09a4c5616af
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\SPI.cydsn\SPI.cyprj|f675f6f0-ecac-4c74-99c4-67b30d580170
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\MovingMeanCalculation.cydsn\MovingMeanCalculation.cyprj|ec6b9d6a-6e34-45c5-9495-5f0d5dcf8ba1
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\MaxDetect1Wire.cydsn\MaxDetect1Wire.cyprj|22d12cb2-f530-43a5-aa55-89abeeb33864
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\SimpleLEDControl.cydsn\SimpleLEDControl.cyprj|af898730-5dd6-4258-bded-8d891a8eb94d
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\Project.cydsn\Project.cyprj|0f09b971-b746-4662-a87a-62115874ab4c
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\Project_Copy_01.cydsn\Project_Copy_01.cyprj|44069efc-c4b4-495b-989a-80d0b9738513
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\MessageStruct.cydsn\MessageStruct.cyprj|bb71bd8c-55e8-4df0-a935-bbf4230406bd
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\Project_Copy_01_Copy_01.cydsn\Project_Copy_01_Copy_01.cyprj|44a8c31e-16f5-4a41-8fef-9fcb4bf0a377
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\PWM_Servo_Test.cydsn\PWM_Servo_Test.cyprj|4b2ea0a1-ae85-45a6-9f88-c964ed41e8fa
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_ProjectTest.cydsn\RTOS_UART_ProjectTest.cyprj|6dfe74da-dcd8-420c-9fa6-da679e229aea
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_ProjectTest2.cydsn\RTOS_UART_ProjectTest2.cyprj|75ed1e80-e572-4466-97e5-6a07f2e0e613
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc2.cydsn\RTOS_UART_Project_Psoc2.cyprj|9dd95392-a057-4efb-8acf-c829da52f23e
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc1.cydsn\RTOS_UART_Project_Psoc1.cyprj|544612e2-725e-428b-b51f-ae96854de343
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc2_TEST.cydsn\RTOS_UART_Project_Psoc2_TEST.cyprj|b70468c7-75c9-47d7-acb6-d97aef51ca2a
+C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc1_Copy_02.cydsn\RTOS_UART_Project_Psoc1_Copy_02.cyprj|340331af-8339-4e7c-b2ca-c68a97f4ac92

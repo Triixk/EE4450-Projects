@@ -31,11 +31,18 @@
   <file name="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc2.cydsn\codegentemp\LCD.c" value="SOURCE_C;CortexM3;;;;LCD" />
   <file name="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc2.cydsn\codegentemp\LCD.h" value="HEADER;;;;;LCD" />
   <file name="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc2.cydsn\codegentemp\LCD_PM.c" value="SOURCE_C;CortexM3;;;;LCD" />
+  <file name="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc2.cydsn\codegentemp\UART_USB.c" value="SOURCE_C;CortexM3;;;;UART_USB" />
+  <file name="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc2.cydsn\codegentemp\UART_USB.h" value="HEADER;;;;;UART_USB" />
+  <file name="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc2.cydsn\codegentemp\UART_USB_PM.c" value="SOURCE_C;CortexM3;;;;UART_USB" />
+  <file name="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc2.cydsn\codegentemp\UART_USB_INT.c" value="SOURCE_C;CortexM3;;;;UART_USB" />
+  <file name="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc2.cydsn\codegentemp\UART_USB_BOOT.c" value="SOURCE_C;CortexM3;;;;UART_USB" />
   <file name="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc2.cydsn\codegentemp\UART_IntClock.c" value="SOURCE_C;CortexM3;;;;UART_IntClock" />
   <file name="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc2.cydsn\codegentemp\UART_IntClock.h" value="HEADER;;;;;UART_IntClock" />
   <file name="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc2.cydsn\codegentemp\LCD_LCDPort_aliases.h" value="HEADER;;;;;LCD_LCDPort" />
   <file name="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc2.cydsn\codegentemp\LCD_LCDPort.c" value="SOURCE_C;CortexM3;;;;LCD_LCDPort" />
   <file name="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc2.cydsn\codegentemp\LCD_LCDPort.h" value="HEADER;;;;;LCD_LCDPort" />
+  <file name="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc2.cydsn\codegentemp\UART_USB_IntClock.c" value="SOURCE_C;CortexM3;;;;UART_USB_IntClock" />
+  <file name="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc2.cydsn\codegentemp\UART_USB_IntClock.h" value="HEADER;;;;;UART_USB_IntClock" />
   <file name="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc2.cydsn\codegentemp\cy_em_eeprom.c" value="SOURCE_C;CortexM3;;;;Em_EEPROM_Dynamic" />
   <file name="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc2.cydsn\codegentemp\cy_em_eeprom.h" value="HEADER;;;;;Em_EEPROM_Dynamic" />
   <file name="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc2.cydsn\codegentemp\cm3gcc.ld" value="LINKER_SCRIPT;;;b98f980c-3bd1-4fc7-a887-c56a20a46fdd;;cy_boot" />

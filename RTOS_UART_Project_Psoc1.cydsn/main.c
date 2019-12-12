@@ -28,9 +28,9 @@
 // Your task function
 void vUARTTask1(void *pvParaments);
 void vUARTTask2(void *pvParaments);
-void vUltraSonicTask(void *pvParaments);
 void vReadUltraSonicTask(void *pvParaments);
 void vMusicTask(void *pvParaments);
+void vTestTask(void *pvParaments);
 
 void beep(int note, int duration);
 void firstSection();
@@ -45,8 +45,7 @@ CY_ISR_PROTO(myISR_UART);
 #define CMP0    19099
 #define CMP180  17599
 
-// Global variables
-int  centimeter;
+
 
 int main(void)
 {
@@ -64,7 +63,7 @@ int main(void)
     if (xMessageBuffer == NULL){
         while(1);   // Stop system here
     }
-    
+    /*
     // Create Task
     err = xTaskCreate(vUARTTask1,                   // Taskfunction_t pvTaskCode,
                         "Task 1",                   // const char * const pcName,
@@ -76,7 +75,7 @@ int main(void)
     if (err != pdPASS){
         // Cannot create task!
         while(1);
-    }/*
+    }*//*
     err = xTaskCreate(vUARTTask2,                   // Taskfunction_t pvTaskCode,
                         "Task 1",                   // const char * const pcName,
                         configMINIMAL_STACK_SIZE,   // unsigned short usStackDepth,
@@ -88,6 +87,7 @@ int main(void)
         // Cannot create task!
         while(1);
     }*/
+    
     // Create a task to read sensor data from the ultra sonic sensor
     err = xTaskCreate(vReadUltraSonicTask,          // Taskfunction_t pvTaskCode,
                         "Read Sensor",              // const char * const pcName,
@@ -99,8 +99,19 @@ int main(void)
     if (err != pdPASS){
         // Cannot create task!
         while(1);
-    }
+    }/*
+    err = xTaskCreate(vTestTask,          // Taskfunction_t pvTaskCode,
+                        "Read Sensor",              // const char * const pcName,
+                        configMINIMAL_STACK_SIZE,   // unsigned short usStackDepth,
+                        NULL,                       // void *pvParameters,
+                        configMAX_PRIORITIES-1,     // UBaseType_t uxPriority,
+                        NULL);                      // TaskHandle_t *pxCreatedTask );
     
+    if (err != pdPASS){
+        // Cannot create task!
+        while(1);
+    }*/
+    /*
     err = xTaskCreate(vMusicTask,                   // Taskfunction_t pvTaskCode,
                         "Read Sensor",              // const char * const pcName,
                         configMINIMAL_STACK_SIZE,   // unsigned short usStackDepth,
@@ -111,8 +122,8 @@ int main(void)
     if (err != pdPASS){
         // Cannot create task!
         while(1);
-    }
-    
+    }*/
+   
     // Start the scheduler, so the tasks start executing
     vTaskStartScheduler();
     
@@ -131,10 +142,10 @@ void myPSoCSetup(){
     
     PWM_Servo_Start();
     PWM_Servo_WriteCompare(CMP0);
-    
+    CyDelay(1000);
     PWM_Music_Start();
-
-    
+    UART_USB_Start();
+    UART_USB_PutString("Start\r\n");
 }
 
 CY_ISR(myISR_UART){ 
@@ -184,9 +195,8 @@ void vUARTTask1(void *pvParaments){
             }else if (strcmp(pch, "L2") == 0){
                 LED_Write(0);
             }
-        
-            vTaskDelay(pdMS_TO_TICKS(50)); // Delay for 50 ms
         }
+        vTaskDelay(pdMS_TO_TICKS(100)); // Delay for 50 ms
     }
 }
 /*
@@ -215,27 +225,59 @@ void vUARTTask2(void *pvParaments){
     }
 }
 */
+void vTestTask(void *pvParaments){
+    uint8_t centimeter = 123;
+    char str[10];
+
+    while(1){
+        LED_Write(1);
+        sprintf(str,"%d\n",centimeter);
+        //UART_PutString(str);
+        //UART_USB_PutString(str);
+        UART_PutChar(centimeter);
+        UART_USB_PutChar(centimeter);
+        vTaskDelay(pdMS_TO_TICKS(100)); // Delay for 100 ms
+        LED_Write(0);
+        vTaskDelay(pdMS_TO_TICKS(100)); // Delay for 100 ms
+    }
+}
+
 void vReadUltraSonicTask(void *pvParaments){
     
     uint16 counts = 0;
     float  meter  = 0;
-
-    char str[40];
+    int centimeter;
+    uint8_t centi;
+    char str[4];
+    uint8_t test = 123;
     
     while(1){
+        LED_Write(1);
         Trigger_Write(1);
-        CyDelayUs(10);
+        vTaskDelay(pdMS_TO_TICKS(10)); // Delay for 200 ms
+        //CyDelayUs(10);
         Trigger_Write(0);
-                 
+              
         while(Echo_Read() != 1); //wait until return pulse starts
         Timer_Start();
         while(Echo_Read() != 0); //wait unit return pulse stops 
-    
+        
         counts = 0xFFFF-Timer_ReadCounter();        
         centimeter = counts * 0.01717; //Convert pulse width to centimeters.         
            
         vTaskDelay(pdMS_TO_TICKS(200)); // Delay for 200 ms
         Timer_Stop();
+        LED_Write(0);
+        centi = centimeter;
+        UART_USB_PutChar(centi);//putty
+        UART_PutChar(centi); // psoc 2
+        
+        sprintf(str," Centi %d\r\n",centi);
+        
+        UART_USB_PutString(str);
+        //CyDelay(100);
+        //UART_PutChar('A');
+
     }
 }
 

@@ -173,6 +173,13 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\BUZZER_aliases.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\BUZZER.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\BUZZER.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_USB.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_USB.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_USB_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_USB_INT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_USB_BOOT.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_USB_IntClock.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\UART_USB_IntClock.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc1.cydsn\Export\ARM_GCC_Generic">

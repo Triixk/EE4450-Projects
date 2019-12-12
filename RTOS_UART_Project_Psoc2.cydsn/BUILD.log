@@ -1,5 +1,98 @@
---------------- Build Started: 12/05/2019 22:31:58 Project: RTOS_UART_Project_Psoc2, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Build Started: 12/12/2019 10:51:10 Project: RTOS_UART_Project_Psoc2, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 The code generation step is up to date.
-The compile step is up to date, no work needs to be done.
-The link step is up to date, no work needs to be done.
---------------- Build Succeeded: 12/05/2019 22:31:58 ---------------
+arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I..\FreeRTOS -I..\FreeRTOS\include -I..\FreeRTOS\portable\GCC\ARM_CM3 -I..\FreeRTOS\portable\MemMang -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/main.lst -g -D DEBUG -D CY_CORE_ID=0 -Wall -ffunction-sections -ffat-lto-objects -Og -c main.c -o .\CortexM3\ARM_GCC_541\Debug\main.o
+In file included from main.c:26:0:
+main.c: In function 'myISR_UART':
+main.c:135:47: warning: passing argument 2 of 'xStreamBufferSendFromISR' makes pointer from integer without a cast [-Wint-conversion]
+     xMessageBufferSendFromISR(xMessageBuffer, ch, 1, xHigherPriorityTaskWoken);
+                                               ^
+..\FreeRTOS\include/message_buffer.h:408:175: note: in definition of macro 'xMessageBufferSendFromISR'
+ #define xMessageBufferSendFromISR( xMessageBuffer, pvTxData, xDataLengthBytes, pxHigherPriorityTaskWoken ) xStreamBufferSendFromISR( ( StreamBufferHandle_t ) xMessageBuffer, pvTxData, xDataLengthBytes, pxHigherPriorityTaskWoken )
+                                                                                                                                                                               ^
+In file included from ..\FreeRTOS\include/message_buffer.h:67:0,
+                 from main.c:26:
+..\FreeRTOS\include/stream_buffer.h:405:8: note: expected 'const void *' but argument is of type 'char'
+ size_t xStreamBufferSendFromISR( StreamBufferHandle_t xStreamBuffer,
+        ^
+In file included from main.c:26:0:
+main.c:135:54: warning: passing argument 4 of 'xStreamBufferSendFromISR' makes pointer from integer without a cast [-Wint-conversion]
+     xMessageBufferSendFromISR(xMessageBuffer, ch, 1, xHigherPriorityTaskWoken);
+                                                      ^
+..\FreeRTOS\include/message_buffer.h:408:203: note: in definition of macro 'xMessageBufferSendFromISR'
+ #define xMessageBufferSendFromISR( xMessageBuffer, pvTxData, xDataLengthBytes, pxHigherPriorityTaskWoken ) xStreamBufferSendFromISR( ( StreamBufferHandle_t ) xMessageBuffer, pvTxData, xDataLengthBytes, pxHigherPriorityTaskWoken )
+                                                                                                                                                                                                           ^
+In file included from ..\FreeRTOS\include/message_buffer.h:67:0,
+                 from main.c:26:
+..\FreeRTOS\include/stream_buffer.h:405:8: note: expected 'BaseType_t * const {aka long int * const}' but argument is of type 'BaseType_t {aka long int}'
+ size_t xStreamBufferSendFromISR( StreamBufferHandle_t xStreamBuffer,
+        ^
+main.c:114:25: warning: unused variable 'idx' [-Wunused-variable]
+     static int          idx = 0;
+                         ^
+main.c:113:25: warning: unused variable 'buf' [-Wunused-variable]
+     static char         buf[20];
+                         ^
+In file included from main.c:26:0:
+main.c: In function 'vUARTTask1':
+main.c:178:59: warning: passing argument 2 of 'xStreamBufferReceive' makes pointer from integer without a cast [-Wint-conversion]
+             rxSize = xMessageBufferReceive(xMessageBuffer,distance,1,100);
+                                                           ^
+..\FreeRTOS\include/message_buffer.h:496:156: note: in definition of macro 'xMessageBufferReceive'
+ #define xMessageBufferReceive( xMessageBuffer, pvRxData, xBufferLengthBytes, xTicksToWait ) xStreamBufferReceive( ( StreamBufferHandle_t ) xMessageBuffer, pvRxData, xBufferLengthBytes, xTicksToWait )
+                                                                                                                                                            ^
+In file included from ..\FreeRTOS\include/message_buffer.h:67:0,
+                 from main.c:26:
+..\FreeRTOS\include/stream_buffer.h:494:8: note: expected 'void *' but argument is of type 'uint8_t {aka unsigned char}'
+ size_t xStreamBufferReceive( StreamBufferHandle_t xStreamBuffer,
+        ^
+main.c:156:14: warning: unused variable 'pch' [-Wunused-variable]
+     char    *pch;
+              ^
+main.c:155:14: warning: unused variable 'delim2' [-Wunused-variable]
+     char    *delim2 = ":";
+              ^
+main.c:154:14: warning: unused variable 'delim1' [-Wunused-variable]
+     char    *delim1 = ";";
+              ^
+main.c:153:13: warning: variable 'rxSize' set but not used [-Wunused-but-set-variable]
+     size_t  rxSize;
+             ^
+main.c:151:13: warning: unused variable 'buf' [-Wunused-variable]
+     char    buf[20];
+             ^
+main.c:149:10: warning: unused variable 'music_off' [-Wunused-variable]
+     char music_off[4] = ":M2:";
+          ^
+main.c:148:10: warning: unused variable 'music_on' [-Wunused-variable]
+     char music_on[4]  = ":M1:";
+          ^
+main.c:147:10: warning: unused variable 'servo_off' [-Wunused-variable]
+     char servo_off[4] = ":S2:";
+          ^
+main.c:146:10: warning: unused variable 'servo_on' [-Wunused-variable]
+     char servo_on[4]  = ":S1:";
+          ^
+main.c:145:10: warning: unused variable 'led_off' [-Wunused-variable]
+     char led_off[4]   = ":L2:";
+          ^
+main.c:144:10: warning: unused variable 'led_on' [-Wunused-variable]
+     char led_on[4]    = ":L1:";
+          ^
+In file included from main.c:26:0:
+..\FreeRTOS\include/message_buffer.h:496:93: warning: 'distance' may be used uninitialized in this function [-Wmaybe-uninitialized]
+ #define xMessageBufferReceive( xMessageBuffer, pvRxData, xBufferLengthBytes, xTicksToWait ) xStreamBufferReceive( ( StreamBufferHandle_t ) xMessageBuffer, pvRxData, xBufferLengthBytes, xTicksToWait )
+                                                                                             ^
+main.c:157:17: note: 'distance' was declared here
+     uint8_t     distance;
+                 ^
+arm-none-eabi-ar.exe -rs .\CortexM3\ARM_GCC_541\Debug\RTOS_UART_Project_Psoc2.a .\CortexM3\ARM_GCC_541\Debug\cy_em_eeprom.o .\CortexM3\ARM_GCC_541\Debug\CyDmac.o .\CortexM3\ARM_GCC_541\Debug\CyFlash.o .\CortexM3\ARM_GCC_541\Debug\CyLib.o .\CortexM3\ARM_GCC_541\Debug\cyPm.o .\CortexM3\ARM_GCC_541\Debug\CySpc.o .\CortexM3\ARM_GCC_541\Debug\cyutils.o .\CortexM3\ARM_GCC_541\Debug\LCD.o .\CortexM3\ARM_GCC_541\Debug\LCD_PM.o .\CortexM3\ARM_GCC_541\Debug\LCD_LCDPort.o .\CortexM3\ARM_GCC_541\Debug\LED.o .\CortexM3\ARM_GCC_541\Debug\ISR_UART.o .\CortexM3\ARM_GCC_541\Debug\UART.o .\CortexM3\ARM_GCC_541\Debug\UART_PM.o .\CortexM3\ARM_GCC_541\Debug\UART_INT.o .\CortexM3\ARM_GCC_541\Debug\UART_BOOT.o .\CortexM3\ARM_GCC_541\Debug\UART_IntClock.o .\CortexM3\ARM_GCC_541\Debug\UART_USB.o .\CortexM3\ARM_GCC_541\Debug\UART_USB_PM.o .\CortexM3\ARM_GCC_541\Debug\UART_USB_INT.o .\CortexM3\ARM_GCC_541\Debug\UART_USB_BOOT.o .\CortexM3\ARM_GCC_541\Debug\UART_USB_IntClock.o .\CortexM3\ARM_GCC_541\Debug\CyBootAsmGnu.o
+arm-none-eabi-ar.exe: creating .\CortexM3\ARM_GCC_541\Debug\RTOS_UART_Project_Psoc2.a
+arm-none-eabi-gcc.exe -Wl,--start-group -o "C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc2.cydsn\CortexM3\ARM_GCC_541\Debug\RTOS_UART_Project_Psoc2.elf" .\CortexM3\ARM_GCC_541\Debug\main.o .\CortexM3\ARM_GCC_541\Debug\heap_1.o .\CortexM3\ARM_GCC_541\Debug\port.o .\CortexM3\ARM_GCC_541\Debug\croutine.o .\CortexM3\ARM_GCC_541\Debug\event_groups.o .\CortexM3\ARM_GCC_541\Debug\FreeRTOS_PSoC.o .\CortexM3\ARM_GCC_541\Debug\list.o .\CortexM3\ARM_GCC_541\Debug\queue.o .\CortexM3\ARM_GCC_541\Debug\stream_buffer.o .\CortexM3\ARM_GCC_541\Debug\tasks.o .\CortexM3\ARM_GCC_541\Debug\timers.o .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o .\CortexM3\ARM_GCC_541\Debug\cymetadata.o .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o .\CortexM3\ARM_GCC_541\Debug\RTOS_UART_Project_Psoc2.a "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CortexM3\ARM_GCC_541\Debug\CyComponentLibrary.a" -mcpu=cortex-m3 -mthumb -L Generated_Source\PSoC5 -Wl,-Map,.\CortexM3\ARM_GCC_541\Debug/RTOS_UART_Project_Psoc2.map -T Generated_Source\PSoC5\cm3gcc.ld -specs=nano.specs -Wl,--gc-sections -g -ffunction-sections -Og -ffat-lto-objects -Wl,--end-group
+cyelftool.exe -C "C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc2.cydsn\CortexM3\ARM_GCC_541\Debug\RTOS_UART_Project_Psoc2.elf" --flash_row_size 256 --flash_size 262144 --flash_offset 0x00000000
+No ELF section .cychecksum found, creating one
+Application checksum calculated and stored in ELF section .cychecksum
+Checksum calculated and stored in ELF section .cymeta
+cyelftool.exe -S "C:\Users\Tri94\Documents\PSoC Creator\EE4450\EE4450-Projects\RTOS_UART_Project_Psoc2.cydsn\CortexM3\ARM_GCC_541\Debug\RTOS_UART_Project_Psoc2.elf"
+Flash used: 8992 of 262144 bytes (3.4%).
+SRAM used: 35609 of 65536 bytes (54.3%). Stack: 2048 bytes. Heap: 128 bytes.
+--------------- Build Succeeded: 12/12/2019 10:51:12 ---------------

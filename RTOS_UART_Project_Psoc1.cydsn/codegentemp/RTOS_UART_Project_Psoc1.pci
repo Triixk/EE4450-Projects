@@ -1,5 +1,5 @@
 # RTOS_UART_Project_Psoc1
-# 2019-12-06 21:22:25Z
+# 2019-12-12 16:45:02Z
 
 # IO_0@[IOP=(1)][IoId=(0)] is reserved: SWDDebugEnabled
 dont_use_io iocell 1 0
@@ -14,3 +14,5 @@ set_io "Echo(0)" iocell 2 4
 set_io "Trigger(0)" iocell 2 3
 set_io "SERVO(0)" iocell 2 5
 set_io "BUZZER(0)" iocell 0 7
+set_io "Rx_2(0)" iocell 12 6
+set_io "Tx_2(0)" iocell 12 7
