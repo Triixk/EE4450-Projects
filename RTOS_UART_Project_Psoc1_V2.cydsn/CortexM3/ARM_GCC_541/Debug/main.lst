@@ -1,0 +1,4461 @@
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.myISR_UART,"ax",%progbits
+  20              		.align	2
+  21              		.global	myISR_UART
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	myISR_UART, %function
+  25              	myISR_UART:
+  26              	.LFB71:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include "project.h"
+  13:main.c        **** #include <stdio.h>
+  14:main.c        **** #include <stdlib.h>
+  15:main.c        **** #include <stdint.h>
+  16:main.c        **** #include <stdbool.h>
+  17:main.c        **** 
+  18:main.c        **** // ROTS Header Files
+  19:main.c        **** #include "FreeRTOS_PSoC.h"
+  20:main.c        **** #include "FreeRTOS.h"
+  21:main.c        **** #include "task.h"
+  22:main.c        **** #include "queue.h"
+  23:main.c        **** #include "semphr.h"
+  24:main.c        **** #include "timers.h"
+  25:main.c        **** #include "event_groups.h"
+  26:main.c        **** #include "message_buffer.h"
+  27:main.c        **** 
+  28:main.c        **** // Your task function
+  29:main.c        **** void vUARTTask1(void *pvParaments);
+  30:main.c        **** void vReadUltraSonicTask(void *pvParaments);
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 2
+
+
+  31:main.c        **** 
+  32:main.c        **** void beep(int note, int duration);
+  33:main.c        **** void firstSection();
+  34:main.c        **** void secondSection();
+  35:main.c        **** void myPSoCSetup();
+  36:main.c        **** 
+  37:main.c        **** MessageBufferHandle_t xMessageBuffer = NULL;
+  38:main.c        **** #define               MESSAGE_BUFFER_SIZE 100
+  39:main.c        **** 
+  40:main.c        **** CY_ISR_PROTO(myISR_UART);
+  41:main.c        **** 
+  42:main.c        **** #define CMP0    19099
+  43:main.c        **** #define CMP180  17599
+  44:main.c        **** 
+  45:main.c        **** 
+  46:main.c        **** 
+  47:main.c        **** int main(void)
+  48:main.c        **** {
+  49:main.c        ****     BaseType_t err;
+  50:main.c        ****     
+  51:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  52:main.c        **** 
+  53:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  54:main.c        ****     FreeRTOS_Init();
+  55:main.c        ****     myPSoCSetup();
+  56:main.c        ****     
+  57:main.c        ****     // Create Mutex
+  58:main.c        ****    xMessageBuffer = xMessageBufferCreate(MESSAGE_BUFFER_SIZE);
+  59:main.c        **** 
+  60:main.c        ****     if (xMessageBuffer == NULL){
+  61:main.c        ****         while(1);   // Stop system here
+  62:main.c        ****     }
+  63:main.c        ****     
+  64:main.c        ****     // Create Task
+  65:main.c        ****     err = xTaskCreate(vUARTTask1,                   // Taskfunction_t pvTaskCode,
+  66:main.c        ****                         "Task 1",                   // const char * const pcName,
+  67:main.c        ****                         configMINIMAL_STACK_SIZE,   // unsigned short usStackDepth,
+  68:main.c        ****                         NULL,                       // void *pvParameters,
+  69:main.c        ****                         configMAX_PRIORITIES-1,     // UBaseType_t uxPriority,
+  70:main.c        ****                         NULL);                      // TaskHandle_t *pxCreatedTask );
+  71:main.c        ****     
+  72:main.c        ****     if (err != pdPASS){
+  73:main.c        ****         // Cannot create task!
+  74:main.c        ****         while(1);
+  75:main.c        ****     }
+  76:main.c        ****     
+  77:main.c        ****     // Create a task to read sensor data from the ultra sonic sensor
+  78:main.c        ****     err = xTaskCreate(vReadUltraSonicTask,          // Taskfunction_t pvTaskCode,
+  79:main.c        ****                         "Read Sensor",              // const char * const pcName,
+  80:main.c        ****                         configMINIMAL_STACK_SIZE,   // unsigned short usStackDepth,
+  81:main.c        ****                         NULL,                       // void *pvParameters,
+  82:main.c        ****                         configMAX_PRIORITIES-1,     // UBaseType_t uxPriority,
+  83:main.c        ****                         NULL);                      // TaskHandle_t *pxCreatedTask );
+  84:main.c        ****     
+  85:main.c        ****     if (err != pdPASS){
+  86:main.c        ****         // Cannot create task!
+  87:main.c        ****         while(1);
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 3
+
+
+  88:main.c        ****     }
+  89:main.c        ****    
+  90:main.c        ****     // Start the scheduler, so the tasks start executing
+  91:main.c        ****     vTaskStartScheduler();
+  92:main.c        ****     
+  93:main.c        ****     for(;;)
+  94:main.c        ****     {
+  95:main.c        ****         /* Place your application code here. */
+  96:main.c        ****     }
+  97:main.c        **** }
+  98:main.c        **** 
+  99:main.c        **** void myPSoCSetup(){
+ 100:main.c        ****     
+ 101:main.c        ****     
+ 102:main.c        ****     // Place your component's start code here
+ 103:main.c        ****     ISR_UART_StartEx(myISR_UART);
+ 104:main.c        ****     UART_Start();
+ 105:main.c        ****     PWM_Servo_Start();
+ 106:main.c        ****     PWM_Music_Start();
+ 107:main.c        ****     UART_USB_Start();
+ 108:main.c        ****     UART_USB_PutString("Start\r\n");
+ 109:main.c        **** }
+ 110:main.c        **** 
+ 111:main.c        **** typedef enum STATES_CMD{
+ 112:main.c        ****     S_IDLE,
+ 113:main.c        ****     S_GOT_DATE
+ 114:main.c        **** }STATES_CMD;
+ 115:main.c        **** 
+ 116:main.c        **** CY_ISR(myISR_UART){
+  28              		.loc 1 116 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 24
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 70B5     		push	{r4, r5, r6, lr}
+  33              		.cfi_def_cfa_offset 16
+  34              		.cfi_offset 4, -16
+  35              		.cfi_offset 5, -12
+  36              		.cfi_offset 6, -8
+  37              		.cfi_offset 14, -4
+  38 0002 86B0     		sub	sp, sp, #24
+  39              		.cfi_def_cfa_offset 40
+  40              	.LVL0:
+ 117:main.c        ****     static char         buf[20];
+ 118:main.c        ****     static int          idx = 0;
+ 119:main.c        ****     static STATES_CMD   state = S_IDLE;
+ 120:main.c        ****     char                ch;
+ 121:main.c        ****     char                str[20];
+ 122:main.c        ****     BaseType_t          xHigherPriorityTaskWoken = pdFALSE; /* Initialised to pdFALSE */
+ 123:main.c        ****     
+ 124:main.c        ****     
+ 125:main.c        ****     while (UART_GetRxBufferSize()  > 0){
+  41              		.loc 1 125 0
+  42 0004 2CE0     		b	.L2
+  43              	.L8:
+ 126:main.c        ****         ch = UART_GetChar();
+  44              		.loc 1 126 0
+  45 0006 FFF7FEFF 		bl	UART_GetChar
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 4
+
+
+  46              	.LVL1:
+ 127:main.c        ****         
+ 128:main.c        ****         switch (state){
+  47              		.loc 1 128 0
+  48 000a 194B     		ldr	r3, .L11
+  49 000c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  50 000e 13B1     		cbz	r3, .L4
+  51 0010 012B     		cmp	r3, #1
+  52 0012 06D0     		beq	.L5
+  53 0014 24E0     		b	.L2
+  54              	.L4:
+ 129:main.c        ****             case S_IDLE:
+ 130:main.c        ****                 if (ch == '+'){
+  55              		.loc 1 130 0
+  56 0016 2B28     		cmp	r0, #43
+  57 0018 22D1     		bne	.L2
+ 131:main.c        ****                     state = S_GOT_DATE;
+  58              		.loc 1 131 0
+  59 001a 0122     		movs	r2, #1
+  60 001c 144B     		ldr	r3, .L11
+  61 001e 1A70     		strb	r2, [r3]
+  62 0020 1EE0     		b	.L2
+  63              	.L5:
+ 132:main.c        ****                 }
+ 133:main.c        ****                 break;
+ 134:main.c        ****             case S_GOT_DATE:
+ 135:main.c        ****                 if (ch == '\r'){
+  64              		.loc 1 135 0
+  65 0022 0D28     		cmp	r0, #13
+  66 0024 00D1     		bne	.L6
+ 136:main.c        ****                     ch = '\0';                
+  67              		.loc 1 136 0
+  68 0026 0020     		movs	r0, #0
+  69              	.LVL2:
+  70              	.L6:
+ 137:main.c        ****                 }
+ 138:main.c        ****                 if (ch == '\n'){
+  71              		.loc 1 138 0
+  72 0028 0A28     		cmp	r0, #10
+  73 002a 13D1     		bne	.L7
+ 139:main.c        ****                     state = S_IDLE;
+  74              		.loc 1 139 0
+  75 002c 104C     		ldr	r4, .L11
+  76 002e 0025     		movs	r5, #0
+  77 0030 2570     		strb	r5, [r4]
+ 140:main.c        ****                     xMessageBufferSendFromISR(xMessageBuffer, buf, idx, xHigherPriorityTaskWoken);
+  78              		.loc 1 140 0
+  79 0032 04F10806 		add	r6, r4, #8
+  80 0036 2B46     		mov	r3, r5
+  81 0038 6268     		ldr	r2, [r4, #4]
+  82 003a 3146     		mov	r1, r6
+  83 003c E069     		ldr	r0, [r4, #28]
+  84              	.LVL3:
+  85 003e FFF7FEFF 		bl	xStreamBufferSendFromISR
+  86              	.LVL4:
+ 141:main.c        ****                     idx = 0;
+  87              		.loc 1 141 0
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 5
+
+
+  88 0042 6560     		str	r5, [r4, #4]
+ 142:main.c        ****                     sprintf(str,"%s",buf);
+  89              		.loc 1 142 0
+  90 0044 3146     		mov	r1, r6
+  91 0046 01A8     		add	r0, sp, #4
+  92 0048 FFF7FEFF 		bl	strcpy
+  93              	.LVL5:
+ 143:main.c        ****                     UART_PutString(str); 
+  94              		.loc 1 143 0
+  95 004c 01A8     		add	r0, sp, #4
+  96 004e FFF7FEFF 		bl	UART_PutString
+  97              	.LVL6:
+ 144:main.c        ****                     break;
+  98              		.loc 1 144 0
+  99 0052 05E0     		b	.L2
+ 100              	.LVL7:
+ 101              	.L7:
+ 145:main.c        ****                 }
+ 146:main.c        ****                 buf[idx++] = ch;
+ 102              		.loc 1 146 0
+ 103 0054 064A     		ldr	r2, .L11
+ 104 0056 5368     		ldr	r3, [r2, #4]
+ 105 0058 591C     		adds	r1, r3, #1
+ 106 005a 5160     		str	r1, [r2, #4]
+ 107 005c 1344     		add	r3, r3, r2
+ 108 005e 1872     		strb	r0, [r3, #8]
+ 109              	.LVL8:
+ 110              	.L2:
+ 125:main.c        ****         ch = UART_GetChar();
+ 111              		.loc 1 125 0
+ 112 0060 FFF7FEFF 		bl	UART_GetRxBufferSize
+ 113              	.LVL9:
+ 114 0064 0028     		cmp	r0, #0
+ 115 0066 CED1     		bne	.L8
+ 147:main.c        ****                 break;
+ 148:main.c        ****         }
+ 149:main.c        ****     }
+ 150:main.c        ****     UART_ReadRxStatus(); // Clear IRQ signal
+ 116              		.loc 1 150 0
+ 117 0068 FFF7FEFF 		bl	UART_ReadRxStatus
+ 118              	.LVL10:
+ 151:main.c        ****     
+ 152:main.c        **** }
+ 119              		.loc 1 152 0
+ 120 006c 06B0     		add	sp, sp, #24
+ 121              		.cfi_def_cfa_offset 16
+ 122              		@ sp needed
+ 123 006e 70BD     		pop	{r4, r5, r6, pc}
+ 124              	.L12:
+ 125              		.align	2
+ 126              	.L11:
+ 127 0070 00000000 		.word	.LANCHOR0
+ 128              		.cfi_endproc
+ 129              	.LFE71:
+ 130              		.size	myISR_UART, .-myISR_UART
+ 131              		.global	__aeabi_i2d
+ 132              		.global	__aeabi_dmul
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 6
+
+
+ 133              		.global	__aeabi_d2iz
+ 134              		.section	.text.vReadUltraSonicTask,"ax",%progbits
+ 135              		.align	2
+ 136              		.global	vReadUltraSonicTask
+ 137              		.thumb
+ 138              		.thumb_func
+ 139              		.type	vReadUltraSonicTask, %function
+ 140              	vReadUltraSonicTask:
+ 141              	.LFB73:
+ 153:main.c        **** 
+ 154:main.c        **** void vUARTTask1(void *pvParaments){
+ 155:main.c        ****     
+ 156:main.c        ****     char    buf[20];
+ 157:main.c        ****     size_t  rxSize;
+ 158:main.c        ****     char    *delim = ":";
+ 159:main.c        ****     char    *pch;
+ 160:main.c        ****     
+ 161:main.c        ****     while(1){
+ 162:main.c        ****         if (xMessageBufferIsEmpty( xMessageBuffer ) == pdFALSE){ // Check if there is something in 
+ 163:main.c        ****             rxSize = xMessageBufferReceive(xMessageBuffer,buf,sizeof(buf),100);
+ 164:main.c        ****             pch = strtok(buf, delim);
+ 165:main.c        ****             if (strcmp(pch, "SystemON") == 0){
+ 166:main.c        ****                 PWM_Servo_WriteCompare(CMP180);
+ 167:main.c        ****                 LED_Write(1);
+ 168:main.c        ****                 firstSection();
+ 169:main.c        ****             }else if (strcmp(pch, "SystemOFF") == 0){
+ 170:main.c        ****                 PWM_Servo_WriteCompare(CMP0);
+ 171:main.c        ****                 LED_Write(0);
+ 172:main.c        ****                 firstSection();
+ 173:main.c        ****             }
+ 174:main.c        ****         }
+ 175:main.c        ****         vTaskDelay(pdMS_TO_TICKS(100)); // Delay for 100 ms
+ 176:main.c        ****     }
+ 177:main.c        **** }
+ 178:main.c        **** 
+ 179:main.c        **** void vReadUltraSonicTask(void *pvParaments){
+ 142              		.loc 1 179 0
+ 143              		.cfi_startproc
+ 144              		@ args = 0, pretend = 0, frame = 24
+ 145              		@ frame_needed = 0, uses_anonymous_args = 0
+ 146              	.LVL11:
+ 147 0000 10B5     		push	{r4, lr}
+ 148              		.cfi_def_cfa_offset 8
+ 149              		.cfi_offset 4, -8
+ 150              		.cfi_offset 14, -4
+ 151 0002 86B0     		sub	sp, sp, #24
+ 152              		.cfi_def_cfa_offset 32
+ 153              	.LVL12:
+ 154              	.L16:
+ 180:main.c        ****     
+ 181:main.c        ****     uint16 counts = 0;
+ 182:main.c        ****     float  meter  = 0;
+ 183:main.c        ****     int centimeter;
+ 184:main.c        ****     char str[20];
+ 185:main.c        ****     
+ 186:main.c        ****     while(1){
+ 187:main.c        ****         LED_Write(1);
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 7
+
+
+ 155              		.loc 1 187 0
+ 156 0004 0120     		movs	r0, #1
+ 157 0006 FFF7FEFF 		bl	LED_Write
+ 158              	.LVL13:
+ 188:main.c        ****         Trigger_Write(1);
+ 159              		.loc 1 188 0
+ 160 000a 0120     		movs	r0, #1
+ 161 000c FFF7FEFF 		bl	Trigger_Write
+ 162              	.LVL14:
+ 189:main.c        ****         vTaskDelay(pdMS_TO_TICKS(10)); // Delay for 200 ms
+ 163              		.loc 1 189 0
+ 164 0010 0A20     		movs	r0, #10
+ 165 0012 FFF7FEFF 		bl	vTaskDelay
+ 166              	.LVL15:
+ 190:main.c        ****         //CyDelayUs(10);
+ 191:main.c        ****         Trigger_Write(0);
+ 167              		.loc 1 191 0
+ 168 0016 0020     		movs	r0, #0
+ 169 0018 FFF7FEFF 		bl	Trigger_Write
+ 170              	.LVL16:
+ 171              	.L14:
+ 192:main.c        ****               
+ 193:main.c        ****         while(Echo_Read() != 1); //wait until return pulse starts
+ 172              		.loc 1 193 0 discriminator 1
+ 173 001c FFF7FEFF 		bl	Echo_Read
+ 174              	.LVL17:
+ 175 0020 0128     		cmp	r0, #1
+ 176 0022 FBD1     		bne	.L14
+ 194:main.c        ****         Timer_Start();
+ 177              		.loc 1 194 0
+ 178 0024 FFF7FEFF 		bl	Timer_Start
+ 179              	.LVL18:
+ 180              	.L15:
+ 195:main.c        ****         while(Echo_Read() != 0); //wait unit return pulse stops 
+ 181              		.loc 1 195 0 discriminator 1
+ 182 0028 FFF7FEFF 		bl	Echo_Read
+ 183              	.LVL19:
+ 184 002c 0028     		cmp	r0, #0
+ 185 002e FBD1     		bne	.L15
+ 196:main.c        ****         
+ 197:main.c        ****         counts = 0xFFFF-Timer_ReadCounter();        
+ 186              		.loc 1 197 0
+ 187 0030 FFF7FEFF 		bl	Timer_ReadCounter
+ 188              	.LVL20:
+ 189 0034 C043     		mvns	r0, r0
+ 190              	.LVL21:
+ 198:main.c        ****         centimeter = counts * 0.01717; //Convert pulse width to centimeters.         
+ 191              		.loc 1 198 0
+ 192 0036 80B2     		uxth	r0, r0
+ 193 0038 FFF7FEFF 		bl	__aeabi_i2d
+ 194              	.LVL22:
+ 195 003c 10A3     		adr	r3, .L18
+ 196 003e D3E90023 		ldrd	r2, [r3]
+ 197 0042 FFF7FEFF 		bl	__aeabi_dmul
+ 198              	.LVL23:
+ 199 0046 FFF7FEFF 		bl	__aeabi_d2iz
+ 200              	.LVL24:
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 8
+
+
+ 201 004a 0446     		mov	r4, r0
+ 202              	.LVL25:
+ 199:main.c        ****            
+ 200:main.c        ****         vTaskDelay(pdMS_TO_TICKS(200)); // Delay for 200 ms
+ 203              		.loc 1 200 0
+ 204 004c C820     		movs	r0, #200
+ 205              	.LVL26:
+ 206 004e FFF7FEFF 		bl	vTaskDelay
+ 207              	.LVL27:
+ 201:main.c        ****         Timer_Stop();
+ 208              		.loc 1 201 0
+ 209 0052 FFF7FEFF 		bl	Timer_Stop
+ 210              	.LVL28:
+ 202:main.c        ****         LED_Write(0);
+ 211              		.loc 1 202 0
+ 212 0056 0020     		movs	r0, #0
+ 213 0058 FFF7FEFF 		bl	LED_Write
+ 214              	.LVL29:
+ 203:main.c        ****         
+ 204:main.c        ****         sprintf(str,"+%d:\r\n",centimeter);
+ 215              		.loc 1 204 0
+ 216 005c 2246     		mov	r2, r4
+ 217 005e 0A49     		ldr	r1, .L18+8
+ 218 0060 01A8     		add	r0, sp, #4
+ 219 0062 FFF7FEFF 		bl	sprintf
+ 220              	.LVL30:
+ 205:main.c        ****         UART_PutString(str);
+ 221              		.loc 1 205 0
+ 222 0066 01A8     		add	r0, sp, #4
+ 223 0068 FFF7FEFF 		bl	UART_PutString
+ 224              	.LVL31:
+ 206:main.c        ****         
+ 207:main.c        ****         UART_USB_PutString("Sending ");
+ 225              		.loc 1 207 0
+ 226 006c 0748     		ldr	r0, .L18+12
+ 227 006e FFF7FEFF 		bl	UART_USB_PutString
+ 228              	.LVL32:
+ 208:main.c        ****         UART_USB_PutString(str);
+ 229              		.loc 1 208 0
+ 230 0072 01A8     		add	r0, sp, #4
+ 231 0074 FFF7FEFF 		bl	UART_USB_PutString
+ 232              	.LVL33:
+ 209:main.c        ****         
+ 210:main.c        ****     }
+ 233              		.loc 1 210 0
+ 234 0078 C4E7     		b	.L16
+ 235              	.L19:
+ 236 007a 00BFAFF3 		.align	3
+ 236      0080
+ 237              	.L18:
+ 238 0080 DBA7E331 		.word	837003227
+ 239 0084 0395913F 		.word	1066505475
+ 240 0088 00000000 		.word	.LC0
+ 241 008c 08000000 		.word	.LC1
+ 242              		.cfi_endproc
+ 243              	.LFE73:
+ 244              		.size	vReadUltraSonicTask, .-vReadUltraSonicTask
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 9
+
+
+ 245              		.section	.text.myPSoCSetup,"ax",%progbits
+ 246              		.align	2
+ 247              		.global	myPSoCSetup
+ 248              		.thumb
+ 249              		.thumb_func
+ 250              		.type	myPSoCSetup, %function
+ 251              	myPSoCSetup:
+ 252              	.LFB70:
+  99:main.c        ****     
+ 253              		.loc 1 99 0
+ 254              		.cfi_startproc
+ 255              		@ args = 0, pretend = 0, frame = 0
+ 256              		@ frame_needed = 0, uses_anonymous_args = 0
+ 257 0000 08B5     		push	{r3, lr}
+ 258              		.cfi_def_cfa_offset 8
+ 259              		.cfi_offset 3, -8
+ 260              		.cfi_offset 14, -4
+ 103:main.c        ****     UART_Start();
+ 261              		.loc 1 103 0
+ 262 0002 0748     		ldr	r0, .L22
+ 263 0004 FFF7FEFF 		bl	ISR_UART_StartEx
+ 264              	.LVL34:
+ 104:main.c        ****     PWM_Servo_Start();
+ 265              		.loc 1 104 0
+ 266 0008 FFF7FEFF 		bl	UART_Start
+ 267              	.LVL35:
+ 105:main.c        ****     PWM_Music_Start();
+ 268              		.loc 1 105 0
+ 269 000c FFF7FEFF 		bl	PWM_Servo_Start
+ 270              	.LVL36:
+ 106:main.c        ****     UART_USB_Start();
+ 271              		.loc 1 106 0
+ 272 0010 FFF7FEFF 		bl	PWM_Music_Start
+ 273              	.LVL37:
+ 107:main.c        ****     UART_USB_PutString("Start\r\n");
+ 274              		.loc 1 107 0
+ 275 0014 FFF7FEFF 		bl	UART_USB_Start
+ 276              	.LVL38:
+ 108:main.c        **** }
+ 277              		.loc 1 108 0
+ 278 0018 0248     		ldr	r0, .L22+4
+ 279 001a FFF7FEFF 		bl	UART_USB_PutString
+ 280              	.LVL39:
+ 281 001e 08BD     		pop	{r3, pc}
+ 282              	.L23:
+ 283              		.align	2
+ 284              	.L22:
+ 285 0020 00000000 		.word	myISR_UART
+ 286 0024 14000000 		.word	.LC2
+ 287              		.cfi_endproc
+ 288              	.LFE70:
+ 289              		.size	myPSoCSetup, .-myPSoCSetup
+ 290              		.section	.text.main,"ax",%progbits
+ 291              		.align	2
+ 292              		.global	main
+ 293              		.thumb
+ 294              		.thumb_func
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 10
+
+
+ 295              		.type	main, %function
+ 296              	main:
+ 297              	.LFB69:
+  48:main.c        ****     BaseType_t err;
+ 298              		.loc 1 48 0
+ 299              		.cfi_startproc
+ 300              		@ args = 0, pretend = 0, frame = 0
+ 301              		@ frame_needed = 0, uses_anonymous_args = 0
+ 302 0000 00B5     		push	{lr}
+ 303              		.cfi_def_cfa_offset 4
+ 304              		.cfi_offset 14, -4
+ 305 0002 83B0     		sub	sp, sp, #12
+ 306              		.cfi_def_cfa_offset 16
+  51:main.c        **** 
+ 307              		.loc 1 51 0
+ 308              		.syntax unified
+ 309              	@ 51 "main.c" 1
+ 310 0004 62B6     		CPSIE   i
+ 311              	@ 0 "" 2
+  54:main.c        ****     myPSoCSetup();
+ 312              		.loc 1 54 0
+ 313              		.thumb
+ 314              		.syntax unified
+ 315 0006 FFF7FEFF 		bl	FreeRTOS_Init
+ 316              	.LVL40:
+  55:main.c        ****     
+ 317              		.loc 1 55 0
+ 318 000a FFF7FEFF 		bl	myPSoCSetup
+ 319              	.LVL41:
+  58:main.c        **** 
+ 320              		.loc 1 58 0
+ 321 000e 0122     		movs	r2, #1
+ 322 0010 0021     		movs	r1, #0
+ 323 0012 6420     		movs	r0, #100
+ 324 0014 FFF7FEFF 		bl	xStreamBufferGenericCreate
+ 325              	.LVL42:
+ 326 0018 0F4B     		ldr	r3, .L33
+ 327 001a D861     		str	r0, [r3, #28]
+  60:main.c        ****         while(1);   // Stop system here
+ 328              		.loc 1 60 0
+ 329 001c 00B9     		cbnz	r0, .L25
+ 330              	.L26:
+ 331 001e FEE7     		b	.L26
+ 332              	.L25:
+  65:main.c        ****                         "Task 1",                   // const char * const pcName,
+ 333              		.loc 1 65 0
+ 334 0020 0023     		movs	r3, #0
+ 335 0022 0193     		str	r3, [sp, #4]
+ 336 0024 0422     		movs	r2, #4
+ 337 0026 0092     		str	r2, [sp]
+ 338 0028 C822     		movs	r2, #200
+ 339 002a 0C49     		ldr	r1, .L33+4
+ 340 002c 0C48     		ldr	r0, .L33+8
+ 341 002e FFF7FEFF 		bl	xTaskCreate
+ 342              	.LVL43:
+  72:main.c        ****         // Cannot create task!
+ 343              		.loc 1 72 0
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 11
+
+
+ 344 0032 0128     		cmp	r0, #1
+ 345 0034 00D0     		beq	.L27
+ 346              	.L28:
+ 347 0036 FEE7     		b	.L28
+ 348              	.L27:
+  78:main.c        ****                         "Read Sensor",              // const char * const pcName,
+ 349              		.loc 1 78 0
+ 350 0038 0023     		movs	r3, #0
+ 351 003a 0193     		str	r3, [sp, #4]
+ 352 003c 0422     		movs	r2, #4
+ 353 003e 0092     		str	r2, [sp]
+ 354 0040 C822     		movs	r2, #200
+ 355 0042 0849     		ldr	r1, .L33+12
+ 356 0044 0848     		ldr	r0, .L33+16
+ 357              	.LVL44:
+ 358 0046 FFF7FEFF 		bl	xTaskCreate
+ 359              	.LVL45:
+  85:main.c        ****         // Cannot create task!
+ 360              		.loc 1 85 0
+ 361 004a 0128     		cmp	r0, #1
+ 362 004c 00D0     		beq	.L29
+ 363              	.L30:
+ 364 004e FEE7     		b	.L30
+ 365              	.L29:
+  91:main.c        ****     
+ 366              		.loc 1 91 0
+ 367 0050 FFF7FEFF 		bl	vTaskStartScheduler
+ 368              	.LVL46:
+ 369              	.L31:
+ 370 0054 FEE7     		b	.L31
+ 371              	.L34:
+ 372 0056 00BF     		.align	2
+ 373              	.L33:
+ 374 0058 00000000 		.word	.LANCHOR0
+ 375 005c 1C000000 		.word	.LC3
+ 376 0060 00000000 		.word	vUARTTask1
+ 377 0064 24000000 		.word	.LC4
+ 378 0068 00000000 		.word	vReadUltraSonicTask
+ 379              		.cfi_endproc
+ 380              	.LFE69:
+ 381              		.size	main, .-main
+ 382              		.section	.text.beep,"ax",%progbits
+ 383              		.align	2
+ 384              		.global	beep
+ 385              		.thumb
+ 386              		.thumb_func
+ 387              		.type	beep, %function
+ 388              	beep:
+ 389              	.LFB74:
+ 211:main.c        **** }
+ 212:main.c        **** 
+ 213:main.c        **** const int c = 261;
+ 214:main.c        **** const int d = 294;
+ 215:main.c        **** const int e = 329;
+ 216:main.c        **** const int f = 349;
+ 217:main.c        **** const int g = 391;
+ 218:main.c        **** const int gS = 415;
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 12
+
+
+ 219:main.c        **** const int a = 440;
+ 220:main.c        **** const int aS = 455;
+ 221:main.c        **** const int b = 466;
+ 222:main.c        **** const int cH = 523;
+ 223:main.c        **** const int cSH = 554;
+ 224:main.c        **** const int dH = 587;
+ 225:main.c        **** const int dSH = 622;
+ 226:main.c        **** const int eH = 659;
+ 227:main.c        **** const int fH = 698;
+ 228:main.c        **** const int fSH = 740;
+ 229:main.c        **** const int gH = 784;
+ 230:main.c        **** const int gSH = 830;
+ 231:main.c        **** const int aH = 880;
+ 232:main.c        **** 
+ 233:main.c        **** void beep(int note, int duration)
+ 234:main.c        **** {
+ 390              		.loc 1 234 0
+ 391              		.cfi_startproc
+ 392              		@ args = 0, pretend = 0, frame = 0
+ 393              		@ frame_needed = 0, uses_anonymous_args = 0
+ 394              	.LVL47:
+ 395 0000 10B5     		push	{r4, lr}
+ 396              		.cfi_def_cfa_offset 8
+ 397              		.cfi_offset 4, -8
+ 398              		.cfi_offset 14, -4
+ 399 0002 0C46     		mov	r4, r1
+ 235:main.c        ****   //Play tone on buzzerPin
+ 236:main.c        ****   //tone(buzzerPin, note, duration);
+ 237:main.c        ****   PWM_Music_WriteCompare(note);
+ 400              		.loc 1 237 0
+ 401 0004 80B2     		uxth	r0, r0
+ 402              	.LVL48:
+ 403 0006 FFF7FEFF 		bl	PWM_Music_WriteCompare
+ 404              	.LVL49:
+ 238:main.c        ****   //CyDelay(duration);
+ 239:main.c        ****   vTaskDelay(pdMS_TO_TICKS(duration));
+ 405              		.loc 1 239 0
+ 406 000a 4FF47A70 		mov	r0, #1000
+ 407 000e 00FB04F1 		mul	r1, r0, r4
+ 408 0012 0348     		ldr	r0, .L37
+ 409 0014 A0FB0130 		umull	r3, r0, r0, r1
+ 410 0018 8009     		lsrs	r0, r0, #6
+ 411 001a FFF7FEFF 		bl	vTaskDelay
+ 412              	.LVL50:
+ 413 001e 10BD     		pop	{r4, pc}
+ 414              	.LVL51:
+ 415              	.L38:
+ 416              		.align	2
+ 417              	.L37:
+ 418 0020 D34D6210 		.word	274877907
+ 419              		.cfi_endproc
+ 420              	.LFE74:
+ 421              		.size	beep, .-beep
+ 422              		.section	.text.firstSection,"ax",%progbits
+ 423              		.align	2
+ 424              		.global	firstSection
+ 425              		.thumb
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 13
+
+
+ 426              		.thumb_func
+ 427              		.type	firstSection, %function
+ 428              	firstSection:
+ 429              	.LFB75:
+ 240:main.c        **** }
+ 241:main.c        ****  
+ 242:main.c        **** void firstSection()
+ 243:main.c        **** {
+ 430              		.loc 1 243 0
+ 431              		.cfi_startproc
+ 432              		@ args = 0, pretend = 0, frame = 0
+ 433              		@ frame_needed = 0, uses_anonymous_args = 0
+ 434 0000 08B5     		push	{r3, lr}
+ 435              		.cfi_def_cfa_offset 8
+ 436              		.cfi_offset 3, -8
+ 437              		.cfi_offset 14, -4
+ 244:main.c        ****   beep(a, 500);
+ 438              		.loc 1 244 0
+ 439 0002 4FF4FA71 		mov	r1, #500
+ 440 0006 4FF4DC70 		mov	r0, #440
+ 441 000a FFF7FEFF 		bl	beep
+ 442              	.LVL52:
+ 245:main.c        ****   beep(a, 500);    
+ 443              		.loc 1 245 0
+ 444 000e 4FF4FA71 		mov	r1, #500
+ 445 0012 4FF4DC70 		mov	r0, #440
+ 446 0016 FFF7FEFF 		bl	beep
+ 447              	.LVL53:
+ 246:main.c        ****   beep(a, 500);
+ 448              		.loc 1 246 0
+ 449 001a 4FF4FA71 		mov	r1, #500
+ 450 001e 4FF4DC70 		mov	r0, #440
+ 451 0022 FFF7FEFF 		bl	beep
+ 452              	.LVL54:
+ 247:main.c        ****   beep(f, 350);
+ 453              		.loc 1 247 0
+ 454 0026 4FF4AF71 		mov	r1, #350
+ 455 002a 40F25D10 		movw	r0, #349
+ 456 002e FFF7FEFF 		bl	beep
+ 457              	.LVL55:
+ 248:main.c        ****   beep(cH, 150);  
+ 458              		.loc 1 248 0
+ 459 0032 9621     		movs	r1, #150
+ 460 0034 40F20B20 		movw	r0, #523
+ 461 0038 FFF7FEFF 		bl	beep
+ 462              	.LVL56:
+ 249:main.c        ****   beep(a, 500);
+ 463              		.loc 1 249 0
+ 464 003c 4FF4FA71 		mov	r1, #500
+ 465 0040 4FF4DC70 		mov	r0, #440
+ 466 0044 FFF7FEFF 		bl	beep
+ 467              	.LVL57:
+ 250:main.c        ****   beep(f, 350);
+ 468              		.loc 1 250 0
+ 469 0048 4FF4AF71 		mov	r1, #350
+ 470 004c 40F25D10 		movw	r0, #349
+ 471 0050 FFF7FEFF 		bl	beep
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 14
+
+
+ 472              	.LVL58:
+ 251:main.c        ****   beep(cH, 150);
+ 473              		.loc 1 251 0
+ 474 0054 9621     		movs	r1, #150
+ 475 0056 40F20B20 		movw	r0, #523
+ 476 005a FFF7FEFF 		bl	beep
+ 477              	.LVL59:
+ 252:main.c        ****   beep(a, 650);
+ 478              		.loc 1 252 0
+ 479 005e 40F28A21 		movw	r1, #650
+ 480 0062 4FF4DC70 		mov	r0, #440
+ 481 0066 FFF7FEFF 		bl	beep
+ 482              	.LVL60:
+ 253:main.c        ****  
+ 254:main.c        ****   CyDelay(500);
+ 483              		.loc 1 254 0
+ 484 006a 4FF4FA70 		mov	r0, #500
+ 485 006e FFF7FEFF 		bl	CyDelay
+ 486              	.LVL61:
+ 255:main.c        ****  
+ 256:main.c        ****   beep(eH, 500);
+ 487              		.loc 1 256 0
+ 488 0072 4FF4FA71 		mov	r1, #500
+ 489 0076 40F29320 		movw	r0, #659
+ 490 007a FFF7FEFF 		bl	beep
+ 491              	.LVL62:
+ 257:main.c        ****   beep(eH, 500);
+ 492              		.loc 1 257 0
+ 493 007e 4FF4FA71 		mov	r1, #500
+ 494 0082 40F29320 		movw	r0, #659
+ 495 0086 FFF7FEFF 		bl	beep
+ 496              	.LVL63:
+ 258:main.c        ****   beep(eH, 500);  
+ 497              		.loc 1 258 0
+ 498 008a 4FF4FA71 		mov	r1, #500
+ 499 008e 40F29320 		movw	r0, #659
+ 500 0092 FFF7FEFF 		bl	beep
+ 501              	.LVL64:
+ 259:main.c        ****   beep(fH, 350);
+ 502              		.loc 1 259 0
+ 503 0096 4FF4AF71 		mov	r1, #350
+ 504 009a 40F2BA20 		movw	r0, #698
+ 505 009e FFF7FEFF 		bl	beep
+ 506              	.LVL65:
+ 260:main.c        ****   beep(cH, 150);
+ 507              		.loc 1 260 0
+ 508 00a2 9621     		movs	r1, #150
+ 509 00a4 40F20B20 		movw	r0, #523
+ 510 00a8 FFF7FEFF 		bl	beep
+ 511              	.LVL66:
+ 261:main.c        ****   beep(gS, 500);
+ 512              		.loc 1 261 0
+ 513 00ac 4FF4FA71 		mov	r1, #500
+ 514 00b0 40F29F10 		movw	r0, #415
+ 515 00b4 FFF7FEFF 		bl	beep
+ 516              	.LVL67:
+ 262:main.c        ****   beep(f, 350);
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 15
+
+
+ 517              		.loc 1 262 0
+ 518 00b8 4FF4AF71 		mov	r1, #350
+ 519 00bc 40F25D10 		movw	r0, #349
+ 520 00c0 FFF7FEFF 		bl	beep
+ 521              	.LVL68:
+ 263:main.c        ****   beep(cH, 150);
+ 522              		.loc 1 263 0
+ 523 00c4 9621     		movs	r1, #150
+ 524 00c6 40F20B20 		movw	r0, #523
+ 525 00ca FFF7FEFF 		bl	beep
+ 526              	.LVL69:
+ 264:main.c        ****   beep(a, 650);
+ 527              		.loc 1 264 0
+ 528 00ce 40F28A21 		movw	r1, #650
+ 529 00d2 4FF4DC70 		mov	r0, #440
+ 530 00d6 FFF7FEFF 		bl	beep
+ 531              	.LVL70:
+ 265:main.c        ****  
+ 266:main.c        ****   CyDelay(500);
+ 532              		.loc 1 266 0
+ 533 00da 4FF4FA70 		mov	r0, #500
+ 534 00de FFF7FEFF 		bl	CyDelay
+ 535              	.LVL71:
+ 536 00e2 08BD     		pop	{r3, pc}
+ 537              		.cfi_endproc
+ 538              	.LFE75:
+ 539              		.size	firstSection, .-firstSection
+ 540              		.section	.text.vUARTTask1,"ax",%progbits
+ 541              		.align	2
+ 542              		.global	vUARTTask1
+ 543              		.thumb
+ 544              		.thumb_func
+ 545              		.type	vUARTTask1, %function
+ 546              	vUARTTask1:
+ 547              	.LFB72:
+ 154:main.c        ****     
+ 548              		.loc 1 154 0
+ 549              		.cfi_startproc
+ 550              		@ args = 0, pretend = 0, frame = 24
+ 551              		@ frame_needed = 0, uses_anonymous_args = 0
+ 552              	.LVL72:
+ 553 0000 10B5     		push	{r4, lr}
+ 554              		.cfi_def_cfa_offset 8
+ 555              		.cfi_offset 4, -8
+ 556              		.cfi_offset 14, -4
+ 557 0002 86B0     		sub	sp, sp, #24
+ 558              		.cfi_def_cfa_offset 32
+ 559              	.LVL73:
+ 560              	.L44:
+ 162:main.c        ****             rxSize = xMessageBufferReceive(xMessageBuffer,buf,sizeof(buf),100);
+ 561              		.loc 1 162 0
+ 562 0004 184B     		ldr	r3, .L46
+ 563 0006 D869     		ldr	r0, [r3, #28]
+ 564 0008 FFF7FEFF 		bl	xStreamBufferIsEmpty
+ 565              	.LVL74:
+ 566 000c 38BB     		cbnz	r0, .L42
+ 163:main.c        ****             pch = strtok(buf, delim);
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 16
+
+
+ 567              		.loc 1 163 0
+ 568 000e 6423     		movs	r3, #100
+ 569 0010 1422     		movs	r2, #20
+ 570 0012 01A9     		add	r1, sp, #4
+ 571 0014 1448     		ldr	r0, .L46
+ 572 0016 C069     		ldr	r0, [r0, #28]
+ 573 0018 FFF7FEFF 		bl	xStreamBufferReceive
+ 574              	.LVL75:
+ 164:main.c        ****             if (strcmp(pch, "SystemON") == 0){
+ 575              		.loc 1 164 0
+ 576 001c 1349     		ldr	r1, .L46+4
+ 577 001e 01A8     		add	r0, sp, #4
+ 578 0020 FFF7FEFF 		bl	strtok
+ 579              	.LVL76:
+ 580 0024 0446     		mov	r4, r0
+ 581              	.LVL77:
+ 165:main.c        ****                 PWM_Servo_WriteCompare(CMP180);
+ 582              		.loc 1 165 0
+ 583 0026 1249     		ldr	r1, .L46+8
+ 584 0028 FFF7FEFF 		bl	strcmp
+ 585              	.LVL78:
+ 586 002c 48B9     		cbnz	r0, .L43
+ 166:main.c        ****                 LED_Write(1);
+ 587              		.loc 1 166 0
+ 588 002e 44F2BF40 		movw	r0, #17599
+ 589 0032 FFF7FEFF 		bl	PWM_Servo_WriteCompare
+ 590              	.LVL79:
+ 167:main.c        ****                 firstSection();
+ 591              		.loc 1 167 0
+ 592 0036 0120     		movs	r0, #1
+ 593 0038 FFF7FEFF 		bl	LED_Write
+ 594              	.LVL80:
+ 168:main.c        ****             }else if (strcmp(pch, "SystemOFF") == 0){
+ 595              		.loc 1 168 0
+ 596 003c FFF7FEFF 		bl	firstSection
+ 597              	.LVL81:
+ 598 0040 0DE0     		b	.L42
+ 599              	.L43:
+ 169:main.c        ****                 PWM_Servo_WriteCompare(CMP0);
+ 600              		.loc 1 169 0
+ 601 0042 0C49     		ldr	r1, .L46+12
+ 602 0044 2046     		mov	r0, r4
+ 603 0046 FFF7FEFF 		bl	strcmp
+ 604              	.LVL82:
+ 605 004a 40B9     		cbnz	r0, .L42
+ 170:main.c        ****                 LED_Write(0);
+ 606              		.loc 1 170 0
+ 607 004c 44F69B20 		movw	r0, #19099
+ 608 0050 FFF7FEFF 		bl	PWM_Servo_WriteCompare
+ 609              	.LVL83:
+ 171:main.c        ****                 firstSection();
+ 610              		.loc 1 171 0
+ 611 0054 0020     		movs	r0, #0
+ 612 0056 FFF7FEFF 		bl	LED_Write
+ 613              	.LVL84:
+ 172:main.c        ****             }
+ 614              		.loc 1 172 0
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 17
+
+
+ 615 005a FFF7FEFF 		bl	firstSection
+ 616              	.LVL85:
+ 617              	.L42:
+ 175:main.c        ****     }
+ 618              		.loc 1 175 0
+ 619 005e 6420     		movs	r0, #100
+ 620 0060 FFF7FEFF 		bl	vTaskDelay
+ 621              	.LVL86:
+ 176:main.c        **** }
+ 622              		.loc 1 176 0
+ 623 0064 CEE7     		b	.L44
+ 624              	.L47:
+ 625 0066 00BF     		.align	2
+ 626              	.L46:
+ 627 0068 00000000 		.word	.LANCHOR0
+ 628 006c 30000000 		.word	.LC5
+ 629 0070 34000000 		.word	.LC6
+ 630 0074 40000000 		.word	.LC7
+ 631              		.cfi_endproc
+ 632              	.LFE72:
+ 633              		.size	vUARTTask1, .-vUARTTask1
+ 634              		.section	.text.secondSection,"ax",%progbits
+ 635              		.align	2
+ 636              		.global	secondSection
+ 637              		.thumb
+ 638              		.thumb_func
+ 639              		.type	secondSection, %function
+ 640              	secondSection:
+ 641              	.LFB76:
+ 267:main.c        **** }
+ 268:main.c        ****  
+ 269:main.c        **** void secondSection()
+ 270:main.c        **** {
+ 642              		.loc 1 270 0
+ 643              		.cfi_startproc
+ 644              		@ args = 0, pretend = 0, frame = 0
+ 645              		@ frame_needed = 0, uses_anonymous_args = 0
+ 646 0000 08B5     		push	{r3, lr}
+ 647              		.cfi_def_cfa_offset 8
+ 648              		.cfi_offset 3, -8
+ 649              		.cfi_offset 14, -4
+ 271:main.c        ****   beep(aH, 500);
+ 650              		.loc 1 271 0
+ 651 0002 4FF4FA71 		mov	r1, #500
+ 652 0006 4FF45C70 		mov	r0, #880
+ 653 000a FFF7FEFF 		bl	beep
+ 654              	.LVL87:
+ 272:main.c        ****   beep(a, 300);
+ 655              		.loc 1 272 0
+ 656 000e 4FF49671 		mov	r1, #300
+ 657 0012 4FF4DC70 		mov	r0, #440
+ 658 0016 FFF7FEFF 		bl	beep
+ 659              	.LVL88:
+ 273:main.c        ****   beep(a, 150);
+ 660              		.loc 1 273 0
+ 661 001a 9621     		movs	r1, #150
+ 662 001c 4FF4DC70 		mov	r0, #440
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 18
+
+
+ 663 0020 FFF7FEFF 		bl	beep
+ 664              	.LVL89:
+ 274:main.c        ****   beep(aH, 500);
+ 665              		.loc 1 274 0
+ 666 0024 4FF4FA71 		mov	r1, #500
+ 667 0028 4FF45C70 		mov	r0, #880
+ 668 002c FFF7FEFF 		bl	beep
+ 669              	.LVL90:
+ 275:main.c        ****   beep(gSH, 325);
+ 670              		.loc 1 275 0
+ 671 0030 40F24511 		movw	r1, #325
+ 672 0034 40F23E30 		movw	r0, #830
+ 673 0038 FFF7FEFF 		bl	beep
+ 674              	.LVL91:
+ 276:main.c        ****   beep(gH, 175);
+ 675              		.loc 1 276 0
+ 676 003c AF21     		movs	r1, #175
+ 677 003e 4FF44470 		mov	r0, #784
+ 678 0042 FFF7FEFF 		bl	beep
+ 679              	.LVL92:
+ 277:main.c        ****   beep(fSH, 125);
+ 680              		.loc 1 277 0
+ 681 0046 7D21     		movs	r1, #125
+ 682 0048 4FF43970 		mov	r0, #740
+ 683 004c FFF7FEFF 		bl	beep
+ 684              	.LVL93:
+ 278:main.c        ****   beep(fH, 125);    
+ 685              		.loc 1 278 0
+ 686 0050 7D21     		movs	r1, #125
+ 687 0052 40F2BA20 		movw	r0, #698
+ 688 0056 FFF7FEFF 		bl	beep
+ 689              	.LVL94:
+ 279:main.c        ****   beep(fSH, 250);
+ 690              		.loc 1 279 0
+ 691 005a FA21     		movs	r1, #250
+ 692 005c 4FF43970 		mov	r0, #740
+ 693 0060 FFF7FEFF 		bl	beep
+ 694              	.LVL95:
+ 280:main.c        ****  
+ 281:main.c        ****   CyDelay(325);
+ 695              		.loc 1 281 0
+ 696 0064 40F24510 		movw	r0, #325
+ 697 0068 FFF7FEFF 		bl	CyDelay
+ 698              	.LVL96:
+ 282:main.c        ****  
+ 283:main.c        ****   beep(aS, 250);
+ 699              		.loc 1 283 0
+ 700 006c FA21     		movs	r1, #250
+ 701 006e 40F2C710 		movw	r0, #455
+ 702 0072 FFF7FEFF 		bl	beep
+ 703              	.LVL97:
+ 284:main.c        ****   beep(dSH, 500);
+ 704              		.loc 1 284 0
+ 705 0076 4FF4FA71 		mov	r1, #500
+ 706 007a 40F26E20 		movw	r0, #622
+ 707 007e FFF7FEFF 		bl	beep
+ 708              	.LVL98:
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 19
+
+
+ 285:main.c        ****   beep(dH, 325);  
+ 709              		.loc 1 285 0
+ 710 0082 40F24511 		movw	r1, #325
+ 711 0086 40F24B20 		movw	r0, #587
+ 712 008a FFF7FEFF 		bl	beep
+ 713              	.LVL99:
+ 286:main.c        ****   beep(cSH, 175);  
+ 714              		.loc 1 286 0
+ 715 008e AF21     		movs	r1, #175
+ 716 0090 40F22A20 		movw	r0, #554
+ 717 0094 FFF7FEFF 		bl	beep
+ 718              	.LVL100:
+ 287:main.c        ****   beep(cH, 125);  
+ 719              		.loc 1 287 0
+ 720 0098 7D21     		movs	r1, #125
+ 721 009a 40F20B20 		movw	r0, #523
+ 722 009e FFF7FEFF 		bl	beep
+ 723              	.LVL101:
+ 288:main.c        ****   beep(b, 125);  
+ 724              		.loc 1 288 0
+ 725 00a2 7D21     		movs	r1, #125
+ 726 00a4 4FF4E970 		mov	r0, #466
+ 727 00a8 FFF7FEFF 		bl	beep
+ 728              	.LVL102:
+ 289:main.c        ****   beep(cH, 250);  
+ 729              		.loc 1 289 0
+ 730 00ac FA21     		movs	r1, #250
+ 731 00ae 40F20B20 		movw	r0, #523
+ 732 00b2 FFF7FEFF 		bl	beep
+ 733              	.LVL103:
+ 290:main.c        ****  
+ 291:main.c        ****   CyDelay(350);
+ 734              		.loc 1 291 0
+ 735 00b6 4FF4AF70 		mov	r0, #350
+ 736 00ba FFF7FEFF 		bl	CyDelay
+ 737              	.LVL104:
+ 738 00be 08BD     		pop	{r3, pc}
+ 739              		.cfi_endproc
+ 740              	.LFE76:
+ 741              		.size	secondSection, .-secondSection
+ 742              		.section	.text.vMusicTask,"ax",%progbits
+ 743              		.align	2
+ 744              		.global	vMusicTask
+ 745              		.thumb
+ 746              		.thumb_func
+ 747              		.type	vMusicTask, %function
+ 748              	vMusicTask:
+ 749              	.LFB77:
+ 292:main.c        **** }
+ 293:main.c        **** void vMusicTask(void *pvParaments){
+ 750              		.loc 1 293 0
+ 751              		.cfi_startproc
+ 752              		@ Volatile: function does not return.
+ 753              		@ args = 0, pretend = 0, frame = 0
+ 754              		@ frame_needed = 0, uses_anonymous_args = 0
+ 755              		@ link register save eliminated.
+ 756              	.LVL105:
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 20
+
+
+ 757              	.L51:
+ 758 0000 FEE7     		b	.L51
+ 759              		.cfi_endproc
+ 760              	.LFE77:
+ 761              		.size	vMusicTask, .-vMusicTask
+ 762              		.global	aH
+ 763              		.global	gSH
+ 764              		.global	gH
+ 765              		.global	fSH
+ 766              		.global	fH
+ 767              		.global	eH
+ 768              		.global	dSH
+ 769              		.global	dH
+ 770              		.global	cSH
+ 771              		.global	cH
+ 772              		.global	b
+ 773              		.global	aS
+ 774              		.global	a
+ 775              		.global	gS
+ 776              		.global	g
+ 777              		.global	f
+ 778              		.global	e
+ 779              		.global	d
+ 780              		.global	c
+ 781              		.global	xMessageBuffer
+ 782 0002 00BF     		.section	.rodata
+ 783              		.align	2
+ 784              		.type	aH, %object
+ 785              		.size	aH, 4
+ 786              	aH:
+ 787 0000 70030000 		.word	880
+ 788              		.type	gSH, %object
+ 789              		.size	gSH, 4
+ 790              	gSH:
+ 791 0004 3E030000 		.word	830
+ 792              		.type	gH, %object
+ 793              		.size	gH, 4
+ 794              	gH:
+ 795 0008 10030000 		.word	784
+ 796              		.type	fSH, %object
+ 797              		.size	fSH, 4
+ 798              	fSH:
+ 799 000c E4020000 		.word	740
+ 800              		.type	fH, %object
+ 801              		.size	fH, 4
+ 802              	fH:
+ 803 0010 BA020000 		.word	698
+ 804              		.type	eH, %object
+ 805              		.size	eH, 4
+ 806              	eH:
+ 807 0014 93020000 		.word	659
+ 808              		.type	dSH, %object
+ 809              		.size	dSH, 4
+ 810              	dSH:
+ 811 0018 6E020000 		.word	622
+ 812              		.type	dH, %object
+ 813              		.size	dH, 4
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 21
+
+
+ 814              	dH:
+ 815 001c 4B020000 		.word	587
+ 816              		.type	cSH, %object
+ 817              		.size	cSH, 4
+ 818              	cSH:
+ 819 0020 2A020000 		.word	554
+ 820              		.type	cH, %object
+ 821              		.size	cH, 4
+ 822              	cH:
+ 823 0024 0B020000 		.word	523
+ 824              		.type	b, %object
+ 825              		.size	b, 4
+ 826              	b:
+ 827 0028 D2010000 		.word	466
+ 828              		.type	aS, %object
+ 829              		.size	aS, 4
+ 830              	aS:
+ 831 002c C7010000 		.word	455
+ 832              		.type	a, %object
+ 833              		.size	a, 4
+ 834              	a:
+ 835 0030 B8010000 		.word	440
+ 836              		.type	gS, %object
+ 837              		.size	gS, 4
+ 838              	gS:
+ 839 0034 9F010000 		.word	415
+ 840              		.type	g, %object
+ 841              		.size	g, 4
+ 842              	g:
+ 843 0038 87010000 		.word	391
+ 844              		.type	f, %object
+ 845              		.size	f, 4
+ 846              	f:
+ 847 003c 5D010000 		.word	349
+ 848              		.type	e, %object
+ 849              		.size	e, 4
+ 850              	e:
+ 851 0040 49010000 		.word	329
+ 852              		.type	d, %object
+ 853              		.size	d, 4
+ 854              	d:
+ 855 0044 26010000 		.word	294
+ 856              		.type	c, %object
+ 857              		.size	c, 4
+ 858              	c:
+ 859 0048 05010000 		.word	261
+ 860              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 861              		.align	2
+ 862              	.LC0:
+ 863 0000 2B25643A 		.ascii	"+%d:\015\012\000"
+ 863      0D0A00
+ 864 0007 00       		.space	1
+ 865              	.LC1:
+ 866 0008 53656E64 		.ascii	"Sending \000"
+ 866      696E6720 
+ 866      00
+ 867 0011 000000   		.space	3
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 22
+
+
+ 868              	.LC2:
+ 869 0014 53746172 		.ascii	"Start\015\012\000"
+ 869      740D0A00 
+ 870              	.LC3:
+ 871 001c 5461736B 		.ascii	"Task 1\000"
+ 871      203100
+ 872 0023 00       		.space	1
+ 873              	.LC4:
+ 874 0024 52656164 		.ascii	"Read Sensor\000"
+ 874      2053656E 
+ 874      736F7200 
+ 875              	.LC5:
+ 876 0030 3A00     		.ascii	":\000"
+ 877 0032 0000     		.space	2
+ 878              	.LC6:
+ 879 0034 53797374 		.ascii	"SystemON\000"
+ 879      656D4F4E 
+ 879      00
+ 880 003d 000000   		.space	3
+ 881              	.LC7:
+ 882 0040 53797374 		.ascii	"SystemOFF\000"
+ 882      656D4F46 
+ 882      4600
+ 883              		.bss
+ 884              		.align	2
+ 885              		.set	.LANCHOR0,. + 0
+ 886              		.type	state.7782, %object
+ 887              		.size	state.7782, 1
+ 888              	state.7782:
+ 889 0000 00       		.space	1
+ 890 0001 000000   		.space	3
+ 891              		.type	idx.7781, %object
+ 892              		.size	idx.7781, 4
+ 893              	idx.7781:
+ 894 0004 00000000 		.space	4
+ 895              		.type	buf.7780, %object
+ 896              		.size	buf.7780, 20
+ 897              	buf.7780:
+ 898 0008 00000000 		.space	20
+ 898      00000000 
+ 898      00000000 
+ 898      00000000 
+ 898      00000000 
+ 899              		.type	xMessageBuffer, %object
+ 900              		.size	xMessageBuffer, 4
+ 901              	xMessageBuffer:
+ 902 001c 00000000 		.space	4
+ 903              		.text
+ 904              	.Letext0:
+ 905              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 906              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 907              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 908              		.file 5 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 909              		.file 6 "..\\FreeRTOS\\portable\\GCC\\ARM_CM3/portmacro.h"
+ 910              		.file 7 "..\\FreeRTOS\\include/stream_buffer.h"
+ 911              		.file 8 "..\\FreeRTOS\\include/message_buffer.h"
+ 912              		.file 9 "Generated_Source\\PSoC5/core_cm3.h"
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 23
+
+
+ 913              		.file 10 "Generated_Source\\PSoC5/UART.h"
+ 914              		.file 11 "Generated_Source\\PSoC5/LED.h"
+ 915              		.file 12 "Generated_Source\\PSoC5/Trigger.h"
+ 916              		.file 13 "..\\FreeRTOS\\include/task.h"
+ 917              		.file 14 "Generated_Source\\PSoC5/Echo.h"
+ 918              		.file 15 "Generated_Source\\PSoC5/Timer.h"
+ 919              		.file 16 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4
+ 920              		.file 17 "Generated_Source\\PSoC5/UART_USB.h"
+ 921              		.file 18 "Generated_Source\\PSoC5/ISR_UART.h"
+ 922              		.file 19 "Generated_Source\\PSoC5/PWM_Servo.h"
+ 923              		.file 20 "Generated_Source\\PSoC5/PWM_Music.h"
+ 924              		.file 21 "..\\FreeRTOS/FreeRTOS_PSoC.h"
+ 925              		.file 22 "Generated_Source\\PSoC5/CyLib.h"
+ 926              		.file 23 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4
+ 927              		.file 24 "<built-in>"
+ 928              		.section	.debug_info,"",%progbits
+ 929              	.Ldebug_info0:
+ 930 0000 530D0000 		.4byte	0xd53
+ 931 0004 0400     		.2byte	0x4
+ 932 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 933 000a 04       		.byte	0x4
+ 934 000b 01       		.uleb128 0x1
+ 935 000c 02040000 		.4byte	.LASF77
+ 936 0010 0C       		.byte	0xc
+ 937 0011 5C030000 		.4byte	.LASF78
+ 938 0015 4B010000 		.4byte	.LASF79
+ 939 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 940 001d 00000000 		.4byte	0
+ 941 0021 00000000 		.4byte	.Ldebug_line0
+ 942 0025 02       		.uleb128 0x2
+ 943 0026 08       		.byte	0x8
+ 944 0027 07       		.byte	0x7
+ 945 0028 27020000 		.4byte	.LASF0
+ 946 002c 02       		.uleb128 0x2
+ 947 002d 04       		.byte	0x4
+ 948 002e 07       		.byte	0x7
+ 949 002f 79020000 		.4byte	.LASF1
+ 950 0033 02       		.uleb128 0x2
+ 951 0034 01       		.byte	0x1
+ 952 0035 06       		.byte	0x6
+ 953 0036 13020000 		.4byte	.LASF2
+ 954 003a 02       		.uleb128 0x2
+ 955 003b 01       		.byte	0x1
+ 956 003c 08       		.byte	0x8
+ 957 003d E8010000 		.4byte	.LASF3
+ 958 0041 02       		.uleb128 0x2
+ 959 0042 02       		.byte	0x2
+ 960 0043 05       		.byte	0x5
+ 961 0044 3C000000 		.4byte	.LASF4
+ 962 0048 02       		.uleb128 0x2
+ 963 0049 02       		.byte	0x2
+ 964 004a 07       		.byte	0x7
+ 965 004b C0020000 		.4byte	.LASF5
+ 966 004f 03       		.uleb128 0x3
+ 967 0050 B7030000 		.4byte	.LASF7
+ 968 0054 02       		.byte	0x2
+ 969 0055 3F       		.byte	0x3f
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 24
+
+
+ 970 0056 5A000000 		.4byte	0x5a
+ 971 005a 02       		.uleb128 0x2
+ 972 005b 04       		.byte	0x4
+ 973 005c 05       		.byte	0x5
+ 974 005d 32010000 		.4byte	.LASF6
+ 975 0061 03       		.uleb128 0x3
+ 976 0062 9E030000 		.4byte	.LASF8
+ 977 0066 02       		.byte	0x2
+ 978 0067 41       		.byte	0x41
+ 979 0068 6C000000 		.4byte	0x6c
+ 980 006c 02       		.uleb128 0x2
+ 981 006d 04       		.byte	0x4
+ 982 006e 07       		.byte	0x7
+ 983 006f 63030000 		.4byte	.LASF9
+ 984 0073 02       		.uleb128 0x2
+ 985 0074 08       		.byte	0x8
+ 986 0075 05       		.byte	0x5
+ 987 0076 F9000000 		.4byte	.LASF10
+ 988 007a 04       		.uleb128 0x4
+ 989 007b 04       		.byte	0x4
+ 990 007c 05       		.byte	0x5
+ 991 007d 696E7400 		.ascii	"int\000"
+ 992 0081 03       		.uleb128 0x3
+ 993 0082 1F020000 		.4byte	.LASF11
+ 994 0086 03       		.byte	0x3
+ 995 0087 2C       		.byte	0x2c
+ 996 0088 4F000000 		.4byte	0x4f
+ 997 008c 03       		.uleb128 0x3
+ 998 008d 57020000 		.4byte	.LASF12
+ 999 0091 03       		.byte	0x3
+ 1000 0092 30       		.byte	0x30
+ 1001 0093 61000000 		.4byte	0x61
+ 1002 0097 05       		.uleb128 0x5
+ 1003 0098 B8000000 		.4byte	.LASF13
+ 1004 009c 04       		.byte	0x4
+ 1005 009d E501     		.2byte	0x1e5
+ 1006 009f 48000000 		.4byte	0x48
+ 1007 00a3 02       		.uleb128 0x2
+ 1008 00a4 04       		.byte	0x4
+ 1009 00a5 04       		.byte	0x4
+ 1010 00a6 F3000000 		.4byte	.LASF14
+ 1011 00aa 02       		.uleb128 0x2
+ 1012 00ab 08       		.byte	0x8
+ 1013 00ac 04       		.byte	0x4
+ 1014 00ad 75030000 		.4byte	.LASF15
+ 1015 00b1 02       		.uleb128 0x2
+ 1016 00b2 01       		.byte	0x1
+ 1017 00b3 08       		.byte	0x8
+ 1018 00b4 D3020000 		.4byte	.LASF16
+ 1019 00b8 03       		.uleb128 0x3
+ 1020 00b9 15030000 		.4byte	.LASF17
+ 1021 00bd 05       		.byte	0x5
+ 1022 00be D8       		.byte	0xd8
+ 1023 00bf 2C000000 		.4byte	0x2c
+ 1024 00c3 02       		.uleb128 0x2
+ 1025 00c4 08       		.byte	0x8
+ 1026 00c5 04       		.byte	0x4
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 25
+
+
+ 1027 00c6 C5010000 		.4byte	.LASF18
+ 1028 00ca 02       		.uleb128 0x2
+ 1029 00cb 04       		.byte	0x4
+ 1030 00cc 07       		.byte	0x7
+ 1031 00cd 46000000 		.4byte	.LASF19
+ 1032 00d1 06       		.uleb128 0x6
+ 1033 00d2 04       		.byte	0x4
+ 1034 00d3 07       		.uleb128 0x7
+ 1035 00d4 04       		.byte	0x4
+ 1036 00d5 B1000000 		.4byte	0xb1
+ 1037 00d9 03       		.uleb128 0x3
+ 1038 00da 86020000 		.4byte	.LASF20
+ 1039 00de 06       		.byte	0x6
+ 1040 00df 43       		.byte	0x43
+ 1041 00e0 5A000000 		.4byte	0x5a
+ 1042 00e4 03       		.uleb128 0x3
+ 1043 00e5 07010000 		.4byte	.LASF21
+ 1044 00e9 06       		.byte	0x6
+ 1045 00ea 4A       		.byte	0x4a
+ 1046 00eb 8C000000 		.4byte	0x8c
+ 1047 00ef 03       		.uleb128 0x3
+ 1048 00f0 AB020000 		.4byte	.LASF22
+ 1049 00f4 07       		.byte	0x7
+ 1050 00f5 3D       		.byte	0x3d
+ 1051 00f6 D1000000 		.4byte	0xd1
+ 1052 00fa 03       		.uleb128 0x3
+ 1053 00fb 31030000 		.4byte	.LASF23
+ 1054 00ff 08       		.byte	0x8
+ 1055 0100 4F       		.byte	0x4f
+ 1056 0101 D1000000 		.4byte	0xd1
+ 1057 0105 08       		.uleb128 0x8
+ 1058 0106 C6040000 		.4byte	.LASF26
+ 1059 010a 01       		.byte	0x1
+ 1060 010b 3A000000 		.4byte	0x3a
+ 1061 010f 01       		.byte	0x1
+ 1062 0110 6F       		.byte	0x6f
+ 1063 0111 22010000 		.4byte	0x122
+ 1064 0115 09       		.uleb128 0x9
+ 1065 0116 D9000000 		.4byte	.LASF24
+ 1066 011a 00       		.byte	0
+ 1067 011b 09       		.uleb128 0x9
+ 1068 011c 82030000 		.4byte	.LASF25
+ 1069 0120 01       		.byte	0x1
+ 1070 0121 00       		.byte	0
+ 1071 0122 03       		.uleb128 0x3
+ 1072 0123 C6040000 		.4byte	.LASF26
+ 1073 0127 01       		.byte	0x1
+ 1074 0128 72       		.byte	0x72
+ 1075 0129 05010000 		.4byte	0x105
+ 1076 012d 0A       		.uleb128 0xa
+ 1077 012e 86000000 		.4byte	.LASF31
+ 1078 0132 01       		.byte	0x1
+ 1079 0133 74       		.byte	0x74
+ 1080 0134 00000000 		.4byte	.LFB71
+ 1081 0138 74000000 		.4byte	.LFE71-.LFB71
+ 1082 013c 01       		.uleb128 0x1
+ 1083 013d 9C       		.byte	0x9c
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 26
+
+
+ 1084 013e 01020000 		.4byte	0x201
+ 1085 0142 0B       		.uleb128 0xb
+ 1086 0143 62756600 		.ascii	"buf\000"
+ 1087 0147 01       		.byte	0x1
+ 1088 0148 75       		.byte	0x75
+ 1089 0149 01020000 		.4byte	0x201
+ 1090 014d 05       		.uleb128 0x5
+ 1091 014e 03       		.byte	0x3
+ 1092 014f 08000000 		.4byte	buf.7780
+ 1093 0153 0B       		.uleb128 0xb
+ 1094 0154 69647800 		.ascii	"idx\000"
+ 1095 0158 01       		.byte	0x1
+ 1096 0159 76       		.byte	0x76
+ 1097 015a 7A000000 		.4byte	0x7a
+ 1098 015e 05       		.uleb128 0x5
+ 1099 015f 03       		.byte	0x3
+ 1100 0160 04000000 		.4byte	idx.7781
+ 1101 0164 0C       		.uleb128 0xc
+ 1102 0165 F6010000 		.4byte	.LASF27
+ 1103 0169 01       		.byte	0x1
+ 1104 016a 77       		.byte	0x77
+ 1105 016b 22010000 		.4byte	0x122
+ 1106 016f 05       		.uleb128 0x5
+ 1107 0170 03       		.byte	0x3
+ 1108 0171 00000000 		.4byte	state.7782
+ 1109 0175 0D       		.uleb128 0xd
+ 1110 0176 636800   		.ascii	"ch\000"
+ 1111 0179 01       		.byte	0x1
+ 1112 017a 78       		.byte	0x78
+ 1113 017b B1000000 		.4byte	0xb1
+ 1114 017f 00000000 		.4byte	.LLST0
+ 1115 0183 0B       		.uleb128 0xb
+ 1116 0184 73747200 		.ascii	"str\000"
+ 1117 0188 01       		.byte	0x1
+ 1118 0189 79       		.byte	0x79
+ 1119 018a 01020000 		.4byte	0x201
+ 1120 018e 02       		.uleb128 0x2
+ 1121 018f 91       		.byte	0x91
+ 1122 0190 5C       		.sleb128 -36
+ 1123 0191 0E       		.uleb128 0xe
+ 1124 0192 3E020000 		.4byte	.LASF28
+ 1125 0196 01       		.byte	0x1
+ 1126 0197 7A       		.byte	0x7a
+ 1127 0198 D9000000 		.4byte	0xd9
+ 1128 019c 00       		.byte	0
+ 1129 019d 0F       		.uleb128 0xf
+ 1130 019e 0A000000 		.4byte	.LVL1
+ 1131 01a2 F60B0000 		.4byte	0xbf6
+ 1132 01a6 10       		.uleb128 0x10
+ 1133 01a7 42000000 		.4byte	.LVL4
+ 1134 01ab 010C0000 		.4byte	0xc01
+ 1135 01af C0010000 		.4byte	0x1c0
+ 1136 01b3 11       		.uleb128 0x11
+ 1137 01b4 01       		.uleb128 0x1
+ 1138 01b5 51       		.byte	0x51
+ 1139 01b6 02       		.uleb128 0x2
+ 1140 01b7 76       		.byte	0x76
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 27
+
+
+ 1141 01b8 00       		.sleb128 0
+ 1142 01b9 11       		.uleb128 0x11
+ 1143 01ba 01       		.uleb128 0x1
+ 1144 01bb 53       		.byte	0x53
+ 1145 01bc 02       		.uleb128 0x2
+ 1146 01bd 75       		.byte	0x75
+ 1147 01be 00       		.sleb128 0
+ 1148 01bf 00       		.byte	0
+ 1149 01c0 10       		.uleb128 0x10
+ 1150 01c1 4C000000 		.4byte	.LVL5
+ 1151 01c5 0D0C0000 		.4byte	0xc0d
+ 1152 01c9 DA010000 		.4byte	0x1da
+ 1153 01cd 11       		.uleb128 0x11
+ 1154 01ce 01       		.uleb128 0x1
+ 1155 01cf 50       		.byte	0x50
+ 1156 01d0 02       		.uleb128 0x2
+ 1157 01d1 91       		.byte	0x91
+ 1158 01d2 5C       		.sleb128 -36
+ 1159 01d3 11       		.uleb128 0x11
+ 1160 01d4 01       		.uleb128 0x1
+ 1161 01d5 51       		.byte	0x51
+ 1162 01d6 02       		.uleb128 0x2
+ 1163 01d7 76       		.byte	0x76
+ 1164 01d8 00       		.sleb128 0
+ 1165 01d9 00       		.byte	0
+ 1166 01da 10       		.uleb128 0x10
+ 1167 01db 52000000 		.4byte	.LVL6
+ 1168 01df 1C0C0000 		.4byte	0xc1c
+ 1169 01e3 EE010000 		.4byte	0x1ee
+ 1170 01e7 11       		.uleb128 0x11
+ 1171 01e8 01       		.uleb128 0x1
+ 1172 01e9 50       		.byte	0x50
+ 1173 01ea 02       		.uleb128 0x2
+ 1174 01eb 91       		.byte	0x91
+ 1175 01ec 5C       		.sleb128 -36
+ 1176 01ed 00       		.byte	0
+ 1177 01ee 0F       		.uleb128 0xf
+ 1178 01ef 64000000 		.4byte	.LVL9
+ 1179 01f3 270C0000 		.4byte	0xc27
+ 1180 01f7 0F       		.uleb128 0xf
+ 1181 01f8 6C000000 		.4byte	.LVL10
+ 1182 01fc 320C0000 		.4byte	0xc32
+ 1183 0200 00       		.byte	0
+ 1184 0201 12       		.uleb128 0x12
+ 1185 0202 B1000000 		.4byte	0xb1
+ 1186 0206 11020000 		.4byte	0x211
+ 1187 020a 13       		.uleb128 0x13
+ 1188 020b CA000000 		.4byte	0xca
+ 1189 020f 13       		.byte	0x13
+ 1190 0210 00       		.byte	0
+ 1191 0211 14       		.uleb128 0x14
+ 1192 0212 C5000000 		.4byte	.LASF38
+ 1193 0216 01       		.byte	0x1
+ 1194 0217 B3       		.byte	0xb3
+ 1195 0218 00000000 		.4byte	.LFB73
+ 1196 021c 90000000 		.4byte	.LFE73-.LFB73
+ 1197 0220 01       		.uleb128 0x1
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 28
+
+
+ 1198 0221 9C       		.byte	0x9c
+ 1199 0222 6B030000 		.4byte	0x36b
+ 1200 0226 15       		.uleb128 0x15
+ 1201 0227 47030000 		.4byte	.LASF33
+ 1202 022b 01       		.byte	0x1
+ 1203 022c B3       		.byte	0xb3
+ 1204 022d D1000000 		.4byte	0xd1
+ 1205 0231 1E000000 		.4byte	.LLST1
+ 1206 0235 16       		.uleb128 0x16
+ 1207 0236 30000000 		.4byte	.LASF29
+ 1208 023a 01       		.byte	0x1
+ 1209 023b B5       		.byte	0xb5
+ 1210 023c 97000000 		.4byte	0x97
+ 1211 0240 3F000000 		.4byte	.LLST2
+ 1212 0244 17       		.uleb128 0x17
+ 1213 0245 7C030000 		.4byte	.LASF40
+ 1214 0249 01       		.byte	0x1
+ 1215 024a B6       		.byte	0xb6
+ 1216 024b A3000000 		.4byte	0xa3
+ 1217 024f 16       		.uleb128 0x16
+ 1218 0250 00000000 		.4byte	.LASF30
+ 1219 0254 01       		.byte	0x1
+ 1220 0255 B7       		.byte	0xb7
+ 1221 0256 7A000000 		.4byte	0x7a
+ 1222 025a 52000000 		.4byte	.LLST3
+ 1223 025e 0B       		.uleb128 0xb
+ 1224 025f 73747200 		.ascii	"str\000"
+ 1225 0263 01       		.byte	0x1
+ 1226 0264 B8       		.byte	0xb8
+ 1227 0265 01020000 		.4byte	0x201
+ 1228 0269 02       		.uleb128 0x2
+ 1229 026a 91       		.byte	0x91
+ 1230 026b 64       		.sleb128 -28
+ 1231 026c 10       		.uleb128 0x10
+ 1232 026d 0A000000 		.4byte	.LVL13
+ 1233 0271 3D0C0000 		.4byte	0xc3d
+ 1234 0275 7F020000 		.4byte	0x27f
+ 1235 0279 11       		.uleb128 0x11
+ 1236 027a 01       		.uleb128 0x1
+ 1237 027b 50       		.byte	0x50
+ 1238 027c 01       		.uleb128 0x1
+ 1239 027d 31       		.byte	0x31
+ 1240 027e 00       		.byte	0
+ 1241 027f 10       		.uleb128 0x10
+ 1242 0280 10000000 		.4byte	.LVL14
+ 1243 0284 480C0000 		.4byte	0xc48
+ 1244 0288 92020000 		.4byte	0x292
+ 1245 028c 11       		.uleb128 0x11
+ 1246 028d 01       		.uleb128 0x1
+ 1247 028e 50       		.byte	0x50
+ 1248 028f 01       		.uleb128 0x1
+ 1249 0290 31       		.byte	0x31
+ 1250 0291 00       		.byte	0
+ 1251 0292 10       		.uleb128 0x10
+ 1252 0293 16000000 		.4byte	.LVL15
+ 1253 0297 530C0000 		.4byte	0xc53
+ 1254 029b A5020000 		.4byte	0x2a5
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 29
+
+
+ 1255 029f 11       		.uleb128 0x11
+ 1256 02a0 01       		.uleb128 0x1
+ 1257 02a1 50       		.byte	0x50
+ 1258 02a2 01       		.uleb128 0x1
+ 1259 02a3 3A       		.byte	0x3a
+ 1260 02a4 00       		.byte	0
+ 1261 02a5 10       		.uleb128 0x10
+ 1262 02a6 1C000000 		.4byte	.LVL16
+ 1263 02aa 480C0000 		.4byte	0xc48
+ 1264 02ae B8020000 		.4byte	0x2b8
+ 1265 02b2 11       		.uleb128 0x11
+ 1266 02b3 01       		.uleb128 0x1
+ 1267 02b4 50       		.byte	0x50
+ 1268 02b5 01       		.uleb128 0x1
+ 1269 02b6 30       		.byte	0x30
+ 1270 02b7 00       		.byte	0
+ 1271 02b8 0F       		.uleb128 0xf
+ 1272 02b9 20000000 		.4byte	.LVL17
+ 1273 02bd 5F0C0000 		.4byte	0xc5f
+ 1274 02c1 0F       		.uleb128 0xf
+ 1275 02c2 28000000 		.4byte	.LVL18
+ 1276 02c6 6A0C0000 		.4byte	0xc6a
+ 1277 02ca 0F       		.uleb128 0xf
+ 1278 02cb 2C000000 		.4byte	.LVL19
+ 1279 02cf 5F0C0000 		.4byte	0xc5f
+ 1280 02d3 0F       		.uleb128 0xf
+ 1281 02d4 34000000 		.4byte	.LVL20
+ 1282 02d8 750C0000 		.4byte	0xc75
+ 1283 02dc 10       		.uleb128 0x10
+ 1284 02dd 52000000 		.4byte	.LVL27
+ 1285 02e1 530C0000 		.4byte	0xc53
+ 1286 02e5 F0020000 		.4byte	0x2f0
+ 1287 02e9 11       		.uleb128 0x11
+ 1288 02ea 01       		.uleb128 0x1
+ 1289 02eb 50       		.byte	0x50
+ 1290 02ec 02       		.uleb128 0x2
+ 1291 02ed 08       		.byte	0x8
+ 1292 02ee C8       		.byte	0xc8
+ 1293 02ef 00       		.byte	0
+ 1294 02f0 0F       		.uleb128 0xf
+ 1295 02f1 56000000 		.4byte	.LVL28
+ 1296 02f5 800C0000 		.4byte	0xc80
+ 1297 02f9 10       		.uleb128 0x10
+ 1298 02fa 5C000000 		.4byte	.LVL29
+ 1299 02fe 3D0C0000 		.4byte	0xc3d
+ 1300 0302 0C030000 		.4byte	0x30c
+ 1301 0306 11       		.uleb128 0x11
+ 1302 0307 01       		.uleb128 0x1
+ 1303 0308 50       		.byte	0x50
+ 1304 0309 01       		.uleb128 0x1
+ 1305 030a 30       		.byte	0x30
+ 1306 030b 00       		.byte	0
+ 1307 030c 10       		.uleb128 0x10
+ 1308 030d 66000000 		.4byte	.LVL30
+ 1309 0311 8B0C0000 		.4byte	0xc8b
+ 1310 0315 2F030000 		.4byte	0x32f
+ 1311 0319 11       		.uleb128 0x11
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 30
+
+
+ 1312 031a 01       		.uleb128 0x1
+ 1313 031b 50       		.byte	0x50
+ 1314 031c 02       		.uleb128 0x2
+ 1315 031d 91       		.byte	0x91
+ 1316 031e 64       		.sleb128 -28
+ 1317 031f 11       		.uleb128 0x11
+ 1318 0320 01       		.uleb128 0x1
+ 1319 0321 51       		.byte	0x51
+ 1320 0322 05       		.uleb128 0x5
+ 1321 0323 03       		.byte	0x3
+ 1322 0324 00000000 		.4byte	.LC0
+ 1323 0328 11       		.uleb128 0x11
+ 1324 0329 01       		.uleb128 0x1
+ 1325 032a 52       		.byte	0x52
+ 1326 032b 02       		.uleb128 0x2
+ 1327 032c 74       		.byte	0x74
+ 1328 032d 00       		.sleb128 0
+ 1329 032e 00       		.byte	0
+ 1330 032f 10       		.uleb128 0x10
+ 1331 0330 6C000000 		.4byte	.LVL31
+ 1332 0334 1C0C0000 		.4byte	0xc1c
+ 1333 0338 43030000 		.4byte	0x343
+ 1334 033c 11       		.uleb128 0x11
+ 1335 033d 01       		.uleb128 0x1
+ 1336 033e 50       		.byte	0x50
+ 1337 033f 02       		.uleb128 0x2
+ 1338 0340 91       		.byte	0x91
+ 1339 0341 64       		.sleb128 -28
+ 1340 0342 00       		.byte	0
+ 1341 0343 10       		.uleb128 0x10
+ 1342 0344 72000000 		.4byte	.LVL32
+ 1343 0348 960C0000 		.4byte	0xc96
+ 1344 034c 5A030000 		.4byte	0x35a
+ 1345 0350 11       		.uleb128 0x11
+ 1346 0351 01       		.uleb128 0x1
+ 1347 0352 50       		.byte	0x50
+ 1348 0353 05       		.uleb128 0x5
+ 1349 0354 03       		.byte	0x3
+ 1350 0355 08000000 		.4byte	.LC1
+ 1351 0359 00       		.byte	0
+ 1352 035a 18       		.uleb128 0x18
+ 1353 035b 78000000 		.4byte	.LVL33
+ 1354 035f 960C0000 		.4byte	0xc96
+ 1355 0363 11       		.uleb128 0x11
+ 1356 0364 01       		.uleb128 0x1
+ 1357 0365 50       		.byte	0x50
+ 1358 0366 02       		.uleb128 0x2
+ 1359 0367 91       		.byte	0x91
+ 1360 0368 64       		.sleb128 -28
+ 1361 0369 00       		.byte	0
+ 1362 036a 00       		.byte	0
+ 1363 036b 19       		.uleb128 0x19
+ 1364 036c D9030000 		.4byte	.LASF36
+ 1365 0370 01       		.byte	0x1
+ 1366 0371 63       		.byte	0x63
+ 1367 0372 00000000 		.4byte	.LFB70
+ 1368 0376 28000000 		.4byte	.LFE70-.LFB70
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 31
+
+
+ 1369 037a 01       		.uleb128 0x1
+ 1370 037b 9C       		.byte	0x9c
+ 1371 037c CF030000 		.4byte	0x3cf
+ 1372 0380 10       		.uleb128 0x10
+ 1373 0381 08000000 		.4byte	.LVL34
+ 1374 0385 A10C0000 		.4byte	0xca1
+ 1375 0389 97030000 		.4byte	0x397
+ 1376 038d 11       		.uleb128 0x11
+ 1377 038e 01       		.uleb128 0x1
+ 1378 038f 50       		.byte	0x50
+ 1379 0390 05       		.uleb128 0x5
+ 1380 0391 03       		.byte	0x3
+ 1381 0392 00000000 		.4byte	myISR_UART
+ 1382 0396 00       		.byte	0
+ 1383 0397 0F       		.uleb128 0xf
+ 1384 0398 0C000000 		.4byte	.LVL35
+ 1385 039c AC0C0000 		.4byte	0xcac
+ 1386 03a0 0F       		.uleb128 0xf
+ 1387 03a1 10000000 		.4byte	.LVL36
+ 1388 03a5 B70C0000 		.4byte	0xcb7
+ 1389 03a9 0F       		.uleb128 0xf
+ 1390 03aa 14000000 		.4byte	.LVL37
+ 1391 03ae C20C0000 		.4byte	0xcc2
+ 1392 03b2 0F       		.uleb128 0xf
+ 1393 03b3 18000000 		.4byte	.LVL38
+ 1394 03b7 CD0C0000 		.4byte	0xccd
+ 1395 03bb 18       		.uleb128 0x18
+ 1396 03bc 1E000000 		.4byte	.LVL39
+ 1397 03c0 960C0000 		.4byte	0xc96
+ 1398 03c4 11       		.uleb128 0x11
+ 1399 03c5 01       		.uleb128 0x1
+ 1400 03c6 50       		.byte	0x50
+ 1401 03c7 05       		.uleb128 0x5
+ 1402 03c8 03       		.byte	0x3
+ 1403 03c9 14000000 		.4byte	.LC2
+ 1404 03cd 00       		.byte	0
+ 1405 03ce 00       		.byte	0
+ 1406 03cf 1A       		.uleb128 0x1a
+ 1407 03d0 81000000 		.4byte	.LASF80
+ 1408 03d4 01       		.byte	0x1
+ 1409 03d5 2F       		.byte	0x2f
+ 1410 03d6 7A000000 		.4byte	0x7a
+ 1411 03da 00000000 		.4byte	.LFB69
+ 1412 03de 6C000000 		.4byte	.LFE69-.LFB69
+ 1413 03e2 01       		.uleb128 0x1
+ 1414 03e3 9C       		.byte	0x9c
+ 1415 03e4 9F040000 		.4byte	0x49f
+ 1416 03e8 0D       		.uleb128 0xd
+ 1417 03e9 65727200 		.ascii	"err\000"
+ 1418 03ed 01       		.byte	0x1
+ 1419 03ee 31       		.byte	0x31
+ 1420 03ef D9000000 		.4byte	0xd9
+ 1421 03f3 70000000 		.4byte	.LLST4
+ 1422 03f7 0F       		.uleb128 0xf
+ 1423 03f8 0A000000 		.4byte	.LVL40
+ 1424 03fc D80C0000 		.4byte	0xcd8
+ 1425 0400 0F       		.uleb128 0xf
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 32
+
+
+ 1426 0401 0E000000 		.4byte	.LVL41
+ 1427 0405 6B030000 		.4byte	0x36b
+ 1428 0409 10       		.uleb128 0x10
+ 1429 040a 18000000 		.4byte	.LVL42
+ 1430 040e E30C0000 		.4byte	0xce3
+ 1431 0412 27040000 		.4byte	0x427
+ 1432 0416 11       		.uleb128 0x11
+ 1433 0417 01       		.uleb128 0x1
+ 1434 0418 50       		.byte	0x50
+ 1435 0419 02       		.uleb128 0x2
+ 1436 041a 08       		.byte	0x8
+ 1437 041b 64       		.byte	0x64
+ 1438 041c 11       		.uleb128 0x11
+ 1439 041d 01       		.uleb128 0x1
+ 1440 041e 51       		.byte	0x51
+ 1441 041f 01       		.uleb128 0x1
+ 1442 0420 30       		.byte	0x30
+ 1443 0421 11       		.uleb128 0x11
+ 1444 0422 01       		.uleb128 0x1
+ 1445 0423 52       		.byte	0x52
+ 1446 0424 01       		.uleb128 0x1
+ 1447 0425 31       		.byte	0x31
+ 1448 0426 00       		.byte	0
+ 1449 0427 10       		.uleb128 0x10
+ 1450 0428 32000000 		.4byte	.LVL43
+ 1451 042c EF0C0000 		.4byte	0xcef
+ 1452 0430 5E040000 		.4byte	0x45e
+ 1453 0434 11       		.uleb128 0x11
+ 1454 0435 01       		.uleb128 0x1
+ 1455 0436 50       		.byte	0x50
+ 1456 0437 05       		.uleb128 0x5
+ 1457 0438 03       		.byte	0x3
+ 1458 0439 00000000 		.4byte	vUARTTask1
+ 1459 043d 11       		.uleb128 0x11
+ 1460 043e 01       		.uleb128 0x1
+ 1461 043f 51       		.byte	0x51
+ 1462 0440 05       		.uleb128 0x5
+ 1463 0441 03       		.byte	0x3
+ 1464 0442 1C000000 		.4byte	.LC3
+ 1465 0446 11       		.uleb128 0x11
+ 1466 0447 01       		.uleb128 0x1
+ 1467 0448 52       		.byte	0x52
+ 1468 0449 02       		.uleb128 0x2
+ 1469 044a 08       		.byte	0x8
+ 1470 044b C8       		.byte	0xc8
+ 1471 044c 11       		.uleb128 0x11
+ 1472 044d 01       		.uleb128 0x1
+ 1473 044e 53       		.byte	0x53
+ 1474 044f 01       		.uleb128 0x1
+ 1475 0450 30       		.byte	0x30
+ 1476 0451 11       		.uleb128 0x11
+ 1477 0452 02       		.uleb128 0x2
+ 1478 0453 7D       		.byte	0x7d
+ 1479 0454 00       		.sleb128 0
+ 1480 0455 01       		.uleb128 0x1
+ 1481 0456 34       		.byte	0x34
+ 1482 0457 11       		.uleb128 0x11
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 33
+
+
+ 1483 0458 02       		.uleb128 0x2
+ 1484 0459 7D       		.byte	0x7d
+ 1485 045a 04       		.sleb128 4
+ 1486 045b 01       		.uleb128 0x1
+ 1487 045c 30       		.byte	0x30
+ 1488 045d 00       		.byte	0
+ 1489 045e 10       		.uleb128 0x10
+ 1490 045f 4A000000 		.4byte	.LVL45
+ 1491 0463 EF0C0000 		.4byte	0xcef
+ 1492 0467 95040000 		.4byte	0x495
+ 1493 046b 11       		.uleb128 0x11
+ 1494 046c 01       		.uleb128 0x1
+ 1495 046d 50       		.byte	0x50
+ 1496 046e 05       		.uleb128 0x5
+ 1497 046f 03       		.byte	0x3
+ 1498 0470 00000000 		.4byte	vReadUltraSonicTask
+ 1499 0474 11       		.uleb128 0x11
+ 1500 0475 01       		.uleb128 0x1
+ 1501 0476 51       		.byte	0x51
+ 1502 0477 05       		.uleb128 0x5
+ 1503 0478 03       		.byte	0x3
+ 1504 0479 24000000 		.4byte	.LC4
+ 1505 047d 11       		.uleb128 0x11
+ 1506 047e 01       		.uleb128 0x1
+ 1507 047f 52       		.byte	0x52
+ 1508 0480 02       		.uleb128 0x2
+ 1509 0481 08       		.byte	0x8
+ 1510 0482 C8       		.byte	0xc8
+ 1511 0483 11       		.uleb128 0x11
+ 1512 0484 01       		.uleb128 0x1
+ 1513 0485 53       		.byte	0x53
+ 1514 0486 01       		.uleb128 0x1
+ 1515 0487 30       		.byte	0x30
+ 1516 0488 11       		.uleb128 0x11
+ 1517 0489 02       		.uleb128 0x2
+ 1518 048a 7D       		.byte	0x7d
+ 1519 048b 00       		.sleb128 0
+ 1520 048c 01       		.uleb128 0x1
+ 1521 048d 34       		.byte	0x34
+ 1522 048e 11       		.uleb128 0x11
+ 1523 048f 02       		.uleb128 0x2
+ 1524 0490 7D       		.byte	0x7d
+ 1525 0491 04       		.sleb128 4
+ 1526 0492 01       		.uleb128 0x1
+ 1527 0493 30       		.byte	0x30
+ 1528 0494 00       		.byte	0
+ 1529 0495 0F       		.uleb128 0xf
+ 1530 0496 54000000 		.4byte	.LVL46
+ 1531 049a FB0C0000 		.4byte	0xcfb
+ 1532 049e 00       		.byte	0
+ 1533 049f 0A       		.uleb128 0xa
+ 1534 04a0 A6020000 		.4byte	.LASF32
+ 1535 04a4 01       		.byte	0x1
+ 1536 04a5 E9       		.byte	0xe9
+ 1537 04a6 00000000 		.4byte	.LFB74
+ 1538 04aa 24000000 		.4byte	.LFE74-.LFB74
+ 1539 04ae 01       		.uleb128 0x1
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 34
+
+
+ 1540 04af 9C       		.byte	0x9c
+ 1541 04b0 11050000 		.4byte	0x511
+ 1542 04b4 15       		.uleb128 0x15
+ 1543 04b5 37000000 		.4byte	.LASF34
+ 1544 04b9 01       		.byte	0x1
+ 1545 04ba E9       		.byte	0xe9
+ 1546 04bb 7A000000 		.4byte	0x7a
+ 1547 04bf 8E000000 		.4byte	.LLST5
+ 1548 04c3 15       		.uleb128 0x15
+ 1549 04c4 53030000 		.4byte	.LASF35
+ 1550 04c8 01       		.byte	0x1
+ 1551 04c9 E9       		.byte	0xe9
+ 1552 04ca 7A000000 		.4byte	0x7a
+ 1553 04ce AF000000 		.4byte	.LLST6
+ 1554 04d2 10       		.uleb128 0x10
+ 1555 04d3 0A000000 		.4byte	.LVL49
+ 1556 04d7 070D0000 		.4byte	0xd07
+ 1557 04db E7040000 		.4byte	0x4e7
+ 1558 04df 11       		.uleb128 0x11
+ 1559 04e0 01       		.uleb128 0x1
+ 1560 04e1 50       		.byte	0x50
+ 1561 04e2 03       		.uleb128 0x3
+ 1562 04e3 F3       		.byte	0xf3
+ 1563 04e4 01       		.uleb128 0x1
+ 1564 04e5 50       		.byte	0x50
+ 1565 04e6 00       		.byte	0
+ 1566 04e7 18       		.uleb128 0x18
+ 1567 04e8 1E000000 		.4byte	.LVL50
+ 1568 04ec 530C0000 		.4byte	0xc53
+ 1569 04f0 11       		.uleb128 0x11
+ 1570 04f1 01       		.uleb128 0x1
+ 1571 04f2 50       		.byte	0x50
+ 1572 04f3 1B       		.uleb128 0x1b
+ 1573 04f4 74       		.byte	0x74
+ 1574 04f5 00       		.sleb128 0
+ 1575 04f6 0A       		.byte	0xa
+ 1576 04f7 E803     		.2byte	0x3e8
+ 1577 04f9 1E       		.byte	0x1e
+ 1578 04fa F7       		.byte	0xf7
+ 1579 04fb 2C       		.uleb128 0x2c
+ 1580 04fc F7       		.byte	0xf7
+ 1581 04fd 25       		.uleb128 0x25
+ 1582 04fe 0C       		.byte	0xc
+ 1583 04ff D34D6210 		.4byte	0x10624dd3
+ 1584 0503 F7       		.byte	0xf7
+ 1585 0504 25       		.uleb128 0x25
+ 1586 0505 1E       		.byte	0x1e
+ 1587 0506 08       		.byte	0x8
+ 1588 0507 20       		.byte	0x20
+ 1589 0508 F7       		.byte	0xf7
+ 1590 0509 25       		.uleb128 0x25
+ 1591 050a 25       		.byte	0x25
+ 1592 050b F7       		.byte	0xf7
+ 1593 050c 2C       		.uleb128 0x2c
+ 1594 050d 36       		.byte	0x36
+ 1595 050e 25       		.byte	0x25
+ 1596 050f 00       		.byte	0
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 35
+
+
+ 1597 0510 00       		.byte	0
+ 1598 0511 19       		.uleb128 0x19
+ 1599 0512 98040000 		.4byte	.LASF37
+ 1600 0516 01       		.byte	0x1
+ 1601 0517 F2       		.byte	0xf2
+ 1602 0518 00000000 		.4byte	.LFB75
+ 1603 051c E4000000 		.4byte	.LFE75-.LFB75
+ 1604 0520 01       		.uleb128 0x1
+ 1605 0521 9C       		.byte	0x9c
+ 1606 0522 41070000 		.4byte	0x741
+ 1607 0526 10       		.uleb128 0x10
+ 1608 0527 0E000000 		.4byte	.LVL52
+ 1609 052b 9F040000 		.4byte	0x49f
+ 1610 052f 42050000 		.4byte	0x542
+ 1611 0533 11       		.uleb128 0x11
+ 1612 0534 01       		.uleb128 0x1
+ 1613 0535 50       		.byte	0x50
+ 1614 0536 03       		.uleb128 0x3
+ 1615 0537 0A       		.byte	0xa
+ 1616 0538 B801     		.2byte	0x1b8
+ 1617 053a 11       		.uleb128 0x11
+ 1618 053b 01       		.uleb128 0x1
+ 1619 053c 51       		.byte	0x51
+ 1620 053d 03       		.uleb128 0x3
+ 1621 053e 0A       		.byte	0xa
+ 1622 053f F401     		.2byte	0x1f4
+ 1623 0541 00       		.byte	0
+ 1624 0542 10       		.uleb128 0x10
+ 1625 0543 1A000000 		.4byte	.LVL53
+ 1626 0547 9F040000 		.4byte	0x49f
+ 1627 054b 5E050000 		.4byte	0x55e
+ 1628 054f 11       		.uleb128 0x11
+ 1629 0550 01       		.uleb128 0x1
+ 1630 0551 50       		.byte	0x50
+ 1631 0552 03       		.uleb128 0x3
+ 1632 0553 0A       		.byte	0xa
+ 1633 0554 B801     		.2byte	0x1b8
+ 1634 0556 11       		.uleb128 0x11
+ 1635 0557 01       		.uleb128 0x1
+ 1636 0558 51       		.byte	0x51
+ 1637 0559 03       		.uleb128 0x3
+ 1638 055a 0A       		.byte	0xa
+ 1639 055b F401     		.2byte	0x1f4
+ 1640 055d 00       		.byte	0
+ 1641 055e 10       		.uleb128 0x10
+ 1642 055f 26000000 		.4byte	.LVL54
+ 1643 0563 9F040000 		.4byte	0x49f
+ 1644 0567 7A050000 		.4byte	0x57a
+ 1645 056b 11       		.uleb128 0x11
+ 1646 056c 01       		.uleb128 0x1
+ 1647 056d 50       		.byte	0x50
+ 1648 056e 03       		.uleb128 0x3
+ 1649 056f 0A       		.byte	0xa
+ 1650 0570 B801     		.2byte	0x1b8
+ 1651 0572 11       		.uleb128 0x11
+ 1652 0573 01       		.uleb128 0x1
+ 1653 0574 51       		.byte	0x51
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 36
+
+
+ 1654 0575 03       		.uleb128 0x3
+ 1655 0576 0A       		.byte	0xa
+ 1656 0577 F401     		.2byte	0x1f4
+ 1657 0579 00       		.byte	0
+ 1658 057a 10       		.uleb128 0x10
+ 1659 057b 32000000 		.4byte	.LVL55
+ 1660 057f 9F040000 		.4byte	0x49f
+ 1661 0583 96050000 		.4byte	0x596
+ 1662 0587 11       		.uleb128 0x11
+ 1663 0588 01       		.uleb128 0x1
+ 1664 0589 50       		.byte	0x50
+ 1665 058a 03       		.uleb128 0x3
+ 1666 058b 0A       		.byte	0xa
+ 1667 058c 5D01     		.2byte	0x15d
+ 1668 058e 11       		.uleb128 0x11
+ 1669 058f 01       		.uleb128 0x1
+ 1670 0590 51       		.byte	0x51
+ 1671 0591 03       		.uleb128 0x3
+ 1672 0592 0A       		.byte	0xa
+ 1673 0593 5E01     		.2byte	0x15e
+ 1674 0595 00       		.byte	0
+ 1675 0596 10       		.uleb128 0x10
+ 1676 0597 3C000000 		.4byte	.LVL56
+ 1677 059b 9F040000 		.4byte	0x49f
+ 1678 059f B1050000 		.4byte	0x5b1
+ 1679 05a3 11       		.uleb128 0x11
+ 1680 05a4 01       		.uleb128 0x1
+ 1681 05a5 50       		.byte	0x50
+ 1682 05a6 03       		.uleb128 0x3
+ 1683 05a7 0A       		.byte	0xa
+ 1684 05a8 0B02     		.2byte	0x20b
+ 1685 05aa 11       		.uleb128 0x11
+ 1686 05ab 01       		.uleb128 0x1
+ 1687 05ac 51       		.byte	0x51
+ 1688 05ad 02       		.uleb128 0x2
+ 1689 05ae 08       		.byte	0x8
+ 1690 05af 96       		.byte	0x96
+ 1691 05b0 00       		.byte	0
+ 1692 05b1 10       		.uleb128 0x10
+ 1693 05b2 48000000 		.4byte	.LVL57
+ 1694 05b6 9F040000 		.4byte	0x49f
+ 1695 05ba CD050000 		.4byte	0x5cd
+ 1696 05be 11       		.uleb128 0x11
+ 1697 05bf 01       		.uleb128 0x1
+ 1698 05c0 50       		.byte	0x50
+ 1699 05c1 03       		.uleb128 0x3
+ 1700 05c2 0A       		.byte	0xa
+ 1701 05c3 B801     		.2byte	0x1b8
+ 1702 05c5 11       		.uleb128 0x11
+ 1703 05c6 01       		.uleb128 0x1
+ 1704 05c7 51       		.byte	0x51
+ 1705 05c8 03       		.uleb128 0x3
+ 1706 05c9 0A       		.byte	0xa
+ 1707 05ca F401     		.2byte	0x1f4
+ 1708 05cc 00       		.byte	0
+ 1709 05cd 10       		.uleb128 0x10
+ 1710 05ce 54000000 		.4byte	.LVL58
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 37
+
+
+ 1711 05d2 9F040000 		.4byte	0x49f
+ 1712 05d6 E9050000 		.4byte	0x5e9
+ 1713 05da 11       		.uleb128 0x11
+ 1714 05db 01       		.uleb128 0x1
+ 1715 05dc 50       		.byte	0x50
+ 1716 05dd 03       		.uleb128 0x3
+ 1717 05de 0A       		.byte	0xa
+ 1718 05df 5D01     		.2byte	0x15d
+ 1719 05e1 11       		.uleb128 0x11
+ 1720 05e2 01       		.uleb128 0x1
+ 1721 05e3 51       		.byte	0x51
+ 1722 05e4 03       		.uleb128 0x3
+ 1723 05e5 0A       		.byte	0xa
+ 1724 05e6 5E01     		.2byte	0x15e
+ 1725 05e8 00       		.byte	0
+ 1726 05e9 10       		.uleb128 0x10
+ 1727 05ea 5E000000 		.4byte	.LVL59
+ 1728 05ee 9F040000 		.4byte	0x49f
+ 1729 05f2 04060000 		.4byte	0x604
+ 1730 05f6 11       		.uleb128 0x11
+ 1731 05f7 01       		.uleb128 0x1
+ 1732 05f8 50       		.byte	0x50
+ 1733 05f9 03       		.uleb128 0x3
+ 1734 05fa 0A       		.byte	0xa
+ 1735 05fb 0B02     		.2byte	0x20b
+ 1736 05fd 11       		.uleb128 0x11
+ 1737 05fe 01       		.uleb128 0x1
+ 1738 05ff 51       		.byte	0x51
+ 1739 0600 02       		.uleb128 0x2
+ 1740 0601 08       		.byte	0x8
+ 1741 0602 96       		.byte	0x96
+ 1742 0603 00       		.byte	0
+ 1743 0604 10       		.uleb128 0x10
+ 1744 0605 6A000000 		.4byte	.LVL60
+ 1745 0609 9F040000 		.4byte	0x49f
+ 1746 060d 20060000 		.4byte	0x620
+ 1747 0611 11       		.uleb128 0x11
+ 1748 0612 01       		.uleb128 0x1
+ 1749 0613 50       		.byte	0x50
+ 1750 0614 03       		.uleb128 0x3
+ 1751 0615 0A       		.byte	0xa
+ 1752 0616 B801     		.2byte	0x1b8
+ 1753 0618 11       		.uleb128 0x11
+ 1754 0619 01       		.uleb128 0x1
+ 1755 061a 51       		.byte	0x51
+ 1756 061b 03       		.uleb128 0x3
+ 1757 061c 0A       		.byte	0xa
+ 1758 061d 8A02     		.2byte	0x28a
+ 1759 061f 00       		.byte	0
+ 1760 0620 10       		.uleb128 0x10
+ 1761 0621 72000000 		.4byte	.LVL61
+ 1762 0625 120D0000 		.4byte	0xd12
+ 1763 0629 35060000 		.4byte	0x635
+ 1764 062d 11       		.uleb128 0x11
+ 1765 062e 01       		.uleb128 0x1
+ 1766 062f 50       		.byte	0x50
+ 1767 0630 03       		.uleb128 0x3
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 38
+
+
+ 1768 0631 0A       		.byte	0xa
+ 1769 0632 F401     		.2byte	0x1f4
+ 1770 0634 00       		.byte	0
+ 1771 0635 10       		.uleb128 0x10
+ 1772 0636 7E000000 		.4byte	.LVL62
+ 1773 063a 9F040000 		.4byte	0x49f
+ 1774 063e 51060000 		.4byte	0x651
+ 1775 0642 11       		.uleb128 0x11
+ 1776 0643 01       		.uleb128 0x1
+ 1777 0644 50       		.byte	0x50
+ 1778 0645 03       		.uleb128 0x3
+ 1779 0646 0A       		.byte	0xa
+ 1780 0647 9302     		.2byte	0x293
+ 1781 0649 11       		.uleb128 0x11
+ 1782 064a 01       		.uleb128 0x1
+ 1783 064b 51       		.byte	0x51
+ 1784 064c 03       		.uleb128 0x3
+ 1785 064d 0A       		.byte	0xa
+ 1786 064e F401     		.2byte	0x1f4
+ 1787 0650 00       		.byte	0
+ 1788 0651 10       		.uleb128 0x10
+ 1789 0652 8A000000 		.4byte	.LVL63
+ 1790 0656 9F040000 		.4byte	0x49f
+ 1791 065a 6D060000 		.4byte	0x66d
+ 1792 065e 11       		.uleb128 0x11
+ 1793 065f 01       		.uleb128 0x1
+ 1794 0660 50       		.byte	0x50
+ 1795 0661 03       		.uleb128 0x3
+ 1796 0662 0A       		.byte	0xa
+ 1797 0663 9302     		.2byte	0x293
+ 1798 0665 11       		.uleb128 0x11
+ 1799 0666 01       		.uleb128 0x1
+ 1800 0667 51       		.byte	0x51
+ 1801 0668 03       		.uleb128 0x3
+ 1802 0669 0A       		.byte	0xa
+ 1803 066a F401     		.2byte	0x1f4
+ 1804 066c 00       		.byte	0
+ 1805 066d 10       		.uleb128 0x10
+ 1806 066e 96000000 		.4byte	.LVL64
+ 1807 0672 9F040000 		.4byte	0x49f
+ 1808 0676 89060000 		.4byte	0x689
+ 1809 067a 11       		.uleb128 0x11
+ 1810 067b 01       		.uleb128 0x1
+ 1811 067c 50       		.byte	0x50
+ 1812 067d 03       		.uleb128 0x3
+ 1813 067e 0A       		.byte	0xa
+ 1814 067f 9302     		.2byte	0x293
+ 1815 0681 11       		.uleb128 0x11
+ 1816 0682 01       		.uleb128 0x1
+ 1817 0683 51       		.byte	0x51
+ 1818 0684 03       		.uleb128 0x3
+ 1819 0685 0A       		.byte	0xa
+ 1820 0686 F401     		.2byte	0x1f4
+ 1821 0688 00       		.byte	0
+ 1822 0689 10       		.uleb128 0x10
+ 1823 068a A2000000 		.4byte	.LVL65
+ 1824 068e 9F040000 		.4byte	0x49f
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 39
+
+
+ 1825 0692 A5060000 		.4byte	0x6a5
+ 1826 0696 11       		.uleb128 0x11
+ 1827 0697 01       		.uleb128 0x1
+ 1828 0698 50       		.byte	0x50
+ 1829 0699 03       		.uleb128 0x3
+ 1830 069a 0A       		.byte	0xa
+ 1831 069b BA02     		.2byte	0x2ba
+ 1832 069d 11       		.uleb128 0x11
+ 1833 069e 01       		.uleb128 0x1
+ 1834 069f 51       		.byte	0x51
+ 1835 06a0 03       		.uleb128 0x3
+ 1836 06a1 0A       		.byte	0xa
+ 1837 06a2 5E01     		.2byte	0x15e
+ 1838 06a4 00       		.byte	0
+ 1839 06a5 10       		.uleb128 0x10
+ 1840 06a6 AC000000 		.4byte	.LVL66
+ 1841 06aa 9F040000 		.4byte	0x49f
+ 1842 06ae C0060000 		.4byte	0x6c0
+ 1843 06b2 11       		.uleb128 0x11
+ 1844 06b3 01       		.uleb128 0x1
+ 1845 06b4 50       		.byte	0x50
+ 1846 06b5 03       		.uleb128 0x3
+ 1847 06b6 0A       		.byte	0xa
+ 1848 06b7 0B02     		.2byte	0x20b
+ 1849 06b9 11       		.uleb128 0x11
+ 1850 06ba 01       		.uleb128 0x1
+ 1851 06bb 51       		.byte	0x51
+ 1852 06bc 02       		.uleb128 0x2
+ 1853 06bd 08       		.byte	0x8
+ 1854 06be 96       		.byte	0x96
+ 1855 06bf 00       		.byte	0
+ 1856 06c0 10       		.uleb128 0x10
+ 1857 06c1 B8000000 		.4byte	.LVL67
+ 1858 06c5 9F040000 		.4byte	0x49f
+ 1859 06c9 DC060000 		.4byte	0x6dc
+ 1860 06cd 11       		.uleb128 0x11
+ 1861 06ce 01       		.uleb128 0x1
+ 1862 06cf 50       		.byte	0x50
+ 1863 06d0 03       		.uleb128 0x3
+ 1864 06d1 0A       		.byte	0xa
+ 1865 06d2 9F01     		.2byte	0x19f
+ 1866 06d4 11       		.uleb128 0x11
+ 1867 06d5 01       		.uleb128 0x1
+ 1868 06d6 51       		.byte	0x51
+ 1869 06d7 03       		.uleb128 0x3
+ 1870 06d8 0A       		.byte	0xa
+ 1871 06d9 F401     		.2byte	0x1f4
+ 1872 06db 00       		.byte	0
+ 1873 06dc 10       		.uleb128 0x10
+ 1874 06dd C4000000 		.4byte	.LVL68
+ 1875 06e1 9F040000 		.4byte	0x49f
+ 1876 06e5 F8060000 		.4byte	0x6f8
+ 1877 06e9 11       		.uleb128 0x11
+ 1878 06ea 01       		.uleb128 0x1
+ 1879 06eb 50       		.byte	0x50
+ 1880 06ec 03       		.uleb128 0x3
+ 1881 06ed 0A       		.byte	0xa
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 40
+
+
+ 1882 06ee 5D01     		.2byte	0x15d
+ 1883 06f0 11       		.uleb128 0x11
+ 1884 06f1 01       		.uleb128 0x1
+ 1885 06f2 51       		.byte	0x51
+ 1886 06f3 03       		.uleb128 0x3
+ 1887 06f4 0A       		.byte	0xa
+ 1888 06f5 5E01     		.2byte	0x15e
+ 1889 06f7 00       		.byte	0
+ 1890 06f8 10       		.uleb128 0x10
+ 1891 06f9 CE000000 		.4byte	.LVL69
+ 1892 06fd 9F040000 		.4byte	0x49f
+ 1893 0701 13070000 		.4byte	0x713
+ 1894 0705 11       		.uleb128 0x11
+ 1895 0706 01       		.uleb128 0x1
+ 1896 0707 50       		.byte	0x50
+ 1897 0708 03       		.uleb128 0x3
+ 1898 0709 0A       		.byte	0xa
+ 1899 070a 0B02     		.2byte	0x20b
+ 1900 070c 11       		.uleb128 0x11
+ 1901 070d 01       		.uleb128 0x1
+ 1902 070e 51       		.byte	0x51
+ 1903 070f 02       		.uleb128 0x2
+ 1904 0710 08       		.byte	0x8
+ 1905 0711 96       		.byte	0x96
+ 1906 0712 00       		.byte	0
+ 1907 0713 10       		.uleb128 0x10
+ 1908 0714 DA000000 		.4byte	.LVL70
+ 1909 0718 9F040000 		.4byte	0x49f
+ 1910 071c 2F070000 		.4byte	0x72f
+ 1911 0720 11       		.uleb128 0x11
+ 1912 0721 01       		.uleb128 0x1
+ 1913 0722 50       		.byte	0x50
+ 1914 0723 03       		.uleb128 0x3
+ 1915 0724 0A       		.byte	0xa
+ 1916 0725 B801     		.2byte	0x1b8
+ 1917 0727 11       		.uleb128 0x11
+ 1918 0728 01       		.uleb128 0x1
+ 1919 0729 51       		.byte	0x51
+ 1920 072a 03       		.uleb128 0x3
+ 1921 072b 0A       		.byte	0xa
+ 1922 072c 8A02     		.2byte	0x28a
+ 1923 072e 00       		.byte	0
+ 1924 072f 18       		.uleb128 0x18
+ 1925 0730 E2000000 		.4byte	.LVL71
+ 1926 0734 120D0000 		.4byte	0xd12
+ 1927 0738 11       		.uleb128 0x11
+ 1928 0739 01       		.uleb128 0x1
+ 1929 073a 50       		.byte	0x50
+ 1930 073b 03       		.uleb128 0x3
+ 1931 073c 0A       		.byte	0xa
+ 1932 073d F401     		.2byte	0x1f4
+ 1933 073f 00       		.byte	0
+ 1934 0740 00       		.byte	0
+ 1935 0741 1B       		.uleb128 0x1b
+ 1936 0742 BB040000 		.4byte	.LASF39
+ 1937 0746 01       		.byte	0x1
+ 1938 0747 9A       		.byte	0x9a
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 41
+
+
+ 1939 0748 00000000 		.4byte	.LFB72
+ 1940 074c 78000000 		.4byte	.LFE72-.LFB72
+ 1941 0750 01       		.uleb128 0x1
+ 1942 0751 9C       		.byte	0x9c
+ 1943 0752 8A080000 		.4byte	0x88a
+ 1944 0756 15       		.uleb128 0x15
+ 1945 0757 47030000 		.4byte	.LASF33
+ 1946 075b 01       		.byte	0x1
+ 1947 075c 9A       		.byte	0x9a
+ 1948 075d D1000000 		.4byte	0xd1
+ 1949 0761 DB000000 		.4byte	.LLST7
+ 1950 0765 0B       		.uleb128 0xb
+ 1951 0766 62756600 		.ascii	"buf\000"
+ 1952 076a 01       		.byte	0x1
+ 1953 076b 9C       		.byte	0x9c
+ 1954 076c 01020000 		.4byte	0x201
+ 1955 0770 02       		.uleb128 0x2
+ 1956 0771 91       		.byte	0x91
+ 1957 0772 64       		.sleb128 -28
+ 1958 0773 17       		.uleb128 0x17
+ 1959 0774 BE010000 		.4byte	.LASF41
+ 1960 0778 01       		.byte	0x1
+ 1961 0779 9D       		.byte	0x9d
+ 1962 077a B8000000 		.4byte	0xb8
+ 1963 077e 17       		.uleb128 0x17
+ 1964 077f BF000000 		.4byte	.LASF42
+ 1965 0783 01       		.byte	0x1
+ 1966 0784 9E       		.byte	0x9e
+ 1967 0785 D3000000 		.4byte	0xd3
+ 1968 0789 0D       		.uleb128 0xd
+ 1969 078a 70636800 		.ascii	"pch\000"
+ 1970 078e 01       		.byte	0x1
+ 1971 078f 9F       		.byte	0x9f
+ 1972 0790 D3000000 		.4byte	0xd3
+ 1973 0794 FC000000 		.4byte	.LLST8
+ 1974 0798 0F       		.uleb128 0xf
+ 1975 0799 0C000000 		.4byte	.LVL74
+ 1976 079d 1D0D0000 		.4byte	0xd1d
+ 1977 07a1 10       		.uleb128 0x10
+ 1978 07a2 1C000000 		.4byte	.LVL75
+ 1979 07a6 290D0000 		.4byte	0xd29
+ 1980 07aa C0070000 		.4byte	0x7c0
+ 1981 07ae 11       		.uleb128 0x11
+ 1982 07af 01       		.uleb128 0x1
+ 1983 07b0 51       		.byte	0x51
+ 1984 07b1 02       		.uleb128 0x2
+ 1985 07b2 91       		.byte	0x91
+ 1986 07b3 64       		.sleb128 -28
+ 1987 07b4 11       		.uleb128 0x11
+ 1988 07b5 01       		.uleb128 0x1
+ 1989 07b6 52       		.byte	0x52
+ 1990 07b7 01       		.uleb128 0x1
+ 1991 07b8 44       		.byte	0x44
+ 1992 07b9 11       		.uleb128 0x11
+ 1993 07ba 01       		.uleb128 0x1
+ 1994 07bb 53       		.byte	0x53
+ 1995 07bc 02       		.uleb128 0x2
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 42
+
+
+ 1996 07bd 08       		.byte	0x8
+ 1997 07be 64       		.byte	0x64
+ 1998 07bf 00       		.byte	0
+ 1999 07c0 10       		.uleb128 0x10
+ 2000 07c1 24000000 		.4byte	.LVL76
+ 2001 07c5 350D0000 		.4byte	0xd35
+ 2002 07c9 DD070000 		.4byte	0x7dd
+ 2003 07cd 11       		.uleb128 0x11
+ 2004 07ce 01       		.uleb128 0x1
+ 2005 07cf 50       		.byte	0x50
+ 2006 07d0 02       		.uleb128 0x2
+ 2007 07d1 91       		.byte	0x91
+ 2008 07d2 64       		.sleb128 -28
+ 2009 07d3 11       		.uleb128 0x11
+ 2010 07d4 01       		.uleb128 0x1
+ 2011 07d5 51       		.byte	0x51
+ 2012 07d6 05       		.uleb128 0x5
+ 2013 07d7 03       		.byte	0x3
+ 2014 07d8 30000000 		.4byte	.LC5
+ 2015 07dc 00       		.byte	0
+ 2016 07dd 10       		.uleb128 0x10
+ 2017 07de 2C000000 		.4byte	.LVL78
+ 2018 07e2 400D0000 		.4byte	0xd40
+ 2019 07e6 FA070000 		.4byte	0x7fa
+ 2020 07ea 11       		.uleb128 0x11
+ 2021 07eb 01       		.uleb128 0x1
+ 2022 07ec 50       		.byte	0x50
+ 2023 07ed 02       		.uleb128 0x2
+ 2024 07ee 74       		.byte	0x74
+ 2025 07ef 00       		.sleb128 0
+ 2026 07f0 11       		.uleb128 0x11
+ 2027 07f1 01       		.uleb128 0x1
+ 2028 07f2 51       		.byte	0x51
+ 2029 07f3 05       		.uleb128 0x5
+ 2030 07f4 03       		.byte	0x3
+ 2031 07f5 34000000 		.4byte	.LC6
+ 2032 07f9 00       		.byte	0
+ 2033 07fa 10       		.uleb128 0x10
+ 2034 07fb 36000000 		.4byte	.LVL79
+ 2035 07ff 4B0D0000 		.4byte	0xd4b
+ 2036 0803 0F080000 		.4byte	0x80f
+ 2037 0807 11       		.uleb128 0x11
+ 2038 0808 01       		.uleb128 0x1
+ 2039 0809 50       		.byte	0x50
+ 2040 080a 03       		.uleb128 0x3
+ 2041 080b 0A       		.byte	0xa
+ 2042 080c BF44     		.2byte	0x44bf
+ 2043 080e 00       		.byte	0
+ 2044 080f 10       		.uleb128 0x10
+ 2045 0810 3C000000 		.4byte	.LVL80
+ 2046 0814 3D0C0000 		.4byte	0xc3d
+ 2047 0818 22080000 		.4byte	0x822
+ 2048 081c 11       		.uleb128 0x11
+ 2049 081d 01       		.uleb128 0x1
+ 2050 081e 50       		.byte	0x50
+ 2051 081f 01       		.uleb128 0x1
+ 2052 0820 31       		.byte	0x31
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 43
+
+
+ 2053 0821 00       		.byte	0
+ 2054 0822 0F       		.uleb128 0xf
+ 2055 0823 40000000 		.4byte	.LVL81
+ 2056 0827 11050000 		.4byte	0x511
+ 2057 082b 10       		.uleb128 0x10
+ 2058 082c 4A000000 		.4byte	.LVL82
+ 2059 0830 400D0000 		.4byte	0xd40
+ 2060 0834 48080000 		.4byte	0x848
+ 2061 0838 11       		.uleb128 0x11
+ 2062 0839 01       		.uleb128 0x1
+ 2063 083a 50       		.byte	0x50
+ 2064 083b 02       		.uleb128 0x2
+ 2065 083c 74       		.byte	0x74
+ 2066 083d 00       		.sleb128 0
+ 2067 083e 11       		.uleb128 0x11
+ 2068 083f 01       		.uleb128 0x1
+ 2069 0840 51       		.byte	0x51
+ 2070 0841 05       		.uleb128 0x5
+ 2071 0842 03       		.byte	0x3
+ 2072 0843 40000000 		.4byte	.LC7
+ 2073 0847 00       		.byte	0
+ 2074 0848 10       		.uleb128 0x10
+ 2075 0849 54000000 		.4byte	.LVL83
+ 2076 084d 4B0D0000 		.4byte	0xd4b
+ 2077 0851 5D080000 		.4byte	0x85d
+ 2078 0855 11       		.uleb128 0x11
+ 2079 0856 01       		.uleb128 0x1
+ 2080 0857 50       		.byte	0x50
+ 2081 0858 03       		.uleb128 0x3
+ 2082 0859 0A       		.byte	0xa
+ 2083 085a 9B4A     		.2byte	0x4a9b
+ 2084 085c 00       		.byte	0
+ 2085 085d 10       		.uleb128 0x10
+ 2086 085e 5A000000 		.4byte	.LVL84
+ 2087 0862 3D0C0000 		.4byte	0xc3d
+ 2088 0866 70080000 		.4byte	0x870
+ 2089 086a 11       		.uleb128 0x11
+ 2090 086b 01       		.uleb128 0x1
+ 2091 086c 50       		.byte	0x50
+ 2092 086d 01       		.uleb128 0x1
+ 2093 086e 30       		.byte	0x30
+ 2094 086f 00       		.byte	0
+ 2095 0870 0F       		.uleb128 0xf
+ 2096 0871 5E000000 		.4byte	.LVL85
+ 2097 0875 11050000 		.4byte	0x511
+ 2098 0879 18       		.uleb128 0x18
+ 2099 087a 64000000 		.4byte	.LVL86
+ 2100 087e 530C0000 		.4byte	0xc53
+ 2101 0882 11       		.uleb128 0x11
+ 2102 0883 01       		.uleb128 0x1
+ 2103 0884 50       		.byte	0x50
+ 2104 0885 02       		.uleb128 0x2
+ 2105 0886 08       		.byte	0x8
+ 2106 0887 64       		.byte	0x64
+ 2107 0888 00       		.byte	0
+ 2108 0889 00       		.byte	0
+ 2109 088a 1C       		.uleb128 0x1c
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 44
+
+
+ 2110 088b D8020000 		.4byte	.LASF43
+ 2111 088f 01       		.byte	0x1
+ 2112 0890 0D01     		.2byte	0x10d
+ 2113 0892 00000000 		.4byte	.LFB76
+ 2114 0896 C0000000 		.4byte	.LFE76-.LFB76
+ 2115 089a 01       		.uleb128 0x1
+ 2116 089b 9C       		.byte	0x9c
+ 2117 089c 7D0A0000 		.4byte	0xa7d
+ 2118 08a0 10       		.uleb128 0x10
+ 2119 08a1 0E000000 		.4byte	.LVL87
+ 2120 08a5 9F040000 		.4byte	0x49f
+ 2121 08a9 BC080000 		.4byte	0x8bc
+ 2122 08ad 11       		.uleb128 0x11
+ 2123 08ae 01       		.uleb128 0x1
+ 2124 08af 50       		.byte	0x50
+ 2125 08b0 03       		.uleb128 0x3
+ 2126 08b1 0A       		.byte	0xa
+ 2127 08b2 7003     		.2byte	0x370
+ 2128 08b4 11       		.uleb128 0x11
+ 2129 08b5 01       		.uleb128 0x1
+ 2130 08b6 51       		.byte	0x51
+ 2131 08b7 03       		.uleb128 0x3
+ 2132 08b8 0A       		.byte	0xa
+ 2133 08b9 F401     		.2byte	0x1f4
+ 2134 08bb 00       		.byte	0
+ 2135 08bc 10       		.uleb128 0x10
+ 2136 08bd 1A000000 		.4byte	.LVL88
+ 2137 08c1 9F040000 		.4byte	0x49f
+ 2138 08c5 D8080000 		.4byte	0x8d8
+ 2139 08c9 11       		.uleb128 0x11
+ 2140 08ca 01       		.uleb128 0x1
+ 2141 08cb 50       		.byte	0x50
+ 2142 08cc 03       		.uleb128 0x3
+ 2143 08cd 0A       		.byte	0xa
+ 2144 08ce B801     		.2byte	0x1b8
+ 2145 08d0 11       		.uleb128 0x11
+ 2146 08d1 01       		.uleb128 0x1
+ 2147 08d2 51       		.byte	0x51
+ 2148 08d3 03       		.uleb128 0x3
+ 2149 08d4 0A       		.byte	0xa
+ 2150 08d5 2C01     		.2byte	0x12c
+ 2151 08d7 00       		.byte	0
+ 2152 08d8 10       		.uleb128 0x10
+ 2153 08d9 24000000 		.4byte	.LVL89
+ 2154 08dd 9F040000 		.4byte	0x49f
+ 2155 08e1 F3080000 		.4byte	0x8f3
+ 2156 08e5 11       		.uleb128 0x11
+ 2157 08e6 01       		.uleb128 0x1
+ 2158 08e7 50       		.byte	0x50
+ 2159 08e8 03       		.uleb128 0x3
+ 2160 08e9 0A       		.byte	0xa
+ 2161 08ea B801     		.2byte	0x1b8
+ 2162 08ec 11       		.uleb128 0x11
+ 2163 08ed 01       		.uleb128 0x1
+ 2164 08ee 51       		.byte	0x51
+ 2165 08ef 02       		.uleb128 0x2
+ 2166 08f0 08       		.byte	0x8
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 45
+
+
+ 2167 08f1 96       		.byte	0x96
+ 2168 08f2 00       		.byte	0
+ 2169 08f3 10       		.uleb128 0x10
+ 2170 08f4 30000000 		.4byte	.LVL90
+ 2171 08f8 9F040000 		.4byte	0x49f
+ 2172 08fc 0F090000 		.4byte	0x90f
+ 2173 0900 11       		.uleb128 0x11
+ 2174 0901 01       		.uleb128 0x1
+ 2175 0902 50       		.byte	0x50
+ 2176 0903 03       		.uleb128 0x3
+ 2177 0904 0A       		.byte	0xa
+ 2178 0905 7003     		.2byte	0x370
+ 2179 0907 11       		.uleb128 0x11
+ 2180 0908 01       		.uleb128 0x1
+ 2181 0909 51       		.byte	0x51
+ 2182 090a 03       		.uleb128 0x3
+ 2183 090b 0A       		.byte	0xa
+ 2184 090c F401     		.2byte	0x1f4
+ 2185 090e 00       		.byte	0
+ 2186 090f 10       		.uleb128 0x10
+ 2187 0910 3C000000 		.4byte	.LVL91
+ 2188 0914 9F040000 		.4byte	0x49f
+ 2189 0918 2B090000 		.4byte	0x92b
+ 2190 091c 11       		.uleb128 0x11
+ 2191 091d 01       		.uleb128 0x1
+ 2192 091e 50       		.byte	0x50
+ 2193 091f 03       		.uleb128 0x3
+ 2194 0920 0A       		.byte	0xa
+ 2195 0921 3E03     		.2byte	0x33e
+ 2196 0923 11       		.uleb128 0x11
+ 2197 0924 01       		.uleb128 0x1
+ 2198 0925 51       		.byte	0x51
+ 2199 0926 03       		.uleb128 0x3
+ 2200 0927 0A       		.byte	0xa
+ 2201 0928 4501     		.2byte	0x145
+ 2202 092a 00       		.byte	0
+ 2203 092b 10       		.uleb128 0x10
+ 2204 092c 46000000 		.4byte	.LVL92
+ 2205 0930 9F040000 		.4byte	0x49f
+ 2206 0934 46090000 		.4byte	0x946
+ 2207 0938 11       		.uleb128 0x11
+ 2208 0939 01       		.uleb128 0x1
+ 2209 093a 50       		.byte	0x50
+ 2210 093b 03       		.uleb128 0x3
+ 2211 093c 0A       		.byte	0xa
+ 2212 093d 1003     		.2byte	0x310
+ 2213 093f 11       		.uleb128 0x11
+ 2214 0940 01       		.uleb128 0x1
+ 2215 0941 51       		.byte	0x51
+ 2216 0942 02       		.uleb128 0x2
+ 2217 0943 08       		.byte	0x8
+ 2218 0944 AF       		.byte	0xaf
+ 2219 0945 00       		.byte	0
+ 2220 0946 10       		.uleb128 0x10
+ 2221 0947 50000000 		.4byte	.LVL93
+ 2222 094b 9F040000 		.4byte	0x49f
+ 2223 094f 61090000 		.4byte	0x961
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 46
+
+
+ 2224 0953 11       		.uleb128 0x11
+ 2225 0954 01       		.uleb128 0x1
+ 2226 0955 50       		.byte	0x50
+ 2227 0956 03       		.uleb128 0x3
+ 2228 0957 0A       		.byte	0xa
+ 2229 0958 E402     		.2byte	0x2e4
+ 2230 095a 11       		.uleb128 0x11
+ 2231 095b 01       		.uleb128 0x1
+ 2232 095c 51       		.byte	0x51
+ 2233 095d 02       		.uleb128 0x2
+ 2234 095e 08       		.byte	0x8
+ 2235 095f 7D       		.byte	0x7d
+ 2236 0960 00       		.byte	0
+ 2237 0961 10       		.uleb128 0x10
+ 2238 0962 5A000000 		.4byte	.LVL94
+ 2239 0966 9F040000 		.4byte	0x49f
+ 2240 096a 7C090000 		.4byte	0x97c
+ 2241 096e 11       		.uleb128 0x11
+ 2242 096f 01       		.uleb128 0x1
+ 2243 0970 50       		.byte	0x50
+ 2244 0971 03       		.uleb128 0x3
+ 2245 0972 0A       		.byte	0xa
+ 2246 0973 BA02     		.2byte	0x2ba
+ 2247 0975 11       		.uleb128 0x11
+ 2248 0976 01       		.uleb128 0x1
+ 2249 0977 51       		.byte	0x51
+ 2250 0978 02       		.uleb128 0x2
+ 2251 0979 08       		.byte	0x8
+ 2252 097a 7D       		.byte	0x7d
+ 2253 097b 00       		.byte	0
+ 2254 097c 10       		.uleb128 0x10
+ 2255 097d 64000000 		.4byte	.LVL95
+ 2256 0981 9F040000 		.4byte	0x49f
+ 2257 0985 97090000 		.4byte	0x997
+ 2258 0989 11       		.uleb128 0x11
+ 2259 098a 01       		.uleb128 0x1
+ 2260 098b 50       		.byte	0x50
+ 2261 098c 03       		.uleb128 0x3
+ 2262 098d 0A       		.byte	0xa
+ 2263 098e E402     		.2byte	0x2e4
+ 2264 0990 11       		.uleb128 0x11
+ 2265 0991 01       		.uleb128 0x1
+ 2266 0992 51       		.byte	0x51
+ 2267 0993 02       		.uleb128 0x2
+ 2268 0994 08       		.byte	0x8
+ 2269 0995 FA       		.byte	0xfa
+ 2270 0996 00       		.byte	0
+ 2271 0997 10       		.uleb128 0x10
+ 2272 0998 6C000000 		.4byte	.LVL96
+ 2273 099c 120D0000 		.4byte	0xd12
+ 2274 09a0 AC090000 		.4byte	0x9ac
+ 2275 09a4 11       		.uleb128 0x11
+ 2276 09a5 01       		.uleb128 0x1
+ 2277 09a6 50       		.byte	0x50
+ 2278 09a7 03       		.uleb128 0x3
+ 2279 09a8 0A       		.byte	0xa
+ 2280 09a9 4501     		.2byte	0x145
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 47
+
+
+ 2281 09ab 00       		.byte	0
+ 2282 09ac 10       		.uleb128 0x10
+ 2283 09ad 76000000 		.4byte	.LVL97
+ 2284 09b1 9F040000 		.4byte	0x49f
+ 2285 09b5 C7090000 		.4byte	0x9c7
+ 2286 09b9 11       		.uleb128 0x11
+ 2287 09ba 01       		.uleb128 0x1
+ 2288 09bb 50       		.byte	0x50
+ 2289 09bc 03       		.uleb128 0x3
+ 2290 09bd 0A       		.byte	0xa
+ 2291 09be C701     		.2byte	0x1c7
+ 2292 09c0 11       		.uleb128 0x11
+ 2293 09c1 01       		.uleb128 0x1
+ 2294 09c2 51       		.byte	0x51
+ 2295 09c3 02       		.uleb128 0x2
+ 2296 09c4 08       		.byte	0x8
+ 2297 09c5 FA       		.byte	0xfa
+ 2298 09c6 00       		.byte	0
+ 2299 09c7 10       		.uleb128 0x10
+ 2300 09c8 82000000 		.4byte	.LVL98
+ 2301 09cc 9F040000 		.4byte	0x49f
+ 2302 09d0 E3090000 		.4byte	0x9e3
+ 2303 09d4 11       		.uleb128 0x11
+ 2304 09d5 01       		.uleb128 0x1
+ 2305 09d6 50       		.byte	0x50
+ 2306 09d7 03       		.uleb128 0x3
+ 2307 09d8 0A       		.byte	0xa
+ 2308 09d9 6E02     		.2byte	0x26e
+ 2309 09db 11       		.uleb128 0x11
+ 2310 09dc 01       		.uleb128 0x1
+ 2311 09dd 51       		.byte	0x51
+ 2312 09de 03       		.uleb128 0x3
+ 2313 09df 0A       		.byte	0xa
+ 2314 09e0 F401     		.2byte	0x1f4
+ 2315 09e2 00       		.byte	0
+ 2316 09e3 10       		.uleb128 0x10
+ 2317 09e4 8E000000 		.4byte	.LVL99
+ 2318 09e8 9F040000 		.4byte	0x49f
+ 2319 09ec FF090000 		.4byte	0x9ff
+ 2320 09f0 11       		.uleb128 0x11
+ 2321 09f1 01       		.uleb128 0x1
+ 2322 09f2 50       		.byte	0x50
+ 2323 09f3 03       		.uleb128 0x3
+ 2324 09f4 0A       		.byte	0xa
+ 2325 09f5 4B02     		.2byte	0x24b
+ 2326 09f7 11       		.uleb128 0x11
+ 2327 09f8 01       		.uleb128 0x1
+ 2328 09f9 51       		.byte	0x51
+ 2329 09fa 03       		.uleb128 0x3
+ 2330 09fb 0A       		.byte	0xa
+ 2331 09fc 4501     		.2byte	0x145
+ 2332 09fe 00       		.byte	0
+ 2333 09ff 10       		.uleb128 0x10
+ 2334 0a00 98000000 		.4byte	.LVL100
+ 2335 0a04 9F040000 		.4byte	0x49f
+ 2336 0a08 1A0A0000 		.4byte	0xa1a
+ 2337 0a0c 11       		.uleb128 0x11
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 48
+
+
+ 2338 0a0d 01       		.uleb128 0x1
+ 2339 0a0e 50       		.byte	0x50
+ 2340 0a0f 03       		.uleb128 0x3
+ 2341 0a10 0A       		.byte	0xa
+ 2342 0a11 2A02     		.2byte	0x22a
+ 2343 0a13 11       		.uleb128 0x11
+ 2344 0a14 01       		.uleb128 0x1
+ 2345 0a15 51       		.byte	0x51
+ 2346 0a16 02       		.uleb128 0x2
+ 2347 0a17 08       		.byte	0x8
+ 2348 0a18 AF       		.byte	0xaf
+ 2349 0a19 00       		.byte	0
+ 2350 0a1a 10       		.uleb128 0x10
+ 2351 0a1b A2000000 		.4byte	.LVL101
+ 2352 0a1f 9F040000 		.4byte	0x49f
+ 2353 0a23 350A0000 		.4byte	0xa35
+ 2354 0a27 11       		.uleb128 0x11
+ 2355 0a28 01       		.uleb128 0x1
+ 2356 0a29 50       		.byte	0x50
+ 2357 0a2a 03       		.uleb128 0x3
+ 2358 0a2b 0A       		.byte	0xa
+ 2359 0a2c 0B02     		.2byte	0x20b
+ 2360 0a2e 11       		.uleb128 0x11
+ 2361 0a2f 01       		.uleb128 0x1
+ 2362 0a30 51       		.byte	0x51
+ 2363 0a31 02       		.uleb128 0x2
+ 2364 0a32 08       		.byte	0x8
+ 2365 0a33 7D       		.byte	0x7d
+ 2366 0a34 00       		.byte	0
+ 2367 0a35 10       		.uleb128 0x10
+ 2368 0a36 AC000000 		.4byte	.LVL102
+ 2369 0a3a 9F040000 		.4byte	0x49f
+ 2370 0a3e 500A0000 		.4byte	0xa50
+ 2371 0a42 11       		.uleb128 0x11
+ 2372 0a43 01       		.uleb128 0x1
+ 2373 0a44 50       		.byte	0x50
+ 2374 0a45 03       		.uleb128 0x3
+ 2375 0a46 0A       		.byte	0xa
+ 2376 0a47 D201     		.2byte	0x1d2
+ 2377 0a49 11       		.uleb128 0x11
+ 2378 0a4a 01       		.uleb128 0x1
+ 2379 0a4b 51       		.byte	0x51
+ 2380 0a4c 02       		.uleb128 0x2
+ 2381 0a4d 08       		.byte	0x8
+ 2382 0a4e 7D       		.byte	0x7d
+ 2383 0a4f 00       		.byte	0
+ 2384 0a50 10       		.uleb128 0x10
+ 2385 0a51 B6000000 		.4byte	.LVL103
+ 2386 0a55 9F040000 		.4byte	0x49f
+ 2387 0a59 6B0A0000 		.4byte	0xa6b
+ 2388 0a5d 11       		.uleb128 0x11
+ 2389 0a5e 01       		.uleb128 0x1
+ 2390 0a5f 50       		.byte	0x50
+ 2391 0a60 03       		.uleb128 0x3
+ 2392 0a61 0A       		.byte	0xa
+ 2393 0a62 0B02     		.2byte	0x20b
+ 2394 0a64 11       		.uleb128 0x11
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 49
+
+
+ 2395 0a65 01       		.uleb128 0x1
+ 2396 0a66 51       		.byte	0x51
+ 2397 0a67 02       		.uleb128 0x2
+ 2398 0a68 08       		.byte	0x8
+ 2399 0a69 FA       		.byte	0xfa
+ 2400 0a6a 00       		.byte	0
+ 2401 0a6b 18       		.uleb128 0x18
+ 2402 0a6c BE000000 		.4byte	.LVL104
+ 2403 0a70 120D0000 		.4byte	0xd12
+ 2404 0a74 11       		.uleb128 0x11
+ 2405 0a75 01       		.uleb128 0x1
+ 2406 0a76 50       		.byte	0x50
+ 2407 0a77 03       		.uleb128 0x3
+ 2408 0a78 0A       		.byte	0xa
+ 2409 0a79 5E01     		.2byte	0x15e
+ 2410 0a7b 00       		.byte	0
+ 2411 0a7c 00       		.byte	0
+ 2412 0a7d 1D       		.uleb128 0x1d
+ 2413 0a7e 03030000 		.4byte	.LASF44
+ 2414 0a82 01       		.byte	0x1
+ 2415 0a83 2501     		.2byte	0x125
+ 2416 0a85 00000000 		.4byte	.LFB77
+ 2417 0a89 02000000 		.4byte	.LFE77-.LFB77
+ 2418 0a8d 01       		.uleb128 0x1
+ 2419 0a8e 9C       		.byte	0x9c
+ 2420 0a8f A20A0000 		.4byte	0xaa2
+ 2421 0a93 1E       		.uleb128 0x1e
+ 2422 0a94 47030000 		.4byte	.LASF33
+ 2423 0a98 01       		.byte	0x1
+ 2424 0a99 2501     		.2byte	0x125
+ 2425 0a9b D1000000 		.4byte	0xd1
+ 2426 0a9f 01       		.uleb128 0x1
+ 2427 0aa0 50       		.byte	0x50
+ 2428 0aa1 00       		.byte	0
+ 2429 0aa2 1F       		.uleb128 0x1f
+ 2430 0aa3 F5030000 		.4byte	.LASF45
+ 2431 0aa7 09       		.byte	0x9
+ 2432 0aa8 1207     		.2byte	0x712
+ 2433 0aaa AE0A0000 		.4byte	0xaae
+ 2434 0aae 20       		.uleb128 0x20
+ 2435 0aaf 81000000 		.4byte	0x81
+ 2436 0ab3 21       		.uleb128 0x21
+ 2437 0ab4 04020000 		.4byte	.LASF46
+ 2438 0ab8 01       		.byte	0x1
+ 2439 0ab9 25       		.byte	0x25
+ 2440 0aba FA000000 		.4byte	0xfa
+ 2441 0abe 05       		.uleb128 0x5
+ 2442 0abf 03       		.byte	0x3
+ 2443 0ac0 00000000 		.4byte	xMessageBuffer
+ 2444 0ac4 22       		.uleb128 0x22
+ 2445 0ac5 6300     		.ascii	"c\000"
+ 2446 0ac7 01       		.byte	0x1
+ 2447 0ac8 D5       		.byte	0xd5
+ 2448 0ac9 D30A0000 		.4byte	0xad3
+ 2449 0acd 05       		.uleb128 0x5
+ 2450 0ace 03       		.byte	0x3
+ 2451 0acf 00000000 		.4byte	c
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 50
+
+
+ 2452 0ad3 23       		.uleb128 0x23
+ 2453 0ad4 7A000000 		.4byte	0x7a
+ 2454 0ad8 22       		.uleb128 0x22
+ 2455 0ad9 6400     		.ascii	"d\000"
+ 2456 0adb 01       		.byte	0x1
+ 2457 0adc D6       		.byte	0xd6
+ 2458 0add D30A0000 		.4byte	0xad3
+ 2459 0ae1 05       		.uleb128 0x5
+ 2460 0ae2 03       		.byte	0x3
+ 2461 0ae3 00000000 		.4byte	d
+ 2462 0ae7 22       		.uleb128 0x22
+ 2463 0ae8 6500     		.ascii	"e\000"
+ 2464 0aea 01       		.byte	0x1
+ 2465 0aeb D7       		.byte	0xd7
+ 2466 0aec D30A0000 		.4byte	0xad3
+ 2467 0af0 05       		.uleb128 0x5
+ 2468 0af1 03       		.byte	0x3
+ 2469 0af2 00000000 		.4byte	e
+ 2470 0af6 22       		.uleb128 0x22
+ 2471 0af7 6600     		.ascii	"f\000"
+ 2472 0af9 01       		.byte	0x1
+ 2473 0afa D8       		.byte	0xd8
+ 2474 0afb D30A0000 		.4byte	0xad3
+ 2475 0aff 05       		.uleb128 0x5
+ 2476 0b00 03       		.byte	0x3
+ 2477 0b01 00000000 		.4byte	f
+ 2478 0b05 22       		.uleb128 0x22
+ 2479 0b06 6700     		.ascii	"g\000"
+ 2480 0b08 01       		.byte	0x1
+ 2481 0b09 D9       		.byte	0xd9
+ 2482 0b0a D30A0000 		.4byte	0xad3
+ 2483 0b0e 05       		.uleb128 0x5
+ 2484 0b0f 03       		.byte	0x3
+ 2485 0b10 00000000 		.4byte	g
+ 2486 0b14 22       		.uleb128 0x22
+ 2487 0b15 675300   		.ascii	"gS\000"
+ 2488 0b18 01       		.byte	0x1
+ 2489 0b19 DA       		.byte	0xda
+ 2490 0b1a D30A0000 		.4byte	0xad3
+ 2491 0b1e 05       		.uleb128 0x5
+ 2492 0b1f 03       		.byte	0x3
+ 2493 0b20 00000000 		.4byte	gS
+ 2494 0b24 22       		.uleb128 0x22
+ 2495 0b25 6100     		.ascii	"a\000"
+ 2496 0b27 01       		.byte	0x1
+ 2497 0b28 DB       		.byte	0xdb
+ 2498 0b29 D30A0000 		.4byte	0xad3
+ 2499 0b2d 05       		.uleb128 0x5
+ 2500 0b2e 03       		.byte	0x3
+ 2501 0b2f 00000000 		.4byte	a
+ 2502 0b33 22       		.uleb128 0x22
+ 2503 0b34 615300   		.ascii	"aS\000"
+ 2504 0b37 01       		.byte	0x1
+ 2505 0b38 DC       		.byte	0xdc
+ 2506 0b39 D30A0000 		.4byte	0xad3
+ 2507 0b3d 05       		.uleb128 0x5
+ 2508 0b3e 03       		.byte	0x3
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 51
+
+
+ 2509 0b3f 00000000 		.4byte	aS
+ 2510 0b43 22       		.uleb128 0x22
+ 2511 0b44 6200     		.ascii	"b\000"
+ 2512 0b46 01       		.byte	0x1
+ 2513 0b47 DD       		.byte	0xdd
+ 2514 0b48 D30A0000 		.4byte	0xad3
+ 2515 0b4c 05       		.uleb128 0x5
+ 2516 0b4d 03       		.byte	0x3
+ 2517 0b4e 00000000 		.4byte	b
+ 2518 0b52 22       		.uleb128 0x22
+ 2519 0b53 634800   		.ascii	"cH\000"
+ 2520 0b56 01       		.byte	0x1
+ 2521 0b57 DE       		.byte	0xde
+ 2522 0b58 D30A0000 		.4byte	0xad3
+ 2523 0b5c 05       		.uleb128 0x5
+ 2524 0b5d 03       		.byte	0x3
+ 2525 0b5e 00000000 		.4byte	cH
+ 2526 0b62 22       		.uleb128 0x22
+ 2527 0b63 63534800 		.ascii	"cSH\000"
+ 2528 0b67 01       		.byte	0x1
+ 2529 0b68 DF       		.byte	0xdf
+ 2530 0b69 D30A0000 		.4byte	0xad3
+ 2531 0b6d 05       		.uleb128 0x5
+ 2532 0b6e 03       		.byte	0x3
+ 2533 0b6f 00000000 		.4byte	cSH
+ 2534 0b73 22       		.uleb128 0x22
+ 2535 0b74 644800   		.ascii	"dH\000"
+ 2536 0b77 01       		.byte	0x1
+ 2537 0b78 E0       		.byte	0xe0
+ 2538 0b79 D30A0000 		.4byte	0xad3
+ 2539 0b7d 05       		.uleb128 0x5
+ 2540 0b7e 03       		.byte	0x3
+ 2541 0b7f 00000000 		.4byte	dH
+ 2542 0b83 22       		.uleb128 0x22
+ 2543 0b84 64534800 		.ascii	"dSH\000"
+ 2544 0b88 01       		.byte	0x1
+ 2545 0b89 E1       		.byte	0xe1
+ 2546 0b8a D30A0000 		.4byte	0xad3
+ 2547 0b8e 05       		.uleb128 0x5
+ 2548 0b8f 03       		.byte	0x3
+ 2549 0b90 00000000 		.4byte	dSH
+ 2550 0b94 22       		.uleb128 0x22
+ 2551 0b95 654800   		.ascii	"eH\000"
+ 2552 0b98 01       		.byte	0x1
+ 2553 0b99 E2       		.byte	0xe2
+ 2554 0b9a D30A0000 		.4byte	0xad3
+ 2555 0b9e 05       		.uleb128 0x5
+ 2556 0b9f 03       		.byte	0x3
+ 2557 0ba0 00000000 		.4byte	eH
+ 2558 0ba4 22       		.uleb128 0x22
+ 2559 0ba5 664800   		.ascii	"fH\000"
+ 2560 0ba8 01       		.byte	0x1
+ 2561 0ba9 E3       		.byte	0xe3
+ 2562 0baa D30A0000 		.4byte	0xad3
+ 2563 0bae 05       		.uleb128 0x5
+ 2564 0baf 03       		.byte	0x3
+ 2565 0bb0 00000000 		.4byte	fH
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 52
+
+
+ 2566 0bb4 22       		.uleb128 0x22
+ 2567 0bb5 66534800 		.ascii	"fSH\000"
+ 2568 0bb9 01       		.byte	0x1
+ 2569 0bba E4       		.byte	0xe4
+ 2570 0bbb D30A0000 		.4byte	0xad3
+ 2571 0bbf 05       		.uleb128 0x5
+ 2572 0bc0 03       		.byte	0x3
+ 2573 0bc1 00000000 		.4byte	fSH
+ 2574 0bc5 22       		.uleb128 0x22
+ 2575 0bc6 674800   		.ascii	"gH\000"
+ 2576 0bc9 01       		.byte	0x1
+ 2577 0bca E5       		.byte	0xe5
+ 2578 0bcb D30A0000 		.4byte	0xad3
+ 2579 0bcf 05       		.uleb128 0x5
+ 2580 0bd0 03       		.byte	0x3
+ 2581 0bd1 00000000 		.4byte	gH
+ 2582 0bd5 22       		.uleb128 0x22
+ 2583 0bd6 67534800 		.ascii	"gSH\000"
+ 2584 0bda 01       		.byte	0x1
+ 2585 0bdb E6       		.byte	0xe6
+ 2586 0bdc D30A0000 		.4byte	0xad3
+ 2587 0be0 05       		.uleb128 0x5
+ 2588 0be1 03       		.byte	0x3
+ 2589 0be2 00000000 		.4byte	gSH
+ 2590 0be6 22       		.uleb128 0x22
+ 2591 0be7 614800   		.ascii	"aH\000"
+ 2592 0bea 01       		.byte	0x1
+ 2593 0beb E7       		.byte	0xe7
+ 2594 0bec D30A0000 		.4byte	0xad3
+ 2595 0bf0 05       		.uleb128 0x5
+ 2596 0bf1 03       		.byte	0x3
+ 2597 0bf2 00000000 		.4byte	aH
+ 2598 0bf6 24       		.uleb128 0x24
+ 2599 0bf7 9C000000 		.4byte	.LASF47
+ 2600 0bfb 9C000000 		.4byte	.LASF47
+ 2601 0bff 0A       		.byte	0xa
+ 2602 0c00 71       		.byte	0x71
+ 2603 0c01 25       		.uleb128 0x25
+ 2604 0c02 60020000 		.4byte	.LASF48
+ 2605 0c06 60020000 		.4byte	.LASF48
+ 2606 0c0a 07       		.byte	0x7
+ 2607 0c0b 9501     		.2byte	0x195
+ 2608 0c0d 26       		.uleb128 0x26
+ 2609 0c0e 0E030000 		.4byte	.LASF81
+ 2610 0c12 C1030000 		.4byte	.LASF82
+ 2611 0c16 18       		.byte	0x18
+ 2612 0c17 00       		.byte	0
+ 2613 0c18 0E030000 		.4byte	.LASF81
+ 2614 0c1c 24       		.uleb128 0x24
+ 2615 0c1d A9000000 		.4byte	.LASF49
+ 2616 0c21 A9000000 		.4byte	.LASF49
+ 2617 0c25 0A       		.byte	0xa
+ 2618 0c26 8B       		.byte	0x8b
+ 2619 0c27 24       		.uleb128 0x24
+ 2620 0c28 1C030000 		.4byte	.LASF50
+ 2621 0c2c 1C030000 		.4byte	.LASF50
+ 2622 0c30 0A       		.byte	0xa
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 53
+
+
+ 2623 0c31 73       		.byte	0x73
+ 2624 0c32 24       		.uleb128 0x24
+ 2625 0c33 6F000000 		.4byte	.LASF51
+ 2626 0c37 6F000000 		.4byte	.LASF51
+ 2627 0c3b 0A       		.byte	0xa
+ 2628 0c3c 70       		.byte	0x70
+ 2629 0c3d 24       		.uleb128 0x24
+ 2630 0c3e 26000000 		.4byte	.LASF52
+ 2631 0c42 26000000 		.4byte	.LASF52
+ 2632 0c46 0B       		.byte	0xb
+ 2633 0c47 26       		.byte	0x26
+ 2634 0c48 24       		.uleb128 0x24
+ 2635 0c49 A9030000 		.4byte	.LASF53
+ 2636 0c4d A9030000 		.4byte	.LASF53
+ 2637 0c51 0C       		.byte	0xc
+ 2638 0c52 26       		.byte	0x26
+ 2639 0c53 25       		.uleb128 0x25
+ 2640 0c54 56000000 		.4byte	.LASF54
+ 2641 0c58 56000000 		.4byte	.LASF54
+ 2642 0c5c 0D       		.byte	0xd
+ 2643 0c5d F302     		.2byte	0x2f3
+ 2644 0c5f 24       		.uleb128 0x24
+ 2645 0c60 A5040000 		.4byte	.LASF55
+ 2646 0c64 A5040000 		.4byte	.LASF55
+ 2647 0c68 0E       		.byte	0xe
+ 2648 0c69 29       		.byte	0x29
+ 2649 0c6a 24       		.uleb128 0x24
+ 2650 0c6b 26010000 		.4byte	.LASF56
+ 2651 0c6f 26010000 		.4byte	.LASF56
+ 2652 0c73 0F       		.byte	0xf
+ 2653 0c74 5A       		.byte	0x5a
+ 2654 0c75 24       		.uleb128 0x24
+ 2655 0c76 E6020000 		.4byte	.LASF57
+ 2656 0c7a E6020000 		.4byte	.LASF57
+ 2657 0c7e 0F       		.byte	0xf
+ 2658 0c7f 69       		.byte	0x69
+ 2659 0c80 24       		.uleb128 0x24
+ 2660 0c81 91000000 		.4byte	.LASF58
+ 2661 0c85 91000000 		.4byte	.LASF58
+ 2662 0c89 0F       		.byte	0xf
+ 2663 0c8a 5B       		.byte	0x5b
+ 2664 0c8b 24       		.uleb128 0x24
+ 2665 0c8c FC010000 		.4byte	.LASF59
+ 2666 0c90 FC010000 		.4byte	.LASF59
+ 2667 0c94 10       		.byte	0x10
+ 2668 0c95 E7       		.byte	0xe7
+ 2669 0c96 24       		.uleb128 0x24
+ 2670 0c97 E0000000 		.4byte	.LASF60
+ 2671 0c9b E0000000 		.4byte	.LASF60
+ 2672 0c9f 11       		.byte	0x11
+ 2673 0ca0 8B       		.byte	0x8b
+ 2674 0ca1 24       		.uleb128 0x24
+ 2675 0ca2 8D030000 		.4byte	.LASF61
+ 2676 0ca6 8D030000 		.4byte	.LASF61
+ 2677 0caa 12       		.byte	0x12
+ 2678 0cab 18       		.byte	0x18
+ 2679 0cac 24       		.uleb128 0x24
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 54
+
+
+ 2680 0cad F8020000 		.4byte	.LASF62
+ 2681 0cb1 F8020000 		.4byte	.LASF62
+ 2682 0cb5 0A       		.byte	0xa
+ 2683 0cb6 54       		.byte	0x54
+ 2684 0cb7 24       		.uleb128 0x24
+ 2685 0cb8 E5030000 		.4byte	.LASF63
+ 2686 0cbc E5030000 		.4byte	.LASF63
+ 2687 0cc0 13       		.byte	0x13
+ 2688 0cc1 92       		.byte	0x92
+ 2689 0cc2 24       		.uleb128 0x24
+ 2690 0cc3 3B010000 		.4byte	.LASF64
+ 2691 0cc7 3B010000 		.4byte	.LASF64
+ 2692 0ccb 14       		.byte	0x14
+ 2693 0ccc 92       		.byte	0x92
+ 2694 0ccd 24       		.uleb128 0x24
+ 2695 0cce E8040000 		.4byte	.LASF65
+ 2696 0cd2 E8040000 		.4byte	.LASF65
+ 2697 0cd6 11       		.byte	0x11
+ 2698 0cd7 54       		.byte	0x54
+ 2699 0cd8 24       		.uleb128 0x24
+ 2700 0cd9 61000000 		.4byte	.LASF66
+ 2701 0cdd 61000000 		.4byte	.LASF66
+ 2702 0ce1 15       		.byte	0x15
+ 2703 0ce2 17       		.byte	0x17
+ 2704 0ce3 25       		.uleb128 0x25
+ 2705 0ce4 0B000000 		.4byte	.LASF67
+ 2706 0ce8 0B000000 		.4byte	.LASF67
+ 2707 0cec 07       		.byte	0x7
+ 2708 0ced 3D03     		.2byte	0x33d
+ 2709 0cef 25       		.uleb128 0x25
+ 2710 0cf0 AF040000 		.4byte	.LASF68
+ 2711 0cf4 AF040000 		.4byte	.LASF68
+ 2712 0cf8 0D       		.byte	0xd
+ 2713 0cf9 4701     		.2byte	0x147
+ 2714 0cfb 25       		.uleb128 0x25
+ 2715 0cfc 12010000 		.4byte	.LASF69
+ 2716 0d00 12010000 		.4byte	.LASF69
+ 2717 0d04 0D       		.byte	0xd
+ 2718 0d05 9404     		.2byte	0x494
+ 2719 0d07 24       		.uleb128 0x24
+ 2720 0d08 D1010000 		.4byte	.LASF70
+ 2721 0d0c D1010000 		.4byte	.LASF70
+ 2722 0d10 14       		.byte	0x14
+ 2723 0d11 C3       		.byte	0xc3
+ 2724 0d12 24       		.uleb128 0x24
+ 2725 0d13 90040000 		.4byte	.LASF71
+ 2726 0d17 90040000 		.4byte	.LASF71
+ 2727 0d1b 16       		.byte	0x16
+ 2728 0d1c 76       		.byte	0x76
+ 2729 0d1d 25       		.uleb128 0x25
+ 2730 0d1e A9010000 		.4byte	.LASF72
+ 2731 0d22 A9010000 		.4byte	.LASF72
+ 2732 0d26 07       		.byte	0x7
+ 2733 0d27 8502     		.2byte	0x285
+ 2734 0d29 25       		.uleb128 0x25
+ 2735 0d2a 91020000 		.4byte	.LASF73
+ 2736 0d2e 91020000 		.4byte	.LASF73
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 55
+
+
+ 2737 0d32 07       		.byte	0x7
+ 2738 0d33 EE01     		.2byte	0x1ee
+ 2739 0d35 24       		.uleb128 0x24
+ 2740 0d36 4F000000 		.4byte	.LASF74
+ 2741 0d3a 4F000000 		.4byte	.LASF74
+ 2742 0d3e 17       		.byte	0x17
+ 2743 0d3f 2A       		.byte	0x2a
+ 2744 0d40 24       		.uleb128 0x24
+ 2745 0d41 D2030000 		.4byte	.LASF75
+ 2746 0d45 D2030000 		.4byte	.LASF75
+ 2747 0d49 17       		.byte	0x17
+ 2748 0d4a 1C       		.byte	0x1c
+ 2749 0d4b 24       		.uleb128 0x24
+ 2750 0d4c D1040000 		.4byte	.LASF76
+ 2751 0d50 D1040000 		.4byte	.LASF76
+ 2752 0d54 13       		.byte	0x13
+ 2753 0d55 C3       		.byte	0xc3
+ 2754 0d56 00       		.byte	0
+ 2755              		.section	.debug_abbrev,"",%progbits
+ 2756              	.Ldebug_abbrev0:
+ 2757 0000 01       		.uleb128 0x1
+ 2758 0001 11       		.uleb128 0x11
+ 2759 0002 01       		.byte	0x1
+ 2760 0003 25       		.uleb128 0x25
+ 2761 0004 0E       		.uleb128 0xe
+ 2762 0005 13       		.uleb128 0x13
+ 2763 0006 0B       		.uleb128 0xb
+ 2764 0007 03       		.uleb128 0x3
+ 2765 0008 0E       		.uleb128 0xe
+ 2766 0009 1B       		.uleb128 0x1b
+ 2767 000a 0E       		.uleb128 0xe
+ 2768 000b 55       		.uleb128 0x55
+ 2769 000c 17       		.uleb128 0x17
+ 2770 000d 11       		.uleb128 0x11
+ 2771 000e 01       		.uleb128 0x1
+ 2772 000f 10       		.uleb128 0x10
+ 2773 0010 17       		.uleb128 0x17
+ 2774 0011 00       		.byte	0
+ 2775 0012 00       		.byte	0
+ 2776 0013 02       		.uleb128 0x2
+ 2777 0014 24       		.uleb128 0x24
+ 2778 0015 00       		.byte	0
+ 2779 0016 0B       		.uleb128 0xb
+ 2780 0017 0B       		.uleb128 0xb
+ 2781 0018 3E       		.uleb128 0x3e
+ 2782 0019 0B       		.uleb128 0xb
+ 2783 001a 03       		.uleb128 0x3
+ 2784 001b 0E       		.uleb128 0xe
+ 2785 001c 00       		.byte	0
+ 2786 001d 00       		.byte	0
+ 2787 001e 03       		.uleb128 0x3
+ 2788 001f 16       		.uleb128 0x16
+ 2789 0020 00       		.byte	0
+ 2790 0021 03       		.uleb128 0x3
+ 2791 0022 0E       		.uleb128 0xe
+ 2792 0023 3A       		.uleb128 0x3a
+ 2793 0024 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 56
+
+
+ 2794 0025 3B       		.uleb128 0x3b
+ 2795 0026 0B       		.uleb128 0xb
+ 2796 0027 49       		.uleb128 0x49
+ 2797 0028 13       		.uleb128 0x13
+ 2798 0029 00       		.byte	0
+ 2799 002a 00       		.byte	0
+ 2800 002b 04       		.uleb128 0x4
+ 2801 002c 24       		.uleb128 0x24
+ 2802 002d 00       		.byte	0
+ 2803 002e 0B       		.uleb128 0xb
+ 2804 002f 0B       		.uleb128 0xb
+ 2805 0030 3E       		.uleb128 0x3e
+ 2806 0031 0B       		.uleb128 0xb
+ 2807 0032 03       		.uleb128 0x3
+ 2808 0033 08       		.uleb128 0x8
+ 2809 0034 00       		.byte	0
+ 2810 0035 00       		.byte	0
+ 2811 0036 05       		.uleb128 0x5
+ 2812 0037 16       		.uleb128 0x16
+ 2813 0038 00       		.byte	0
+ 2814 0039 03       		.uleb128 0x3
+ 2815 003a 0E       		.uleb128 0xe
+ 2816 003b 3A       		.uleb128 0x3a
+ 2817 003c 0B       		.uleb128 0xb
+ 2818 003d 3B       		.uleb128 0x3b
+ 2819 003e 05       		.uleb128 0x5
+ 2820 003f 49       		.uleb128 0x49
+ 2821 0040 13       		.uleb128 0x13
+ 2822 0041 00       		.byte	0
+ 2823 0042 00       		.byte	0
+ 2824 0043 06       		.uleb128 0x6
+ 2825 0044 0F       		.uleb128 0xf
+ 2826 0045 00       		.byte	0
+ 2827 0046 0B       		.uleb128 0xb
+ 2828 0047 0B       		.uleb128 0xb
+ 2829 0048 00       		.byte	0
+ 2830 0049 00       		.byte	0
+ 2831 004a 07       		.uleb128 0x7
+ 2832 004b 0F       		.uleb128 0xf
+ 2833 004c 00       		.byte	0
+ 2834 004d 0B       		.uleb128 0xb
+ 2835 004e 0B       		.uleb128 0xb
+ 2836 004f 49       		.uleb128 0x49
+ 2837 0050 13       		.uleb128 0x13
+ 2838 0051 00       		.byte	0
+ 2839 0052 00       		.byte	0
+ 2840 0053 08       		.uleb128 0x8
+ 2841 0054 04       		.uleb128 0x4
+ 2842 0055 01       		.byte	0x1
+ 2843 0056 03       		.uleb128 0x3
+ 2844 0057 0E       		.uleb128 0xe
+ 2845 0058 0B       		.uleb128 0xb
+ 2846 0059 0B       		.uleb128 0xb
+ 2847 005a 49       		.uleb128 0x49
+ 2848 005b 13       		.uleb128 0x13
+ 2849 005c 3A       		.uleb128 0x3a
+ 2850 005d 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 57
+
+
+ 2851 005e 3B       		.uleb128 0x3b
+ 2852 005f 0B       		.uleb128 0xb
+ 2853 0060 01       		.uleb128 0x1
+ 2854 0061 13       		.uleb128 0x13
+ 2855 0062 00       		.byte	0
+ 2856 0063 00       		.byte	0
+ 2857 0064 09       		.uleb128 0x9
+ 2858 0065 28       		.uleb128 0x28
+ 2859 0066 00       		.byte	0
+ 2860 0067 03       		.uleb128 0x3
+ 2861 0068 0E       		.uleb128 0xe
+ 2862 0069 1C       		.uleb128 0x1c
+ 2863 006a 0B       		.uleb128 0xb
+ 2864 006b 00       		.byte	0
+ 2865 006c 00       		.byte	0
+ 2866 006d 0A       		.uleb128 0xa
+ 2867 006e 2E       		.uleb128 0x2e
+ 2868 006f 01       		.byte	0x1
+ 2869 0070 3F       		.uleb128 0x3f
+ 2870 0071 19       		.uleb128 0x19
+ 2871 0072 03       		.uleb128 0x3
+ 2872 0073 0E       		.uleb128 0xe
+ 2873 0074 3A       		.uleb128 0x3a
+ 2874 0075 0B       		.uleb128 0xb
+ 2875 0076 3B       		.uleb128 0x3b
+ 2876 0077 0B       		.uleb128 0xb
+ 2877 0078 27       		.uleb128 0x27
+ 2878 0079 19       		.uleb128 0x19
+ 2879 007a 11       		.uleb128 0x11
+ 2880 007b 01       		.uleb128 0x1
+ 2881 007c 12       		.uleb128 0x12
+ 2882 007d 06       		.uleb128 0x6
+ 2883 007e 40       		.uleb128 0x40
+ 2884 007f 18       		.uleb128 0x18
+ 2885 0080 9742     		.uleb128 0x2117
+ 2886 0082 19       		.uleb128 0x19
+ 2887 0083 01       		.uleb128 0x1
+ 2888 0084 13       		.uleb128 0x13
+ 2889 0085 00       		.byte	0
+ 2890 0086 00       		.byte	0
+ 2891 0087 0B       		.uleb128 0xb
+ 2892 0088 34       		.uleb128 0x34
+ 2893 0089 00       		.byte	0
+ 2894 008a 03       		.uleb128 0x3
+ 2895 008b 08       		.uleb128 0x8
+ 2896 008c 3A       		.uleb128 0x3a
+ 2897 008d 0B       		.uleb128 0xb
+ 2898 008e 3B       		.uleb128 0x3b
+ 2899 008f 0B       		.uleb128 0xb
+ 2900 0090 49       		.uleb128 0x49
+ 2901 0091 13       		.uleb128 0x13
+ 2902 0092 02       		.uleb128 0x2
+ 2903 0093 18       		.uleb128 0x18
+ 2904 0094 00       		.byte	0
+ 2905 0095 00       		.byte	0
+ 2906 0096 0C       		.uleb128 0xc
+ 2907 0097 34       		.uleb128 0x34
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 58
+
+
+ 2908 0098 00       		.byte	0
+ 2909 0099 03       		.uleb128 0x3
+ 2910 009a 0E       		.uleb128 0xe
+ 2911 009b 3A       		.uleb128 0x3a
+ 2912 009c 0B       		.uleb128 0xb
+ 2913 009d 3B       		.uleb128 0x3b
+ 2914 009e 0B       		.uleb128 0xb
+ 2915 009f 49       		.uleb128 0x49
+ 2916 00a0 13       		.uleb128 0x13
+ 2917 00a1 02       		.uleb128 0x2
+ 2918 00a2 18       		.uleb128 0x18
+ 2919 00a3 00       		.byte	0
+ 2920 00a4 00       		.byte	0
+ 2921 00a5 0D       		.uleb128 0xd
+ 2922 00a6 34       		.uleb128 0x34
+ 2923 00a7 00       		.byte	0
+ 2924 00a8 03       		.uleb128 0x3
+ 2925 00a9 08       		.uleb128 0x8
+ 2926 00aa 3A       		.uleb128 0x3a
+ 2927 00ab 0B       		.uleb128 0xb
+ 2928 00ac 3B       		.uleb128 0x3b
+ 2929 00ad 0B       		.uleb128 0xb
+ 2930 00ae 49       		.uleb128 0x49
+ 2931 00af 13       		.uleb128 0x13
+ 2932 00b0 02       		.uleb128 0x2
+ 2933 00b1 17       		.uleb128 0x17
+ 2934 00b2 00       		.byte	0
+ 2935 00b3 00       		.byte	0
+ 2936 00b4 0E       		.uleb128 0xe
+ 2937 00b5 34       		.uleb128 0x34
+ 2938 00b6 00       		.byte	0
+ 2939 00b7 03       		.uleb128 0x3
+ 2940 00b8 0E       		.uleb128 0xe
+ 2941 00b9 3A       		.uleb128 0x3a
+ 2942 00ba 0B       		.uleb128 0xb
+ 2943 00bb 3B       		.uleb128 0x3b
+ 2944 00bc 0B       		.uleb128 0xb
+ 2945 00bd 49       		.uleb128 0x49
+ 2946 00be 13       		.uleb128 0x13
+ 2947 00bf 1C       		.uleb128 0x1c
+ 2948 00c0 0B       		.uleb128 0xb
+ 2949 00c1 00       		.byte	0
+ 2950 00c2 00       		.byte	0
+ 2951 00c3 0F       		.uleb128 0xf
+ 2952 00c4 898201   		.uleb128 0x4109
+ 2953 00c7 00       		.byte	0
+ 2954 00c8 11       		.uleb128 0x11
+ 2955 00c9 01       		.uleb128 0x1
+ 2956 00ca 31       		.uleb128 0x31
+ 2957 00cb 13       		.uleb128 0x13
+ 2958 00cc 00       		.byte	0
+ 2959 00cd 00       		.byte	0
+ 2960 00ce 10       		.uleb128 0x10
+ 2961 00cf 898201   		.uleb128 0x4109
+ 2962 00d2 01       		.byte	0x1
+ 2963 00d3 11       		.uleb128 0x11
+ 2964 00d4 01       		.uleb128 0x1
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 59
+
+
+ 2965 00d5 31       		.uleb128 0x31
+ 2966 00d6 13       		.uleb128 0x13
+ 2967 00d7 01       		.uleb128 0x1
+ 2968 00d8 13       		.uleb128 0x13
+ 2969 00d9 00       		.byte	0
+ 2970 00da 00       		.byte	0
+ 2971 00db 11       		.uleb128 0x11
+ 2972 00dc 8A8201   		.uleb128 0x410a
+ 2973 00df 00       		.byte	0
+ 2974 00e0 02       		.uleb128 0x2
+ 2975 00e1 18       		.uleb128 0x18
+ 2976 00e2 9142     		.uleb128 0x2111
+ 2977 00e4 18       		.uleb128 0x18
+ 2978 00e5 00       		.byte	0
+ 2979 00e6 00       		.byte	0
+ 2980 00e7 12       		.uleb128 0x12
+ 2981 00e8 01       		.uleb128 0x1
+ 2982 00e9 01       		.byte	0x1
+ 2983 00ea 49       		.uleb128 0x49
+ 2984 00eb 13       		.uleb128 0x13
+ 2985 00ec 01       		.uleb128 0x1
+ 2986 00ed 13       		.uleb128 0x13
+ 2987 00ee 00       		.byte	0
+ 2988 00ef 00       		.byte	0
+ 2989 00f0 13       		.uleb128 0x13
+ 2990 00f1 21       		.uleb128 0x21
+ 2991 00f2 00       		.byte	0
+ 2992 00f3 49       		.uleb128 0x49
+ 2993 00f4 13       		.uleb128 0x13
+ 2994 00f5 2F       		.uleb128 0x2f
+ 2995 00f6 0B       		.uleb128 0xb
+ 2996 00f7 00       		.byte	0
+ 2997 00f8 00       		.byte	0
+ 2998 00f9 14       		.uleb128 0x14
+ 2999 00fa 2E       		.uleb128 0x2e
+ 3000 00fb 01       		.byte	0x1
+ 3001 00fc 3F       		.uleb128 0x3f
+ 3002 00fd 19       		.uleb128 0x19
+ 3003 00fe 03       		.uleb128 0x3
+ 3004 00ff 0E       		.uleb128 0xe
+ 3005 0100 3A       		.uleb128 0x3a
+ 3006 0101 0B       		.uleb128 0xb
+ 3007 0102 3B       		.uleb128 0x3b
+ 3008 0103 0B       		.uleb128 0xb
+ 3009 0104 27       		.uleb128 0x27
+ 3010 0105 19       		.uleb128 0x19
+ 3011 0106 8701     		.uleb128 0x87
+ 3012 0108 19       		.uleb128 0x19
+ 3013 0109 11       		.uleb128 0x11
+ 3014 010a 01       		.uleb128 0x1
+ 3015 010b 12       		.uleb128 0x12
+ 3016 010c 06       		.uleb128 0x6
+ 3017 010d 40       		.uleb128 0x40
+ 3018 010e 18       		.uleb128 0x18
+ 3019 010f 9642     		.uleb128 0x2116
+ 3020 0111 19       		.uleb128 0x19
+ 3021 0112 01       		.uleb128 0x1
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 60
+
+
+ 3022 0113 13       		.uleb128 0x13
+ 3023 0114 00       		.byte	0
+ 3024 0115 00       		.byte	0
+ 3025 0116 15       		.uleb128 0x15
+ 3026 0117 05       		.uleb128 0x5
+ 3027 0118 00       		.byte	0
+ 3028 0119 03       		.uleb128 0x3
+ 3029 011a 0E       		.uleb128 0xe
+ 3030 011b 3A       		.uleb128 0x3a
+ 3031 011c 0B       		.uleb128 0xb
+ 3032 011d 3B       		.uleb128 0x3b
+ 3033 011e 0B       		.uleb128 0xb
+ 3034 011f 49       		.uleb128 0x49
+ 3035 0120 13       		.uleb128 0x13
+ 3036 0121 02       		.uleb128 0x2
+ 3037 0122 17       		.uleb128 0x17
+ 3038 0123 00       		.byte	0
+ 3039 0124 00       		.byte	0
+ 3040 0125 16       		.uleb128 0x16
+ 3041 0126 34       		.uleb128 0x34
+ 3042 0127 00       		.byte	0
+ 3043 0128 03       		.uleb128 0x3
+ 3044 0129 0E       		.uleb128 0xe
+ 3045 012a 3A       		.uleb128 0x3a
+ 3046 012b 0B       		.uleb128 0xb
+ 3047 012c 3B       		.uleb128 0x3b
+ 3048 012d 0B       		.uleb128 0xb
+ 3049 012e 49       		.uleb128 0x49
+ 3050 012f 13       		.uleb128 0x13
+ 3051 0130 02       		.uleb128 0x2
+ 3052 0131 17       		.uleb128 0x17
+ 3053 0132 00       		.byte	0
+ 3054 0133 00       		.byte	0
+ 3055 0134 17       		.uleb128 0x17
+ 3056 0135 34       		.uleb128 0x34
+ 3057 0136 00       		.byte	0
+ 3058 0137 03       		.uleb128 0x3
+ 3059 0138 0E       		.uleb128 0xe
+ 3060 0139 3A       		.uleb128 0x3a
+ 3061 013a 0B       		.uleb128 0xb
+ 3062 013b 3B       		.uleb128 0x3b
+ 3063 013c 0B       		.uleb128 0xb
+ 3064 013d 49       		.uleb128 0x49
+ 3065 013e 13       		.uleb128 0x13
+ 3066 013f 00       		.byte	0
+ 3067 0140 00       		.byte	0
+ 3068 0141 18       		.uleb128 0x18
+ 3069 0142 898201   		.uleb128 0x4109
+ 3070 0145 01       		.byte	0x1
+ 3071 0146 11       		.uleb128 0x11
+ 3072 0147 01       		.uleb128 0x1
+ 3073 0148 31       		.uleb128 0x31
+ 3074 0149 13       		.uleb128 0x13
+ 3075 014a 00       		.byte	0
+ 3076 014b 00       		.byte	0
+ 3077 014c 19       		.uleb128 0x19
+ 3078 014d 2E       		.uleb128 0x2e
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 61
+
+
+ 3079 014e 01       		.byte	0x1
+ 3080 014f 3F       		.uleb128 0x3f
+ 3081 0150 19       		.uleb128 0x19
+ 3082 0151 03       		.uleb128 0x3
+ 3083 0152 0E       		.uleb128 0xe
+ 3084 0153 3A       		.uleb128 0x3a
+ 3085 0154 0B       		.uleb128 0xb
+ 3086 0155 3B       		.uleb128 0x3b
+ 3087 0156 0B       		.uleb128 0xb
+ 3088 0157 11       		.uleb128 0x11
+ 3089 0158 01       		.uleb128 0x1
+ 3090 0159 12       		.uleb128 0x12
+ 3091 015a 06       		.uleb128 0x6
+ 3092 015b 40       		.uleb128 0x40
+ 3093 015c 18       		.uleb128 0x18
+ 3094 015d 9742     		.uleb128 0x2117
+ 3095 015f 19       		.uleb128 0x19
+ 3096 0160 01       		.uleb128 0x1
+ 3097 0161 13       		.uleb128 0x13
+ 3098 0162 00       		.byte	0
+ 3099 0163 00       		.byte	0
+ 3100 0164 1A       		.uleb128 0x1a
+ 3101 0165 2E       		.uleb128 0x2e
+ 3102 0166 01       		.byte	0x1
+ 3103 0167 3F       		.uleb128 0x3f
+ 3104 0168 19       		.uleb128 0x19
+ 3105 0169 03       		.uleb128 0x3
+ 3106 016a 0E       		.uleb128 0xe
+ 3107 016b 3A       		.uleb128 0x3a
+ 3108 016c 0B       		.uleb128 0xb
+ 3109 016d 3B       		.uleb128 0x3b
+ 3110 016e 0B       		.uleb128 0xb
+ 3111 016f 27       		.uleb128 0x27
+ 3112 0170 19       		.uleb128 0x19
+ 3113 0171 49       		.uleb128 0x49
+ 3114 0172 13       		.uleb128 0x13
+ 3115 0173 8701     		.uleb128 0x87
+ 3116 0175 19       		.uleb128 0x19
+ 3117 0176 11       		.uleb128 0x11
+ 3118 0177 01       		.uleb128 0x1
+ 3119 0178 12       		.uleb128 0x12
+ 3120 0179 06       		.uleb128 0x6
+ 3121 017a 40       		.uleb128 0x40
+ 3122 017b 18       		.uleb128 0x18
+ 3123 017c 9742     		.uleb128 0x2117
+ 3124 017e 19       		.uleb128 0x19
+ 3125 017f 01       		.uleb128 0x1
+ 3126 0180 13       		.uleb128 0x13
+ 3127 0181 00       		.byte	0
+ 3128 0182 00       		.byte	0
+ 3129 0183 1B       		.uleb128 0x1b
+ 3130 0184 2E       		.uleb128 0x2e
+ 3131 0185 01       		.byte	0x1
+ 3132 0186 3F       		.uleb128 0x3f
+ 3133 0187 19       		.uleb128 0x19
+ 3134 0188 03       		.uleb128 0x3
+ 3135 0189 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 62
+
+
+ 3136 018a 3A       		.uleb128 0x3a
+ 3137 018b 0B       		.uleb128 0xb
+ 3138 018c 3B       		.uleb128 0x3b
+ 3139 018d 0B       		.uleb128 0xb
+ 3140 018e 27       		.uleb128 0x27
+ 3141 018f 19       		.uleb128 0x19
+ 3142 0190 8701     		.uleb128 0x87
+ 3143 0192 19       		.uleb128 0x19
+ 3144 0193 11       		.uleb128 0x11
+ 3145 0194 01       		.uleb128 0x1
+ 3146 0195 12       		.uleb128 0x12
+ 3147 0196 06       		.uleb128 0x6
+ 3148 0197 40       		.uleb128 0x40
+ 3149 0198 18       		.uleb128 0x18
+ 3150 0199 9742     		.uleb128 0x2117
+ 3151 019b 19       		.uleb128 0x19
+ 3152 019c 01       		.uleb128 0x1
+ 3153 019d 13       		.uleb128 0x13
+ 3154 019e 00       		.byte	0
+ 3155 019f 00       		.byte	0
+ 3156 01a0 1C       		.uleb128 0x1c
+ 3157 01a1 2E       		.uleb128 0x2e
+ 3158 01a2 01       		.byte	0x1
+ 3159 01a3 3F       		.uleb128 0x3f
+ 3160 01a4 19       		.uleb128 0x19
+ 3161 01a5 03       		.uleb128 0x3
+ 3162 01a6 0E       		.uleb128 0xe
+ 3163 01a7 3A       		.uleb128 0x3a
+ 3164 01a8 0B       		.uleb128 0xb
+ 3165 01a9 3B       		.uleb128 0x3b
+ 3166 01aa 05       		.uleb128 0x5
+ 3167 01ab 11       		.uleb128 0x11
+ 3168 01ac 01       		.uleb128 0x1
+ 3169 01ad 12       		.uleb128 0x12
+ 3170 01ae 06       		.uleb128 0x6
+ 3171 01af 40       		.uleb128 0x40
+ 3172 01b0 18       		.uleb128 0x18
+ 3173 01b1 9742     		.uleb128 0x2117
+ 3174 01b3 19       		.uleb128 0x19
+ 3175 01b4 01       		.uleb128 0x1
+ 3176 01b5 13       		.uleb128 0x13
+ 3177 01b6 00       		.byte	0
+ 3178 01b7 00       		.byte	0
+ 3179 01b8 1D       		.uleb128 0x1d
+ 3180 01b9 2E       		.uleb128 0x2e
+ 3181 01ba 01       		.byte	0x1
+ 3182 01bb 3F       		.uleb128 0x3f
+ 3183 01bc 19       		.uleb128 0x19
+ 3184 01bd 03       		.uleb128 0x3
+ 3185 01be 0E       		.uleb128 0xe
+ 3186 01bf 3A       		.uleb128 0x3a
+ 3187 01c0 0B       		.uleb128 0xb
+ 3188 01c1 3B       		.uleb128 0x3b
+ 3189 01c2 05       		.uleb128 0x5
+ 3190 01c3 27       		.uleb128 0x27
+ 3191 01c4 19       		.uleb128 0x19
+ 3192 01c5 8701     		.uleb128 0x87
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 63
+
+
+ 3193 01c7 19       		.uleb128 0x19
+ 3194 01c8 11       		.uleb128 0x11
+ 3195 01c9 01       		.uleb128 0x1
+ 3196 01ca 12       		.uleb128 0x12
+ 3197 01cb 06       		.uleb128 0x6
+ 3198 01cc 40       		.uleb128 0x40
+ 3199 01cd 18       		.uleb128 0x18
+ 3200 01ce 9742     		.uleb128 0x2117
+ 3201 01d0 19       		.uleb128 0x19
+ 3202 01d1 01       		.uleb128 0x1
+ 3203 01d2 13       		.uleb128 0x13
+ 3204 01d3 00       		.byte	0
+ 3205 01d4 00       		.byte	0
+ 3206 01d5 1E       		.uleb128 0x1e
+ 3207 01d6 05       		.uleb128 0x5
+ 3208 01d7 00       		.byte	0
+ 3209 01d8 03       		.uleb128 0x3
+ 3210 01d9 0E       		.uleb128 0xe
+ 3211 01da 3A       		.uleb128 0x3a
+ 3212 01db 0B       		.uleb128 0xb
+ 3213 01dc 3B       		.uleb128 0x3b
+ 3214 01dd 05       		.uleb128 0x5
+ 3215 01de 49       		.uleb128 0x49
+ 3216 01df 13       		.uleb128 0x13
+ 3217 01e0 02       		.uleb128 0x2
+ 3218 01e1 18       		.uleb128 0x18
+ 3219 01e2 00       		.byte	0
+ 3220 01e3 00       		.byte	0
+ 3221 01e4 1F       		.uleb128 0x1f
+ 3222 01e5 34       		.uleb128 0x34
+ 3223 01e6 00       		.byte	0
+ 3224 01e7 03       		.uleb128 0x3
+ 3225 01e8 0E       		.uleb128 0xe
+ 3226 01e9 3A       		.uleb128 0x3a
+ 3227 01ea 0B       		.uleb128 0xb
+ 3228 01eb 3B       		.uleb128 0x3b
+ 3229 01ec 05       		.uleb128 0x5
+ 3230 01ed 49       		.uleb128 0x49
+ 3231 01ee 13       		.uleb128 0x13
+ 3232 01ef 3F       		.uleb128 0x3f
+ 3233 01f0 19       		.uleb128 0x19
+ 3234 01f1 3C       		.uleb128 0x3c
+ 3235 01f2 19       		.uleb128 0x19
+ 3236 01f3 00       		.byte	0
+ 3237 01f4 00       		.byte	0
+ 3238 01f5 20       		.uleb128 0x20
+ 3239 01f6 35       		.uleb128 0x35
+ 3240 01f7 00       		.byte	0
+ 3241 01f8 49       		.uleb128 0x49
+ 3242 01f9 13       		.uleb128 0x13
+ 3243 01fa 00       		.byte	0
+ 3244 01fb 00       		.byte	0
+ 3245 01fc 21       		.uleb128 0x21
+ 3246 01fd 34       		.uleb128 0x34
+ 3247 01fe 00       		.byte	0
+ 3248 01ff 03       		.uleb128 0x3
+ 3249 0200 0E       		.uleb128 0xe
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 64
+
+
+ 3250 0201 3A       		.uleb128 0x3a
+ 3251 0202 0B       		.uleb128 0xb
+ 3252 0203 3B       		.uleb128 0x3b
+ 3253 0204 0B       		.uleb128 0xb
+ 3254 0205 49       		.uleb128 0x49
+ 3255 0206 13       		.uleb128 0x13
+ 3256 0207 3F       		.uleb128 0x3f
+ 3257 0208 19       		.uleb128 0x19
+ 3258 0209 02       		.uleb128 0x2
+ 3259 020a 18       		.uleb128 0x18
+ 3260 020b 00       		.byte	0
+ 3261 020c 00       		.byte	0
+ 3262 020d 22       		.uleb128 0x22
+ 3263 020e 34       		.uleb128 0x34
+ 3264 020f 00       		.byte	0
+ 3265 0210 03       		.uleb128 0x3
+ 3266 0211 08       		.uleb128 0x8
+ 3267 0212 3A       		.uleb128 0x3a
+ 3268 0213 0B       		.uleb128 0xb
+ 3269 0214 3B       		.uleb128 0x3b
+ 3270 0215 0B       		.uleb128 0xb
+ 3271 0216 49       		.uleb128 0x49
+ 3272 0217 13       		.uleb128 0x13
+ 3273 0218 3F       		.uleb128 0x3f
+ 3274 0219 19       		.uleb128 0x19
+ 3275 021a 02       		.uleb128 0x2
+ 3276 021b 18       		.uleb128 0x18
+ 3277 021c 00       		.byte	0
+ 3278 021d 00       		.byte	0
+ 3279 021e 23       		.uleb128 0x23
+ 3280 021f 26       		.uleb128 0x26
+ 3281 0220 00       		.byte	0
+ 3282 0221 49       		.uleb128 0x49
+ 3283 0222 13       		.uleb128 0x13
+ 3284 0223 00       		.byte	0
+ 3285 0224 00       		.byte	0
+ 3286 0225 24       		.uleb128 0x24
+ 3287 0226 2E       		.uleb128 0x2e
+ 3288 0227 00       		.byte	0
+ 3289 0228 3F       		.uleb128 0x3f
+ 3290 0229 19       		.uleb128 0x19
+ 3291 022a 3C       		.uleb128 0x3c
+ 3292 022b 19       		.uleb128 0x19
+ 3293 022c 6E       		.uleb128 0x6e
+ 3294 022d 0E       		.uleb128 0xe
+ 3295 022e 03       		.uleb128 0x3
+ 3296 022f 0E       		.uleb128 0xe
+ 3297 0230 3A       		.uleb128 0x3a
+ 3298 0231 0B       		.uleb128 0xb
+ 3299 0232 3B       		.uleb128 0x3b
+ 3300 0233 0B       		.uleb128 0xb
+ 3301 0234 00       		.byte	0
+ 3302 0235 00       		.byte	0
+ 3303 0236 25       		.uleb128 0x25
+ 3304 0237 2E       		.uleb128 0x2e
+ 3305 0238 00       		.byte	0
+ 3306 0239 3F       		.uleb128 0x3f
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 65
+
+
+ 3307 023a 19       		.uleb128 0x19
+ 3308 023b 3C       		.uleb128 0x3c
+ 3309 023c 19       		.uleb128 0x19
+ 3310 023d 6E       		.uleb128 0x6e
+ 3311 023e 0E       		.uleb128 0xe
+ 3312 023f 03       		.uleb128 0x3
+ 3313 0240 0E       		.uleb128 0xe
+ 3314 0241 3A       		.uleb128 0x3a
+ 3315 0242 0B       		.uleb128 0xb
+ 3316 0243 3B       		.uleb128 0x3b
+ 3317 0244 05       		.uleb128 0x5
+ 3318 0245 00       		.byte	0
+ 3319 0246 00       		.byte	0
+ 3320 0247 26       		.uleb128 0x26
+ 3321 0248 2E       		.uleb128 0x2e
+ 3322 0249 00       		.byte	0
+ 3323 024a 3F       		.uleb128 0x3f
+ 3324 024b 19       		.uleb128 0x19
+ 3325 024c 3C       		.uleb128 0x3c
+ 3326 024d 19       		.uleb128 0x19
+ 3327 024e 6E       		.uleb128 0x6e
+ 3328 024f 0E       		.uleb128 0xe
+ 3329 0250 03       		.uleb128 0x3
+ 3330 0251 0E       		.uleb128 0xe
+ 3331 0252 3A       		.uleb128 0x3a
+ 3332 0253 0B       		.uleb128 0xb
+ 3333 0254 3B       		.uleb128 0x3b
+ 3334 0255 0B       		.uleb128 0xb
+ 3335 0256 6E       		.uleb128 0x6e
+ 3336 0257 0E       		.uleb128 0xe
+ 3337 0258 00       		.byte	0
+ 3338 0259 00       		.byte	0
+ 3339 025a 00       		.byte	0
+ 3340              		.section	.debug_loc,"",%progbits
+ 3341              	.Ldebug_loc0:
+ 3342              	.LLST0:
+ 3343 0000 0A000000 		.4byte	.LVL1
+ 3344 0004 3E000000 		.4byte	.LVL3
+ 3345 0008 0100     		.2byte	0x1
+ 3346 000a 50       		.byte	0x50
+ 3347 000b 54000000 		.4byte	.LVL7
+ 3348 000f 60000000 		.4byte	.LVL8
+ 3349 0013 0100     		.2byte	0x1
+ 3350 0015 50       		.byte	0x50
+ 3351 0016 00000000 		.4byte	0
+ 3352 001a 00000000 		.4byte	0
+ 3353              	.LLST1:
+ 3354 001e 00000000 		.4byte	.LVL11
+ 3355 0022 04000000 		.4byte	.LVL12
+ 3356 0026 0100     		.2byte	0x1
+ 3357 0028 50       		.byte	0x50
+ 3358 0029 04000000 		.4byte	.LVL12
+ 3359 002d 90000000 		.4byte	.LFE73
+ 3360 0031 0400     		.2byte	0x4
+ 3361 0033 F3       		.byte	0xf3
+ 3362 0034 01       		.uleb128 0x1
+ 3363 0035 50       		.byte	0x50
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 66
+
+
+ 3364 0036 9F       		.byte	0x9f
+ 3365 0037 00000000 		.4byte	0
+ 3366 003b 00000000 		.4byte	0
+ 3367              	.LLST2:
+ 3368 003f 36000000 		.4byte	.LVL21
+ 3369 0043 3B000000 		.4byte	.LVL22-1
+ 3370 0047 0100     		.2byte	0x1
+ 3371 0049 50       		.byte	0x50
+ 3372 004a 00000000 		.4byte	0
+ 3373 004e 00000000 		.4byte	0
+ 3374              	.LLST3:
+ 3375 0052 4C000000 		.4byte	.LVL25
+ 3376 0056 4E000000 		.4byte	.LVL26
+ 3377 005a 0100     		.2byte	0x1
+ 3378 005c 50       		.byte	0x50
+ 3379 005d 4E000000 		.4byte	.LVL26
+ 3380 0061 90000000 		.4byte	.LFE73
+ 3381 0065 0100     		.2byte	0x1
+ 3382 0067 54       		.byte	0x54
+ 3383 0068 00000000 		.4byte	0
+ 3384 006c 00000000 		.4byte	0
+ 3385              	.LLST4:
+ 3386 0070 32000000 		.4byte	.LVL43
+ 3387 0074 46000000 		.4byte	.LVL44
+ 3388 0078 0100     		.2byte	0x1
+ 3389 007a 50       		.byte	0x50
+ 3390 007b 4A000000 		.4byte	.LVL45
+ 3391 007f 53000000 		.4byte	.LVL46-1
+ 3392 0083 0100     		.2byte	0x1
+ 3393 0085 50       		.byte	0x50
+ 3394 0086 00000000 		.4byte	0
+ 3395 008a 00000000 		.4byte	0
+ 3396              	.LLST5:
+ 3397 008e 00000000 		.4byte	.LVL47
+ 3398 0092 06000000 		.4byte	.LVL48
+ 3399 0096 0100     		.2byte	0x1
+ 3400 0098 50       		.byte	0x50
+ 3401 0099 06000000 		.4byte	.LVL48
+ 3402 009d 24000000 		.4byte	.LFE74
+ 3403 00a1 0400     		.2byte	0x4
+ 3404 00a3 F3       		.byte	0xf3
+ 3405 00a4 01       		.uleb128 0x1
+ 3406 00a5 50       		.byte	0x50
+ 3407 00a6 9F       		.byte	0x9f
+ 3408 00a7 00000000 		.4byte	0
+ 3409 00ab 00000000 		.4byte	0
+ 3410              	.LLST6:
+ 3411 00af 00000000 		.4byte	.LVL47
+ 3412 00b3 09000000 		.4byte	.LVL49-1
+ 3413 00b7 0100     		.2byte	0x1
+ 3414 00b9 51       		.byte	0x51
+ 3415 00ba 09000000 		.4byte	.LVL49-1
+ 3416 00be 20000000 		.4byte	.LVL51
+ 3417 00c2 0100     		.2byte	0x1
+ 3418 00c4 54       		.byte	0x54
+ 3419 00c5 20000000 		.4byte	.LVL51
+ 3420 00c9 24000000 		.4byte	.LFE74
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 67
+
+
+ 3421 00cd 0400     		.2byte	0x4
+ 3422 00cf F3       		.byte	0xf3
+ 3423 00d0 01       		.uleb128 0x1
+ 3424 00d1 51       		.byte	0x51
+ 3425 00d2 9F       		.byte	0x9f
+ 3426 00d3 00000000 		.4byte	0
+ 3427 00d7 00000000 		.4byte	0
+ 3428              	.LLST7:
+ 3429 00db 00000000 		.4byte	.LVL72
+ 3430 00df 04000000 		.4byte	.LVL73
+ 3431 00e3 0100     		.2byte	0x1
+ 3432 00e5 50       		.byte	0x50
+ 3433 00e6 04000000 		.4byte	.LVL73
+ 3434 00ea 78000000 		.4byte	.LFE72
+ 3435 00ee 0400     		.2byte	0x4
+ 3436 00f0 F3       		.byte	0xf3
+ 3437 00f1 01       		.uleb128 0x1
+ 3438 00f2 50       		.byte	0x50
+ 3439 00f3 9F       		.byte	0x9f
+ 3440 00f4 00000000 		.4byte	0
+ 3441 00f8 00000000 		.4byte	0
+ 3442              	.LLST8:
+ 3443 00fc 26000000 		.4byte	.LVL77
+ 3444 0100 2B000000 		.4byte	.LVL78-1
+ 3445 0104 0100     		.2byte	0x1
+ 3446 0106 50       		.byte	0x50
+ 3447 0107 2B000000 		.4byte	.LVL78-1
+ 3448 010b 5E000000 		.4byte	.LVL85
+ 3449 010f 0100     		.2byte	0x1
+ 3450 0111 54       		.byte	0x54
+ 3451 0112 00000000 		.4byte	0
+ 3452 0116 00000000 		.4byte	0
+ 3453              		.section	.debug_aranges,"",%progbits
+ 3454 0000 5C000000 		.4byte	0x5c
+ 3455 0004 0200     		.2byte	0x2
+ 3456 0006 00000000 		.4byte	.Ldebug_info0
+ 3457 000a 04       		.byte	0x4
+ 3458 000b 00       		.byte	0
+ 3459 000c 0000     		.2byte	0
+ 3460 000e 0000     		.2byte	0
+ 3461 0010 00000000 		.4byte	.LFB71
+ 3462 0014 74000000 		.4byte	.LFE71-.LFB71
+ 3463 0018 00000000 		.4byte	.LFB73
+ 3464 001c 90000000 		.4byte	.LFE73-.LFB73
+ 3465 0020 00000000 		.4byte	.LFB70
+ 3466 0024 28000000 		.4byte	.LFE70-.LFB70
+ 3467 0028 00000000 		.4byte	.LFB69
+ 3468 002c 6C000000 		.4byte	.LFE69-.LFB69
+ 3469 0030 00000000 		.4byte	.LFB74
+ 3470 0034 24000000 		.4byte	.LFE74-.LFB74
+ 3471 0038 00000000 		.4byte	.LFB75
+ 3472 003c E4000000 		.4byte	.LFE75-.LFB75
+ 3473 0040 00000000 		.4byte	.LFB72
+ 3474 0044 78000000 		.4byte	.LFE72-.LFB72
+ 3475 0048 00000000 		.4byte	.LFB76
+ 3476 004c C0000000 		.4byte	.LFE76-.LFB76
+ 3477 0050 00000000 		.4byte	.LFB77
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 68
+
+
+ 3478 0054 02000000 		.4byte	.LFE77-.LFB77
+ 3479 0058 00000000 		.4byte	0
+ 3480 005c 00000000 		.4byte	0
+ 3481              		.section	.debug_ranges,"",%progbits
+ 3482              	.Ldebug_ranges0:
+ 3483 0000 00000000 		.4byte	.LFB71
+ 3484 0004 74000000 		.4byte	.LFE71
+ 3485 0008 00000000 		.4byte	.LFB73
+ 3486 000c 90000000 		.4byte	.LFE73
+ 3487 0010 00000000 		.4byte	.LFB70
+ 3488 0014 28000000 		.4byte	.LFE70
+ 3489 0018 00000000 		.4byte	.LFB69
+ 3490 001c 6C000000 		.4byte	.LFE69
+ 3491 0020 00000000 		.4byte	.LFB74
+ 3492 0024 24000000 		.4byte	.LFE74
+ 3493 0028 00000000 		.4byte	.LFB75
+ 3494 002c E4000000 		.4byte	.LFE75
+ 3495 0030 00000000 		.4byte	.LFB72
+ 3496 0034 78000000 		.4byte	.LFE72
+ 3497 0038 00000000 		.4byte	.LFB76
+ 3498 003c C0000000 		.4byte	.LFE76
+ 3499 0040 00000000 		.4byte	.LFB77
+ 3500 0044 02000000 		.4byte	.LFE77
+ 3501 0048 00000000 		.4byte	0
+ 3502 004c 00000000 		.4byte	0
+ 3503              		.section	.debug_line,"",%progbits
+ 3504              	.Ldebug_line0:
+ 3505 0000 74040000 		.section	.debug_str,"MS",%progbits,1
+ 3505      02006903 
+ 3505      00000201 
+ 3505      FB0E0D00 
+ 3505      01010101 
+ 3506              	.LASF30:
+ 3507 0000 63656E74 		.ascii	"centimeter\000"
+ 3507      696D6574 
+ 3507      657200
+ 3508              	.LASF67:
+ 3509 000b 78537472 		.ascii	"xStreamBufferGenericCreate\000"
+ 3509      65616D42 
+ 3509      75666665 
+ 3509      7247656E 
+ 3509      65726963 
+ 3510              	.LASF52:
+ 3511 0026 4C45445F 		.ascii	"LED_Write\000"
+ 3511      57726974 
+ 3511      6500
+ 3512              	.LASF29:
+ 3513 0030 636F756E 		.ascii	"counts\000"
+ 3513      747300
+ 3514              	.LASF34:
+ 3515 0037 6E6F7465 		.ascii	"note\000"
+ 3515      00
+ 3516              	.LASF4:
+ 3517 003c 73686F72 		.ascii	"short int\000"
+ 3517      7420696E 
+ 3517      7400
+ 3518              	.LASF19:
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 69
+
+
+ 3519 0046 73697A65 		.ascii	"sizetype\000"
+ 3519      74797065 
+ 3519      00
+ 3520              	.LASF74:
+ 3521 004f 73747274 		.ascii	"strtok\000"
+ 3521      6F6B00
+ 3522              	.LASF54:
+ 3523 0056 76546173 		.ascii	"vTaskDelay\000"
+ 3523      6B44656C 
+ 3523      617900
+ 3524              	.LASF66:
+ 3525 0061 46726565 		.ascii	"FreeRTOS_Init\000"
+ 3525      52544F53 
+ 3525      5F496E69 
+ 3525      7400
+ 3526              	.LASF51:
+ 3527 006f 55415254 		.ascii	"UART_ReadRxStatus\000"
+ 3527      5F526561 
+ 3527      64527853 
+ 3527      74617475 
+ 3527      7300
+ 3528              	.LASF80:
+ 3529 0081 6D61696E 		.ascii	"main\000"
+ 3529      00
+ 3530              	.LASF31:
+ 3531 0086 6D794953 		.ascii	"myISR_UART\000"
+ 3531      525F5541 
+ 3531      525400
+ 3532              	.LASF58:
+ 3533 0091 54696D65 		.ascii	"Timer_Stop\000"
+ 3533      725F5374 
+ 3533      6F7000
+ 3534              	.LASF47:
+ 3535 009c 55415254 		.ascii	"UART_GetChar\000"
+ 3535      5F476574 
+ 3535      43686172 
+ 3535      00
+ 3536              	.LASF49:
+ 3537 00a9 55415254 		.ascii	"UART_PutString\000"
+ 3537      5F507574 
+ 3537      53747269 
+ 3537      6E6700
+ 3538              	.LASF13:
+ 3539 00b8 75696E74 		.ascii	"uint16\000"
+ 3539      313600
+ 3540              	.LASF42:
+ 3541 00bf 64656C69 		.ascii	"delim\000"
+ 3541      6D00
+ 3542              	.LASF38:
+ 3543 00c5 76526561 		.ascii	"vReadUltraSonicTask\000"
+ 3543      64556C74 
+ 3543      7261536F 
+ 3543      6E696354 
+ 3543      61736B00 
+ 3544              	.LASF24:
+ 3545 00d9 535F4944 		.ascii	"S_IDLE\000"
+ 3545      4C4500
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 70
+
+
+ 3546              	.LASF60:
+ 3547 00e0 55415254 		.ascii	"UART_USB_PutString\000"
+ 3547      5F555342 
+ 3547      5F507574 
+ 3547      53747269 
+ 3547      6E6700
+ 3548              	.LASF14:
+ 3549 00f3 666C6F61 		.ascii	"float\000"
+ 3549      7400
+ 3550              	.LASF10:
+ 3551 00f9 6C6F6E67 		.ascii	"long long int\000"
+ 3551      206C6F6E 
+ 3551      6720696E 
+ 3551      7400
+ 3552              	.LASF21:
+ 3553 0107 5469636B 		.ascii	"TickType_t\000"
+ 3553      54797065 
+ 3553      5F7400
+ 3554              	.LASF69:
+ 3555 0112 76546173 		.ascii	"vTaskStartScheduler\000"
+ 3555      6B537461 
+ 3555      72745363 
+ 3555      68656475 
+ 3555      6C657200 
+ 3556              	.LASF56:
+ 3557 0126 54696D65 		.ascii	"Timer_Start\000"
+ 3557      725F5374 
+ 3557      61727400 
+ 3558              	.LASF6:
+ 3559 0132 6C6F6E67 		.ascii	"long int\000"
+ 3559      20696E74 
+ 3559      00
+ 3560              	.LASF64:
+ 3561 013b 50574D5F 		.ascii	"PWM_Music_Start\000"
+ 3561      4D757369 
+ 3561      635F5374 
+ 3561      61727400 
+ 3562              	.LASF79:
+ 3563 014b 433A5C55 		.ascii	"C:\\Users\\Tri94\\Documents\\PSoC Creator\\EE4450\\"
+ 3563      73657273 
+ 3563      5C547269 
+ 3563      39345C44 
+ 3563      6F63756D 
+ 3564 0178 45453434 		.ascii	"EE4450-Projects\\RTOS_UART_Project_Psoc1_V2.cydsn\000"
+ 3564      35302D50 
+ 3564      726F6A65 
+ 3564      6374735C 
+ 3564      52544F53 
+ 3565              	.LASF72:
+ 3566 01a9 78537472 		.ascii	"xStreamBufferIsEmpty\000"
+ 3566      65616D42 
+ 3566      75666665 
+ 3566      72497345 
+ 3566      6D707479 
+ 3567              	.LASF41:
+ 3568 01be 72785369 		.ascii	"rxSize\000"
+ 3568      7A6500
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 71
+
+
+ 3569              	.LASF18:
+ 3570 01c5 6C6F6E67 		.ascii	"long double\000"
+ 3570      20646F75 
+ 3570      626C6500 
+ 3571              	.LASF70:
+ 3572 01d1 50574D5F 		.ascii	"PWM_Music_WriteCompare\000"
+ 3572      4D757369 
+ 3572      635F5772 
+ 3572      69746543 
+ 3572      6F6D7061 
+ 3573              	.LASF3:
+ 3574 01e8 756E7369 		.ascii	"unsigned char\000"
+ 3574      676E6564 
+ 3574      20636861 
+ 3574      7200
+ 3575              	.LASF27:
+ 3576 01f6 73746174 		.ascii	"state\000"
+ 3576      6500
+ 3577              	.LASF59:
+ 3578 01fc 73707269 		.ascii	"sprintf\000"
+ 3578      6E746600 
+ 3579              	.LASF46:
+ 3580 0204 784D6573 		.ascii	"xMessageBuffer\000"
+ 3580      73616765 
+ 3580      42756666 
+ 3580      657200
+ 3581              	.LASF2:
+ 3582 0213 7369676E 		.ascii	"signed char\000"
+ 3582      65642063 
+ 3582      68617200 
+ 3583              	.LASF11:
+ 3584 021f 696E7433 		.ascii	"int32_t\000"
+ 3584      325F7400 
+ 3585              	.LASF0:
+ 3586 0227 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 3586      206C6F6E 
+ 3586      6720756E 
+ 3586      7369676E 
+ 3586      65642069 
+ 3587              	.LASF28:
+ 3588 023e 78486967 		.ascii	"xHigherPriorityTaskWoken\000"
+ 3588      68657250 
+ 3588      72696F72 
+ 3588      69747954 
+ 3588      61736B57 
+ 3589              	.LASF12:
+ 3590 0257 75696E74 		.ascii	"uint32_t\000"
+ 3590      33325F74 
+ 3590      00
+ 3591              	.LASF48:
+ 3592 0260 78537472 		.ascii	"xStreamBufferSendFromISR\000"
+ 3592      65616D42 
+ 3592      75666665 
+ 3592      7253656E 
+ 3592      6446726F 
+ 3593              	.LASF1:
+ 3594 0279 756E7369 		.ascii	"unsigned int\000"
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 72
+
+
+ 3594      676E6564 
+ 3594      20696E74 
+ 3594      00
+ 3595              	.LASF20:
+ 3596 0286 42617365 		.ascii	"BaseType_t\000"
+ 3596      54797065 
+ 3596      5F7400
+ 3597              	.LASF73:
+ 3598 0291 78537472 		.ascii	"xStreamBufferReceive\000"
+ 3598      65616D42 
+ 3598      75666665 
+ 3598      72526563 
+ 3598      65697665 
+ 3599              	.LASF32:
+ 3600 02a6 62656570 		.ascii	"beep\000"
+ 3600      00
+ 3601              	.LASF22:
+ 3602 02ab 53747265 		.ascii	"StreamBufferHandle_t\000"
+ 3602      616D4275 
+ 3602      66666572 
+ 3602      48616E64 
+ 3602      6C655F74 
+ 3603              	.LASF5:
+ 3604 02c0 73686F72 		.ascii	"short unsigned int\000"
+ 3604      7420756E 
+ 3604      7369676E 
+ 3604      65642069 
+ 3604      6E7400
+ 3605              	.LASF16:
+ 3606 02d3 63686172 		.ascii	"char\000"
+ 3606      00
+ 3607              	.LASF43:
+ 3608 02d8 7365636F 		.ascii	"secondSection\000"
+ 3608      6E645365 
+ 3608      6374696F 
+ 3608      6E00
+ 3609              	.LASF57:
+ 3610 02e6 54696D65 		.ascii	"Timer_ReadCounter\000"
+ 3610      725F5265 
+ 3610      6164436F 
+ 3610      756E7465 
+ 3610      7200
+ 3611              	.LASF62:
+ 3612 02f8 55415254 		.ascii	"UART_Start\000"
+ 3612      5F537461 
+ 3612      727400
+ 3613              	.LASF44:
+ 3614 0303 764D7573 		.ascii	"vMusicTask\000"
+ 3614      69635461 
+ 3614      736B00
+ 3615              	.LASF81:
+ 3616 030e 73747263 		.ascii	"strcpy\000"
+ 3616      707900
+ 3617              	.LASF17:
+ 3618 0315 73697A65 		.ascii	"size_t\000"
+ 3618      5F7400
+ 3619              	.LASF50:
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 73
+
+
+ 3620 031c 55415254 		.ascii	"UART_GetRxBufferSize\000"
+ 3620      5F476574 
+ 3620      52784275 
+ 3620      66666572 
+ 3620      53697A65 
+ 3621              	.LASF23:
+ 3622 0331 4D657373 		.ascii	"MessageBufferHandle_t\000"
+ 3622      61676542 
+ 3622      75666665 
+ 3622      7248616E 
+ 3622      646C655F 
+ 3623              	.LASF33:
+ 3624 0347 70765061 		.ascii	"pvParaments\000"
+ 3624      72616D65 
+ 3624      6E747300 
+ 3625              	.LASF35:
+ 3626 0353 64757261 		.ascii	"duration\000"
+ 3626      74696F6E 
+ 3626      00
+ 3627              	.LASF78:
+ 3628 035c 6D61696E 		.ascii	"main.c\000"
+ 3628      2E6300
+ 3629              	.LASF9:
+ 3630 0363 6C6F6E67 		.ascii	"long unsigned int\000"
+ 3630      20756E73 
+ 3630      69676E65 
+ 3630      6420696E 
+ 3630      7400
+ 3631              	.LASF15:
+ 3632 0375 646F7562 		.ascii	"double\000"
+ 3632      6C6500
+ 3633              	.LASF40:
+ 3634 037c 6D657465 		.ascii	"meter\000"
+ 3634      7200
+ 3635              	.LASF25:
+ 3636 0382 535F474F 		.ascii	"S_GOT_DATE\000"
+ 3636      545F4441 
+ 3636      544500
+ 3637              	.LASF61:
+ 3638 038d 4953525F 		.ascii	"ISR_UART_StartEx\000"
+ 3638      55415254 
+ 3638      5F537461 
+ 3638      72744578 
+ 3638      00
+ 3639              	.LASF8:
+ 3640 039e 5F5F7569 		.ascii	"__uint32_t\000"
+ 3640      6E743332 
+ 3640      5F7400
+ 3641              	.LASF53:
+ 3642 03a9 54726967 		.ascii	"Trigger_Write\000"
+ 3642      6765725F 
+ 3642      57726974 
+ 3642      6500
+ 3643              	.LASF7:
+ 3644 03b7 5F5F696E 		.ascii	"__int32_t\000"
+ 3644      7433325F 
+ 3644      7400
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 74
+
+
+ 3645              	.LASF82:
+ 3646 03c1 5F5F6275 		.ascii	"__builtin_strcpy\000"
+ 3646      696C7469 
+ 3646      6E5F7374 
+ 3646      72637079 
+ 3646      00
+ 3647              	.LASF75:
+ 3648 03d2 73747263 		.ascii	"strcmp\000"
+ 3648      6D7000
+ 3649              	.LASF36:
+ 3650 03d9 6D795053 		.ascii	"myPSoCSetup\000"
+ 3650      6F435365 
+ 3650      74757000 
+ 3651              	.LASF63:
+ 3652 03e5 50574D5F 		.ascii	"PWM_Servo_Start\000"
+ 3652      53657276 
+ 3652      6F5F5374 
+ 3652      61727400 
+ 3653              	.LASF45:
+ 3654 03f5 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 3654      52784275 
+ 3654      66666572 
+ 3654      00
+ 3655              	.LASF77:
+ 3656 0402 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 3656      43313120 
+ 3656      352E342E 
+ 3656      31203230 
+ 3656      31363036 
+ 3657 0435 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 3657      20726576 
+ 3657      6973696F 
+ 3657      6E203233 
+ 3657      37373135 
+ 3658 0468 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 3658      66756E63 
+ 3658      74696F6E 
+ 3658      2D736563 
+ 3658      74696F6E 
+ 3659              	.LASF71:
+ 3660 0490 43794465 		.ascii	"CyDelay\000"
+ 3660      6C617900 
+ 3661              	.LASF37:
+ 3662 0498 66697273 		.ascii	"firstSection\000"
+ 3662      74536563 
+ 3662      74696F6E 
+ 3662      00
+ 3663              	.LASF55:
+ 3664 04a5 4563686F 		.ascii	"Echo_Read\000"
+ 3664      5F526561 
+ 3664      6400
+ 3665              	.LASF68:
+ 3666 04af 78546173 		.ascii	"xTaskCreate\000"
+ 3666      6B437265 
+ 3666      61746500 
+ 3667              	.LASF39:
+ 3668 04bb 76554152 		.ascii	"vUARTTask1\000"
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccHPJWaH.s 			page 75
+
+
+ 3668      54546173 
+ 3668      6B3100
+ 3669              	.LASF26:
+ 3670 04c6 53544154 		.ascii	"STATES_CMD\000"
+ 3670      45535F43 
+ 3670      4D4400
+ 3671              	.LASF76:
+ 3672 04d1 50574D5F 		.ascii	"PWM_Servo_WriteCompare\000"
+ 3672      53657276 
+ 3672      6F5F5772 
+ 3672      69746543 
+ 3672      6F6D7061 
+ 3673              	.LASF65:
+ 3674 04e8 55415254 		.ascii	"UART_USB_Start\000"
+ 3674      5F555342 
+ 3674      5F537461 
+ 3674      727400
+ 3675              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

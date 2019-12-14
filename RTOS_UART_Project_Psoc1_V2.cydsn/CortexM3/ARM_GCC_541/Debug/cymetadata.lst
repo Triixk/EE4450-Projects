@@ -1,0 +1,2434 @@
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_metadata
+  20              		.global	cy_meta_flashprotect
+  21              		.global	cy_meta_wonvl
+  22              		.global	cy_meta_custnvl
+  23              		.global	cy_meta_configecc
+  24              		.section	.cyconfigecc,"a",%progbits
+  25              		.align	2
+  26              		.type	cy_meta_configecc, %object
+  27              		.size	cy_meta_configecc, 1832
+  28              	cy_meta_configecc:
+  29 0000 05       		.byte	5
+  30 0001 4F       		.byte	79
+  31 0002 00       		.byte	0
+  32 0003 40       		.byte	64
+  33 0004 05       		.byte	5
+  34 0005 52       		.byte	82
+  35 0006 00       		.byte	0
+  36 0007 40       		.byte	64
+  37 0008 04       		.byte	4
+  38 0009 64       		.byte	100
+  39 000a 00       		.byte	0
+  40 000b 40       		.byte	64
+  41 000c 02       		.byte	2
+  42 000d 65       		.byte	101
+  43 000e 00       		.byte	0
+  44 000f 40       		.byte	64
+  45 0010 01       		.byte	1
+  46 0011 07       		.byte	7
+  47 0012 01       		.byte	1
+  48 0013 40       		.byte	64
+  49 0014 4F       		.byte	79
+  50 0015 08       		.byte	8
+  51 0016 01       		.byte	1
+  52 0017 40       		.byte	64
+  53 0018 53       		.byte	83
+  54 0019 09       		.byte	9
+  55 001a 01       		.byte	1
+  56 001b 40       		.byte	64
+  57 001c 09       		.byte	9
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 2
+
+
+  58 001d 0A       		.byte	10
+  59 001e 01       		.byte	1
+  60 001f 40       		.byte	64
+  61 0020 42       		.byte	66
+  62 0021 0B       		.byte	11
+  63 0022 01       		.byte	1
+  64 0023 40       		.byte	64
+  65 0024 08       		.byte	8
+  66 0025 0C       		.byte	12
+  67 0026 01       		.byte	1
+  68 0027 40       		.byte	64
+  69 0028 2E       		.byte	46
+  70 0029 0D       		.byte	13
+  71 002a 01       		.byte	1
+  72 002b 40       		.byte	64
+  73 002c 02       		.byte	2
+  74 002d 15       		.byte	21
+  75 002e 01       		.byte	1
+  76 002f 40       		.byte	64
+  77 0030 04       		.byte	4
+  78 0031 16       		.byte	22
+  79 0032 01       		.byte	1
+  80 0033 40       		.byte	64
+  81 0034 05       		.byte	5
+  82 0035 17       		.byte	23
+  83 0036 01       		.byte	1
+  84 0037 40       		.byte	64
+  85 0038 55       		.byte	85
+  86 0039 18       		.byte	24
+  87 003a 01       		.byte	1
+  88 003b 40       		.byte	64
+  89 003c 44       		.byte	68
+  90 003d 19       		.byte	25
+  91 003e 01       		.byte	1
+  92 003f 40       		.byte	64
+  93 0040 61       		.byte	97
+  94 0041 1A       		.byte	26
+  95 0042 01       		.byte	1
+  96 0043 40       		.byte	64
+  97 0044 4D       		.byte	77
+  98 0045 1B       		.byte	27
+  99 0046 01       		.byte	1
+ 100 0047 40       		.byte	64
+ 101 0048 04       		.byte	4
+ 102 0049 40       		.byte	64
+ 103 004a 01       		.byte	1
+ 104 004b 40       		.byte	64
+ 105 004c 04       		.byte	4
+ 106 004d 41       		.byte	65
+ 107 004e 01       		.byte	1
+ 108 004f 40       		.byte	64
+ 109 0050 02       		.byte	2
+ 110 0051 42       		.byte	66
+ 111 0052 01       		.byte	1
+ 112 0053 40       		.byte	64
+ 113 0054 07       		.byte	7
+ 114 0055 43       		.byte	67
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 3
+
+
+ 115 0056 01       		.byte	1
+ 116 0057 40       		.byte	64
+ 117 0058 02       		.byte	2
+ 118 0059 45       		.byte	69
+ 119 005a 01       		.byte	1
+ 120 005b 40       		.byte	64
+ 121 005c 01       		.byte	1
+ 122 005d 46       		.byte	70
+ 123 005e 01       		.byte	1
+ 124 005f 40       		.byte	64
+ 125 0060 01       		.byte	1
+ 126 0061 47       		.byte	71
+ 127 0062 01       		.byte	1
+ 128 0063 40       		.byte	64
+ 129 0064 0B       		.byte	11
+ 130 0065 48       		.byte	72
+ 131 0066 01       		.byte	1
+ 132 0067 40       		.byte	64
+ 133 0068 05       		.byte	5
+ 134 0069 49       		.byte	73
+ 135 006a 01       		.byte	1
+ 136 006b 40       		.byte	64
+ 137 006c 06       		.byte	6
+ 138 006d 4C       		.byte	76
+ 139 006e 01       		.byte	1
+ 140 006f 40       		.byte	64
+ 141 0070 0A       		.byte	10
+ 142 0071 4D       		.byte	77
+ 143 0072 01       		.byte	1
+ 144 0073 40       		.byte	64
+ 145 0074 05       		.byte	5
+ 146 0075 50       		.byte	80
+ 147 0076 01       		.byte	1
+ 148 0077 40       		.byte	64
+ 149 0078 01       		.byte	1
+ 150 0079 51       		.byte	81
+ 151 007a 01       		.byte	1
+ 152 007b 40       		.byte	64
+ 153 007c 01       		.byte	1
+ 154 007d 20       		.byte	32
+ 155 007e 0A       		.byte	10
+ 156 007f 36       		.byte	54
+ 157 0080 16       		.byte	22
+ 158 0081 36       		.byte	54
+ 159 0082 19       		.byte	25
+ 160 0083 10       		.byte	16
+ 161 0084 22       		.byte	34
+ 162 0085 36       		.byte	54
+ 163 0086 08       		.byte	8
+ 164 0087 40       		.byte	64
+ 165 0088 0C       		.byte	12
+ 166 0089 80       		.byte	-128
+ 167 008a 11       		.byte	17
+ 168 008b 20       		.byte	32
+ 169 008c 61       		.byte	97
+ 170 008d 80       		.byte	-128
+ 171 008e 64       		.byte	100
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 4
+
+
+ 172 008f 40       		.byte	64
+ 173 0090 88       		.byte	-120
+ 174 0091 38       		.byte	56
+ 175 0092 89       		.byte	-119
+ 176 0093 38       		.byte	56
+ 177 0094 8A       		.byte	-118
+ 178 0095 72       		.byte	114
+ 179 0096 8C       		.byte	-116
+ 180 0097 72       		.byte	114
+ 181 0098 88       		.byte	-120
+ 182 0099 0F       		.byte	15
+ 183 009a 8A       		.byte	-118
+ 184 009b 0F       		.byte	15
+ 185 009c E6       		.byte	-26
+ 186 009d 02       		.byte	2
+ 187 009e 02       		.byte	2
+ 188 009f 10       		.byte	16
+ 189 00a0 03       		.byte	3
+ 190 00a1 20       		.byte	32
+ 191 00a2 04       		.byte	4
+ 192 00a3 11       		.byte	17
+ 193 00a4 05       		.byte	5
+ 194 00a5 14       		.byte	20
+ 195 00a6 06       		.byte	6
+ 196 00a7 06       		.byte	6
+ 197 00a8 08       		.byte	8
+ 198 00a9 11       		.byte	17
+ 199 00aa 0A       		.byte	10
+ 200 00ab 0E       		.byte	14
+ 201 00ac 0E       		.byte	14
+ 202 00ad 13       		.byte	19
+ 203 00ae 0F       		.byte	15
+ 204 00af 03       		.byte	3
+ 205 00b0 10       		.byte	16
+ 206 00b1 20       		.byte	32
+ 207 00b2 11       		.byte	17
+ 208 00b3 09       		.byte	9
+ 209 00b4 13       		.byte	19
+ 210 00b5 D0       		.byte	-48
+ 211 00b6 15       		.byte	21
+ 212 00b7 DC       		.byte	-36
+ 213 00b8 16       		.byte	22
+ 214 00b9 08       		.byte	8
+ 215 00ba 17       		.byte	23
+ 216 00bb 22       		.byte	34
+ 217 00bc 19       		.byte	25
+ 218 00bd 0C       		.byte	12
+ 219 00be 1B       		.byte	27
+ 220 00bf 71       		.byte	113
+ 221 00c0 22       		.byte	34
+ 222 00c1 0C       		.byte	12
+ 223 00c2 24       		.byte	36
+ 224 00c3 0C       		.byte	12
+ 225 00c4 25       		.byte	37
+ 226 00c5 10       		.byte	16
+ 227 00c6 26       		.byte	38
+ 228 00c7 13       		.byte	19
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 5
+
+
+ 229 00c8 27       		.byte	39
+ 230 00c9 AC       		.byte	-84
+ 231 00ca 28       		.byte	40
+ 232 00cb 20       		.byte	32
+ 233 00cc 29       		.byte	41
+ 234 00cd 10       		.byte	16
+ 235 00ce 2B       		.byte	43
+ 236 00cf 40       		.byte	64
+ 237 00d0 2C       		.byte	44
+ 238 00d1 20       		.byte	32
+ 239 00d2 30       		.byte	48
+ 240 00d3 10       		.byte	16
+ 241 00d4 32       		.byte	50
+ 242 00d5 20       		.byte	32
+ 243 00d6 33       		.byte	51
+ 244 00d7 E0       		.byte	-32
+ 245 00d8 34       		.byte	52
+ 246 00d9 0F       		.byte	15
+ 247 00da 37       		.byte	55
+ 248 00db 1F       		.byte	31
+ 249 00dc 3A       		.byte	58
+ 250 00dd 20       		.byte	32
+ 251 00de 3B       		.byte	59
+ 252 00df 08       		.byte	8
+ 253 00e0 3E       		.byte	62
+ 254 00e1 01       		.byte	1
+ 255 00e2 40       		.byte	64
+ 256 00e3 21       		.byte	33
+ 257 00e4 41       		.byte	65
+ 258 00e5 03       		.byte	3
+ 259 00e6 45       		.byte	69
+ 260 00e7 E0       		.byte	-32
+ 261 00e8 46       		.byte	70
+ 262 00e9 EC       		.byte	-20
+ 263 00ea 47       		.byte	71
+ 264 00eb 0B       		.byte	11
+ 265 00ec 48       		.byte	72
+ 266 00ed 1E       		.byte	30
+ 267 00ee 49       		.byte	73
+ 268 00ef FF       		.byte	-1
+ 269 00f0 4A       		.byte	74
+ 270 00f1 FF       		.byte	-1
+ 271 00f2 4B       		.byte	75
+ 272 00f3 FF       		.byte	-1
+ 273 00f4 4E       		.byte	78
+ 274 00f5 F0       		.byte	-16
+ 275 00f6 4F       		.byte	79
+ 276 00f7 44       		.byte	68
+ 277 00f8 50       		.byte	80
+ 278 00f9 0C       		.byte	12
+ 279 00fa 54       		.byte	84
+ 280 00fb 18       		.byte	24
+ 281 00fc 58       		.byte	88
+ 282 00fd 04       		.byte	4
+ 283 00fe 59       		.byte	89
+ 284 00ff 04       		.byte	4
+ 285 0100 5A       		.byte	90
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 6
+
+
+ 286 0101 04       		.byte	4
+ 287 0102 5B       		.byte	91
+ 288 0103 04       		.byte	4
+ 289 0104 5C       		.byte	92
+ 290 0105 33       		.byte	51
+ 291 0106 5D       		.byte	93
+ 292 0107 33       		.byte	51
+ 293 0108 5F       		.byte	95
+ 294 0109 01       		.byte	1
+ 295 010a 66       		.byte	102
+ 296 010b C0       		.byte	-64
+ 297 010c 6A       		.byte	106
+ 298 010d 40       		.byte	64
+ 299 010e 6B       		.byte	107
+ 300 010f 02       		.byte	2
+ 301 0110 86       		.byte	-122
+ 302 0111 02       		.byte	2
+ 303 0112 8A       		.byte	-118
+ 304 0113 01       		.byte	1
+ 305 0114 92       		.byte	-110
+ 306 0115 02       		.byte	2
+ 307 0116 96       		.byte	-106
+ 308 0117 01       		.byte	1
+ 309 0118 9B       		.byte	-101
+ 310 0119 01       		.byte	1
+ 311 011a 9E       		.byte	-98
+ 312 011b 04       		.byte	4
+ 313 011c A3       		.byte	-93
+ 314 011d 01       		.byte	1
+ 315 011e A6       		.byte	-90
+ 316 011f 04       		.byte	4
+ 317 0120 AB       		.byte	-85
+ 318 0121 02       		.byte	2
+ 319 0122 B0       		.byte	-80
+ 320 0123 04       		.byte	4
+ 321 0124 B4       		.byte	-76
+ 322 0125 02       		.byte	2
+ 323 0126 B6       		.byte	-74
+ 324 0127 01       		.byte	1
+ 325 0128 B7       		.byte	-73
+ 326 0129 03       		.byte	3
+ 327 012a BE       		.byte	-66
+ 328 012b 51       		.byte	81
+ 329 012c BF       		.byte	-65
+ 330 012d 40       		.byte	64
+ 331 012e D4       		.byte	-44
+ 332 012f 18       		.byte	24
+ 333 0130 D6       		.byte	-42
+ 334 0131 04       		.byte	4
+ 335 0132 D8       		.byte	-40
+ 336 0133 04       		.byte	4
+ 337 0134 D9       		.byte	-39
+ 338 0135 04       		.byte	4
+ 339 0136 DB       		.byte	-37
+ 340 0137 04       		.byte	4
+ 341 0138 DD       		.byte	-35
+ 342 0139 40       		.byte	64
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 7
+
+
+ 343 013a DF       		.byte	-33
+ 344 013b 01       		.byte	1
+ 345 013c 02       		.byte	2
+ 346 013d 20       		.byte	32
+ 347 013e 03       		.byte	3
+ 348 013f 08       		.byte	8
+ 349 0140 04       		.byte	4
+ 350 0141 10       		.byte	16
+ 351 0142 05       		.byte	5
+ 352 0143 04       		.byte	4
+ 353 0144 06       		.byte	6
+ 354 0145 81       		.byte	-127
+ 355 0146 08       		.byte	8
+ 356 0147 20       		.byte	32
+ 357 0148 09       		.byte	9
+ 358 0149 20       		.byte	32
+ 359 014a 0A       		.byte	10
+ 360 014b 01       		.byte	1
+ 361 014c 0B       		.byte	11
+ 362 014d A0       		.byte	-96
+ 363 014e 0C       		.byte	12
+ 364 014f 08       		.byte	8
+ 365 0150 0D       		.byte	13
+ 366 0151 02       		.byte	2
+ 367 0152 13       		.byte	19
+ 368 0153 04       		.byte	4
+ 369 0154 14       		.byte	20
+ 370 0155 20       		.byte	32
+ 371 0156 15       		.byte	21
+ 372 0157 40       		.byte	64
+ 373 0158 17       		.byte	23
+ 374 0159 11       		.byte	17
+ 375 015a 18       		.byte	24
+ 376 015b 04       		.byte	4
+ 377 015c 19       		.byte	25
+ 378 015d 40       		.byte	64
+ 379 015e 1B       		.byte	27
+ 380 015f 01       		.byte	1
+ 381 0160 1C       		.byte	28
+ 382 0161 20       		.byte	32
+ 383 0162 1D       		.byte	29
+ 384 0163 20       		.byte	32
+ 385 0164 1E       		.byte	30
+ 386 0165 48       		.byte	72
+ 387 0166 20       		.byte	32
+ 388 0167 02       		.byte	2
+ 389 0168 24       		.byte	36
+ 390 0169 10       		.byte	16
+ 391 016a 25       		.byte	37
+ 392 016b 48       		.byte	72
+ 393 016c 26       		.byte	38
+ 394 016d 40       		.byte	64
+ 395 016e 27       		.byte	39
+ 396 016f 20       		.byte	32
+ 397 0170 28       		.byte	40
+ 398 0171 80       		.byte	-128
+ 399 0172 29       		.byte	41
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 8
+
+
+ 400 0173 20       		.byte	32
+ 401 0174 2A       		.byte	42
+ 402 0175 40       		.byte	64
+ 403 0176 2B       		.byte	43
+ 404 0177 01       		.byte	1
+ 405 0178 2C       		.byte	44
+ 406 0179 08       		.byte	8
+ 407 017a 2E       		.byte	46
+ 408 017b 08       		.byte	8
+ 409 017c 32       		.byte	50
+ 410 017d 10       		.byte	16
+ 411 017e 36       		.byte	54
+ 412 017f 04       		.byte	4
+ 413 0180 37       		.byte	55
+ 414 0181 21       		.byte	33
+ 415 0182 3C       		.byte	60
+ 416 0183 20       		.byte	32
+ 417 0184 3D       		.byte	61
+ 418 0185 90       		.byte	-112
+ 419 0186 3E       		.byte	62
+ 420 0187 02       		.byte	2
+ 421 0188 3F       		.byte	63
+ 422 0189 08       		.byte	8
+ 423 018a 45       		.byte	69
+ 424 018b 08       		.byte	8
+ 425 018c 46       		.byte	70
+ 426 018d 0B       		.byte	11
+ 427 018e 4F       		.byte	79
+ 428 018f 01       		.byte	1
+ 429 0190 54       		.byte	84
+ 430 0191 80       		.byte	-128
+ 431 0192 56       		.byte	86
+ 432 0193 90       		.byte	-112
+ 433 0194 57       		.byte	87
+ 434 0195 04       		.byte	4
+ 435 0196 58       		.byte	88
+ 436 0197 10       		.byte	16
+ 437 0198 59       		.byte	89
+ 438 0199 20       		.byte	32
+ 439 019a 5A       		.byte	90
+ 440 019b 02       		.byte	2
+ 441 019c 5D       		.byte	93
+ 442 019d 02       		.byte	2
+ 443 019e 60       		.byte	96
+ 444 019f 04       		.byte	4
+ 445 01a0 61       		.byte	97
+ 446 01a1 40       		.byte	64
+ 447 01a2 63       		.byte	99
+ 448 01a3 40       		.byte	64
+ 449 01a4 64       		.byte	100
+ 450 01a5 04       		.byte	4
+ 451 01a6 66       		.byte	102
+ 452 01a7 40       		.byte	64
+ 453 01a8 87       		.byte	-121
+ 454 01a9 40       		.byte	64
+ 455 01aa 8D       		.byte	-115
+ 456 01ab 12       		.byte	18
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 9
+
+
+ 457 01ac 91       		.byte	-111
+ 458 01ad 41       		.byte	65
+ 459 01ae 92       		.byte	-110
+ 460 01af 8F       		.byte	-113
+ 461 01b0 93       		.byte	-109
+ 462 01b1 A4       		.byte	-92
+ 463 01b2 94       		.byte	-108
+ 464 01b3 80       		.byte	-128
+ 465 01b4 95       		.byte	-107
+ 466 01b5 10       		.byte	16
+ 467 01b6 96       		.byte	-106
+ 468 01b7 20       		.byte	32
+ 469 01b8 97       		.byte	-105
+ 470 01b9 02       		.byte	2
+ 471 01ba 99       		.byte	-103
+ 472 01bb 02       		.byte	2
+ 473 01bc 9B       		.byte	-101
+ 474 01bd 18       		.byte	24
+ 475 01be 9C       		.byte	-100
+ 476 01bf 90       		.byte	-112
+ 477 01c0 9D       		.byte	-99
+ 478 01c1 A8       		.byte	-88
+ 479 01c2 9F       		.byte	-97
+ 480 01c3 40       		.byte	64
+ 481 01c4 A1       		.byte	-95
+ 482 01c5 10       		.byte	16
+ 483 01c6 A2       		.byte	-94
+ 484 01c7 28       		.byte	40
+ 485 01c8 A3       		.byte	-93
+ 486 01c9 08       		.byte	8
+ 487 01ca A4       		.byte	-92
+ 488 01cb 01       		.byte	1
+ 489 01cc A5       		.byte	-91
+ 490 01cd 80       		.byte	-128
+ 491 01ce A7       		.byte	-89
+ 492 01cf 02       		.byte	2
+ 493 01d0 C0       		.byte	-64
+ 494 01d1 F6       		.byte	-10
+ 495 01d2 C2       		.byte	-62
+ 496 01d3 3D       		.byte	61
+ 497 01d4 C4       		.byte	-60
+ 498 01d5 F4       		.byte	-12
+ 499 01d6 CA       		.byte	-54
+ 500 01d7 65       		.byte	101
+ 501 01d8 CC       		.byte	-52
+ 502 01d9 E4       		.byte	-28
+ 503 01da CE       		.byte	-50
+ 504 01db D0       		.byte	-48
+ 505 01dc D0       		.byte	-48
+ 506 01dd 70       		.byte	112
+ 507 01de D6       		.byte	-42
+ 508 01df 81       		.byte	-127
+ 509 01e0 D8       		.byte	-40
+ 510 01e1 3D       		.byte	61
+ 511 01e2 89       		.byte	-119
+ 512 01e3 01       		.byte	1
+ 513 01e4 8F       		.byte	-113
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 10
+
+
+ 514 01e5 01       		.byte	1
+ 515 01e6 93       		.byte	-109
+ 516 01e7 01       		.byte	1
+ 517 01e8 95       		.byte	-107
+ 518 01e9 01       		.byte	1
+ 519 01ea B3       		.byte	-77
+ 520 01eb 01       		.byte	1
+ 521 01ec B9       		.byte	-71
+ 522 01ed 08       		.byte	8
+ 523 01ee D9       		.byte	-39
+ 524 01ef 04       		.byte	4
+ 525 01f0 DC       		.byte	-36
+ 526 01f1 30       		.byte	48
+ 527 01f2 DF       		.byte	-33
+ 528 01f3 01       		.byte	1
+ 529 01f4 00       		.byte	0
+ 530 01f5 20       		.byte	32
+ 531 01f6 03       		.byte	3
+ 532 01f7 22       		.byte	34
+ 533 01f8 08       		.byte	8
+ 534 01f9 90       		.byte	-112
+ 535 01fa 0A       		.byte	10
+ 536 01fb 60       		.byte	96
+ 537 01fc 10       		.byte	16
+ 538 01fd A1       		.byte	-95
+ 539 01fe 13       		.byte	19
+ 540 01ff 20       		.byte	32
+ 541 0200 18       		.byte	24
+ 542 0201 40       		.byte	64
+ 543 0202 1A       		.byte	26
+ 544 0203 40       		.byte	64
+ 545 0204 1B       		.byte	27
+ 546 0205 28       		.byte	40
+ 547 0206 20       		.byte	32
+ 548 0207 20       		.byte	32
+ 549 0208 21       		.byte	33
+ 550 0209 08       		.byte	8
+ 551 020a 22       		.byte	34
+ 552 020b 21       		.byte	33
+ 553 020c 23       		.byte	35
+ 554 020d 11       		.byte	17
+ 555 020e 26       		.byte	38
+ 556 020f 08       		.byte	8
+ 557 0210 28       		.byte	40
+ 558 0211 80       		.byte	-128
+ 559 0212 29       		.byte	41
+ 560 0213 A0       		.byte	-96
+ 561 0214 2B       		.byte	43
+ 562 0215 20       		.byte	32
+ 563 0216 31       		.byte	49
+ 564 0217 48       		.byte	72
+ 565 0218 32       		.byte	50
+ 566 0219 10       		.byte	16
+ 567 021a 33       		.byte	51
+ 568 021b 02       		.byte	2
+ 569 021c 36       		.byte	54
+ 570 021d 01       		.byte	1
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 11
+
+
+ 571 021e 37       		.byte	55
+ 572 021f 04       		.byte	4
+ 573 0220 38       		.byte	56
+ 574 0221 68       		.byte	104
+ 575 0222 3A       		.byte	58
+ 576 0223 02       		.byte	2
+ 577 0224 3C       		.byte	60
+ 578 0225 90       		.byte	-112
+ 579 0226 43       		.byte	67
+ 580 0227 2A       		.byte	42
+ 581 0228 48       		.byte	72
+ 582 0229 01       		.byte	1
+ 583 022a 4B       		.byte	75
+ 584 022b 10       		.byte	16
+ 585 022c 53       		.byte	83
+ 586 022d 50       		.byte	80
+ 587 022e 59       		.byte	89
+ 588 022f 01       		.byte	1
+ 589 0230 64       		.byte	100
+ 590 0231 01       		.byte	1
+ 591 0232 65       		.byte	101
+ 592 0233 40       		.byte	64
+ 593 0234 67       		.byte	103
+ 594 0235 01       		.byte	1
+ 595 0236 6A       		.byte	106
+ 596 0237 88       		.byte	-120
+ 597 0238 6B       		.byte	107
+ 598 0239 08       		.byte	8
+ 599 023a 70       		.byte	112
+ 600 023b B4       		.byte	-76
+ 601 023c 72       		.byte	114
+ 602 023d 02       		.byte	2
+ 603 023e 73       		.byte	115
+ 604 023f 20       		.byte	32
+ 605 0240 90       		.byte	-112
+ 606 0241 10       		.byte	16
+ 607 0242 91       		.byte	-111
+ 608 0243 41       		.byte	65
+ 609 0244 92       		.byte	-110
+ 610 0245 05       		.byte	5
+ 611 0246 93       		.byte	-109
+ 612 0247 04       		.byte	4
+ 613 0248 94       		.byte	-108
+ 614 0249 C0       		.byte	-64
+ 615 024a 95       		.byte	-107
+ 616 024b 10       		.byte	16
+ 617 024c 97       		.byte	-105
+ 618 024d 03       		.byte	3
+ 619 024e 99       		.byte	-103
+ 620 024f 03       		.byte	3
+ 621 0250 9B       		.byte	-101
+ 622 0251 14       		.byte	20
+ 623 0252 9D       		.byte	-99
+ 624 0253 08       		.byte	8
+ 625 0254 9F       		.byte	-97
+ 626 0255 40       		.byte	64
+ 627 0256 A0       		.byte	-96
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 12
+
+
+ 628 0257 40       		.byte	64
+ 629 0258 A1       		.byte	-95
+ 630 0259 10       		.byte	16
+ 631 025a A2       		.byte	-94
+ 632 025b 01       		.byte	1
+ 633 025c A4       		.byte	-92
+ 634 025d 10       		.byte	16
+ 635 025e A5       		.byte	-91
+ 636 025f 80       		.byte	-128
+ 637 0260 A7       		.byte	-89
+ 638 0261 20       		.byte	32
+ 639 0262 B5       		.byte	-75
+ 640 0263 02       		.byte	2
+ 641 0264 B6       		.byte	-74
+ 642 0265 04       		.byte	4
+ 643 0266 C0       		.byte	-64
+ 644 0267 07       		.byte	7
+ 645 0268 C2       		.byte	-62
+ 646 0269 0F       		.byte	15
+ 647 026a C4       		.byte	-60
+ 648 026b 0F       		.byte	15
+ 649 026c CA       		.byte	-54
+ 650 026d 0F       		.byte	15
+ 651 026e CC       		.byte	-52
+ 652 026f CF       		.byte	-49
+ 653 0270 CE       		.byte	-50
+ 654 0271 3F       		.byte	63
+ 655 0272 D0       		.byte	-48
+ 656 0273 07       		.byte	7
+ 657 0274 D2       		.byte	-46
+ 658 0275 0C       		.byte	12
+ 659 0276 D6       		.byte	-42
+ 660 0277 01       		.byte	1
+ 661 0278 84       		.byte	-124
+ 662 0279 01       		.byte	1
+ 663 027a 88       		.byte	-120
+ 664 027b 01       		.byte	1
+ 665 027c 8C       		.byte	-116
+ 666 027d 01       		.byte	1
+ 667 027e 9C       		.byte	-100
+ 668 027f 01       		.byte	1
+ 669 0280 B0       		.byte	-80
+ 670 0281 01       		.byte	1
+ 671 0282 BE       		.byte	-66
+ 672 0283 01       		.byte	1
+ 673 0284 D8       		.byte	-40
+ 674 0285 04       		.byte	4
+ 675 0286 DF       		.byte	-33
+ 676 0287 01       		.byte	1
+ 677 0288 00       		.byte	0
+ 678 0289 60       		.byte	96
+ 679 028a 03       		.byte	3
+ 680 028b 20       		.byte	32
+ 681 028c 04       		.byte	4
+ 682 028d 90       		.byte	-112
+ 683 028e 05       		.byte	5
+ 684 028f 08       		.byte	8
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 13
+
+
+ 685 0290 07       		.byte	7
+ 686 0291 40       		.byte	64
+ 687 0292 0B       		.byte	11
+ 688 0293 01       		.byte	1
+ 689 0294 0D       		.byte	13
+ 690 0295 22       		.byte	34
+ 691 0296 0E       		.byte	14
+ 692 0297 02       		.byte	2
+ 693 0298 0F       		.byte	15
+ 694 0299 20       		.byte	32
+ 695 029a 17       		.byte	23
+ 696 029b 29       		.byte	41
+ 697 029c 19       		.byte	25
+ 698 029d 01       		.byte	1
+ 699 029e 1C       		.byte	28
+ 700 029f 94       		.byte	-108
+ 701 02a0 1D       		.byte	29
+ 702 02a1 0E       		.byte	14
+ 703 02a2 1E       		.byte	30
+ 704 02a3 01       		.byte	1
+ 705 02a4 25       		.byte	37
+ 706 02a5 20       		.byte	32
+ 707 02a6 26       		.byte	38
+ 708 02a7 15       		.byte	21
+ 709 02a8 27       		.byte	39
+ 710 02a9 04       		.byte	4
+ 711 02aa 2D       		.byte	45
+ 712 02ab 18       		.byte	24
+ 713 02ac 2F       		.byte	47
+ 714 02ad 41       		.byte	65
+ 715 02ae 35       		.byte	53
+ 716 02af 04       		.byte	4
+ 717 02b0 36       		.byte	54
+ 718 02b1 11       		.byte	17
+ 719 02b2 37       		.byte	55
+ 720 02b3 40       		.byte	64
+ 721 02b4 38       		.byte	56
+ 722 02b5 80       		.byte	-128
+ 723 02b6 3B       		.byte	59
+ 724 02b7 80       		.byte	-128
+ 725 02b8 3C       		.byte	60
+ 726 02b9 80       		.byte	-128
+ 727 02ba 3E       		.byte	62
+ 728 02bb 2A       		.byte	42
+ 729 02bc 45       		.byte	69
+ 730 02bd A8       		.byte	-88
+ 731 02be 4D       		.byte	77
+ 732 02bf 11       		.byte	17
+ 733 02c0 4E       		.byte	78
+ 734 02c1 01       		.byte	1
+ 735 02c2 4F       		.byte	79
+ 736 02c3 24       		.byte	36
+ 737 02c4 5A       		.byte	90
+ 738 02c5 03       		.byte	3
+ 739 02c6 5C       		.byte	92
+ 740 02c7 04       		.byte	4
+ 741 02c8 6D       		.byte	109
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 14
+
+
+ 742 02c9 60       		.byte	96
+ 743 02ca 6E       		.byte	110
+ 744 02cb 04       		.byte	4
+ 745 02cc 6F       		.byte	111
+ 746 02cd 10       		.byte	16
+ 747 02ce 76       		.byte	118
+ 748 02cf 2A       		.byte	42
+ 749 02d0 77       		.byte	119
+ 750 02d1 29       		.byte	41
+ 751 02d2 C0       		.byte	-64
+ 752 02d3 F7       		.byte	-9
+ 753 02d4 C2       		.byte	-62
+ 754 02d5 F1       		.byte	-15
+ 755 02d6 C4       		.byte	-60
+ 756 02d7 70       		.byte	112
+ 757 02d8 CA       		.byte	-54
+ 758 02d9 F0       		.byte	-16
+ 759 02da CC       		.byte	-52
+ 760 02db F0       		.byte	-16
+ 761 02dc CE       		.byte	-50
+ 762 02dd F0       		.byte	-16
+ 763 02de D0       		.byte	-48
+ 764 02df 70       		.byte	112
+ 765 02e0 D2       		.byte	-46
+ 766 02e1 30       		.byte	48
+ 767 02e2 D6       		.byte	-42
+ 768 02e3 40       		.byte	64
+ 769 02e4 AB       		.byte	-85
+ 770 02e5 04       		.byte	4
+ 771 02e6 E6       		.byte	-26
+ 772 02e7 02       		.byte	2
+ 773 02e8 B8       		.byte	-72
+ 774 02e9 88       		.byte	-120
+ 775 02ea BE       		.byte	-66
+ 776 02eb 44       		.byte	68
+ 777 02ec D8       		.byte	-40
+ 778 02ed 04       		.byte	4
+ 779 02ee DF       		.byte	-33
+ 780 02ef 01       		.byte	1
+ 781 02f0 1A       		.byte	26
+ 782 02f1 12       		.byte	18
+ 783 02f2 1B       		.byte	27
+ 784 02f3 04       		.byte	4
+ 785 02f4 82       		.byte	-126
+ 786 02f5 10       		.byte	16
+ 787 02f6 86       		.byte	-122
+ 788 02f7 01       		.byte	1
+ 789 02f8 E8       		.byte	-24
+ 790 02f9 10       		.byte	16
+ 791 02fa 01       		.byte	1
+ 792 02fb 02       		.byte	2
+ 793 02fc 02       		.byte	2
+ 794 02fd 10       		.byte	16
+ 795 02fe 06       		.byte	6
+ 796 02ff 60       		.byte	96
+ 797 0300 08       		.byte	8
+ 798 0301 03       		.byte	3
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 15
+
+
+ 799 0302 0A       		.byte	10
+ 800 0303 0C       		.byte	12
+ 801 0304 0E       		.byte	14
+ 802 0305 05       		.byte	5
+ 803 0306 11       		.byte	17
+ 804 0307 04       		.byte	4
+ 805 0308 14       		.byte	20
+ 806 0309 03       		.byte	3
+ 807 030a 15       		.byte	21
+ 808 030b 01       		.byte	1
+ 809 030c 16       		.byte	22
+ 810 030d 04       		.byte	4
+ 811 030e 1B       		.byte	27
+ 812 030f 01       		.byte	1
+ 813 0310 1C       		.byte	28
+ 814 0311 03       		.byte	3
+ 815 0312 1E       		.byte	30
+ 816 0313 04       		.byte	4
+ 817 0314 22       		.byte	34
+ 818 0315 08       		.byte	8
+ 819 0316 24       		.byte	36
+ 820 0317 0A       		.byte	10
+ 821 0318 26       		.byte	38
+ 822 0319 04       		.byte	4
+ 823 031a 29       		.byte	41
+ 824 031b 01       		.byte	1
+ 825 031c 2A       		.byte	42
+ 826 031d 20       		.byte	32
+ 827 031e 30       		.byte	48
+ 828 031f 40       		.byte	64
+ 829 0320 32       		.byte	50
+ 830 0321 0F       		.byte	15
+ 831 0322 35       		.byte	53
+ 832 0323 04       		.byte	4
+ 833 0324 36       		.byte	54
+ 834 0325 30       		.byte	48
+ 835 0326 37       		.byte	55
+ 836 0327 03       		.byte	3
+ 837 0328 39       		.byte	57
+ 838 0329 80       		.byte	-128
+ 839 032a 3A       		.byte	58
+ 840 032b 08       		.byte	8
+ 841 032c 3E       		.byte	62
+ 842 032d 40       		.byte	64
+ 843 032e 3F       		.byte	63
+ 844 032f 10       		.byte	16
+ 845 0330 40       		.byte	64
+ 846 0331 02       		.byte	2
+ 847 0332 47       		.byte	71
+ 848 0333 04       		.byte	4
+ 849 0334 49       		.byte	73
+ 850 0335 FF       		.byte	-1
+ 851 0336 4A       		.byte	74
+ 852 0337 07       		.byte	7
+ 853 0338 4B       		.byte	75
+ 854 0339 FF       		.byte	-1
+ 855 033a 4C       		.byte	76
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 16
+
+
+ 856 033b 40       		.byte	64
+ 857 033c 4D       		.byte	77
+ 858 033d 20       		.byte	32
+ 859 033e 4E       		.byte	78
+ 860 033f F0       		.byte	-16
+ 861 0340 4F       		.byte	79
+ 862 0341 05       		.byte	5
+ 863 0342 50       		.byte	80
+ 864 0343 08       		.byte	8
+ 865 0344 54       		.byte	84
+ 866 0345 01       		.byte	1
+ 867 0346 58       		.byte	88
+ 868 0347 04       		.byte	4
+ 869 0348 59       		.byte	89
+ 870 0349 04       		.byte	4
+ 871 034a 5A       		.byte	90
+ 872 034b 04       		.byte	4
+ 873 034c 5B       		.byte	91
+ 874 034d 04       		.byte	4
+ 875 034e 5C       		.byte	92
+ 876 034f 33       		.byte	51
+ 877 0350 5D       		.byte	93
+ 878 0351 33       		.byte	51
+ 879 0352 5F       		.byte	95
+ 880 0353 01       		.byte	1
+ 881 0354 60       		.byte	96
+ 882 0355 40       		.byte	64
+ 883 0356 61       		.byte	97
+ 884 0357 A8       		.byte	-88
+ 885 0358 62       		.byte	98
+ 886 0359 40       		.byte	64
+ 887 035a 63       		.byte	99
+ 888 035b 20       		.byte	32
+ 889 035c 83       		.byte	-125
+ 890 035d 20       		.byte	32
+ 891 035e 85       		.byte	-123
+ 892 035f 14       		.byte	20
+ 893 0360 88       		.byte	-120
+ 894 0361 02       		.byte	2
+ 895 0362 89       		.byte	-119
+ 896 0363 09       		.byte	9
+ 897 0364 8A       		.byte	-118
+ 898 0365 05       		.byte	5
+ 899 0366 8B       		.byte	-117
+ 900 0367 10       		.byte	16
+ 901 0368 8D       		.byte	-115
+ 902 0369 0C       		.byte	12
+ 903 036a 8F       		.byte	-113
+ 904 036b 11       		.byte	17
+ 905 036c 90       		.byte	-112
+ 906 036d 40       		.byte	64
+ 907 036e 93       		.byte	-109
+ 908 036f 03       		.byte	3
+ 909 0370 94       		.byte	-108
+ 910 0371 24       		.byte	36
+ 911 0372 95       		.byte	-107
+ 912 0373 60       		.byte	96
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 17
+
+
+ 913 0374 96       		.byte	-106
+ 914 0375 12       		.byte	18
+ 915 0376 98       		.byte	-104
+ 916 0377 77       		.byte	119
+ 917 0378 99       		.byte	-103
+ 918 0379 40       		.byte	64
+ 919 037a 9C       		.byte	-100
+ 920 037b 11       		.byte	17
+ 921 037c 9D       		.byte	-99
+ 922 037d 10       		.byte	16
+ 923 037e 9E       		.byte	-98
+ 924 037f 2A       		.byte	42
+ 925 0380 9F       		.byte	-97
+ 926 0381 0C       		.byte	12
+ 927 0382 A1       		.byte	-95
+ 928 0383 10       		.byte	16
+ 929 0384 A4       		.byte	-92
+ 930 0385 77       		.byte	119
+ 931 0386 A5       		.byte	-91
+ 932 0387 60       		.byte	96
+ 933 0388 A9       		.byte	-87
+ 934 0389 1C       		.byte	28
+ 935 038a AB       		.byte	-85
+ 936 038b 02       		.byte	2
+ 937 038c B0       		.byte	-80
+ 938 038d 40       		.byte	64
+ 939 038e B1       		.byte	-79
+ 940 038f 1F       		.byte	31
+ 941 0390 B2       		.byte	-78
+ 942 0391 30       		.byte	48
+ 943 0392 B3       		.byte	-77
+ 944 0393 60       		.byte	96
+ 945 0394 B4       		.byte	-76
+ 946 0395 07       		.byte	7
+ 947 0396 B6       		.byte	-74
+ 948 0397 08       		.byte	8
+ 949 0398 B9       		.byte	-71
+ 950 0399 08       		.byte	8
+ 951 039a BF       		.byte	-65
+ 952 039b 04       		.byte	4
+ 953 039c D8       		.byte	-40
+ 954 039d 04       		.byte	4
+ 955 039e D9       		.byte	-39
+ 956 039f 04       		.byte	4
+ 957 03a0 DC       		.byte	-36
+ 958 03a1 44       		.byte	68
+ 959 03a2 DF       		.byte	-33
+ 960 03a3 01       		.byte	1
+ 961 03a4 01       		.byte	1
+ 962 03a5 20       		.byte	32
+ 963 03a6 05       		.byte	5
+ 964 03a7 08       		.byte	8
+ 965 03a8 06       		.byte	6
+ 966 03a9 09       		.byte	9
+ 967 03aa 07       		.byte	7
+ 968 03ab 40       		.byte	64
+ 969 03ac 08       		.byte	8
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 18
+
+
+ 970 03ad 80       		.byte	-128
+ 971 03ae 0A       		.byte	10
+ 972 03af A8       		.byte	-88
+ 973 03b0 0C       		.byte	12
+ 974 03b1 80       		.byte	-128
+ 975 03b2 0D       		.byte	13
+ 976 03b3 08       		.byte	8
+ 977 03b4 13       		.byte	19
+ 978 03b5 08       		.byte	8
+ 979 03b6 14       		.byte	20
+ 980 03b7 20       		.byte	32
+ 981 03b8 16       		.byte	22
+ 982 03b9 04       		.byte	4
+ 983 03ba 17       		.byte	23
+ 984 03bb 11       		.byte	17
+ 985 03bc 19       		.byte	25
+ 986 03bd A0       		.byte	-96
+ 987 03be 1A       		.byte	26
+ 988 03bf 20       		.byte	32
+ 989 03c0 1B       		.byte	27
+ 990 03c1 02       		.byte	2
+ 991 03c2 1D       		.byte	29
+ 992 03c3 84       		.byte	-124
+ 993 03c4 1F       		.byte	31
+ 994 03c5 01       		.byte	1
+ 995 03c6 22       		.byte	34
+ 996 03c7 03       		.byte	3
+ 997 03c8 23       		.byte	35
+ 998 03c9 20       		.byte	32
+ 999 03ca 27       		.byte	39
+ 1000 03cb 05       		.byte	5
+ 1001 03cc 28       		.byte	40
+ 1002 03cd 08       		.byte	8
+ 1003 03ce 29       		.byte	41
+ 1004 03cf 04       		.byte	4
+ 1005 03d0 2A       		.byte	42
+ 1006 03d1 0A       		.byte	10
+ 1007 03d2 2F       		.byte	47
+ 1008 03d3 08       		.byte	8
+ 1009 03d4 31       		.byte	49
+ 1010 03d5 28       		.byte	40
+ 1011 03d6 32       		.byte	50
+ 1012 03d7 81       		.byte	-127
+ 1013 03d8 33       		.byte	51
+ 1014 03d9 08       		.byte	8
+ 1015 03da 34       		.byte	52
+ 1016 03db 20       		.byte	32
+ 1017 03dc 35       		.byte	53
+ 1018 03dd 04       		.byte	4
+ 1019 03de 36       		.byte	54
+ 1020 03df 02       		.byte	2
+ 1021 03e0 38       		.byte	56
+ 1022 03e1 48       		.byte	72
+ 1023 03e2 39       		.byte	57
+ 1024 03e3 20       		.byte	32
+ 1025 03e4 3A       		.byte	58
+ 1026 03e5 01       		.byte	1
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 19
+
+
+ 1027 03e6 3F       		.byte	63
+ 1028 03e7 02       		.byte	2
+ 1029 03e8 47       		.byte	71
+ 1030 03e9 20       		.byte	32
+ 1031 03ea 54       		.byte	84
+ 1032 03eb 08       		.byte	8
+ 1033 03ec 56       		.byte	86
+ 1034 03ed 01       		.byte	1
+ 1035 03ee 57       		.byte	87
+ 1036 03ef 01       		.byte	1
+ 1037 03f0 5E       		.byte	94
+ 1038 03f1 48       		.byte	72
+ 1039 03f2 5F       		.byte	95
+ 1040 03f3 11       		.byte	17
+ 1041 03f4 91       		.byte	-111
+ 1042 03f5 01       		.byte	1
+ 1043 03f6 92       		.byte	-110
+ 1044 03f7 CC       		.byte	-52
+ 1045 03f8 93       		.byte	-109
+ 1046 03f9 01       		.byte	1
+ 1047 03fa 94       		.byte	-108
+ 1048 03fb 80       		.byte	-128
+ 1049 03fc 96       		.byte	-106
+ 1050 03fd 20       		.byte	32
+ 1051 03fe 97       		.byte	-105
+ 1052 03ff 02       		.byte	2
+ 1053 0400 98       		.byte	-104
+ 1054 0401 20       		.byte	32
+ 1055 0402 9A       		.byte	-102
+ 1056 0403 10       		.byte	16
+ 1057 0404 9B       		.byte	-101
+ 1058 0405 08       		.byte	8
+ 1059 0406 9C       		.byte	-100
+ 1060 0407 84       		.byte	-124
+ 1061 0408 9D       		.byte	-99
+ 1062 0409 AC       		.byte	-84
+ 1063 040a 9E       		.byte	-98
+ 1064 040b 09       		.byte	9
+ 1065 040c 9F       		.byte	-97
+ 1066 040d 41       		.byte	65
+ 1067 040e A0       		.byte	-96
+ 1068 040f 80       		.byte	-128
+ 1069 0410 A1       		.byte	-95
+ 1070 0411 38       		.byte	56
+ 1071 0412 A2       		.byte	-94
+ 1072 0413 48       		.byte	72
+ 1073 0414 A4       		.byte	-92
+ 1074 0415 08       		.byte	8
+ 1075 0416 A5       		.byte	-91
+ 1076 0417 80       		.byte	-128
+ 1077 0418 A7       		.byte	-89
+ 1078 0419 02       		.byte	2
+ 1079 041a C0       		.byte	-64
+ 1080 041b F2       		.byte	-14
+ 1081 041c C2       		.byte	-62
+ 1082 041d AF       		.byte	-81
+ 1083 041e C4       		.byte	-60
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 20
+
+
+ 1084 041f 74       		.byte	116
+ 1085 0420 CA       		.byte	-54
+ 1086 0421 27       		.byte	39
+ 1087 0422 CC       		.byte	-52
+ 1088 0423 EF       		.byte	-17
+ 1089 0424 CE       		.byte	-50
+ 1090 0425 8F       		.byte	-113
+ 1091 0426 D0       		.byte	-48
+ 1092 0427 20       		.byte	32
+ 1093 0428 D6       		.byte	-42
+ 1094 0429 F0       		.byte	-16
+ 1095 042a E8       		.byte	-24
+ 1096 042b 10       		.byte	16
+ 1097 042c 00       		.byte	0
+ 1098 042d B1       		.byte	-79
+ 1099 042e 02       		.byte	2
+ 1100 042f 46       		.byte	70
+ 1101 0430 06       		.byte	6
+ 1102 0431 4C       		.byte	76
+ 1103 0432 0B       		.byte	11
+ 1104 0433 08       		.byte	8
+ 1105 0434 0C       		.byte	12
+ 1106 0435 B1       		.byte	-79
+ 1107 0436 0D       		.byte	13
+ 1108 0437 13       		.byte	19
+ 1109 0438 0E       		.byte	14
+ 1110 0439 0E       		.byte	14
+ 1111 043a 0F       		.byte	15
+ 1112 043b 04       		.byte	4
+ 1113 043c 14       		.byte	20
+ 1114 043d 6C       		.byte	108
+ 1115 043e 15       		.byte	21
+ 1116 043f 03       		.byte	3
+ 1117 0440 16       		.byte	22
+ 1118 0441 83       		.byte	-125
+ 1119 0442 17       		.byte	23
+ 1120 0443 04       		.byte	4
+ 1121 0444 19       		.byte	25
+ 1122 0445 0A       		.byte	10
+ 1123 0446 1B       		.byte	27
+ 1124 0447 14       		.byte	20
+ 1125 0448 1D       		.byte	29
+ 1126 0449 13       		.byte	19
+ 1127 044a 1E       		.byte	30
+ 1128 044b 93       		.byte	-109
+ 1129 044c 1F       		.byte	31
+ 1130 044d 0C       		.byte	12
+ 1131 044e 21       		.byte	33
+ 1132 044f 40       		.byte	64
+ 1133 0450 26       		.byte	38
+ 1134 0451 80       		.byte	-128
+ 1135 0452 2D       		.byte	45
+ 1136 0453 20       		.byte	32
+ 1137 0454 2E       		.byte	46
+ 1138 0455 08       		.byte	8
+ 1139 0456 2F       		.byte	47
+ 1140 0457 05       		.byte	5
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 21
+
+
+ 1141 0458 30       		.byte	48
+ 1142 0459 4A       		.byte	74
+ 1143 045a 32       		.byte	50
+ 1144 045b 0F       		.byte	15
+ 1145 045c 33       		.byte	51
+ 1146 045d 40       		.byte	64
+ 1147 045e 34       		.byte	52
+ 1148 045f 30       		.byte	48
+ 1149 0460 35       		.byte	53
+ 1150 0461 30       		.byte	48
+ 1151 0462 36       		.byte	54
+ 1152 0463 80       		.byte	-128
+ 1153 0464 37       		.byte	55
+ 1154 0465 0F       		.byte	15
+ 1155 0466 38       		.byte	56
+ 1156 0467 20       		.byte	32
+ 1157 0468 39       		.byte	57
+ 1158 0469 20       		.byte	32
+ 1159 046a 3A       		.byte	58
+ 1160 046b 0A       		.byte	10
+ 1161 046c 3B       		.byte	59
+ 1162 046d 80       		.byte	-128
+ 1163 046e 3E       		.byte	62
+ 1164 046f 50       		.byte	80
+ 1165 0470 3F       		.byte	63
+ 1166 0471 04       		.byte	4
+ 1167 0472 40       		.byte	64
+ 1168 0473 14       		.byte	20
+ 1169 0474 41       		.byte	65
+ 1170 0475 05       		.byte	5
+ 1171 0476 45       		.byte	69
+ 1172 0477 EC       		.byte	-20
+ 1173 0478 47       		.byte	71
+ 1174 0479 0B       		.byte	11
+ 1175 047a 48       		.byte	72
+ 1176 047b 13       		.byte	19
+ 1177 047c 49       		.byte	73
+ 1178 047d FF       		.byte	-1
+ 1179 047e 4A       		.byte	74
+ 1180 047f FF       		.byte	-1
+ 1181 0480 4B       		.byte	75
+ 1182 0481 FF       		.byte	-1
+ 1183 0482 4E       		.byte	78
+ 1184 0483 F0       		.byte	-16
+ 1185 0484 4F       		.byte	79
+ 1186 0485 44       		.byte	68
+ 1187 0486 50       		.byte	80
+ 1188 0487 0C       		.byte	12
+ 1189 0488 54       		.byte	84
+ 1190 0489 01       		.byte	1
+ 1191 048a 56       		.byte	86
+ 1192 048b 04       		.byte	4
+ 1193 048c 58       		.byte	88
+ 1194 048d 04       		.byte	4
+ 1195 048e 59       		.byte	89
+ 1196 048f 04       		.byte	4
+ 1197 0490 5A       		.byte	90
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 22
+
+
+ 1198 0491 04       		.byte	4
+ 1199 0492 5B       		.byte	91
+ 1200 0493 04       		.byte	4
+ 1201 0494 5C       		.byte	92
+ 1202 0495 44       		.byte	68
+ 1203 0496 5D       		.byte	93
+ 1204 0497 44       		.byte	68
+ 1205 0498 5F       		.byte	95
+ 1206 0499 01       		.byte	1
+ 1207 049a 66       		.byte	102
+ 1208 049b C0       		.byte	-64
+ 1209 049c 6A       		.byte	106
+ 1210 049d 40       		.byte	64
+ 1211 049e 6B       		.byte	107
+ 1212 049f 02       		.byte	2
+ 1213 04a0 83       		.byte	-125
+ 1214 04a1 08       		.byte	8
+ 1215 04a2 84       		.byte	-124
+ 1216 04a3 02       		.byte	2
+ 1217 04a4 85       		.byte	-123
+ 1218 04a5 37       		.byte	55
+ 1219 04a6 89       		.byte	-119
+ 1220 04a7 37       		.byte	55
+ 1221 04a8 90       		.byte	-112
+ 1222 04a9 01       		.byte	1
+ 1223 04aa 97       		.byte	-105
+ 1224 04ab 08       		.byte	8
+ 1225 04ac 99       		.byte	-103
+ 1226 04ad 24       		.byte	36
+ 1227 04ae 9B       		.byte	-101
+ 1228 04af 11       		.byte	17
+ 1229 04b0 9D       		.byte	-99
+ 1230 04b1 01       		.byte	1
+ 1231 04b2 9F       		.byte	-97
+ 1232 04b3 06       		.byte	6
+ 1233 04b4 A5       		.byte	-91
+ 1234 04b5 12       		.byte	18
+ 1235 04b6 A7       		.byte	-89
+ 1236 04b7 21       		.byte	33
+ 1237 04b8 B1       		.byte	-79
+ 1238 04b9 07       		.byte	7
+ 1239 04ba B3       		.byte	-77
+ 1240 04bb 30       		.byte	48
+ 1241 04bc B4       		.byte	-76
+ 1242 04bd 02       		.byte	2
+ 1243 04be B5       		.byte	-75
+ 1244 04bf 08       		.byte	8
+ 1245 04c0 B6       		.byte	-74
+ 1246 04c1 01       		.byte	1
+ 1247 04c2 BE       		.byte	-66
+ 1248 04c3 50       		.byte	80
+ 1249 04c4 BF       		.byte	-65
+ 1250 04c5 10       		.byte	16
+ 1251 04c6 C0       		.byte	-64
+ 1252 04c7 06       		.byte	6
+ 1253 04c8 C7       		.byte	-57
+ 1254 04c9 40       		.byte	64
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 23
+
+
+ 1255 04ca C9       		.byte	-55
+ 1256 04cb FF       		.byte	-1
+ 1257 04cc CA       		.byte	-54
+ 1258 04cd 07       		.byte	7
+ 1259 04ce CB       		.byte	-53
+ 1260 04cf FF       		.byte	-1
+ 1261 04d0 CC       		.byte	-52
+ 1262 04d1 40       		.byte	64
+ 1263 04d2 CD       		.byte	-51
+ 1264 04d3 20       		.byte	32
+ 1265 04d4 CE       		.byte	-50
+ 1266 04d5 F0       		.byte	-16
+ 1267 04d6 CF       		.byte	-49
+ 1268 04d7 05       		.byte	5
+ 1269 04d8 D0       		.byte	-48
+ 1270 04d9 08       		.byte	8
+ 1271 04da D8       		.byte	-40
+ 1272 04db 04       		.byte	4
+ 1273 04dc D9       		.byte	-39
+ 1274 04dd 04       		.byte	4
+ 1275 04de DA       		.byte	-38
+ 1276 04df 04       		.byte	4
+ 1277 04e0 DC       		.byte	-36
+ 1278 04e1 30       		.byte	48
+ 1279 04e2 DD       		.byte	-35
+ 1280 04e3 04       		.byte	4
+ 1281 04e4 DF       		.byte	-33
+ 1282 04e5 01       		.byte	1
+ 1283 04e6 E0       		.byte	-32
+ 1284 04e7 40       		.byte	64
+ 1285 04e8 E1       		.byte	-31
+ 1286 04e9 A8       		.byte	-88
+ 1287 04ea E2       		.byte	-30
+ 1288 04eb 40       		.byte	64
+ 1289 04ec E3       		.byte	-29
+ 1290 04ed 20       		.byte	32
+ 1291 04ee 00       		.byte	0
+ 1292 04ef 46       		.byte	70
+ 1293 04f0 02       		.byte	2
+ 1294 04f1 02       		.byte	2
+ 1295 04f2 06       		.byte	6
+ 1296 04f3 10       		.byte	16
+ 1297 04f4 08       		.byte	8
+ 1298 04f5 08       		.byte	8
+ 1299 04f6 09       		.byte	9
+ 1300 04f7 40       		.byte	64
+ 1301 04f8 0A       		.byte	10
+ 1302 04f9 20       		.byte	32
+ 1303 04fa 0E       		.byte	14
+ 1304 04fb 80       		.byte	-128
+ 1305 04fc 10       		.byte	16
+ 1306 04fd 30       		.byte	48
+ 1307 04fe 12       		.byte	18
+ 1308 04ff 01       		.byte	1
+ 1309 0500 18       		.byte	24
+ 1310 0501 40       		.byte	64
+ 1311 0502 19       		.byte	25
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 24
+
+
+ 1312 0503 A0       		.byte	-96
+ 1313 0504 1A       		.byte	26
+ 1314 0505 20       		.byte	32
+ 1315 0506 1E       		.byte	30
+ 1316 0507 0A       		.byte	10
+ 1317 0508 20       		.byte	32
+ 1318 0509 06       		.byte	6
+ 1319 050a 21       		.byte	33
+ 1320 050b 50       		.byte	80
+ 1321 050c 22       		.byte	34
+ 1322 050d 84       		.byte	-124
+ 1323 050e 26       		.byte	38
+ 1324 050f 20       		.byte	32
+ 1325 0510 27       		.byte	39
+ 1326 0511 50       		.byte	80
+ 1327 0512 29       		.byte	41
+ 1328 0513 01       		.byte	1
+ 1329 0514 2A       		.byte	42
+ 1330 0515 80       		.byte	-128
+ 1331 0516 2D       		.byte	45
+ 1332 0517 08       		.byte	8
+ 1333 0518 31       		.byte	49
+ 1334 0519 04       		.byte	4
+ 1335 051a 32       		.byte	50
+ 1336 051b 90       		.byte	-112
+ 1337 051c 36       		.byte	54
+ 1338 051d 08       		.byte	8
+ 1339 051e 37       		.byte	55
+ 1340 051f 50       		.byte	80
+ 1341 0520 38       		.byte	56
+ 1342 0521 40       		.byte	64
+ 1343 0522 39       		.byte	57
+ 1344 0523 20       		.byte	32
+ 1345 0524 3D       		.byte	61
+ 1346 0525 21       		.byte	33
+ 1347 0526 3E       		.byte	62
+ 1348 0527 04       		.byte	4
+ 1349 0528 41       		.byte	65
+ 1350 0529 40       		.byte	64
+ 1351 052a 42       		.byte	66
+ 1352 052b 80       		.byte	-128
+ 1353 052c 48       		.byte	72
+ 1354 052d 20       		.byte	32
+ 1355 052e 49       		.byte	73
+ 1356 052f 05       		.byte	5
+ 1357 0530 4A       		.byte	74
+ 1358 0531 02       		.byte	2
+ 1359 0532 4D       		.byte	77
+ 1360 0533 20       		.byte	32
+ 1361 0534 50       		.byte	80
+ 1362 0535 04       		.byte	4
+ 1363 0536 55       		.byte	85
+ 1364 0537 40       		.byte	64
+ 1365 0538 56       		.byte	86
+ 1366 0539 83       		.byte	-125
+ 1367 053a 58       		.byte	88
+ 1368 053b 10       		.byte	16
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 25
+
+
+ 1369 053c 59       		.byte	89
+ 1370 053d 81       		.byte	-127
+ 1371 053e 5A       		.byte	90
+ 1372 053f 08       		.byte	8
+ 1373 0540 63       		.byte	99
+ 1374 0541 40       		.byte	64
+ 1375 0542 78       		.byte	120
+ 1376 0543 04       		.byte	4
+ 1377 0544 7A       		.byte	122
+ 1378 0545 20       		.byte	32
+ 1379 0546 82       		.byte	-126
+ 1380 0547 01       		.byte	1
+ 1381 0548 87       		.byte	-121
+ 1382 0549 40       		.byte	64
+ 1383 054a 89       		.byte	-119
+ 1384 054b 08       		.byte	8
+ 1385 054c 91       		.byte	-111
+ 1386 054d 01       		.byte	1
+ 1387 054e 92       		.byte	-110
+ 1388 054f 04       		.byte	4
+ 1389 0550 94       		.byte	-108
+ 1390 0551 48       		.byte	72
+ 1391 0552 95       		.byte	-107
+ 1392 0553 20       		.byte	32
+ 1393 0554 9A       		.byte	-102
+ 1394 0555 10       		.byte	16
+ 1395 0556 9C       		.byte	-100
+ 1396 0557 0C       		.byte	12
+ 1397 0558 9D       		.byte	-99
+ 1398 0559 08       		.byte	8
+ 1399 055a 9E       		.byte	-98
+ 1400 055b 02       		.byte	2
+ 1401 055c 9F       		.byte	-97
+ 1402 055d 50       		.byte	80
+ 1403 055e A1       		.byte	-95
+ 1404 055f 10       		.byte	16
+ 1405 0560 A2       		.byte	-94
+ 1406 0561 48       		.byte	72
+ 1407 0562 A6       		.byte	-90
+ 1408 0563 84       		.byte	-124
+ 1409 0564 AB       		.byte	-85
+ 1410 0565 04       		.byte	4
+ 1411 0566 AC       		.byte	-84
+ 1412 0567 80       		.byte	-128
+ 1413 0568 AF       		.byte	-81
+ 1414 0569 10       		.byte	16
+ 1415 056a B0       		.byte	-80
+ 1416 056b 80       		.byte	-128
+ 1417 056c B4       		.byte	-76
+ 1418 056d 40       		.byte	64
+ 1419 056e B6       		.byte	-74
+ 1420 056f 04       		.byte	4
+ 1421 0570 C0       		.byte	-64
+ 1422 0571 2D       		.byte	45
+ 1423 0572 C2       		.byte	-62
+ 1424 0573 15       		.byte	21
+ 1425 0574 C4       		.byte	-60
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 26
+
+
+ 1426 0575 05       		.byte	5
+ 1427 0576 CA       		.byte	-54
+ 1428 0577 49       		.byte	73
+ 1429 0578 CC       		.byte	-52
+ 1430 0579 7E       		.byte	126
+ 1431 057a CE       		.byte	-50
+ 1432 057b EC       		.byte	-20
+ 1433 057c D0       		.byte	-48
+ 1434 057d 09       		.byte	9
+ 1435 057e D2       		.byte	-46
+ 1436 057f 28       		.byte	40
+ 1437 0580 D6       		.byte	-42
+ 1438 0581 0F       		.byte	15
+ 1439 0582 D8       		.byte	-40
+ 1440 0583 01       		.byte	1
+ 1441 0584 E4       		.byte	-28
+ 1442 0585 01       		.byte	1
+ 1443 0586 E8       		.byte	-24
+ 1444 0587 01       		.byte	1
+ 1445 0588 32       		.byte	50
+ 1446 0589 20       		.byte	32
+ 1447 058a 33       		.byte	51
+ 1448 058b 08       		.byte	8
+ 1449 058c 36       		.byte	54
+ 1450 058d 20       		.byte	32
+ 1451 058e CC       		.byte	-52
+ 1452 058f 70       		.byte	112
+ 1453 0590 63       		.byte	99
+ 1454 0591 02       		.byte	2
+ 1455 0592 A6       		.byte	-90
+ 1456 0593 20       		.byte	32
+ 1457 0594 A7       		.byte	-89
+ 1458 0595 08       		.byte	8
+ 1459 0596 D6       		.byte	-42
+ 1460 0597 40       		.byte	64
+ 1461 0598 A6       		.byte	-90
+ 1462 0599 20       		.byte	32
+ 1463 059a A7       		.byte	-89
+ 1464 059b 09       		.byte	9
+ 1465 059c 1B       		.byte	27
+ 1466 059d 01       		.byte	1
+ 1467 059e 1C       		.byte	28
+ 1468 059f 10       		.byte	16
+ 1469 05a0 86       		.byte	-122
+ 1470 05a1 20       		.byte	32
+ 1471 05a2 A6       		.byte	-90
+ 1472 05a3 20       		.byte	32
+ 1473 05a4 A7       		.byte	-89
+ 1474 05a5 09       		.byte	9
+ 1475 05a6 C6       		.byte	-58
+ 1476 05a7 30       		.byte	48
+ 1477 05a8 E6       		.byte	-26
+ 1478 05a9 40       		.byte	64
+ 1479 05aa 60       		.byte	96
+ 1480 05ab 80       		.byte	-128
+ 1481 05ac D8       		.byte	-40
+ 1482 05ad 02       		.byte	2
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 27
+
+
+ 1483 05ae 9C       		.byte	-100
+ 1484 05af 80       		.byte	-128
+ 1485 05b0 9C       		.byte	-100
+ 1486 05b1 80       		.byte	-128
+ 1487 05b2 67       		.byte	103
+ 1488 05b3 20       		.byte	32
+ 1489 05b4 6B       		.byte	107
+ 1490 05b5 20       		.byte	32
+ 1491 05b6 6F       		.byte	111
+ 1492 05b7 20       		.byte	32
+ 1493 05b8 83       		.byte	-125
+ 1494 05b9 20       		.byte	32
+ 1495 05ba 87       		.byte	-121
+ 1496 05bb 10       		.byte	16
+ 1497 05bc A7       		.byte	-89
+ 1498 05bd 08       		.byte	8
+ 1499 05be B4       		.byte	-76
+ 1500 05bf 10       		.byte	16
+ 1501 05c0 D8       		.byte	-40
+ 1502 05c1 80       		.byte	-128
+ 1503 05c2 DA       		.byte	-38
+ 1504 05c3 C0       		.byte	-64
+ 1505 05c4 E2       		.byte	-30
+ 1506 05c5 80       		.byte	-128
+ 1507 05c6 E6       		.byte	-26
+ 1508 05c7 40       		.byte	64
+ 1509 05c8 87       		.byte	-121
+ 1510 05c9 08       		.byte	8
+ 1511 05ca A7       		.byte	-89
+ 1512 05cb 08       		.byte	8
+ 1513 05cc AB       		.byte	-85
+ 1514 05cd 20       		.byte	32
+ 1515 05ce E6       		.byte	-26
+ 1516 05cf 40       		.byte	64
+ 1517 05d0 EE       		.byte	-18
+ 1518 05d1 20       		.byte	32
+ 1519 05d2 0C       		.byte	12
+ 1520 05d3 10       		.byte	16
+ 1521 05d4 5F       		.byte	95
+ 1522 05d5 01       		.byte	1
+ 1523 05d6 B4       		.byte	-76
+ 1524 05d7 80       		.byte	-128
+ 1525 05d8 C2       		.byte	-62
+ 1526 05d9 01       		.byte	1
+ 1527 05da D6       		.byte	-42
+ 1528 05db 01       		.byte	1
+ 1529 05dc E8       		.byte	-24
+ 1530 05dd 08       		.byte	8
+ 1531 05de 10       		.byte	16
+ 1532 05df 40       		.byte	64
+ 1533 05e0 70       		.byte	112
+ 1534 05e1 04       		.byte	4
+ 1535 05e2 80       		.byte	-128
+ 1536 05e3 04       		.byte	4
+ 1537 05e4 88       		.byte	-120
+ 1538 05e5 40       		.byte	64
+ 1539 05e6 AB       		.byte	-85
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 28
+
+
+ 1540 05e7 01       		.byte	1
+ 1541 05e8 B0       		.byte	-80
+ 1542 05e9 10       		.byte	16
+ 1543 05ea C4       		.byte	-60
+ 1544 05eb 08       		.byte	8
+ 1545 05ec DC       		.byte	-36
+ 1546 05ed 01       		.byte	1
+ 1547 05ee E2       		.byte	-30
+ 1548 05ef 01       		.byte	1
+ 1549 05f0 EA       		.byte	-22
+ 1550 05f1 04       		.byte	4
+ 1551 05f2 00       		.byte	0
+ 1552 05f3 18       		.byte	24
+ 1553 05f4 0C       		.byte	12
+ 1554 05f5 18       		.byte	24
+ 1555 05f6 0E       		.byte	14
+ 1556 05f7 08       		.byte	8
+ 1557 05f8 10       		.byte	16
+ 1558 05f9 18       		.byte	24
+ 1559 05fa 1C       		.byte	28
+ 1560 05fb 18       		.byte	24
+ 1561 05fc 00       		.byte	0
+ 1562 05fd 3F       		.byte	63
+ 1563 05fe 00       		.byte	0
+ 1564 05ff 00       		.byte	0
+ 1565 0600 00       		.byte	0
+ 1566 0601 10       		.byte	16
+ 1567 0602 00       		.byte	0
+ 1568 0603 00       		.byte	0
+ 1569 0604 33       		.byte	51
+ 1570 0605 18       		.byte	24
+ 1571 0606 0C       		.byte	12
+ 1572 0607 00       		.byte	0
+ 1573 0608 3F       		.byte	63
+ 1574 0609 08       		.byte	8
+ 1575 060a 00       		.byte	0
+ 1576 060b 00       		.byte	0
+ 1577 060c 00       		.byte	0
+ 1578 060d 1C       		.byte	28
+ 1579 060e 33       		.byte	51
+ 1580 060f E1       		.byte	-31
+ 1581 0610 0F       		.byte	15
+ 1582 0611 00       		.byte	0
+ 1583 0612 30       		.byte	48
+ 1584 0613 63       		.byte	99
+ 1585 0614 02       		.byte	2
+ 1586 0615 FF       		.byte	-1
+ 1587 0616 00       		.byte	0
+ 1588 0617 00       		.byte	0
+ 1589 0618 03       		.byte	3
+ 1590 0619 40       		.byte	64
+ 1591 061a 00       		.byte	0
+ 1592 061b 00       		.byte	0
+ 1593 061c 01       		.byte	1
+ 1594 061d 1C       		.byte	28
+ 1595 061e 00       		.byte	0
+ 1596 061f E2       		.byte	-30
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 29
+
+
+ 1597 0620 08       		.byte	8
+ 1598 0621 24       		.byte	36
+ 1599 0622 00       		.byte	0
+ 1600 0623 00       		.byte	0
+ 1601 0624 04       		.byte	4
+ 1602 0625 E7       		.byte	-25
+ 1603 0626 00       		.byte	0
+ 1604 0627 18       		.byte	24
+ 1605 0628 0C       		.byte	12
+ 1606 0629 60       		.byte	96
+ 1607 062a 00       		.byte	0
+ 1608 062b 00       		.byte	0
+ 1609 062c 2C       		.byte	44
+ 1610 062d 00       		.byte	0
+ 1611 062e 13       		.byte	19
+ 1612 062f 04       		.byte	4
+ 1613 0630 1C       		.byte	28
+ 1614 0631 60       		.byte	96
+ 1615 0632 2C       		.byte	44
+ 1616 0633 00       		.byte	0
+ 1617 0634 0F       		.byte	15
+ 1618 0635 80       		.byte	-128
+ 1619 0636 00       		.byte	0
+ 1620 0637 1F       		.byte	31
+ 1621 0638 00       		.byte	0
+ 1622 0639 20       		.byte	32
+ 1623 063a 22       		.byte	34
+ 1624 063b 88       		.byte	-120
+ 1625 063c 00       		.byte	0
+ 1626 063d 00       		.byte	0
+ 1627 063e 00       		.byte	0
+ 1628 063f 00       		.byte	0
+ 1629 0640 24       		.byte	36
+ 1630 0641 06       		.byte	6
+ 1631 0642 03       		.byte	3
+ 1632 0643 00       		.byte	0
+ 1633 0644 05       		.byte	5
+ 1634 0645 00       		.byte	0
+ 1635 0646 CE       		.byte	-50
+ 1636 0647 00       		.byte	0
+ 1637 0648 0C       		.byte	12
+ 1638 0649 FF       		.byte	-1
+ 1639 064a FF       		.byte	-1
+ 1640 064b FF       		.byte	-1
+ 1641 064c 62       		.byte	98
+ 1642 064d A0       		.byte	-96
+ 1643 064e F0       		.byte	-16
+ 1644 064f 41       		.byte	65
+ 1645 0650 0C       		.byte	12
+ 1646 0651 00       		.byte	0
+ 1647 0652 00       		.byte	0
+ 1648 0653 00       		.byte	0
+ 1649 0654 00       		.byte	0
+ 1650 0655 00       		.byte	0
+ 1651 0656 02       		.byte	2
+ 1652 0657 13       		.byte	19
+ 1653 0658 04       		.byte	4
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 30
+
+
+ 1654 0659 04       		.byte	4
+ 1655 065a 04       		.byte	4
+ 1656 065b 04       		.byte	4
+ 1657 065c 44       		.byte	68
+ 1658 065d 44       		.byte	68
+ 1659 065e 00       		.byte	0
+ 1660 065f 01       		.byte	1
+ 1661 0660 00       		.byte	0
+ 1662 0661 00       		.byte	0
+ 1663 0662 00       		.byte	0
+ 1664 0663 00       		.byte	0
+ 1665 0664 00       		.byte	0
+ 1666 0665 00       		.byte	0
+ 1667 0666 40       		.byte	64
+ 1668 0667 02       		.byte	2
+ 1669 0668 00       		.byte	0
+ 1670 0669 10       		.byte	16
+ 1671 066a 30       		.byte	48
+ 1672 066b 10       		.byte	16
+ 1673 066c 00       		.byte	0
+ 1674 066d 10       		.byte	16
+ 1675 066e 10       		.byte	16
+ 1676 066f 12       		.byte	18
+ 1677 0670 00       		.byte	0
+ 1678 0671 00       		.byte	0
+ 1679 0672 00       		.byte	0
+ 1680 0673 00       		.byte	0
+ 1681 0674 00       		.byte	0
+ 1682 0675 00       		.byte	0
+ 1683 0676 00       		.byte	0
+ 1684 0677 00       		.byte	0
+ 1685 0678 00       		.byte	0
+ 1686 0679 00       		.byte	0
+ 1687 067a 00       		.byte	0
+ 1688 067b 00       		.byte	0
+ 1689 067c 00       		.byte	0
+ 1690 067d 00       		.byte	0
+ 1691 067e 00       		.byte	0
+ 1692 067f 00       		.byte	0
+ 1693 0680 03       		.byte	3
+ 1694 0681 10       		.byte	16
+ 1695 0682 00       		.byte	0
+ 1696 0683 00       		.byte	0
+ 1697 0684 01       		.byte	1
+ 1698 0685 08       		.byte	8
+ 1699 0686 00       		.byte	0
+ 1700 0687 00       		.byte	0
+ 1701 0688 73       		.byte	115
+ 1702 0689 18       		.byte	24
+ 1703 068a 0C       		.byte	12
+ 1704 068b 00       		.byte	0
+ 1705 068c 02       		.byte	2
+ 1706 068d 1C       		.byte	28
+ 1707 068e 00       		.byte	0
+ 1708 068f 61       		.byte	97
+ 1709 0690 1F       		.byte	31
+ 1710 0691 1C       		.byte	28
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 31
+
+
+ 1711 0692 60       		.byte	96
+ 1712 0693 62       		.byte	98
+ 1713 0694 00       		.byte	0
+ 1714 0695 67       		.byte	103
+ 1715 0696 63       		.byte	99
+ 1716 0697 18       		.byte	24
+ 1717 0698 7F       		.byte	127
+ 1718 0699 7F       		.byte	127
+ 1719 069a 00       		.byte	0
+ 1720 069b 00       		.byte	0
+ 1721 069c 5C       		.byte	92
+ 1722 069d 60       		.byte	96
+ 1723 069e 23       		.byte	35
+ 1724 069f 00       		.byte	0
+ 1725 06a0 08       		.byte	8
+ 1726 06a1 40       		.byte	64
+ 1727 06a2 00       		.byte	0
+ 1728 06a3 00       		.byte	0
+ 1729 06a4 04       		.byte	4
+ 1730 06a5 24       		.byte	36
+ 1731 06a6 00       		.byte	0
+ 1732 06a7 00       		.byte	0
+ 1733 06a8 0C       		.byte	12
+ 1734 06a9 00       		.byte	0
+ 1735 06aa 00       		.byte	0
+ 1736 06ab 63       		.byte	99
+ 1737 06ac 00       		.byte	0
+ 1738 06ad 00       		.byte	0
+ 1739 06ae 00       		.byte	0
+ 1740 06af 04       		.byte	4
+ 1741 06b0 2C       		.byte	44
+ 1742 06b1 1F       		.byte	31
+ 1743 06b2 0F       		.byte	15
+ 1744 06b3 60       		.byte	96
+ 1745 06b4 10       		.byte	16
+ 1746 06b5 00       		.byte	0
+ 1747 06b6 4C       		.byte	76
+ 1748 06b7 00       		.byte	0
+ 1749 06b8 00       		.byte	0
+ 1750 06b9 00       		.byte	0
+ 1751 06ba 0A       		.byte	10
+ 1752 06bb 22       		.byte	34
+ 1753 06bc 00       		.byte	0
+ 1754 06bd 00       		.byte	0
+ 1755 06be 10       		.byte	16
+ 1756 06bf 00       		.byte	0
+ 1757 06c0 36       		.byte	54
+ 1758 06c1 02       		.byte	2
+ 1759 06c2 05       		.byte	5
+ 1760 06c3 00       		.byte	0
+ 1761 06c4 01       		.byte	1
+ 1762 06c5 EC       		.byte	-20
+ 1763 06c6 00       		.byte	0
+ 1764 06c7 00       		.byte	0
+ 1765 06c8 03       		.byte	3
+ 1766 06c9 FF       		.byte	-1
+ 1767 06ca FF       		.byte	-1
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 32
+
+
+ 1768 06cb FF       		.byte	-1
+ 1769 06cc 62       		.byte	98
+ 1770 06cd A0       		.byte	-96
+ 1771 06ce F0       		.byte	-16
+ 1772 06cf 41       		.byte	65
+ 1773 06d0 0C       		.byte	12
+ 1774 06d1 00       		.byte	0
+ 1775 06d2 00       		.byte	0
+ 1776 06d3 00       		.byte	0
+ 1777 06d4 00       		.byte	0
+ 1778 06d5 00       		.byte	0
+ 1779 06d6 02       		.byte	2
+ 1780 06d7 12       		.byte	18
+ 1781 06d8 04       		.byte	4
+ 1782 06d9 04       		.byte	4
+ 1783 06da 04       		.byte	4
+ 1784 06db 04       		.byte	4
+ 1785 06dc 33       		.byte	51
+ 1786 06dd 33       		.byte	51
+ 1787 06de 00       		.byte	0
+ 1788 06df 01       		.byte	1
+ 1789 06e0 00       		.byte	0
+ 1790 06e1 00       		.byte	0
+ 1791 06e2 00       		.byte	0
+ 1792 06e3 00       		.byte	0
+ 1793 06e4 00       		.byte	0
+ 1794 06e5 00       		.byte	0
+ 1795 06e6 40       		.byte	64
+ 1796 06e7 02       		.byte	2
+ 1797 06e8 00       		.byte	0
+ 1798 06e9 10       		.byte	16
+ 1799 06ea 30       		.byte	48
+ 1800 06eb 10       		.byte	16
+ 1801 06ec 00       		.byte	0
+ 1802 06ed 10       		.byte	16
+ 1803 06ee 10       		.byte	16
+ 1804 06ef 12       		.byte	18
+ 1805 06f0 00       		.byte	0
+ 1806 06f1 00       		.byte	0
+ 1807 06f2 00       		.byte	0
+ 1808 06f3 00       		.byte	0
+ 1809 06f4 00       		.byte	0
+ 1810 06f5 00       		.byte	0
+ 1811 06f6 00       		.byte	0
+ 1812 06f7 00       		.byte	0
+ 1813 06f8 00       		.byte	0
+ 1814 06f9 00       		.byte	0
+ 1815 06fa 00       		.byte	0
+ 1816 06fb 00       		.byte	0
+ 1817 06fc 00       		.byte	0
+ 1818 06fd 00       		.byte	0
+ 1819 06fe 00       		.byte	0
+ 1820 06ff 00       		.byte	0
+ 1821 0700 00       		.byte	0
+ 1822 0701 80       		.byte	-128
+ 1823 0702 80       		.byte	-128
+ 1824 0703 00       		.byte	0
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 33
+
+
+ 1825 0704 80       		.byte	-128
+ 1826 0705 00       		.byte	0
+ 1827 0706 00       		.byte	0
+ 1828 0707 00       		.byte	0
+ 1829 0708 80       		.byte	-128
+ 1830 0709 00       		.byte	0
+ 1831 070a 40       		.byte	64
+ 1832 070b 80       		.byte	-128
+ 1833 070c 80       		.byte	-128
+ 1834 070d 00       		.byte	0
+ 1835 070e 80       		.byte	-128
+ 1836 070f 00       		.byte	0
+ 1837 0710 00       		.byte	0
+ 1838 0711 00       		.byte	0
+ 1839 0712 00       		.byte	0
+ 1840 0713 00       		.byte	0
+ 1841 0714 40       		.byte	64
+ 1842 0715 00       		.byte	0
+ 1843 0716 80       		.byte	-128
+ 1844 0717 4B       		.byte	75
+ 1845 0718 4B       		.byte	75
+ 1846 0719 00       		.byte	0
+ 1847 071a 40       		.byte	64
+ 1848 071b 00       		.byte	0
+ 1849 071c 00       		.byte	0
+ 1850 071d 00       		.byte	0
+ 1851 071e 00       		.byte	0
+ 1852 071f 00       		.byte	0
+ 1853 0720 10       		.byte	16
+ 1854 0721 2A       		.byte	42
+ 1855 0722 2A       		.byte	42
+ 1856 0723 00       		.byte	0
+ 1857 0724 20       		.byte	32
+ 1858 0725 00       		.byte	0
+ 1859 0726 00       		.byte	0
+ 1860 0727 00       		.byte	0
+ 1861              		.section	.cywolatch,"a",%progbits
+ 1862              		.align	2
+ 1863              		.type	cy_meta_wonvl, %object
+ 1864              		.size	cy_meta_wonvl, 4
+ 1865              	cy_meta_wonvl:
+ 1866 0000 BC       		.byte	-68
+ 1867 0001 90       		.byte	-112
+ 1868 0002 AC       		.byte	-84
+ 1869 0003 AF       		.byte	-81
+ 1870              		.section	.cycustnvl,"a",%progbits
+ 1871              		.align	2
+ 1872              		.type	cy_meta_custnvl, %object
+ 1873              		.size	cy_meta_custnvl, 4
+ 1874              	cy_meta_custnvl:
+ 1875 0000 00       		.byte	0
+ 1876 0001 00       		.byte	0
+ 1877 0002 40       		.byte	64
+ 1878 0003 05       		.byte	5
+ 1879              		.section	.cymeta,"a",%progbits
+ 1880              		.align	2
+ 1881              		.type	cy_metadata, %object
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 34
+
+
+ 1882              		.size	cy_metadata, 12
+ 1883              	cy_metadata:
+ 1884 0000 00       		.byte	0
+ 1885 0001 01       		.byte	1
+ 1886 0002 2E       		.byte	46
+ 1887 0003 16       		.byte	22
+ 1888 0004 10       		.byte	16
+ 1889 0005 69       		.byte	105
+ 1890 0006 00       		.byte	0
+ 1891 0007 01       		.byte	1
+ 1892 0008 00       		.byte	0
+ 1893 0009 00       		.byte	0
+ 1894 000a 00       		.byte	0
+ 1895 000b 00       		.byte	0
+ 1896              		.section	.cyflashprotect,"a",%progbits
+ 1897              		.align	2
+ 1898              		.type	cy_meta_flashprotect, %object
+ 1899              		.size	cy_meta_flashprotect, 256
+ 1900              	cy_meta_flashprotect:
+ 1901 0000 00000000 		.space	256
+ 1901      00000000 
+ 1901      00000000 
+ 1901      00000000 
+ 1901      00000000 
+ 1902              		.text
+ 1903              	.Letext0:
+ 1904              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 1905              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 1906              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+ 1907              		.section	.debug_info,"",%progbits
+ 1908              	.Ldebug_info0:
+ 1909 0000 35010000 		.4byte	0x135
+ 1910 0004 0400     		.2byte	0x4
+ 1911 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1912 000a 04       		.byte	0x4
+ 1913 000b 01       		.uleb128 0x1
+ 1914 000c 24000000 		.4byte	.LASF17
+ 1915 0010 0C       		.byte	0xc
+ 1916 0011 DC010000 		.4byte	.LASF18
+ 1917 0015 25010000 		.4byte	.LASF19
+ 1918 0019 00000000 		.4byte	.Ldebug_line0
+ 1919 001d 02       		.uleb128 0x2
+ 1920 001e 01       		.byte	0x1
+ 1921 001f 06       		.byte	0x6
+ 1922 0020 D0010000 		.4byte	.LASF0
+ 1923 0024 03       		.uleb128 0x3
+ 1924 0025 00000000 		.4byte	.LASF9
+ 1925 0029 01       		.byte	0x1
+ 1926 002a 1D       		.byte	0x1d
+ 1927 002b 2F000000 		.4byte	0x2f
+ 1928 002f 02       		.uleb128 0x2
+ 1929 0030 01       		.byte	0x1
+ 1930 0031 08       		.byte	0x8
+ 1931 0032 16000000 		.4byte	.LASF1
+ 1932 0036 02       		.uleb128 0x2
+ 1933 0037 02       		.byte	0x2
+ 1934 0038 05       		.byte	0x5
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 35
+
+
+ 1935 0039 BD010000 		.4byte	.LASF2
+ 1936 003d 02       		.uleb128 0x2
+ 1937 003e 02       		.byte	0x2
+ 1938 003f 07       		.byte	0x7
+ 1939 0040 C4000000 		.4byte	.LASF3
+ 1940 0044 02       		.uleb128 0x2
+ 1941 0045 04       		.byte	0x4
+ 1942 0046 05       		.byte	0x5
+ 1943 0047 C7010000 		.4byte	.LASF4
+ 1944 004b 02       		.uleb128 0x2
+ 1945 004c 04       		.byte	0x4
+ 1946 004d 07       		.byte	0x7
+ 1947 004e B2000000 		.4byte	.LASF5
+ 1948 0052 02       		.uleb128 0x2
+ 1949 0053 08       		.byte	0x8
+ 1950 0054 05       		.byte	0x5
+ 1951 0055 AF010000 		.4byte	.LASF6
+ 1952 0059 02       		.uleb128 0x2
+ 1953 005a 08       		.byte	0x8
+ 1954 005b 07       		.byte	0x7
+ 1955 005c 06010000 		.4byte	.LASF7
+ 1956 0060 04       		.uleb128 0x4
+ 1957 0061 04       		.byte	0x4
+ 1958 0062 05       		.byte	0x5
+ 1959 0063 696E7400 		.ascii	"int\000"
+ 1960 0067 02       		.uleb128 0x2
+ 1961 0068 04       		.byte	0x4
+ 1962 0069 07       		.byte	0x7
+ 1963 006a F9000000 		.4byte	.LASF8
+ 1964 006e 03       		.uleb128 0x3
+ 1965 006f 1D010000 		.4byte	.LASF10
+ 1966 0073 02       		.byte	0x2
+ 1967 0074 18       		.byte	0x18
+ 1968 0075 24000000 		.4byte	0x24
+ 1969 0079 05       		.uleb128 0x5
+ 1970 007a 91000000 		.4byte	0x91
+ 1971 007e 8A000000 		.4byte	0x8a
+ 1972 0082 06       		.uleb128 0x6
+ 1973 0083 8A000000 		.4byte	0x8a
+ 1974 0087 2707     		.2byte	0x727
+ 1975 0089 00       		.byte	0
+ 1976 008a 02       		.uleb128 0x2
+ 1977 008b 04       		.byte	0x4
+ 1978 008c 07       		.byte	0x7
+ 1979 008d A6010000 		.4byte	.LASF11
+ 1980 0091 07       		.uleb128 0x7
+ 1981 0092 6E000000 		.4byte	0x6e
+ 1982 0096 08       		.uleb128 0x8
+ 1983 0097 E7000000 		.4byte	.LASF12
+ 1984 009b 03       		.byte	0x3
+ 1985 009c 1F       		.byte	0x1f
+ 1986 009d A7000000 		.4byte	0xa7
+ 1987 00a1 05       		.uleb128 0x5
+ 1988 00a2 03       		.byte	0x3
+ 1989 00a3 00000000 		.4byte	cy_meta_configecc
+ 1990 00a7 07       		.uleb128 0x7
+ 1991 00a8 79000000 		.4byte	0x79
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 36
+
+
+ 1992 00ac 05       		.uleb128 0x5
+ 1993 00ad 91000000 		.4byte	0x91
+ 1994 00b1 BC000000 		.4byte	0xbc
+ 1995 00b5 09       		.uleb128 0x9
+ 1996 00b6 8A000000 		.4byte	0x8a
+ 1997 00ba 03       		.byte	0x3
+ 1998 00bb 00       		.byte	0
+ 1999 00bc 0A       		.uleb128 0xa
+ 2000 00bd D7000000 		.4byte	.LASF13
+ 2001 00c1 03       		.byte	0x3
+ 2002 00c2 1101     		.2byte	0x111
+ 2003 00c4 CE000000 		.4byte	0xce
+ 2004 00c8 05       		.uleb128 0x5
+ 2005 00c9 03       		.byte	0x3
+ 2006 00ca 00000000 		.4byte	cy_meta_custnvl
+ 2007 00ce 07       		.uleb128 0x7
+ 2008 00cf AC000000 		.4byte	0xac
+ 2009 00d3 0A       		.uleb128 0xa
+ 2010 00d4 98010000 		.4byte	.LASF14
+ 2011 00d8 03       		.byte	0x3
+ 2012 00d9 1F01     		.2byte	0x11f
+ 2013 00db E5000000 		.4byte	0xe5
+ 2014 00df 05       		.uleb128 0x5
+ 2015 00e0 03       		.byte	0x3
+ 2016 00e1 00000000 		.4byte	cy_meta_wonvl
+ 2017 00e5 07       		.uleb128 0x7
+ 2018 00e6 AC000000 		.4byte	0xac
+ 2019 00ea 05       		.uleb128 0x5
+ 2020 00eb 91000000 		.4byte	0x91
+ 2021 00ef FA000000 		.4byte	0xfa
+ 2022 00f3 09       		.uleb128 0x9
+ 2023 00f4 8A000000 		.4byte	0x8a
+ 2024 00f8 FF       		.byte	0xff
+ 2025 00f9 00       		.byte	0
+ 2026 00fa 0A       		.uleb128 0xa
+ 2027 00fb 83010000 		.4byte	.LASF15
+ 2028 00ff 03       		.byte	0x3
+ 2029 0100 2D01     		.2byte	0x12d
+ 2030 0102 0C010000 		.4byte	0x10c
+ 2031 0106 05       		.uleb128 0x5
+ 2032 0107 03       		.byte	0x3
+ 2033 0108 00000000 		.4byte	cy_meta_flashprotect
+ 2034 010c 07       		.uleb128 0x7
+ 2035 010d EA000000 		.4byte	0xea
+ 2036 0111 05       		.uleb128 0x5
+ 2037 0112 91000000 		.4byte	0x91
+ 2038 0116 21010000 		.4byte	0x121
+ 2039 011a 09       		.uleb128 0x9
+ 2040 011b 8A000000 		.4byte	0x8a
+ 2041 011f 0B       		.byte	0xb
+ 2042 0120 00       		.byte	0
+ 2043 0121 0A       		.uleb128 0xa
+ 2044 0122 0A000000 		.4byte	.LASF16
+ 2045 0126 03       		.byte	0x3
+ 2046 0127 5A01     		.2byte	0x15a
+ 2047 0129 33010000 		.4byte	0x133
+ 2048 012d 05       		.uleb128 0x5
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 37
+
+
+ 2049 012e 03       		.byte	0x3
+ 2050 012f 00000000 		.4byte	cy_metadata
+ 2051 0133 07       		.uleb128 0x7
+ 2052 0134 11010000 		.4byte	0x111
+ 2053 0138 00       		.byte	0
+ 2054              		.section	.debug_abbrev,"",%progbits
+ 2055              	.Ldebug_abbrev0:
+ 2056 0000 01       		.uleb128 0x1
+ 2057 0001 11       		.uleb128 0x11
+ 2058 0002 01       		.byte	0x1
+ 2059 0003 25       		.uleb128 0x25
+ 2060 0004 0E       		.uleb128 0xe
+ 2061 0005 13       		.uleb128 0x13
+ 2062 0006 0B       		.uleb128 0xb
+ 2063 0007 03       		.uleb128 0x3
+ 2064 0008 0E       		.uleb128 0xe
+ 2065 0009 1B       		.uleb128 0x1b
+ 2066 000a 0E       		.uleb128 0xe
+ 2067 000b 10       		.uleb128 0x10
+ 2068 000c 17       		.uleb128 0x17
+ 2069 000d 00       		.byte	0
+ 2070 000e 00       		.byte	0
+ 2071 000f 02       		.uleb128 0x2
+ 2072 0010 24       		.uleb128 0x24
+ 2073 0011 00       		.byte	0
+ 2074 0012 0B       		.uleb128 0xb
+ 2075 0013 0B       		.uleb128 0xb
+ 2076 0014 3E       		.uleb128 0x3e
+ 2077 0015 0B       		.uleb128 0xb
+ 2078 0016 03       		.uleb128 0x3
+ 2079 0017 0E       		.uleb128 0xe
+ 2080 0018 00       		.byte	0
+ 2081 0019 00       		.byte	0
+ 2082 001a 03       		.uleb128 0x3
+ 2083 001b 16       		.uleb128 0x16
+ 2084 001c 00       		.byte	0
+ 2085 001d 03       		.uleb128 0x3
+ 2086 001e 0E       		.uleb128 0xe
+ 2087 001f 3A       		.uleb128 0x3a
+ 2088 0020 0B       		.uleb128 0xb
+ 2089 0021 3B       		.uleb128 0x3b
+ 2090 0022 0B       		.uleb128 0xb
+ 2091 0023 49       		.uleb128 0x49
+ 2092 0024 13       		.uleb128 0x13
+ 2093 0025 00       		.byte	0
+ 2094 0026 00       		.byte	0
+ 2095 0027 04       		.uleb128 0x4
+ 2096 0028 24       		.uleb128 0x24
+ 2097 0029 00       		.byte	0
+ 2098 002a 0B       		.uleb128 0xb
+ 2099 002b 0B       		.uleb128 0xb
+ 2100 002c 3E       		.uleb128 0x3e
+ 2101 002d 0B       		.uleb128 0xb
+ 2102 002e 03       		.uleb128 0x3
+ 2103 002f 08       		.uleb128 0x8
+ 2104 0030 00       		.byte	0
+ 2105 0031 00       		.byte	0
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 38
+
+
+ 2106 0032 05       		.uleb128 0x5
+ 2107 0033 01       		.uleb128 0x1
+ 2108 0034 01       		.byte	0x1
+ 2109 0035 49       		.uleb128 0x49
+ 2110 0036 13       		.uleb128 0x13
+ 2111 0037 01       		.uleb128 0x1
+ 2112 0038 13       		.uleb128 0x13
+ 2113 0039 00       		.byte	0
+ 2114 003a 00       		.byte	0
+ 2115 003b 06       		.uleb128 0x6
+ 2116 003c 21       		.uleb128 0x21
+ 2117 003d 00       		.byte	0
+ 2118 003e 49       		.uleb128 0x49
+ 2119 003f 13       		.uleb128 0x13
+ 2120 0040 2F       		.uleb128 0x2f
+ 2121 0041 05       		.uleb128 0x5
+ 2122 0042 00       		.byte	0
+ 2123 0043 00       		.byte	0
+ 2124 0044 07       		.uleb128 0x7
+ 2125 0045 26       		.uleb128 0x26
+ 2126 0046 00       		.byte	0
+ 2127 0047 49       		.uleb128 0x49
+ 2128 0048 13       		.uleb128 0x13
+ 2129 0049 00       		.byte	0
+ 2130 004a 00       		.byte	0
+ 2131 004b 08       		.uleb128 0x8
+ 2132 004c 34       		.uleb128 0x34
+ 2133 004d 00       		.byte	0
+ 2134 004e 03       		.uleb128 0x3
+ 2135 004f 0E       		.uleb128 0xe
+ 2136 0050 3A       		.uleb128 0x3a
+ 2137 0051 0B       		.uleb128 0xb
+ 2138 0052 3B       		.uleb128 0x3b
+ 2139 0053 0B       		.uleb128 0xb
+ 2140 0054 49       		.uleb128 0x49
+ 2141 0055 13       		.uleb128 0x13
+ 2142 0056 3F       		.uleb128 0x3f
+ 2143 0057 19       		.uleb128 0x19
+ 2144 0058 02       		.uleb128 0x2
+ 2145 0059 18       		.uleb128 0x18
+ 2146 005a 00       		.byte	0
+ 2147 005b 00       		.byte	0
+ 2148 005c 09       		.uleb128 0x9
+ 2149 005d 21       		.uleb128 0x21
+ 2150 005e 00       		.byte	0
+ 2151 005f 49       		.uleb128 0x49
+ 2152 0060 13       		.uleb128 0x13
+ 2153 0061 2F       		.uleb128 0x2f
+ 2154 0062 0B       		.uleb128 0xb
+ 2155 0063 00       		.byte	0
+ 2156 0064 00       		.byte	0
+ 2157 0065 0A       		.uleb128 0xa
+ 2158 0066 34       		.uleb128 0x34
+ 2159 0067 00       		.byte	0
+ 2160 0068 03       		.uleb128 0x3
+ 2161 0069 0E       		.uleb128 0xe
+ 2162 006a 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 39
+
+
+ 2163 006b 0B       		.uleb128 0xb
+ 2164 006c 3B       		.uleb128 0x3b
+ 2165 006d 05       		.uleb128 0x5
+ 2166 006e 49       		.uleb128 0x49
+ 2167 006f 13       		.uleb128 0x13
+ 2168 0070 3F       		.uleb128 0x3f
+ 2169 0071 19       		.uleb128 0x19
+ 2170 0072 02       		.uleb128 0x2
+ 2171 0073 18       		.uleb128 0x18
+ 2172 0074 00       		.byte	0
+ 2173 0075 00       		.byte	0
+ 2174 0076 00       		.byte	0
+ 2175              		.section	.debug_aranges,"",%progbits
+ 2176 0000 14000000 		.4byte	0x14
+ 2177 0004 0200     		.2byte	0x2
+ 2178 0006 00000000 		.4byte	.Ldebug_info0
+ 2179 000a 04       		.byte	0x4
+ 2180 000b 00       		.byte	0
+ 2181 000c 0000     		.2byte	0
+ 2182 000e 0000     		.2byte	0
+ 2183 0010 00000000 		.4byte	0
+ 2184 0014 00000000 		.4byte	0
+ 2185              		.section	.debug_line,"",%progbits
+ 2186              	.Ldebug_line0:
+ 2187 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
+ 2187      02003701 
+ 2187      00000201 
+ 2187      FB0E0D00 
+ 2187      01010101 
+ 2188              	.LASF9:
+ 2189 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 2189      6E74385F 
+ 2189      7400
+ 2190              	.LASF16:
+ 2191 000a 63795F6D 		.ascii	"cy_metadata\000"
+ 2191      65746164 
+ 2191      61746100 
+ 2192              	.LASF1:
+ 2193 0016 756E7369 		.ascii	"unsigned char\000"
+ 2193      676E6564 
+ 2193      20636861 
+ 2193      7200
+ 2194              	.LASF17:
+ 2195 0024 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2195      43313120 
+ 2195      352E342E 
+ 2195      31203230 
+ 2195      31363036 
+ 2196 0057 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 2196      20726576 
+ 2196      6973696F 
+ 2196      6E203233 
+ 2196      37373135 
+ 2197 008a 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2197      66756E63 
+ 2197      74696F6E 
+ 2197      2D736563 
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 40
+
+
+ 2197      74696F6E 
+ 2198              	.LASF5:
+ 2199 00b2 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2199      20756E73 
+ 2199      69676E65 
+ 2199      6420696E 
+ 2199      7400
+ 2200              	.LASF3:
+ 2201 00c4 73686F72 		.ascii	"short unsigned int\000"
+ 2201      7420756E 
+ 2201      7369676E 
+ 2201      65642069 
+ 2201      6E7400
+ 2202              	.LASF13:
+ 2203 00d7 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 2203      6574615F 
+ 2203      63757374 
+ 2203      6E766C00 
+ 2204              	.LASF12:
+ 2205 00e7 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 2205      6574615F 
+ 2205      636F6E66 
+ 2205      69676563 
+ 2205      6300
+ 2206              	.LASF8:
+ 2207 00f9 756E7369 		.ascii	"unsigned int\000"
+ 2207      676E6564 
+ 2207      20696E74 
+ 2207      00
+ 2208              	.LASF7:
+ 2209 0106 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2209      206C6F6E 
+ 2209      6720756E 
+ 2209      7369676E 
+ 2209      65642069 
+ 2210              	.LASF10:
+ 2211 011d 75696E74 		.ascii	"uint8_t\000"
+ 2211      385F7400 
+ 2212              	.LASF19:
+ 2213 0125 433A5C55 		.ascii	"C:\\Users\\Tri94\\Documents\\PSoC Creator\\EE4450\\"
+ 2213      73657273 
+ 2213      5C547269 
+ 2213      39345C44 
+ 2213      6F63756D 
+ 2214 0152 45453434 		.ascii	"EE4450-Projects\\RTOS_UART_Project_Psoc1_V2.cydsn\000"
+ 2214      35302D50 
+ 2214      726F6A65 
+ 2214      6374735C 
+ 2214      52544F53 
+ 2215              	.LASF15:
+ 2216 0183 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 2216      6574615F 
+ 2216      666C6173 
+ 2216      6870726F 
+ 2216      74656374 
+ 2217              	.LASF14:
+ 2218 0198 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\cchdoZcP.s 			page 41
+
+
+ 2218      6574615F 
+ 2218      776F6E76 
+ 2218      6C00
+ 2219              	.LASF11:
+ 2220 01a6 73697A65 		.ascii	"sizetype\000"
+ 2220      74797065 
+ 2220      00
+ 2221              	.LASF6:
+ 2222 01af 6C6F6E67 		.ascii	"long long int\000"
+ 2222      206C6F6E 
+ 2222      6720696E 
+ 2222      7400
+ 2223              	.LASF2:
+ 2224 01bd 73686F72 		.ascii	"short int\000"
+ 2224      7420696E 
+ 2224      7400
+ 2225              	.LASF4:
+ 2226 01c7 6C6F6E67 		.ascii	"long int\000"
+ 2226      20696E74 
+ 2226      00
+ 2227              	.LASF0:
+ 2228 01d0 7369676E 		.ascii	"signed char\000"
+ 2228      65642063 
+ 2228      68617200 
+ 2229              	.LASF18:
+ 2230 01dc 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 2230      72617465 
+ 2230      645F536F 
+ 2230      75726365 
+ 2230      5C50536F 
+ 2231              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

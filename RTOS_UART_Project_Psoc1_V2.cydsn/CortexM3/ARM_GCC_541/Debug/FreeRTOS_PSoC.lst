@@ -1,0 +1,646 @@
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccsWplKV.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"FreeRTOS_PSoC.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.FreeRTOS_Init,"ax",%progbits
+  20              		.align	2
+  21              		.global	FreeRTOS_Init
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	FreeRTOS_Init, %function
+  25              	FreeRTOS_Init:
+  26              	.LFB69:
+  27              		.file 1 "..\\FreeRTOS\\FreeRTOS_PSoC.c"
+   1:..\FreeRTOS/FreeRTOS_PSoC.c **** /* ========================================
+   2:..\FreeRTOS/FreeRTOS_PSoC.c ****  *
+   3:..\FreeRTOS/FreeRTOS_PSoC.c ****  * Copyright YOUR COMPANY, THE YEAR
+   4:..\FreeRTOS/FreeRTOS_PSoC.c ****  * All Rights Reserved
+   5:..\FreeRTOS/FreeRTOS_PSoC.c ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:..\FreeRTOS/FreeRTOS_PSoC.c ****  *
+   7:..\FreeRTOS/FreeRTOS_PSoC.c ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:..\FreeRTOS/FreeRTOS_PSoC.c ****  * WHICH IS THE PROPERTY OF your company.
+   9:..\FreeRTOS/FreeRTOS_PSoC.c ****  *
+  10:..\FreeRTOS/FreeRTOS_PSoC.c ****  * ========================================
+  11:..\FreeRTOS/FreeRTOS_PSoC.c **** */
+  12:..\FreeRTOS/FreeRTOS_PSoC.c **** /*
+  13:..\FreeRTOS/FreeRTOS_PSoC.c **** 	Copyright 2001, 2002 Georges Menie (www.menie.org)
+  14:..\FreeRTOS/FreeRTOS_PSoC.c **** 	stdarg version contributed by Christian Ettinger
+  15:..\FreeRTOS/FreeRTOS_PSoC.c **** 
+  16:..\FreeRTOS/FreeRTOS_PSoC.c ****     This program is free software; you can redistribute it and/or modify
+  17:..\FreeRTOS/FreeRTOS_PSoC.c ****     it under the terms of the GNU Lesser General Public License as published by
+  18:..\FreeRTOS/FreeRTOS_PSoC.c ****     the Free Software Foundation; either version 2 of the License, or
+  19:..\FreeRTOS/FreeRTOS_PSoC.c ****     (at your option) any later version.
+  20:..\FreeRTOS/FreeRTOS_PSoC.c **** 
+  21:..\FreeRTOS/FreeRTOS_PSoC.c ****     This program is distributed in the hope that it will be useful,
+  22:..\FreeRTOS/FreeRTOS_PSoC.c ****     but WITHOUT ANY WARRANTY; without even the implied warranty of
+  23:..\FreeRTOS/FreeRTOS_PSoC.c ****     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  24:..\FreeRTOS/FreeRTOS_PSoC.c ****     GNU Lesser General Public License for more details.
+  25:..\FreeRTOS/FreeRTOS_PSoC.c **** 
+  26:..\FreeRTOS/FreeRTOS_PSoC.c ****     You should have received a copy of the GNU Lesser General Public License
+  27:..\FreeRTOS/FreeRTOS_PSoC.c ****     along with this program; if not, write to the Free Software
+  28:..\FreeRTOS/FreeRTOS_PSoC.c ****     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+  29:..\FreeRTOS/FreeRTOS_PSoC.c **** */
+  30:..\FreeRTOS/FreeRTOS_PSoC.c **** 
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccsWplKV.s 			page 2
+
+
+  31:..\FreeRTOS/FreeRTOS_PSoC.c **** /*
+  32:..\FreeRTOS/FreeRTOS_PSoC.c **** 	putchar is the only external dependency for this file,
+  33:..\FreeRTOS/FreeRTOS_PSoC.c **** 	if you have a working putchar, leave it commented out.
+  34:..\FreeRTOS/FreeRTOS_PSoC.c **** 	If not, uncomment the define below and
+  35:..\FreeRTOS/FreeRTOS_PSoC.c **** 	replace outbyte(c) by your own function call.
+  36:..\FreeRTOS/FreeRTOS_PSoC.c **** 
+  37:..\FreeRTOS/FreeRTOS_PSoC.c **** #define putchar(c) outbyte(c)
+  38:..\FreeRTOS/FreeRTOS_PSoC.c **** */
+  39:..\FreeRTOS/FreeRTOS_PSoC.c **** #include "device.h"
+  40:..\FreeRTOS/FreeRTOS_PSoC.c **** #include <stdarg.h>
+  41:..\FreeRTOS/FreeRTOS_PSoC.c **** #include <stdint.h>
+  42:..\FreeRTOS/FreeRTOS_PSoC.c **** #include <stdbool.h>
+  43:..\FreeRTOS/FreeRTOS_PSoC.c **** #include "project.h"
+  44:..\FreeRTOS/FreeRTOS_PSoC.c **** #include "FreeRTOS.h"
+  45:..\FreeRTOS/FreeRTOS_PSoC.c **** #include "task.h"
+  46:..\FreeRTOS/FreeRTOS_PSoC.c **** 
+  47:..\FreeRTOS/FreeRTOS_PSoC.c **** // defination for PSoC 4: CY_PSOC4
+  48:..\FreeRTOS/FreeRTOS_PSoC.c **** //                PSoC 5: CY_PSOC5
+  49:..\FreeRTOS/FreeRTOS_PSoC.c **** //                PSoC 6: CY_DEVICE_PSOC6ABLE2
+  50:..\FreeRTOS/FreeRTOS_PSoC.c **** 
+  51:..\FreeRTOS/FreeRTOS_PSoC.c ****     
+  52:..\FreeRTOS/FreeRTOS_PSoC.c **** //-----------------------------------------------------------------------------
+  53:..\FreeRTOS/FreeRTOS_PSoC.c **** void FreeRTOS_Init(){
+  28              		.loc 1 53 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  54:..\FreeRTOS/FreeRTOS_PSoC.c **** 
+  55:..\FreeRTOS/FreeRTOS_PSoC.c **** #ifdef CY_DEVICE_PSOC6ABLE2
+  56:..\FreeRTOS/FreeRTOS_PSoC.c ****     return;
+  57:..\FreeRTOS/FreeRTOS_PSoC.c ****   
+  58:..\FreeRTOS/FreeRTOS_PSoC.c **** #endif
+  59:..\FreeRTOS/FreeRTOS_PSoC.c ****     
+  60:..\FreeRTOS/FreeRTOS_PSoC.c **** #if (CY_PSOC5)    
+  61:..\FreeRTOS/FreeRTOS_PSoC.c ****     // Port layer functions that need to be copied into the vector table.
+  62:..\FreeRTOS/FreeRTOS_PSoC.c ****     extern void xPortPendSVHandler( void );
+  63:..\FreeRTOS/FreeRTOS_PSoC.c ****     extern void xPortSysTickHandler( void );
+  64:..\FreeRTOS/FreeRTOS_PSoC.c ****     extern void vPortSVCHandler( void );
+  65:..\FreeRTOS/FreeRTOS_PSoC.c ****     extern cyisraddress CyRamVectors[];
+  66:..\FreeRTOS/FreeRTOS_PSoC.c ****    
+  67:..\FreeRTOS/FreeRTOS_PSoC.c ****     //	Install the OS Interrupt Handlers.
+  68:..\FreeRTOS/FreeRTOS_PSoC.c **** 	CyRamVectors[ 11 ] = ( cyisraddress ) vPortSVCHandler;
+  33              		.loc 1 68 0
+  34 0000 034B     		ldr	r3, .L2
+  35 0002 044A     		ldr	r2, .L2+4
+  36 0004 DA62     		str	r2, [r3, #44]
+  69:..\FreeRTOS/FreeRTOS_PSoC.c **** 	CyRamVectors[ 14 ] = ( cyisraddress ) xPortPendSVHandler;
+  37              		.loc 1 69 0
+  38 0006 044A     		ldr	r2, .L2+8
+  39 0008 9A63     		str	r2, [r3, #56]
+  70:..\FreeRTOS/FreeRTOS_PSoC.c **** 	CyRamVectors[ 15 ] = ( cyisraddress ) xPortSysTickHandler;
+  40              		.loc 1 70 0
+  41 000a 044A     		ldr	r2, .L2+12
+  42 000c DA63     		str	r2, [r3, #60]
+  43 000e 7047     		bx	lr
+  44              	.L3:
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccsWplKV.s 			page 3
+
+
+  45              		.align	2
+  46              	.L2:
+  47 0010 00000000 		.word	CyRamVectors
+  48 0014 00000000 		.word	vPortSVCHandler
+  49 0018 00000000 		.word	xPortPendSVHandler
+  50 001c 00000000 		.word	xPortSysTickHandler
+  51              		.cfi_endproc
+  52              	.LFE69:
+  53              		.size	FreeRTOS_Init, .-FreeRTOS_Init
+  54              		.text
+  55              	.Letext0:
+  56              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+  57              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+  58              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+  59              		.file 5 "Generated_Source\\PSoC5/core_cm3.h"
+  60              		.section	.debug_info,"",%progbits
+  61              	.Ldebug_info0:
+  62 0000 11010000 		.4byte	0x111
+  63 0004 0400     		.2byte	0x4
+  64 0006 00000000 		.4byte	.Ldebug_abbrev0
+  65 000a 04       		.byte	0x4
+  66 000b 01       		.uleb128 0x1
+  67 000c 42000000 		.4byte	.LASF22
+  68 0010 0C       		.byte	0xc
+  69 0011 4D010000 		.4byte	.LASF23
+  70 0015 D3010000 		.4byte	.LASF24
+  71 0019 00000000 		.4byte	.Ldebug_ranges0+0
+  72 001d 00000000 		.4byte	0
+  73 0021 00000000 		.4byte	.Ldebug_line0
+  74 0025 02       		.uleb128 0x2
+  75 0026 01       		.byte	0x1
+  76 0027 06       		.byte	0x6
+  77 0028 86010000 		.4byte	.LASF0
+  78 002c 02       		.uleb128 0x2
+  79 002d 01       		.byte	0x1
+  80 002e 08       		.byte	0x8
+  81 002f 01010000 		.4byte	.LASF1
+  82 0033 02       		.uleb128 0x2
+  83 0034 02       		.byte	0x2
+  84 0035 05       		.byte	0x5
+  85 0036 BB010000 		.4byte	.LASF2
+  86 003a 02       		.uleb128 0x2
+  87 003b 02       		.byte	0x2
+  88 003c 07       		.byte	0x7
+  89 003d 0E000000 		.4byte	.LASF3
+  90 0041 03       		.uleb128 0x3
+  91 0042 9E010000 		.4byte	.LASF9
+  92 0046 02       		.byte	0x2
+  93 0047 3F       		.byte	0x3f
+  94 0048 4C000000 		.4byte	0x4c
+  95 004c 02       		.uleb128 0x2
+  96 004d 04       		.byte	0x4
+  97 004e 05       		.byte	0x5
+  98 004f 24010000 		.4byte	.LASF4
+  99 0053 02       		.uleb128 0x2
+ 100 0054 04       		.byte	0x4
+ 101 0055 07       		.byte	0x7
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccsWplKV.s 			page 4
+
+
+ 102 0056 D8000000 		.4byte	.LASF5
+ 103 005a 02       		.uleb128 0x2
+ 104 005b 08       		.byte	0x8
+ 105 005c 05       		.byte	0x5
+ 106 005d 00000000 		.4byte	.LASF6
+ 107 0061 02       		.uleb128 0x2
+ 108 0062 08       		.byte	0x8
+ 109 0063 07       		.byte	0x7
+ 110 0064 EA000000 		.4byte	.LASF7
+ 111 0068 04       		.uleb128 0x4
+ 112 0069 04       		.byte	0x4
+ 113 006a 05       		.byte	0x5
+ 114 006b 696E7400 		.ascii	"int\000"
+ 115 006f 02       		.uleb128 0x2
+ 116 0070 04       		.byte	0x4
+ 117 0071 07       		.byte	0x7
+ 118 0072 21000000 		.4byte	.LASF8
+ 119 0076 03       		.uleb128 0x3
+ 120 0077 D0000000 		.4byte	.LASF10
+ 121 007b 03       		.byte	0x3
+ 122 007c 2C       		.byte	0x2c
+ 123 007d 41000000 		.4byte	0x41
+ 124 0081 02       		.uleb128 0x2
+ 125 0082 04       		.byte	0x4
+ 126 0083 04       		.byte	0x4
+ 127 0084 A8010000 		.4byte	.LASF11
+ 128 0088 02       		.uleb128 0x2
+ 129 0089 08       		.byte	0x8
+ 130 008a 04       		.byte	0x4
+ 131 008b 69010000 		.4byte	.LASF12
+ 132 008f 02       		.uleb128 0x2
+ 133 0090 01       		.byte	0x1
+ 134 0091 08       		.byte	0x8
+ 135 0092 1F010000 		.4byte	.LASF13
+ 136 0096 05       		.uleb128 0x5
+ 137 0097 2D010000 		.4byte	.LASF14
+ 138 009b 04       		.byte	0x4
+ 139 009c A002     		.2byte	0x2a0
+ 140 009e A2000000 		.4byte	0xa2
+ 141 00a2 06       		.uleb128 0x6
+ 142 00a3 04       		.byte	0x4
+ 143 00a4 A8000000 		.4byte	0xa8
+ 144 00a8 07       		.uleb128 0x7
+ 145 00a9 02       		.uleb128 0x2
+ 146 00aa 08       		.byte	0x8
+ 147 00ab 04       		.byte	0x4
+ 148 00ac 92010000 		.4byte	.LASF15
+ 149 00b0 02       		.uleb128 0x2
+ 150 00b1 04       		.byte	0x4
+ 151 00b2 07       		.byte	0x7
+ 152 00b3 70010000 		.4byte	.LASF16
+ 153 00b7 08       		.uleb128 0x8
+ 154 00b8 C5010000 		.4byte	.LASF25
+ 155 00bc 01       		.byte	0x1
+ 156 00bd 35       		.byte	0x35
+ 157 00be 00000000 		.4byte	.LFB69
+ 158 00c2 20000000 		.4byte	.LFE69-.LFB69
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccsWplKV.s 			page 5
+
+
+ 159 00c6 01       		.uleb128 0x1
+ 160 00c7 9C       		.byte	0x9c
+ 161 00c8 ED000000 		.4byte	0xed
+ 162 00cc 09       		.uleb128 0x9
+ 163 00cd 3A010000 		.4byte	.LASF17
+ 164 00d1 01       		.byte	0x1
+ 165 00d2 3E       		.byte	0x3e
+ 166 00d3 09       		.uleb128 0x9
+ 167 00d4 2E000000 		.4byte	.LASF18
+ 168 00d8 01       		.byte	0x1
+ 169 00d9 3F       		.byte	0x3f
+ 170 00da 09       		.uleb128 0x9
+ 171 00db 0F010000 		.4byte	.LASF19
+ 172 00df 01       		.byte	0x1
+ 173 00e0 40       		.byte	0x40
+ 174 00e1 0A       		.uleb128 0xa
+ 175 00e2 AE010000 		.4byte	.LASF20
+ 176 00e6 01       		.byte	0x1
+ 177 00e7 41       		.byte	0x41
+ 178 00e8 ED000000 		.4byte	0xed
+ 179 00ec 00       		.byte	0
+ 180 00ed 0B       		.uleb128 0xb
+ 181 00ee 96000000 		.4byte	0x96
+ 182 00f2 F8000000 		.4byte	0xf8
+ 183 00f6 0C       		.uleb128 0xc
+ 184 00f7 00       		.byte	0
+ 185 00f8 0D       		.uleb128 0xd
+ 186 00f9 79010000 		.4byte	.LASF21
+ 187 00fd 05       		.byte	0x5
+ 188 00fe 1207     		.2byte	0x712
+ 189 0100 04010000 		.4byte	0x104
+ 190 0104 0E       		.uleb128 0xe
+ 191 0105 76000000 		.4byte	0x76
+ 192 0109 0A       		.uleb128 0xa
+ 193 010a AE010000 		.4byte	.LASF20
+ 194 010e 01       		.byte	0x1
+ 195 010f 41       		.byte	0x41
+ 196 0110 ED000000 		.4byte	0xed
+ 197 0114 00       		.byte	0
+ 198              		.section	.debug_abbrev,"",%progbits
+ 199              	.Ldebug_abbrev0:
+ 200 0000 01       		.uleb128 0x1
+ 201 0001 11       		.uleb128 0x11
+ 202 0002 01       		.byte	0x1
+ 203 0003 25       		.uleb128 0x25
+ 204 0004 0E       		.uleb128 0xe
+ 205 0005 13       		.uleb128 0x13
+ 206 0006 0B       		.uleb128 0xb
+ 207 0007 03       		.uleb128 0x3
+ 208 0008 0E       		.uleb128 0xe
+ 209 0009 1B       		.uleb128 0x1b
+ 210 000a 0E       		.uleb128 0xe
+ 211 000b 55       		.uleb128 0x55
+ 212 000c 17       		.uleb128 0x17
+ 213 000d 11       		.uleb128 0x11
+ 214 000e 01       		.uleb128 0x1
+ 215 000f 10       		.uleb128 0x10
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccsWplKV.s 			page 6
+
+
+ 216 0010 17       		.uleb128 0x17
+ 217 0011 00       		.byte	0
+ 218 0012 00       		.byte	0
+ 219 0013 02       		.uleb128 0x2
+ 220 0014 24       		.uleb128 0x24
+ 221 0015 00       		.byte	0
+ 222 0016 0B       		.uleb128 0xb
+ 223 0017 0B       		.uleb128 0xb
+ 224 0018 3E       		.uleb128 0x3e
+ 225 0019 0B       		.uleb128 0xb
+ 226 001a 03       		.uleb128 0x3
+ 227 001b 0E       		.uleb128 0xe
+ 228 001c 00       		.byte	0
+ 229 001d 00       		.byte	0
+ 230 001e 03       		.uleb128 0x3
+ 231 001f 16       		.uleb128 0x16
+ 232 0020 00       		.byte	0
+ 233 0021 03       		.uleb128 0x3
+ 234 0022 0E       		.uleb128 0xe
+ 235 0023 3A       		.uleb128 0x3a
+ 236 0024 0B       		.uleb128 0xb
+ 237 0025 3B       		.uleb128 0x3b
+ 238 0026 0B       		.uleb128 0xb
+ 239 0027 49       		.uleb128 0x49
+ 240 0028 13       		.uleb128 0x13
+ 241 0029 00       		.byte	0
+ 242 002a 00       		.byte	0
+ 243 002b 04       		.uleb128 0x4
+ 244 002c 24       		.uleb128 0x24
+ 245 002d 00       		.byte	0
+ 246 002e 0B       		.uleb128 0xb
+ 247 002f 0B       		.uleb128 0xb
+ 248 0030 3E       		.uleb128 0x3e
+ 249 0031 0B       		.uleb128 0xb
+ 250 0032 03       		.uleb128 0x3
+ 251 0033 08       		.uleb128 0x8
+ 252 0034 00       		.byte	0
+ 253 0035 00       		.byte	0
+ 254 0036 05       		.uleb128 0x5
+ 255 0037 16       		.uleb128 0x16
+ 256 0038 00       		.byte	0
+ 257 0039 03       		.uleb128 0x3
+ 258 003a 0E       		.uleb128 0xe
+ 259 003b 3A       		.uleb128 0x3a
+ 260 003c 0B       		.uleb128 0xb
+ 261 003d 3B       		.uleb128 0x3b
+ 262 003e 05       		.uleb128 0x5
+ 263 003f 49       		.uleb128 0x49
+ 264 0040 13       		.uleb128 0x13
+ 265 0041 00       		.byte	0
+ 266 0042 00       		.byte	0
+ 267 0043 06       		.uleb128 0x6
+ 268 0044 0F       		.uleb128 0xf
+ 269 0045 00       		.byte	0
+ 270 0046 0B       		.uleb128 0xb
+ 271 0047 0B       		.uleb128 0xb
+ 272 0048 49       		.uleb128 0x49
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccsWplKV.s 			page 7
+
+
+ 273 0049 13       		.uleb128 0x13
+ 274 004a 00       		.byte	0
+ 275 004b 00       		.byte	0
+ 276 004c 07       		.uleb128 0x7
+ 277 004d 15       		.uleb128 0x15
+ 278 004e 00       		.byte	0
+ 279 004f 27       		.uleb128 0x27
+ 280 0050 19       		.uleb128 0x19
+ 281 0051 00       		.byte	0
+ 282 0052 00       		.byte	0
+ 283 0053 08       		.uleb128 0x8
+ 284 0054 2E       		.uleb128 0x2e
+ 285 0055 01       		.byte	0x1
+ 286 0056 3F       		.uleb128 0x3f
+ 287 0057 19       		.uleb128 0x19
+ 288 0058 03       		.uleb128 0x3
+ 289 0059 0E       		.uleb128 0xe
+ 290 005a 3A       		.uleb128 0x3a
+ 291 005b 0B       		.uleb128 0xb
+ 292 005c 3B       		.uleb128 0x3b
+ 293 005d 0B       		.uleb128 0xb
+ 294 005e 11       		.uleb128 0x11
+ 295 005f 01       		.uleb128 0x1
+ 296 0060 12       		.uleb128 0x12
+ 297 0061 06       		.uleb128 0x6
+ 298 0062 40       		.uleb128 0x40
+ 299 0063 18       		.uleb128 0x18
+ 300 0064 9742     		.uleb128 0x2117
+ 301 0066 19       		.uleb128 0x19
+ 302 0067 01       		.uleb128 0x1
+ 303 0068 13       		.uleb128 0x13
+ 304 0069 00       		.byte	0
+ 305 006a 00       		.byte	0
+ 306 006b 09       		.uleb128 0x9
+ 307 006c 2E       		.uleb128 0x2e
+ 308 006d 00       		.byte	0
+ 309 006e 3F       		.uleb128 0x3f
+ 310 006f 19       		.uleb128 0x19
+ 311 0070 03       		.uleb128 0x3
+ 312 0071 0E       		.uleb128 0xe
+ 313 0072 3A       		.uleb128 0x3a
+ 314 0073 0B       		.uleb128 0xb
+ 315 0074 3B       		.uleb128 0x3b
+ 316 0075 0B       		.uleb128 0xb
+ 317 0076 27       		.uleb128 0x27
+ 318 0077 19       		.uleb128 0x19
+ 319 0078 3C       		.uleb128 0x3c
+ 320 0079 19       		.uleb128 0x19
+ 321 007a 00       		.byte	0
+ 322 007b 00       		.byte	0
+ 323 007c 0A       		.uleb128 0xa
+ 324 007d 34       		.uleb128 0x34
+ 325 007e 00       		.byte	0
+ 326 007f 03       		.uleb128 0x3
+ 327 0080 0E       		.uleb128 0xe
+ 328 0081 3A       		.uleb128 0x3a
+ 329 0082 0B       		.uleb128 0xb
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccsWplKV.s 			page 8
+
+
+ 330 0083 3B       		.uleb128 0x3b
+ 331 0084 0B       		.uleb128 0xb
+ 332 0085 49       		.uleb128 0x49
+ 333 0086 13       		.uleb128 0x13
+ 334 0087 3F       		.uleb128 0x3f
+ 335 0088 19       		.uleb128 0x19
+ 336 0089 3C       		.uleb128 0x3c
+ 337 008a 19       		.uleb128 0x19
+ 338 008b 00       		.byte	0
+ 339 008c 00       		.byte	0
+ 340 008d 0B       		.uleb128 0xb
+ 341 008e 01       		.uleb128 0x1
+ 342 008f 01       		.byte	0x1
+ 343 0090 49       		.uleb128 0x49
+ 344 0091 13       		.uleb128 0x13
+ 345 0092 01       		.uleb128 0x1
+ 346 0093 13       		.uleb128 0x13
+ 347 0094 00       		.byte	0
+ 348 0095 00       		.byte	0
+ 349 0096 0C       		.uleb128 0xc
+ 350 0097 21       		.uleb128 0x21
+ 351 0098 00       		.byte	0
+ 352 0099 00       		.byte	0
+ 353 009a 00       		.byte	0
+ 354 009b 0D       		.uleb128 0xd
+ 355 009c 34       		.uleb128 0x34
+ 356 009d 00       		.byte	0
+ 357 009e 03       		.uleb128 0x3
+ 358 009f 0E       		.uleb128 0xe
+ 359 00a0 3A       		.uleb128 0x3a
+ 360 00a1 0B       		.uleb128 0xb
+ 361 00a2 3B       		.uleb128 0x3b
+ 362 00a3 05       		.uleb128 0x5
+ 363 00a4 49       		.uleb128 0x49
+ 364 00a5 13       		.uleb128 0x13
+ 365 00a6 3F       		.uleb128 0x3f
+ 366 00a7 19       		.uleb128 0x19
+ 367 00a8 3C       		.uleb128 0x3c
+ 368 00a9 19       		.uleb128 0x19
+ 369 00aa 00       		.byte	0
+ 370 00ab 00       		.byte	0
+ 371 00ac 0E       		.uleb128 0xe
+ 372 00ad 35       		.uleb128 0x35
+ 373 00ae 00       		.byte	0
+ 374 00af 49       		.uleb128 0x49
+ 375 00b0 13       		.uleb128 0x13
+ 376 00b1 00       		.byte	0
+ 377 00b2 00       		.byte	0
+ 378 00b3 00       		.byte	0
+ 379              		.section	.debug_aranges,"",%progbits
+ 380 0000 1C000000 		.4byte	0x1c
+ 381 0004 0200     		.2byte	0x2
+ 382 0006 00000000 		.4byte	.Ldebug_info0
+ 383 000a 04       		.byte	0x4
+ 384 000b 00       		.byte	0
+ 385 000c 0000     		.2byte	0
+ 386 000e 0000     		.2byte	0
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccsWplKV.s 			page 9
+
+
+ 387 0010 00000000 		.4byte	.LFB69
+ 388 0014 20000000 		.4byte	.LFE69-.LFB69
+ 389 0018 00000000 		.4byte	0
+ 390 001c 00000000 		.4byte	0
+ 391              		.section	.debug_ranges,"",%progbits
+ 392              	.Ldebug_ranges0:
+ 393 0000 00000000 		.4byte	.LFB69
+ 394 0004 20000000 		.4byte	.LFE69
+ 395 0008 00000000 		.4byte	0
+ 396 000c 00000000 		.4byte	0
+ 397              		.section	.debug_line,"",%progbits
+ 398              	.Ldebug_line0:
+ 399 0000 7B010000 		.section	.debug_str,"MS",%progbits,1
+ 399      02006101 
+ 399      00000201 
+ 399      FB0E0D00 
+ 399      01010101 
+ 400              	.LASF6:
+ 401 0000 6C6F6E67 		.ascii	"long long int\000"
+ 401      206C6F6E 
+ 401      6720696E 
+ 401      7400
+ 402              	.LASF3:
+ 403 000e 73686F72 		.ascii	"short unsigned int\000"
+ 403      7420756E 
+ 403      7369676E 
+ 403      65642069 
+ 403      6E7400
+ 404              	.LASF8:
+ 405 0021 756E7369 		.ascii	"unsigned int\000"
+ 405      676E6564 
+ 405      20696E74 
+ 405      00
+ 406              	.LASF18:
+ 407 002e 78506F72 		.ascii	"xPortSysTickHandler\000"
+ 407      74537973 
+ 407      5469636B 
+ 407      48616E64 
+ 407      6C657200 
+ 408              	.LASF22:
+ 409 0042 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 409      43313120 
+ 409      352E342E 
+ 409      31203230 
+ 409      31363036 
+ 410 0075 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 410      20726576 
+ 410      6973696F 
+ 410      6E203233 
+ 410      37373135 
+ 411 00a8 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 411      66756E63 
+ 411      74696F6E 
+ 411      2D736563 
+ 411      74696F6E 
+ 412              	.LASF10:
+ 413 00d0 696E7433 		.ascii	"int32_t\000"
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccsWplKV.s 			page 10
+
+
+ 413      325F7400 
+ 414              	.LASF5:
+ 415 00d8 6C6F6E67 		.ascii	"long unsigned int\000"
+ 415      20756E73 
+ 415      69676E65 
+ 415      6420696E 
+ 415      7400
+ 416              	.LASF7:
+ 417 00ea 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 417      206C6F6E 
+ 417      6720756E 
+ 417      7369676E 
+ 417      65642069 
+ 418              	.LASF1:
+ 419 0101 756E7369 		.ascii	"unsigned char\000"
+ 419      676E6564 
+ 419      20636861 
+ 419      7200
+ 420              	.LASF19:
+ 421 010f 76506F72 		.ascii	"vPortSVCHandler\000"
+ 421      74535643 
+ 421      48616E64 
+ 421      6C657200 
+ 422              	.LASF13:
+ 423 011f 63686172 		.ascii	"char\000"
+ 423      00
+ 424              	.LASF4:
+ 425 0124 6C6F6E67 		.ascii	"long int\000"
+ 425      20696E74 
+ 425      00
+ 426              	.LASF14:
+ 427 012d 63796973 		.ascii	"cyisraddress\000"
+ 427      72616464 
+ 427      72657373 
+ 427      00
+ 428              	.LASF17:
+ 429 013a 78506F72 		.ascii	"xPortPendSVHandler\000"
+ 429      7450656E 
+ 429      64535648 
+ 429      616E646C 
+ 429      657200
+ 430              	.LASF23:
+ 431 014d 2E2E5C46 		.ascii	"..\\FreeRTOS\\FreeRTOS_PSoC.c\000"
+ 431      72656552 
+ 431      544F535C 
+ 431      46726565 
+ 431      52544F53 
+ 432              	.LASF12:
+ 433 0169 646F7562 		.ascii	"double\000"
+ 433      6C6500
+ 434              	.LASF16:
+ 435 0170 73697A65 		.ascii	"sizetype\000"
+ 435      74797065 
+ 435      00
+ 436              	.LASF21:
+ 437 0179 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 437      52784275 
+ARM GAS  C:\Users\Tri94\AppData\Local\Temp\ccsWplKV.s 			page 11
+
+
+ 437      66666572 
+ 437      00
+ 438              	.LASF0:
+ 439 0186 7369676E 		.ascii	"signed char\000"
+ 439      65642063 
+ 439      68617200 
+ 440              	.LASF15:
+ 441 0192 6C6F6E67 		.ascii	"long double\000"
+ 441      20646F75 
+ 441      626C6500 
+ 442              	.LASF9:
+ 443 019e 5F5F696E 		.ascii	"__int32_t\000"
+ 443      7433325F 
+ 443      7400
+ 444              	.LASF11:
+ 445 01a8 666C6F61 		.ascii	"float\000"
+ 445      7400
+ 446              	.LASF20:
+ 447 01ae 43795261 		.ascii	"CyRamVectors\000"
+ 447      6D566563 
+ 447      746F7273 
+ 447      00
+ 448              	.LASF2:
+ 449 01bb 73686F72 		.ascii	"short int\000"
+ 449      7420696E 
+ 449      7400
+ 450              	.LASF25:
+ 451 01c5 46726565 		.ascii	"FreeRTOS_Init\000"
+ 451      52544F53 
+ 451      5F496E69 
+ 451      7400
+ 452              	.LASF24:
+ 453 01d3 433A5C55 		.ascii	"C:\\Users\\Tri94\\Documents\\PSoC Creator\\EE4450\\"
+ 453      73657273 
+ 453      5C547269 
+ 453      39345C44 
+ 453      6F63756D 
+ 454 0200 45453434 		.ascii	"EE4450-Projects\\RTOS_UART_Project_Psoc1_V2.cydsn\000"
+ 454      35302D50 
+ 454      726F6A65 
+ 454      6374735C 
+ 454      52544F53 
+ 455              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
